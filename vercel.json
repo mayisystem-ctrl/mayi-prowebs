@@ -1,0 +1,11 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/", "destination": "/prowebs", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/prowebs", "destination": "/index" },
+    { "source": "/prowebs/:path*", "destination": "/:path*" }
+  ]
+}

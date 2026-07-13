@@ -1,0 +1,187 @@
+/* let the global #space-bg show through the hero (overrides showcase.css .hero bg) */
+.hero { background: transparent; }
+
+/* ===== Section 2 — dark starfield stage (continuous with the hero) ===== */
+.voxel {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: transparent;    /* the global #space-bg shows through — continuous space */
+}
+
+/* ===== Story stage: rocket (hero) → 3 people + manifesto (section 2) ===== */
+.story {
+  position: fixed;
+  inset: 0;
+  z-index: 0;                 /* above the starfield (DOM order), behind the gallery (z1) */
+  pointer-events: none;
+}
+
+/* shapes are stacked in one centered cell so they can cross-fade in place */
+.story__stage {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.story__stage > * { grid-area: 1 / 1; }
+
+.story__rocket {
+  width: min(540px, 80vw);
+  height: min(540px, 62vh);
+  transform: scale(0);        /* GSAP grows it during the hero pin */
+}
+
+/* trio + its line move as one unit: line 2 sits directly UNDER the people */
+.story__group {
+  position: relative;                /* anchor for the destination-pin overlay */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(16px, 3vh, 30px);
+}
+.story__group .story__line--2 {
+  text-align: center;
+  max-width: min(78vw, 480px);   /* wraps to the same column width as line 1 */
+}
+
+/* the whole trio renders in ONE canvas (single WebGL context — device safety) */
+.story__people {
+  width: min(560px, 78vw);
+  height: min(430px, 52vh);
+  opacity: 0;                        /* revealed when the rocket swaps out */
+}
+
+.story__rocket canvas,
+.story__people canvas { display: block; width: 100%; height: 100%; }
+
+/* destination pin — sits exactly over the trio, swapped in at the process section */
+.story__target {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(340px, 55vw);
+  height: min(430px, 52vh);
+  opacity: 0;                        /* revealed when the trio swaps out */
+  visibility: hidden;
+  pointer-events: none;
+}
+.story__target canvas {
+  display: block; width: 100%; height: 100%;
+  animation: pinBlink 2.6s ease-in-out infinite;  /* same slow blink as the step-4 pin */
+}
+
+/* mustard star — same overlay slot, swapped in at the reviews section */
+.story__star {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(400px, 60vw);
+  height: min(430px, 52vh);
+  opacity: 0;                        /* revealed when the pin swaps out */
+  visibility: hidden;
+  pointer-events: none;
+}
+.story__star canvas { display: block; width: 100%; height: 100%; }
+
+/* pink question mark — same overlay slot, swapped in at the FAQ section */
+.story__question {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(360px, 56vw);
+  height: min(430px, 52vh);
+  opacity: 0;                        /* revealed when the star swaps out */
+  visibility: hidden;
+  pointer-events: none;
+}
+.story__question canvas { display: block; width: 100%; height: 100%; }
+
+/* May i mark — same overlay slot, swapped in behind the lead form */
+.story__mayi {
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(380px, 58vw);
+  height: min(430px, 52vh);
+  opacity: 0;                        /* revealed when the question mark swaps out */
+  visibility: hidden;
+  pointer-events: none;
+}
+.story__mayi canvas { display: block; width: 100%; height: 100%; }
+
+/* manifesto lines — on the RIGHT, vertically centred; line 2 sits BELOW line 1 */
+.story__text {
+  position: absolute;
+  top: 0; bottom: 0;
+  right: clamp(24px, 8vw, 150px);
+  width: min(44vw, 520px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: clamp(18px, 3.2vh, 36px);
+  direction: rtl;
+}
+.story__line {
+  margin: 0;
+  opacity: 0;
+  text-align: right;
+  font-family: var(--font-display, system-ui);
+  font-weight: 800;
+  font-size: clamp(22px, 3.2vw, 46px);
+  line-height: 1.25;
+  color: #fff;
+  text-wrap: balance;
+}
+
+/* luxe reveal: every word rises out of its own invisible mask */
+.story__line .w {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  /* keep descenders (ך ף ץ) from being clipped by the mask */
+  padding-bottom: 0.14em;
+  margin-bottom: -0.14em;
+}
+.story__line .wi { display: inline-block; will-change: transform; }
+
+/* ===== Mini 3D brand mark in the hero top line (LOCKED — same line as the a11y icon) ===== */
+.hero__mark {
+  position: fixed;
+  top: 6px;                    /* keeps its center on the a11y icon's line */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 62px;
+  height: 62px;
+  z-index: 6;
+  pointer-events: auto;
+  opacity: 0;
+  transition: opacity .8s ease;
+}
+.hero__mark canvas { display: block; width: 100%; height: 100%; }
+body:not(.loading) .hero__mark { opacity: 1; }
+
+@media (max-width: 768px) {
+  /* smaller brand mark on phones */
+  .hero__mark { width: 46px; height: 46px; top: 12px; }
+
+  /* shapes stay centred, lifted toward the text above them */
+  .story__stage { place-items: center; padding-top: 8vh; }
+  .story__rocket { width: 72vw; height: 40vh; }
+  .story__people { width: 90vw; height: 46vh; }
+
+  /* manifesto rises ABOVE the shapes — centred, lowered into the reading safe-zone */
+  .story__text {
+    top: clamp(96px, 13vh, 170px);
+    bottom: auto;
+    right: 6vw; left: 6vw;
+    width: auto;
+    justify-content: flex-start;
+    gap: clamp(14px, 2.6vh, 26px);
+  }
+  .story__line {
+    text-align: center;
+    font-size: clamp(24px, 6.4vw, 34px);
+  }
+}
+

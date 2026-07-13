@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-P16WTQRPNL');</script>
+
+  <title>הפרטים אצלנו - תודה! | May I</title>
+  <meta name="robots" content="noindex">
+  <link rel="icon" type="image/svg+xml" href="assets/logo-favicon.svg">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .thanks {
+      min-height: 100svh;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      padding: var(--gutter);
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(60% 45% at 50% 30%, rgba(0, 255, 102, .08), transparent 70%),
+        radial-gradient(45% 35% at 35% 75%, rgba(214, 251, 76, .06), transparent 70%),
+        var(--bg);
+    }
+    .thanks::before, .thanks::after {
+      content: "";
+      position: absolute; inset: 0;
+      background-image:
+        radial-gradient(1.5px 1.5px at 16% 24%, #ffffff55 50%, transparent 51%),
+        radial-gradient(1px 1px at 74% 12%, #ffffff44 50%, transparent 51%),
+        radial-gradient(1.5px 1.5px at 36% 82%, #ffffff33 50%, transparent 51%),
+        radial-gradient(1px 1px at 86% 58%, #ffffff55 50%, transparent 51%),
+        radial-gradient(1px 1px at 58% 42%, #ffffff2e 50%, transparent 51%);
+      animation: thanks-drift 22s linear infinite;
+    }
+    .thanks::after { transform: scale(1.6); opacity: .5; animation-duration: 34s; }
+    @keyframes thanks-drift { to { transform: translateY(-60px); } }
+
+    .thanks__inner { position: relative; z-index: 1; display: grid; justify-items: center; gap: clamp(14px, 2.5vh, 26px); }
+    .thanks__check {
+      width: clamp(84px, 14vw, 120px);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      border: 2px solid var(--green);
+      display: grid;
+      place-items: center;
+      color: var(--green);
+      background: radial-gradient(circle, rgba(0, 255, 102, .16), transparent 70%);
+      box-shadow: 0 0 44px -8px var(--green);
+    }
+    .thanks__check svg { width: 46%; height: 46%; stroke: currentColor; fill: none; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .thanks__check path { stroke-dasharray: 30; stroke-dashoffset: 30; animation: thanks-draw .7s .25s var(--ease, ease) forwards; }
+    @keyframes thanks-draw { to { stroke-dashoffset: 0; } }
+
+    .thanks__title { font-family: var(--font-display); font-size: clamp(30px, 6vw, 54px); color: var(--ink); }
+    .thanks__title span { color: var(--green); }
+    .thanks__sub { font-family: var(--font-body); font-size: var(--bd-fs); line-height: var(--bd-lh); color: var(--ink-2); max-width: 46ch; }
+    .thanks__sub b { color: var(--mustard); font-weight: 600; }
+    .thanks__btn { margin-top: 10px; text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main class="thanks" aria-labelledby="thanks-title">
+    <div class="thanks__inner">
+      <div class="thanks__check" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4.5 12.5l5 5 10-11"/></svg></div>
+      <h1 class="thanks__title" id="thanks-title">הפרטים <span>אצלנו</span></h1>
+      <p class="thanks__sub">תודה שפניתם! אנחנו כבר עוברים על הפרטים וחוזרים אליכם - <b>לפני שהספקת למצמץ</b>.</p>
+      <a class="btn thanks__btn" href="/prowebs" style="--c: var(--green);">
+        <span class="btn__txt">חזרה לאתר</span>
+        <span class="btn__icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </a>
+    </div>
+  </main>
+</body>
+</html>

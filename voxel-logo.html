@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>May i — Chrome Voxel Logo (three.js)</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #08080a; overflow: hidden; }
+  #stage { position: fixed; inset: 0; }
+  .hint {
+    position: fixed; left: 50%; bottom: 22px; transform: translateX(-50%);
+    font: 500 13px/1 system-ui, sans-serif; letter-spacing: .04em;
+    color: #ffffff; opacity: .35; pointer-events: none; user-select: none; direction: ltr;
+  }
+  .panel {
+    position: fixed; top: 16px; left: 16px; z-index: 5;
+    background: rgba(20,20,24,.7); backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,.08); border-radius: 12px;
+    padding: 12px 14px; font: 500 12px/1.5 system-ui, sans-serif; color: #eee;
+    direction: ltr; width: 200px;
+  }
+  .panel label { display:flex; justify-content:space-between; margin-top:8px; opacity:.8; }
+  .panel input[type=range] { width: 100%; margin: 2px 0 4px; accent-color: #ff007f; }
+  .panel b { color:#00e676; }
+  .panel .re { margin-top:10px; width:100%; padding:6px; border-radius:8px; cursor:pointer;
+    background:#ff007f; color:#fff; border:0; font-weight:700; letter-spacing:.05em; }
+</style>
+</head>
+<body>
+  <div id="stage"></div>
+  <div class="hint">drag to rotate · scroll to zoom</div>
+
+  <div class="panel">
+    <div style="font-weight:700;letter-spacing:.05em">CHROME CONTROLS</div>
+    <label>Chunkiness <b><span id="vRes">22</span> wide</b></label>
+    <input id="res" type="range" min="12" max="48" step="1" value="22">
+    <label>Gap (spacing) <b><span id="vGap">0.34</span></b></label>
+    <input id="gap" type="range" min="0.05" max="0.6" step="0.02" value="0.34">
+    <label>Depth <b><span id="vDepth">1.4</span></b></label>
+    <input id="depth" type="range" min="0.4" max="3" step="0.1" value="1.4">
+    <label>Corner radius <b><span id="vRad">0.18</span></b></label>
+    <input id="rad" type="range" min="0" max="0.45" step="0.01" value="0.18">
+    <label>Roughness <b><span id="vRough">0.04</span></b></label>
+    <input id="rough" type="range" min="0" max="0.4" step="0.01" value="0.04">
+    <label>Bar length <b><span id="vBar">3</span></b></label>
+    <input id="bar" type="range" min="1" max="5" step="1" value="3">
+    <label style="margin-top:10px"><span>Clean circle top</span>
+      <input id="clean" type="checkbox" checked style="width:auto;accent-color:#00e676"></label>
+    <label>Circle cubes <b><span id="vCnt">10</span></b></label>
+    <input id="ccount" type="range" min="4" max="20" step="1" value="10">
+    <label>Circle cube size <b><span id="vCsz">1.4</span></b></label>
+    <input id="csize" type="range" min="0.6" max="2.6" step="0.1" value="1.4">
+    <button class="re" id="reshuffle">RESHUFFLE SHAPES</button>
+  </div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import { RectAreaLightUniformsLib } from 'three/addons/lights/RectAreaLightUniformsLib.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
+
+const IMAGE_URL    = 'assets/may i shape.png';
+const ALPHA_CUTOFF = 96;   // 0-255; more transparent than this = background
+
+// ---------- renderer ----------
+const stage = document.getElementById('stage');
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
+renderer.setSize(innerWidth, innerHeight);
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+stage.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+
+// ---------- studio environment (the chrome reflections) ----------
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+
+// bright "softboxes" -> moving white streaks on the silver
+RectAreaLightUniformsLib.init();
+function softbox(x, y, z, intensity, w, h) {
+  const l = new THREE.RectAreaLight(0xffffff, intensity, w, h);
+  l.position.set(x, y, z); l.lookAt(0, 0, 0); scene.add(l);
+}
+softbox( 40,  30,  40, 5.0, 45, 45);
+softbox(-45,  10,  35, 4.0, 45, 45);
+softbox(  0, -30,  45, 2.5, 55, 30);
+
+// ---------- camera ----------
+const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, 0.1, 1000);
+camera.position.set(0, 0, 46);
+
+// ---------- silver mirror material ----------
+const material = new THREE.MeshPhysicalMaterial({
+  color: 0xd9dde3,
+  metalness: 1.0,
+  roughness: 0.04,
+  envMapIntensity: 1.6,
+  clearcoat: 0.4,
+  clearcoatRoughness: 0.08,
+});
+
+// ---------- state ----------
+const state = { res: 22, gap: 0.34, depth: 1.4, rad: 0.18, bar: 3, seed: 12345,
+                cleanCircle: true, cubeSize: 1.4, circleCubes: 10 };
+
+// small deterministic PRNG so the shape layout is stable while you tune sliders
+function mulberry32(a) {
+  return function () {
+    a |= 0; a = (a + 0x6D2B79F5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// ---------- build the logo from the PNG ----------
+const group = new THREE.Group();
+scene.add(group);
+let imgData = null, IMG_W = 0, IMG_H = 0;
+
+function clearGroup() {
+  for (let i = group.children.length - 1; i >= 0; i--) {
+    const m = group.children[i];
+    group.remove(m);
+    if (m.geometry) m.geometry.dispose();
+  }
+}
+
+// find the topmost detached blob (the logo's head circle) via flood fill
+function findTopCircle(opaque, cols, rows) {
+  const label = new Int32Array(cols * rows).fill(-1);
+  const comps = [];
+  const stack = [];
+  for (let i = 0; i < cols * rows; i++) {
+    if (!opaque[i] || label[i] !== -1) continue;
+    const id = comps.length;
+    let minR = rows, maxR = 0, minC = cols, maxC = 0, count = 0;
+    const cells = [];
+    stack.push(i); label[i] = id;
+    while (stack.length) {
+      const p = stack.pop();
+      const gx = p % cols, gy = (p / cols) | 0;
+      cells.push(p); count++;
+      if (gy < minR) minR = gy; if (gy > maxR) maxR = gy;
+      if (gx < minC) minC = gx; if (gx > maxC) maxC = gx;
+      if (gx > 0        && opaque[p - 1]    && label[p - 1]    === -1) { label[p - 1]    = id; stack.push(p - 1); }
+      if (gx < cols - 1 && opaque[p + 1]    && label[p + 1]    === -1) { label[p + 1]    = id; stack.push(p + 1); }
+      if (gy > 0        && opaque[p - cols] && label[p - cols] === -1) { label[p - cols] = id; stack.push(p - cols); }
+      if (gy < rows - 1 && opaque[p + cols] && label[p + cols] === -1) { label[p + cols] = id; stack.push(p + cols); }
+    }
+    comps.push({ minR, maxR, minC, maxC, count, cells });
+  }
+  if (comps.length < 2) return null;
+  comps.sort((a, b) => a.minR - b.minR);
+  const top = comps[0], next = comps[1];
+  // must be detached above everything else and be a small blob
+  if (top.maxR < next.minR && top.count < cols * rows * 0.25) return top;
+  return null;
+}
+
+function build() {
+  if (!imgData) return;
+  clearGroup();
+
+  const cols  = Math.max(4, Math.round(state.res));
+  const stepX = Math.max(1, Math.floor(IMG_W / cols));
+  const rows  = Math.floor(IMG_H / stepX);
+
+  // opacity grid
+  const opaque = new Uint8Array(cols * rows);
+  for (let gy = 0; gy < rows; gy++) {
+    for (let gx = 0; gx < cols; gx++) {
+      const px = Math.min(IMG_W - 1, gx * stepX + (stepX >> 1));
+      const py = Math.min(IMG_H - 1, gy * stepX + (stepX >> 1));
+      opaque[gy * cols + gx] = imgData[(py * IMG_W + px) * 4 + 3] >= ALPHA_CUTOFF ? 1 : 0;
+    }
+  }
+
+  // build symmetric across the vertical axis: tile the LEFT half, mirror to the right
+  const rand = mulberry32(state.seed);
+  const used = new Uint8Array(cols * rows);
+  const maxLen = Math.max(1, state.bar);
+  const mid = Math.floor(cols / 2);
+  const hasCenter = (cols % 2) === 1;
+
+  // force perfect left/right symmetry by mirroring the left half onto the right
+  for (let gy = 0; gy < rows; gy++)
+    for (let gx = 0; gx < mid; gx++)
+      opaque[gy * cols + (cols - 1 - gx)] = opaque[gy * cols + gx];
+
+  function addPiece(cx, cy, w, h) {
+    const width  = w - state.gap;
+    const height = h - state.gap;
+    const depth  = state.depth;
+    const r = Math.min(state.rad, Math.min(width, height, depth) / 2 - 0.001);
+    const geo = new RoundedBoxGeometry(width, height, depth, 4, Math.max(0.001, r));
+    const piece = new THREE.Mesh(geo, material);
+    piece.position.set(cx, cy, 0);
+    group.add(piece);
+  }
+
+  // rebuild the top head-circle as a few chunky cubes arranged in a clean ring
+  if (state.cleanCircle) {
+    const c = findTopCircle(opaque, cols, rows);
+    if (c) {
+      for (const p of c.cells) used[p] = 1;   // skip these in the tiler
+      const cxg = (c.minC + c.maxC + 1) / 2;
+      const cyg = (c.minR + c.maxR + 1) / 2;
+      const wC = c.maxC - c.minC + 1, hC = c.maxR - c.minR + 1;
+      const outerR = Math.max(wC, hC) / 2;
+      const s = state.cubeSize;
+      const placeR = Math.max(0.2, outerR - s / 2);   // radius of the cube centres
+      const n = Math.max(4, Math.round(state.circleCubes));
+      const ox = cxg - cols / 2, oy = rows / 2 - cyg;
+      const r = Math.min(state.rad, s / 2 - 0.001);
+      for (let k = 0; k < n; k++) {
+        const ang = Math.PI / 2 + (k / n) * Math.PI * 2;  // evenly spaced, symmetric
+        const geo = new RoundedBoxGeometry(s, s, state.depth, 4, Math.max(0.001, r));
+        const cube = new THREE.Mesh(geo, material);
+        cube.position.set(ox + Math.cos(ang) * placeR, oy + Math.sin(ang) * placeR, 0);
+        group.add(cube);
+      }
+    }
+  }
+
+  // tile the left half; horizontal bars are not allowed to cross the axis
+  for (let gy = 0; gy < rows; gy++) {
+    for (let gx = 0; gx < mid; gx++) {
+      const idx = gy * cols + gx;
+      if (!opaque[idx] || used[idx]) continue;
+
+      const horiz = rand() < 0.5;
+      const wantLen = 1 + Math.floor(rand() * maxLen);
+      let w = 1, h = 1;
+
+      if (horiz) {
+        while (w < wantLen && gx + w < mid) {
+          const j = gy * cols + (gx + w);
+          if (!opaque[j] || used[j]) break;
+          w++;
+        }
+      } else {
+        while (h < wantLen && gy + h < rows) {
+          const j = (gy + h) * cols + gx;
+          if (!opaque[j] || used[j]) break;
+          h++;
+        }
+      }
+      for (let yy = 0; yy < h; yy++)
+        for (let xx = 0; xx < w; xx++)
+          used[(gy + yy) * cols + (gx + xx)] = 1;
+
+      const cx = gx + w / 2 - cols / 2;
+      const cy = rows / 2 - (gy + h / 2);
+      addPiece(cx, cy, w, h);   // left
+      addPiece(-cx, cy, w, h);  // mirrored right
+    }
+  }
+
+  // center column (odd widths only) sits exactly on the axis -> vertical bars, no mirror
+  if (hasCenter) {
+    const gx = mid;
+    for (let gy = 0; gy < rows; gy++) {
+      const idx = gy * cols + gx;
+      if (!opaque[idx] || used[idx]) continue;
+      let h = 1;
+      const wantLen = 1 + Math.floor(rand() * maxLen);
+      while (h < wantLen && gy + h < rows) {
+        const j = (gy + h) * cols + gx;
+        if (!opaque[j] || used[j]) break;
+        h++;
+      }
+      for (let yy = 0; yy < h; yy++) used[(gy + yy) * cols + gx] = 1;
+      addPiece(0, rows / 2 - (gy + h / 2), 1, h);
+    }
+  }
+}
+
+// load image pixels once
+new THREE.ImageLoader().load(IMAGE_URL, (img) => {
+  IMG_W = img.width; IMG_H = img.height;
+  const c = document.createElement('canvas');
+  c.width = IMG_W; c.height = IMG_H;
+  const ctx = c.getContext('2d', { willReadFrequently: true });
+  ctx.drawImage(img, 0, 0);
+  imgData = ctx.getImageData(0, 0, IMG_W, IMG_H).data;
+  build();
+}, undefined, (e) => console.error('Image load failed (must be served over http):', e));
+
+// ---------- interaction ----------
+let auto = 0.0045, velY = 0, velX = 0, down = false, lastX = 0, lastY = 0;
+renderer.domElement.addEventListener('pointerdown', (e) => {
+  down = true; lastX = e.clientX; lastY = e.clientY;
+  renderer.domElement.setPointerCapture(e.pointerId);
+});
+renderer.domElement.addEventListener('pointermove', (e) => {
+  if (!down) return;
+  const dx = (e.clientX - lastX) * 0.008;
+  const dy = (e.clientY - lastY) * 0.008;
+  group.rotation.y += dx; group.rotation.x += dy;
+  velY = dx; velX = dy; lastX = e.clientX; lastY = e.clientY;
+});
+addEventListener('pointerup', () => { down = false; });
+addEventListener('wheel', (e) => {
+  camera.position.z = THREE.MathUtils.clamp(camera.position.z + e.deltaY * 0.02, 20, 90);
+}, { passive: true });
+
+// ---------- controls ----------
+function bind(id, key, disp, fmt, rebuild) {
+  const el = document.getElementById(id), out = document.getElementById(disp);
+  el.addEventListener('input', () => {
+    state[key] = parseFloat(el.value);
+    out.textContent = fmt ? fmt(state[key]) : state[key];
+    if (rebuild) build(); else material.roughness = state.rough;
+  });
+}
+bind('res',   'res',   'vRes',   v => Math.round(v), true);
+bind('gap',   'gap',   'vGap',   null, true);
+bind('depth', 'depth', 'vDepth', null, true);
+bind('rad',   'rad',   'vRad',   null, true);
+bind('bar',   'bar',   'vBar',   v => Math.round(v), true);
+bind('rough', 'rough', 'vRough', null, false);
+bind('ccount', 'circleCubes', 'vCnt', v => Math.round(v), true);
+bind('csize',  'cubeSize',    'vCsz', null, true);
+document.getElementById('clean').addEventListener('change', (e) => {
+  state.cleanCircle = e.target.checked; build();
+});
+document.getElementById('reshuffle').addEventListener('click', () => {
+  state.seed = (state.seed * 1664525 + 1013904223) >>> 0; build();
+});
+
+// ---------- loop ----------
+function animate() {
+  requestAnimationFrame(animate);
+  if (!down) {
+    group.rotation.y += auto + velY;
+    group.rotation.x += velX;
+    velY *= 0.94; velX *= 0.94;
+    group.rotation.x += (0 - group.rotation.x) * 0.02;
+  }
+  renderer.render(scene, camera);
+}
+animate();
+
+addEventListener('resize', () => {
+  camera.aspect = innerWidth / innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(innerWidth, innerHeight);
+});
+</script>
+</body>
+</html>
