@@ -213,8 +213,8 @@
 
         <!-- beat 3: mobile wink -->
         <div class="feat__beat feat__beat--mobile">
-          <h3 class="feat__line"><span class="fm-desk">מה עם המובייל?</span><span class="fm-mob">מותאם <span class="c-mustard">למובייל</span> -</span></h3>
-          <p class="feat__line feat__line--sub"><span class="fm-desk"><span class="c-mustard">חתיכים</span> גם שם <span class="feat__wink">😉</span></span><span class="fm-mob">זירת <span class="c-mustard">המכירה</span> העיקרית שלכם</span></p>
+          <h3 class="feat__line"><span class="fm-desk">מותאם <span class="c-mustard">למובייל</span> -</span><span class="fm-mob">מותאם <span class="c-mustard">למובייל</span> -</span></h3>
+          <p class="feat__line feat__line--sub"><span class="fm-desk">זירת <span class="c-mustard">המכירה</span> העיקרית שלכם</span><span class="fm-mob">זירת <span class="c-mustard">המכירה</span> העיקרית שלכם</span></p>
         </div>
 
         <!-- beat 4+5: experts typing, then reverse back to the one word -->
@@ -931,7 +931,7 @@
         const cards = gsap.utils.toArray('.rev');
         const glink = sec.querySelector('.revs__google');
 
-        if (reduce) {
+        if (reduce && !MOBILE) {
           cards.forEach((c, i) => gsap.set(c, { autoAlpha: 1, rotation: +c.dataset.rot, y: i * 6 }));
           gsap.set(glink, { autoAlpha: 1 });
           return;
