@@ -38,7 +38,7 @@
     const el = document.createElement('div');
     el.className = 'hero-card'; el.dataset.id = id; el.dataset.name = NAMES[id] || '';
     el.tabIndex = 0; el.setAttribute('role', 'button'); el.setAttribute('aria-label', `תצוגה מקדימה - ${NAMES[id] || ''}`);
-    el.innerHTML = `<img src="assets/cards/${id}.webp" alt="${NAMES[id] || ''}" decoding="async">
+    el.innerHTML = `<img src="assets/cards/${id}.webp" srcset="assets/cards/${id}-480.webp 480w, assets/cards/${id}.webp 900w" sizes="(max-width: 640px) 220px, 420px" alt="${NAMES[id] || ''}" decoding="async">
       <span class="tagn">${NAMES[id] || ''}</span>
       <button class="card-preview" type="button" tabindex="-1">Preview Site <span aria-hidden="true">↗</span></button>`;
     stage.appendChild(el);
