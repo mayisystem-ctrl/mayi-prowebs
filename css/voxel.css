@@ -166,7 +166,7 @@ body:not(.loading) .hero__mark { opacity: 1; }
   .hero__mark { width: 46px; height: 46px; top: 12px; }
 
   /* shapes stay centred, lifted toward the text above them */
-  .story__stage { place-items: center; padding-top: 8vh; }
+  .story__stage { place-items: center; padding-top: var(--story-pad-top, 8vh); }
   .story__rocket { width: 72vw; height: 40vh; }
   .story__people { width: 90vw; height: 46vh; }
 

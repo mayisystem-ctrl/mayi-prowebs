@@ -702,17 +702,21 @@
         // The group is grid-centered, so moving line2 also shifts the canvas —
         // solve by fixed-point iteration (converges at rate 1/2 per step).
         function balanceStoryGaps() {
-          if (window.innerWidth > 768) { line2.style.marginTop = ''; return; }
+          if (window.innerWidth > 768) { line2.style.marginTop = ''; stage.style.removeProperty('--story-pad-top'); return; }
           const group = document.querySelector('.story__group');
           const flexGap = parseFloat(getComputedStyle(group).rowGap) || 0;
-          let m = 0;
-          line2.style.marginTop = '0px';
           // offsetTop math (not getBoundingClientRect) — immune to the GSAP
           // entrance transforms on the people canvas / text words
           const text = document.querySelector('.story__text');
+          const line1Bottom = text.offsetTop + line1.offsetTop + line1.offsetHeight;
+          // vertically center the trio in the space BELOW the manifesto text
+          // (not the full viewport) — grid place-items:center centers within
+          // the padded box, so padding-top = line1Bottom centers it there.
+          stage.style.setProperty('--story-pad-top', line1Bottom + 'px');
+          let m = 0;
+          line2.style.marginTop = '0px';
           for (let i = 0; i < 4; i++) {
             const canvasTop = stage.offsetTop + group.offsetTop + people.offsetTop;
-            const line1Bottom = text.offsetTop + line1.offsetTop + line1.offsetHeight;
             const next = canvasTop - line1Bottom - flexGap;
             if (Math.abs(next - m) < 0.5) break;
             m = next;

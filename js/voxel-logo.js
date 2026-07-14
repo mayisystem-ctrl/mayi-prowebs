@@ -274,10 +274,15 @@ export function mountVoxelLogo(container, options = {}) {
   const el = renderer.domElement;
   el.style.touchAction = 'pan-y';
 
-  // only render while visible (perf)
-  let visible = true;
-  new IntersectionObserver(([en]) => { visible = en.isIntersecting; })
-    .observe(container);
+  // only render while actually shown (perf) — container is `position:fixed`
+  // and geometrically fills the viewport at all times, so IntersectionObserver
+  // reports "visible" even while GSAP has faded it to opacity:0. Read the live
+  // inline opacity GSAP writes each scrub tick instead — cheap (no reflow),
+  // and correctly skips the WebGL render() call while the shape is hidden.
+  function isVisible() {
+    const op = parseFloat(container.style.opacity);
+    return Number.isNaN(op) ? true : op > 0.02;
+  }
 
   if (cfg.hover) {
     // MINI mode: subtle sway + gentle "toward us" breathing (no 360 spin); tilt to cursor on hover
@@ -292,7 +297,7 @@ export function mountVoxelLogo(container, options = {}) {
     (function loop() {
       if (snapped) return;
       requestAnimationFrame(loop);
-      if (!visible) return;
+      if (!isVisible()) return;
       t += 0.016;
       hX += (hTX - hX) * 0.08;
       hY += (hTY - hY) * 0.08;
@@ -328,7 +333,7 @@ export function mountVoxelLogo(container, options = {}) {
     let skip = false, idle = 0;
     (function loop() {
       requestAnimationFrame(loop);
-      if (!visible) return;
+      if (!isVisible()) return;
       if (lite && (skip = !skip)) return;                   // 30fps for lite mounts only
       // frozen logo at rest: once geometry is in, render a few warm-up frames, then sleep
       if (cfg.autoSpeed === 0 && !down && Math.abs(velY) < 1e-4 && Math.abs(velX) < 1e-4 &&
@@ -434,9 +439,15 @@ export function mountVoxelPeople(container, options = {}) {
     fit();
   }, undefined, (e) => console.error('[voxel-people] image load failed:', e));
 
-  // alive trio — gentle sway/nod/breathe per person; render only while visible
-  let visible = true, trio = null, t = 0;
-  new IntersectionObserver(([en]) => { visible = en.isIntersecting; }).observe(container);
+  // alive trio — gentle sway/nod/breathe per person; render only while actually shown.
+  // container is `position:fixed` and geometrically fills the viewport at all times
+  // (even once GSAP fades it out at the star-swap beat), so IntersectionObserver
+  // alone never goes false — read the live inline opacity GSAP writes instead.
+  let trio = null, t = 0;
+  function isVisible() {
+    const op = parseFloat(container.style.opacity);
+    return Number.isNaN(op) ? true : op > 0.02;
+  }
   renderer.domElement.addEventListener('webglcontextlost', (e) => e.preventDefault());
   // phones: full rate while the user scrolls (the trio is scroll-choreographed),
   // slow breathing (~12fps) when the page is at rest
@@ -444,7 +455,7 @@ export function mountVoxelPeople(container, options = {}) {
   if (MOBILE) addEventListener('scroll', () => { lastScroll = performance.now(); }, { passive: true });
   (function loop() {
     requestAnimationFrame(loop);
-    if (!visible) return;
+    if (!isVisible()) return;
     frameNo++;
     if (MOBILE) {
       const active = performance.now() - lastScroll < 1500;
