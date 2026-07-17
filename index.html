@@ -30,6 +30,10 @@
 
   <!-- Preload local fonts -->
   <link rel="preload" href="assets/fonts/anka-bold.woff" as="font" type="font/woff" crossorigin>
+  <!-- loader headline shows on first paint in Dancing Script (Latin subset) —
+       preload it so it's already downloading instead of only being discovered
+       after showcase.css's @import chain resolves (see below) -->
+  <link rel="preload" href="assets/fonts/dancing/If2RXTr6YS-zF4S-kcSWSVi_szLgiuEHiC4W.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- this page is a scroll-story: always start it from the top, never mid-sequence -->
   <script>
@@ -37,6 +41,11 @@
     window.scrollTo(0, 0);
   </script>
 
+  <!-- loaded directly here (not via @import inside showcase.css) so the browser
+       discovers it immediately alongside the other stylesheets instead of only
+       after fetching+parsing showcase.css first — @import chains are serial,
+       this was the actual cause of the loader font flash on first paint -->
+  <link rel="stylesheet" href="assets/fonts/dancing/dancing.css">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="css/showcase.css">
   <link rel="stylesheet" href="css/voxel.css">
