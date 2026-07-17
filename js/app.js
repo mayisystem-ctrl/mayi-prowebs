@@ -74,9 +74,16 @@ set('.hero__intro [data-cta]', H.cta);
   const STEP = 9;      // px between spawned blobs (denser = smoother trail)
 
   let W = 0, H = 0, dpr = Math.min(2, window.devicePixelRatio || 1);
-  const resize = () => {
+  // cached viewport-relative hero position — updated on resize/scroll instead
+  // of via getBoundingClientRect() every animation frame (see draw() below)
+  const heroRect = { left: 0, top: 0 };
+  const updateHeroRect = () => {
     const r = hero.getBoundingClientRect();
+    heroRect.left = r.left; heroRect.top = r.top;
     W = r.width; H = r.height;
+  };
+  const resize = () => {
+    updateHeroRect();
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
     canvas.style.width = W + 'px';
@@ -85,23 +92,11 @@ set('.hero__intro [data-cta]', H.cta);
   };
   resize();
   window.addEventListener('resize', resize);
+  window.addEventListener('scroll', updateHeroRect, { passive: true });
 
   const accent = document.querySelector('#hero-title .hl-pink');
   const pts = [];
-  let last = null;
-  hero.addEventListener('pointermove', (e) => {
-    const r = hero.getBoundingClientRect();
-    const x = e.clientX - r.left, y = e.clientY - r.top;
-    const now = performance.now();
-    if (last) {
-      const dx = x - last.x, dy = y - last.y, d = Math.hypot(dx, dy);
-      const n = Math.max(1, Math.floor(d / STEP));
-      for (let i = 1; i <= n; i++) pts.push({ x: last.x + dx * i / n, y: last.y + dy * i / n, t: now });
-    } else {
-      pts.push({ x, y, t: now });
-    }
-    last = { x, y };
-  }, { passive: true });
+  let last = null, raf = 0;
 
   const draw = () => {
     ctx.clearRect(0, 0, W, H);
@@ -121,10 +116,9 @@ set('.hero__intro [data-cta]', H.cta);
 
     // flip the pink accent word white while the splash overlaps it
     if (accent) {
-      const hr = hero.getBoundingClientRect();
       const ar = accent.getBoundingClientRect();
-      const x0 = ar.left - hr.left - R, x1 = ar.right - hr.left + R;
-      const y0 = ar.top - hr.top - R, y1 = ar.bottom - hr.top + R;
+      const x0 = ar.left - heroRect.left - R, x1 = ar.right - heroRect.left + R;
+      const y0 = ar.top - heroRect.top - R, y1 = ar.bottom - heroRect.top + R;
       let over = false;
       for (let i = 0; i < pts.length; i++) {
         const p = pts[i];
@@ -133,9 +127,27 @@ set('.hero__intro [data-cta]', H.cta);
       accent.classList.toggle('lit', over);
     }
 
-    requestAnimationFrame(draw);
+    // stop once every blob has faded instead of looping forever — the canvas
+    // has a full-size gooey SVG blur filter (feGaussianBlur) applied to it,
+    // so an unconditional loop repaints an expensive blur 60x/sec even with
+    // an idle mouse. resumes instantly on the next pointermove below.
+    if (pts.length) raf = requestAnimationFrame(draw);
+    else raf = 0;
   };
-  requestAnimationFrame(draw);
+
+  hero.addEventListener('pointermove', (e) => {
+    const x = e.clientX - heroRect.left, y = e.clientY - heroRect.top;
+    const now = performance.now();
+    if (last) {
+      const dx = x - last.x, dy = y - last.y, d = Math.hypot(dx, dy);
+      const n = Math.max(1, Math.floor(d / STEP));
+      for (let i = 1; i <= n; i++) pts.push({ x: last.x + dx * i / n, y: last.y + dy * i / n, t: now });
+    } else {
+      pts.push({ x, y, t: now });
+    }
+    last = { x, y };
+    if (!raf) raf = requestAnimationFrame(draw);
+  }, { passive: true });
 })();
 
 // custom accessibility button — section-aware color, opens the UserWay panel.
