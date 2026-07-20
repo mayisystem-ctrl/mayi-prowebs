@@ -11,9 +11,12 @@ import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 // ---- locked design values ----
 // phones can't afford 7 live WebGL loops — lower res, freeze minis, 30fps
 const MOBILE = matchMedia('(max-width: 768px)').matches;
+// resolve image paths against this module's own location (not document.baseURI) —
+// keeps default shape paths correct no matter how deep the HTML page is nested
+const ASSET_BASE = new URL('../assets/', import.meta.url);
 
 const CFG = {
-  image: 'assets/may i shape.png',
+  image: new URL('may i shape.png', ASSET_BASE).href,
   alphaCutoff: 96,
   res: 48, gap: 0.34, depth: 1.4, rad: 0.18, rough: 0.04,
   bar: 3, seed: 12345,
@@ -360,7 +363,7 @@ export function mountVoxelLogo(container, options = {}) {
 // Three people in ONE canvas/WebGL context (device-safety: iOS drops extra contexts).
 // Middle person is larger and exposes its own material for the scroll colour beat.
 export function mountVoxelPeople(container, options = {}) {
-  const cfg = { ...CFG, res: MOBILE ? 20 : 26, cleanCircle: false, image: 'assets/person shape.png', ...options };
+  const cfg = { ...CFG, res: MOBILE ? 20 : 26, cleanCircle: false, image: new URL('person shape.png', ASSET_BASE).href, ...options };
 
   const renderer = new THREE.WebGLRenderer({ antialias: !MOBILE, alpha: true });
   renderer.setPixelRatio(Math.min(devicePixelRatio, MOBILE ? 1.5 : 2));

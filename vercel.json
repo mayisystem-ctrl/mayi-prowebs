@@ -6,6 +6,18 @@
   ],
   "rewrites": [
     { "source": "/prowebs", "destination": "/index" },
+    { "source": "/prowebs/en", "destination": "/MAY I PROWEBS ENGLISH/index" },
     { "source": "/prowebs/:path*", "destination": "/:path*" }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
+      ]
+    }
   ]
 }

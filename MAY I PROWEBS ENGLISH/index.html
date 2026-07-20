@@ -1,42 +1,42 @@
 <!doctype html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="google-site-verification" content="oeVjNPTfBPCcfoahMi9m3B1WLN2NFtjg5GgpWTlk1Vw" />
+  <base href="/MAY I PROWEBS ENGLISH/">
 
   <!-- SEO -->
-  <title>May I - בניית אתרים ודפי נחיתה פרימיום בקוד מותאם אישית לעסקים</title>
-  <meta name="description" content="אתר תדמית או דף נחיתה פרימיום בקוד מותאם אישית - לא תבנית, לא Wix. למותגים שרוצים להיראות בדיגיטל בדיוק כמו שהם במציאות: יוצאי דופן.">
+  <title>May I - Premium Custom-Coded Websites & Landing Pages for Businesses</title>
+  <meta name="description" content="Custom-coded premium website or landing page - no templates, no Wix. For brands who want to look online exactly as exceptional as they are in reality.">
   <meta name="theme-color" content="#08080a">
-  <link rel="canonical" href="https://mayi.dev/prowebs">
+  <link rel="canonical" href="https://mayi.dev/prowebs/en">
   <link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs">
   <link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en">
   <link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
-  <meta property="og:locale" content="he_IL">
-  <meta property="og:title" content="May I - בניית אתרים ודפי נחיתה פרימיום בקוד מותאם אישית לעסקים">
-  <meta property="og:description" content="אתר תדמית או דף נחיתה פרימיום בקוד מותאם אישית - לא תבנית, לא Wix. למותגים שרוצים להיראות בדיגיטל בדיוק כמו שהם במציאות: יוצאי דופן.">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:title" content="May I - Premium Custom-Coded Websites & Landing Pages for Businesses">
+  <meta property="og:description" content="Custom-coded premium website or landing page - no templates, no Wix. For brands who want to look online exactly as exceptional as they are in reality.">
   <meta property="og:image" content="https://mayi.dev/prowebs/assets/og-share.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="May I - בניית אתרים ודפי נחיתה פרימיום בקוד מותאם אישית לעסקים">
-  <meta name="twitter:description" content="אתר תדמית או דף נחיתה פרימיום בקוד מותאם אישית - לא תבנית, לא Wix. למותגים שרוצים להיראות בדיגיטל בדיוק כמו שהם במציאות: יוצאי דופן.">
+  <meta name="twitter:title" content="May I - Premium Custom-Coded Websites & Landing Pages for Businesses">
+  <meta name="twitter:description" content="Custom-coded premium website or landing page - no templates, no Wix. For brands who want to look online exactly as exceptional as they are in reality.">
   <meta name="twitter:image" content="https://mayi.dev/prowebs/assets/og-share.jpg">
-  <meta property="og:url" content="https://mayi.dev/prowebs">
+  <meta property="og:url" content="https://mayi.dev/prowebs/en">
 
   <!-- Favicon (May i brand mark) -->
-  <link rel="icon" type="image/svg+xml" href="assets/logo-favicon.svg">
+  <link rel="icon" type="image/svg+xml" href="../assets/logo-favicon.svg">
 
   <!-- Preload local fonts -->
-  <link rel="preload" href="assets/fonts/anka-bold.woff" as="font" type="font/woff" crossorigin>
+  <link rel="preload" href="../assets/fonts/anka-bold.woff" as="font" type="font/woff" crossorigin>
   <!-- loader headline shows on first paint in Dancing Script (Latin subset) —
        preload it so it's already downloading instead of only being discovered
        after showcase.css's @import chain resolves (see below) -->
-  <link rel="preload" href="assets/fonts/dancing/If2RXTr6YS-zF4S-kcSWSVi_szLgiuEHiC4W.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/dancing/If2RXTr6YS-zF4S-kcSWSVi_szLgiuEHiC4W.woff2" as="font" type="font/woff2" crossorigin>
 
   <!-- this page is a scroll-story: always start it from the top, never mid-sequence -->
   <script>
@@ -48,11 +48,26 @@
        discovers it immediately alongside the other stylesheets instead of only
        after fetching+parsing showcase.css first — @import chains are serial,
        this was the actual cause of the loader font flash on first paint -->
-  <link rel="stylesheet" href="assets/fonts/dancing/dancing.css">
-  <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/showcase.css">
-  <link rel="stylesheet" href="css/voxel.css">
-  <link rel="stylesheet" href="css/sections.css">
+  <link rel="stylesheet" href="../assets/fonts/dancing/dancing.css">
+  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/showcase.css">
+  <link rel="stylesheet" href="../css/voxel.css">
+  <link rel="stylesheet" href="../css/sections.css">
+  <!-- EN-only overrides: "Anka" is a Hebrew-glyph display font (Latin "A" renders as tofu) —
+       swap headings to Anton, which already carries a full Latin set on this site.
+       Arrow icons also need a mirrored direction here: the icon sits to the RIGHT of the
+       CTA text in LTR (it was on the left in the RTL Hebrew page), so its rest/hover
+       rotation is mirrored to point up-right / right instead of up-left / left. -->
+  <style>
+    :root { --font-display: "Anton", system-ui, sans-serif; }
+    .btn__icon svg { transform: rotate(135deg); }
+    .btn:hover .btn__icon svg { transform: rotate(180deg); }
+    /* section 2 manifesto: voxel.css hardcodes direction:rtl + text-align:right for the
+       Hebrew original — same stays-in-place position, just LTR reading order + left-aligned */
+    .story__text { direction: ltr; }
+    .story__line { text-align: left; }
+    .hero .hero__intro .hero__title { font-weight: 500; }
+  </style>
   <script type="importmap">
   {
     "imports": {
@@ -65,8 +80,6 @@
   <!-- ===== Google Analytics 4 ===== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
   <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-P16WTQRPNL');</script>
-  <!-- ===== Google Search Console verification (placeholder) ===== -->
-  <!-- <meta name="google-site-verification" content="REPLACE_ME"> -->
 
   <!-- Organization / local business rich results -->
   <script type="application/ld+json">
@@ -74,8 +87,8 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "May I",
-    "description": "בניית אתרים ודפי נחיתה פרימיום לעסקים - קוד נקי, מותאם אישית ללא תבניות, ומוכן ל-SEO ול-GEO (חשיפה במנועי AI כמו ChatGPT, Perplexity ו-Gemini).",
-    "url": "https://mayi.dev/prowebs",
+    "description": "Premium websites and landing pages for businesses - clean, fast, custom code, no templates, built ready for SEO and GEO (AI answer engines like ChatGPT, Perplexity, Gemini).",
+    "url": "https://mayi.dev/prowebs/en",
     "image": "https://mayi.dev/prowebs/assets/og-share.jpg",
     "areaServed": "IL",
     "priceRange": "$$$",
@@ -91,16 +104,16 @@
       "reviewCount": "8"
     },
     "review": [
-      { "@type": "Review", "author": { "@type": "Person", "name": "עמית ברק" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "רותם מקצוענית, ברורה והייתה קשובה לכל בקשה שהייתה לי. ליוותה והדריכה אותי היכן שחסר היה לי ידע. התוצאה שקיבלתי היא בדיוק כמו שרציתי." },
-      { "@type": "Review", "author": { "@type": "Person", "name": "אלה קופמן" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "רותם מ- MAY I היא פשוט הפרילנסרית המושלמת לעבוד מולה - אינטיליגנטית, אבל כזו שגם כשהיא נתקלת בקושי היא לא מוותרת ומתמודדת ותמיד מוצאת פתרון." },
-      { "@type": "Review", "author": { "@type": "Person", "name": "יוחנן גלאי" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "העבודה עם רותם הייתה תענוג אמיתי. מעבר למקצועיות שלה, רותם הגיעה עם חזון ברור ופתיחות יצירתית שאפשרו לדייק את דף הנחיתה עד לפרטים הקטנים ביותר." }
+      { "@type": "Review", "author": { "@type": "Person", "name": "Amit Barak" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Rotem professional, clear, attentive to every request I had. She guided me wherever I lacked knowledge. Result I got is exactly what I wanted." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Ella Kaufman" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Rotem MAY I simply perfect freelancer work with - intelligent, even she runs into difficulty, she doesn't give up, she works through it always finds solution." },
+      { "@type": "Review", "author": { "@type": "Person", "name": "Yohanan Galai" }, "reviewRating": { "@type": "Rating", "ratingValue": "5" }, "reviewBody": "Working Rotem real pleasure. Beyond her professionalism, Rotem brought clear vision creative openness let me fine-tune landing page down smallest detail." }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "שירותי בניית אתרים",
+      "name": "Website building services",
       "itemListElement": [
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "בניית דף נחיתה פרימיום", "description": "דף נחיתה ממיר בקוד מותאם אישית, ללא תבניות, בנוי למכירה וללידים." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "בניית אתר תדמית פרימיום", "description": "אתר רב-עמודי בקוד נקי ומהיר, מותאם למותג, עם SEO טכני מלא." } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium landing page build", "description": "Custom-coded, high-converting landing page - no templates, built for sales and leads." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium business website build", "description": "Multi-page, custom-coded, fast website matched to the brand, with full technical SEO." } }
       ]
     }
   }
@@ -112,24 +125,24 @@
     "@context": "https://schema.org",
     "@type": "FAQPage",
     "mainEntity": [
-      { "@type": "Question", "name": "כמה זמן לוקח עד שהאתר באוויר?",
-        "acceptedAnswer": { "@type": "Answer", "text": "קובעים דדליין ביחד ביום הראשון - ועומדים בו. זו לא הבטחה, זו שיטת עבודה. רוב הפרויקטים נמדדים בשבועות, לא בחודשים." } },
-      { "@type": "Question", "name": "אתם עובדים עם תבניות?",
-        "acceptedAnswer": { "@type": "Answer", "text": "לא. כל אתר נכתב בקוד, פיקסל אחר פיקסל, סביב המותג שלך. תבניות זה בדיוק מה שבאנו להחליף." } },
-      { "@type": "Question", "name": "גוגל בכלל ימצא אותי?",
-        "acceptedAnswer": { "@type": "Answer", "text": "האתר נבנה מהיסוד עם SEO טכני מלא, והוא מוכן גם לעידן הבא - GEO ו-AEO. גוגל מוצא אתכם, וה-AI ממליץ עליכם." } },
-      { "@type": "Question", "name": "כמה אני צריך להיות מעורב בתהליך?",
-        "acceptedAnswer": { "@type": "Answer", "text": "אנחנו שואפים לשיתוף פעולה ושקיפות מלאה עם הלקוחות שלנו - כדי לבטל פערי ידע ותקשורת בתהליכים ולהבטיח שביעות רצון מיטבית ויעילות בעבודה." } },
-      { "@type": "Question", "name": "אני לא יודע בדיוק מה אני צריך בדף - זה בסדר להתחיל?",
-        "acceptedAnswer": { "@type": "Answer", "text": "בדיוק בשביל זה התהליך מתחיל בשאלון אפיון ופגישת ייעוץ. שואלים, מבינים, מאפיינים - ובונים דף שמדויק למותג שלך. לא צריך להגיע עם תשובות מוכנות, רק עם רצון להתקדם." } },
-      { "@type": "Question", "name": "מה כולל המחיר? יש עלויות נסתרות?",
-        "acceptedAnswer": { "@type": "Answer", "text": "הצעת מחיר אחת, שקופה, לפי היקף - דף נחיתה או אתר מרובה עמודים. סבבי תיקונים כלולים במחיר, בלי הפתעות בהמשך." } },
-      { "@type": "Question", "name": "מה אם אני לא מרוצה מהתוצאה?",
-        "acceptedAnswer": { "@type": "Answer", "text": "עובדים עד שאתה מרוצה - זה הסטנדרט, לא טובה. סבבי תיקונים הם חלק מהתהליך, לא תוספת בתשלום. אף לקוח לא נשאר בלי התוצאה שהוא רצה." } },
-      { "@type": "Question", "name": "מה קורה אחרי ההשקה?",
-        "acceptedAnswer": { "@type": "Answer", "text": "לא נעלמים. רוצה לשנות משהו אחרי שהדף עלה? מתקנים. שינויים גדולים והוספת עמודים - בתמחור נפרד ושקוף מראש. ליווי, עדכונים ושותפות לשנים קדימה." } },
-      { "@type": "Question", "name": "למה שלא אבנה לבד ב-Wix או וורדפרס?",
-        "acceptedAnswer": { "@type": "Answer", "text": "אפשר. אבל יש הבדל בין \"דף באינטרנט\" לבין משפך שיווקי שממיר. בילדר נותן לך כלים - בלי אסטרטגיה, SEO ומבנה שממיר, מקבלים דף יפה שאף אחד לא מוצא. אתר פרימיום הוא ההבדל בין \"יש לנו אתר\" ל\"רגע, ראית את האתר שלהם?\"" } }
+      { "@type": "Question", "name": "How long until the site goes live?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We set a deadline together on day one - and stick to it. It's not a promise, it's a way of working. Most projects are measured in weeks, not months." } },
+      { "@type": "Question", "name": "Do you work with templates?",
+        "acceptedAnswer": { "@type": "Answer", "text": "No. Every site is hand-coded, pixel by pixel, around your brand. Templates are exactly what we're here to replace." } },
+      { "@type": "Question", "name": "Will Google even find me?",
+        "acceptedAnswer": { "@type": "Answer", "text": "The site is built from the ground up with full technical SEO, and it's ready for the next era too - GEO and AEO. Google finds you, and AI recommends you." } },
+      { "@type": "Question", "name": "How involved do I need to be in the process?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We aim for full collaboration and transparency with our clients - to close knowledge and communication gaps along the way, and make sure you get the best outcome as efficiently as possible." } },
+      { "@type": "Question", "name": "I'm not exactly sure what I need on the page - is it okay to start anyway?",
+        "acceptedAnswer": { "@type": "Answer", "text": "That's exactly what the discovery questionnaire and consultation call are for. We ask, we understand, we map it out - and build a page that's exactly right for your brand. You don't need to show up with ready answers, just the will to move forward." } },
+      { "@type": "Question", "name": "What's included in the price? Any hidden costs?",
+        "acceptedAnswer": { "@type": "Answer", "text": "One transparent quote, based on scope - a landing page or a multi-page site. Revision rounds are included in the price, no surprises down the line." } },
+      { "@type": "Question", "name": "What if I'm not happy with the result?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We work until you're happy - that's the standard, not a favor. Revision rounds are part of the process, not a paid add-on. No client is ever left without the result they wanted." } },
+      { "@type": "Question", "name": "What happens after launch?",
+        "acceptedAnswer": { "@type": "Answer", "text": "We don't disappear. Want to change something after the page goes live? We'll fix it. Bigger changes and new pages are priced separately and transparently, upfront. Ongoing support, updates, and a partnership for years to come." } },
+      { "@type": "Question", "name": "Why not just build it myself on Wix or WordPress?",
+        "acceptedAnswer": { "@type": "Answer", "text": "You can. But there's a difference between a page on the internet and a marketing funnel that actually converts. A builder gives you tools - without strategy, SEO, or a structure built to convert, you end up with a pretty page nobody finds. A premium website is the difference between \"we have a website\" and \"wait, have you seen their site?\"" } }
     ]
   }
   </script>
@@ -155,10 +168,10 @@
       </div>
 
       <div class="hero__intro">
-        <h1 class="hero__title" id="hero-title">האתר שלך צריך למכור אותך,<br><span class="hl-pink">והרבה יותר טוב מעכשיו<span class="dots" data-dots>.</span></span><span class="type-caret" aria-hidden="true"></span></h1>
+        <h1 class="hero__title" id="hero-title">Your website should be selling you -<br><span class="hl-pink">and WAY better than it's doing now<span class="dots" data-dots>.</span></span><span class="type-caret" aria-hidden="true"></span></h1>
         <div class="hero__actions">
           <a href="#lead-form" class="btn btn--pink">
-            <span class="btn__txt" data-cta>מתחילים מכאן</span>
+            <span class="btn__txt" data-cta>Let's Make it Happen</span>
             <span class="btn__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
             </span>
@@ -168,30 +181,30 @@
     </section>
 
     <!-- ============ SECTION 2 — dark starfield stage (continuous with the hero) ============ -->
-    <section class="voxel" id="brand-mark" aria-label="סקציית טיל תלת-ממד"></section>
+    <section class="voxel" id="brand-mark" aria-label="3D rocket transition"></section>
 
     <!-- fixed story stage: rocket grows in the hero → swaps to 3 people + the manifesto -->
     <div class="story" aria-hidden="true">
       <div class="story__stage">
         <div class="story__rocket"
              data-voxel-logo
-             data-voxel-image="assets/rocket shape.png"
+             data-voxel-image="../assets/rocket shape.png"
              data-voxel-circle="off"
              data-voxel-tilt="45"></div>
-        <div class="story__group" dir="rtl">
+        <div class="story__group" dir="ltr">
           <div class="story__people" data-voxel-people></div>
           <!-- destination pin — swaps in for the trio at the process section -->
           <div class="story__target"
                data-voxel-logo
                data-voxel-mini
-               data-voxel-image="assets/target shape.png"
+               data-voxel-image="../assets/target shape.png"
                data-voxel-circle="off"
                data-voxel-res="30"></div>
           <!-- mustard star — swaps in for the pin at the reviews section -->
           <div class="story__star"
                data-voxel-logo
                data-voxel-mini
-               data-voxel-image="assets/star shape.png"
+               data-voxel-image="../assets/star shape.png"
                data-voxel-circle="off"
                data-voxel-res="32"
                data-voxel-color="#dfa422"></div>
@@ -199,7 +212,7 @@
           <div class="story__question"
                data-voxel-logo
                data-voxel-mini
-               data-voxel-image="assets/question shape.png"
+               data-voxel-image="../assets/question shape.png"
                data-voxel-circle="off"
                data-voxel-sym="off"
                data-voxel-res="30"
@@ -208,16 +221,16 @@
           <div class="story__mayi"
                data-voxel-logo
                data-voxel-mini></div>
-          <p class="story__line story__line--2">הגיע הזמן שגם העסק שלך יהיה יוצא דופן בדיגיטל.</p>
+          <p class="story__line story__line--2">It's about time your brand stood out online too.</p>
         </div>
       </div>
-      <div class="story__text" dir="rtl">
-        <p class="story__line story__line--1">יוצאי דופן לא נלחמים על תשומת לב.<br>הם מקבלים אותה.</p>
+      <div class="story__text" dir="ltr">
+        <p class="story__line story__line--1">The exceptional don't fight for attention.<br>They earn it.</p>
       </div>
     </div>
 
     <!-- ============ SECTION 2.5 — expertise wormhole scroll sequence ============ -->
-    <section class="feat" id="expertise" aria-label="מומחיות ותועלות" dir="rtl">
+    <section class="feat" id="expertise" aria-label="Expertise and benefits" dir="ltr">
       <div class="feat__stage">
 
         <!-- beat 1: generic template site gets sucked into the wormhole -->
@@ -226,40 +239,40 @@
             <div class="feat__bbar"><i></i><i></i><i></i></div>
             <div class="feat__bbody">
               <div class="tpl-nav"><span class="tpl-logo"></span><span class="tpl-links"><i></i><i></i><i></i></span></div>
-              <div class="tpl-h1" dir="rtl">כותרת ראשית כאן</div>
+              <div class="tpl-h1" dir="ltr">Main headline here</div>
               <div class="tpl-p"></div>
               <div class="tpl-p tpl-p--short"></div>
-              <div class="tpl-btn">לחץ כאן</div>
+              <div class="tpl-btn">Click here</div>
               <div class="tpl-cards"><span></span><span></span><span></span></div>
             </div>
           </div>
-          <h3 class="feat__line">יוצאים מחוץ <span class="c-mustard">לתבניות</span></h3>
+          <h3 class="feat__line">We break away from <span class="c-mustard">templates</span></h3>
         </div>
 
         <!-- beat 2: countdown that never lands → blink line -->
         <div class="feat__beat feat__beat--speed">
-          <div class="feat__count">אתר שנטען תוך <b class="feat__num">12</b>...</div>
-          <h3 class="feat__line feat__blink">לפני שהספקת <span class="c-green">למצמץ</span>!</h3>
+          <div class="feat__count">A site that loads in <b class="feat__num">12</b>...</div>
+          <h3 class="feat__line feat__blink">Before you even <span class="c-green">blink</span>!</h3>
         </div>
 
         <!-- beat 3: mobile wink -->
         <div class="feat__beat feat__beat--mobile">
-          <h3 class="feat__line"><span class="fm-desk">מותאם <span class="c-mustard">למובייל</span> -</span><span class="fm-mob">מותאם <span class="c-mustard">למובייל</span> -</span></h3>
-          <p class="feat__line feat__line--sub"><span class="fm-desk">זירת <span class="c-mustard">המכירה</span> העיקרית שלכם</span><span class="fm-mob">זירת <span class="c-mustard">המכירה</span> העיקרית שלכם</span></p>
+          <h3 class="feat__line"><span class="fm-desk"><span class="c-mustard">Mobile</span>-optimized -</span><span class="fm-mob"><span class="c-mustard">Mobile</span>-optimized -</span></h3>
+          <p class="feat__line feat__line--sub"><span class="fm-desk">Your primary <span class="c-mustard">selling</span> arena</span><span class="fm-mob">Your primary <span class="c-mustard">selling</span> arena</span></p>
         </div>
 
         <!-- beat 4+5: experts typing, then reverse back to the one word -->
         <div class="feat__beat feat__beat--exp">
-          <h3 class="feat__line feat__type"><span class="feat__kw">מומחים</span><span class="feat__typed"> ב:</span><span class="feat__dot">.</span><i class="feat__caret"></i></h3>
+          <h3 class="feat__line feat__type"><span class="feat__kw">Experts</span><span class="feat__typed"> in:</span><span class="feat__dot">.</span><i class="feat__caret"></i></h3>
           <ul class="feat__list" dir="ltr">
             <li class="c-pink">UX UI</li>
             <li class="c-green">3D</li>
             <li class="c-mustard">SEO - GEO - AEO</li>
           </ul>
-          <p class="feat__micro">גוגל מוצא אתכם - <span class="feat__ai">AI</span> ממליץ עליכם.</p>
+          <p class="feat__micro">Google finds you - <span class="feat__ai">AI</span> recommends you.</p>
           <div class="feat__cta">
             <a href="#lead-form" class="btn btn--pink">
-              <span class="btn__txt">מתחילים מכאן</span>
+              <span class="btn__txt">Start here</span>
               <span class="btn__icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
               </span>
@@ -271,38 +284,38 @@
     </section>
 
     <!-- ============ SECTION 3 — video testimonials ============ -->
-    <section class="vids" id="testimonials" aria-label="לקוחות מספרים">
+    <section class="vids" id="testimonials" aria-label="Client testimonials">
       <div class="vids__head">
-        <h2 class="vids__title">אלו שאמרו ״כן״ כששאלנו:</h2>
-        <p class="vids__sub" dir="ltr">״May I Help You?״</p>
+        <h2 class="vids__title">The ones who said "yes" when we asked:</h2>
+        <p class="vids__sub" dir="ltr">"May I Help You?"</p>
       </div>
       <div class="vids__marquee" dir="ltr">
         <div class="vids__track">
           <figure class="vid">
-            <video src="assets/testimonials/amit.mp4" poster="assets/testimonials/amit.webp" preload="none" playsinline></video>
-            <button class="vid__play" type="button" aria-label="נגן">▶</button>
-            <figcaption class="vid__tag" dir="rtl"><b>עמית ברק</b><span>מטפל NLP ומאמן אישי</span></figcaption>
+            <video src="../assets/testimonials/amit.mp4" poster="../assets/testimonials/amit.webp" preload="none" playsinline></video>
+            <button class="vid__play" type="button" aria-label="Play">▶</button>
+            <figcaption class="vid__tag" dir="ltr"><b>Amit Barak</b><span>NLP Therapist & Personal Coach</span></figcaption>
           </figure>
           <figure class="vid">
-            <video src="assets/testimonials/haim.mp4" poster="assets/testimonials/haim.webp" preload="none" playsinline></video>
-            <button class="vid__play" type="button" aria-label="נגן">▶</button>
-            <figcaption class="vid__tag" dir="rtl"><b>חיים עזריאל</b><span>עמותת ״חסדי סעדה״</span></figcaption>
+            <video src="../assets/testimonials/haim.mp4" poster="../assets/testimonials/haim.webp" preload="none" playsinline></video>
+            <button class="vid__play" type="button" aria-label="Play">▶</button>
+            <figcaption class="vid__tag" dir="ltr"><b>Chaim Azriel</b><span>Hasdei Saada Association</span></figcaption>
           </figure>
           <figure class="vid">
-            <video src="assets/testimonials/reuven.mp4" poster="assets/testimonials/reuven.webp" preload="none" playsinline></video>
-            <button class="vid__play" type="button" aria-label="נגן">▶</button>
-            <figcaption class="vid__tag" dir="rtl"><b>ראובן יוסופוב</b><span>סוכן ביטוח ומתכנן פיננסי</span></figcaption>
+            <video src="../assets/testimonials/reuven.mp4" poster="../assets/testimonials/reuven.webp" preload="none" playsinline></video>
+            <button class="vid__play" type="button" aria-label="Play">▶</button>
+            <figcaption class="vid__tag" dir="ltr"><b>Reuven Yosupov</b><span>Insurance Agent & Financial Planner</span></figcaption>
           </figure>
           <figure class="vid">
-            <video src="assets/testimonials/shanina.mp4" poster="assets/testimonials/shanina.webp" preload="none" playsinline></video>
-            <button class="vid__play" type="button" aria-label="נגן">▶</button>
-            <figcaption class="vid__tag" dir="rtl"><b>שנינה עזריאל</b><span>מדריכת שחייה לילדים ונשים באזור הצפון</span></figcaption>
+            <video src="../assets/testimonials/shanina.mp4" poster="../assets/testimonials/shanina.webp" preload="none" playsinline></video>
+            <button class="vid__play" type="button" aria-label="Play">▶</button>
+            <figcaption class="vid__tag" dir="ltr"><b>Shanina Azriel</b><span>Swimming Instructor for Children & Women in the North</span></figcaption>
           </figure>
         </div>
       </div>
-      <div class="vids__cta" dir="rtl">
+      <div class="vids__cta" dir="ltr">
         <a href="#lead-form" class="btn btn--pink">
-          <span class="btn__txt">עכשיו תורך</span>
+          <span class="btn__txt">Your turn now</span>
           <span class="btn__icon" aria-hidden="true">
             <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
           </span>
@@ -311,8 +324,8 @@
     </section>
 
     <!-- ============ SECTION 4 — the process (the first quiet section) ============ -->
-    <section class="proc" id="process" aria-label="איך התהליך נראה" dir="rtl">
-      <h2 class="proc__title">איך התהליך נראה?</h2>
+    <section class="proc" id="process" aria-label="What the process looks like" dir="ltr">
+      <h2 class="proc__title">Trust the Process</h2>
       <div class="proc__route" aria-hidden="true">
         <!-- the dashed white road we walk together — drawn by JS between the step numbers -->
         <svg class="proc__path">
@@ -333,212 +346,212 @@
         <li class="proc__step">
           <span class="proc__num"><b>1</b><i>/4</i></span>
           <div class="proc__body">
-            <h3>אפיון</h3>
-            <p>מאפיינים יחד את העסק, את הקהל שלו, המטרות שלו ומבינים מה האסטרטגיה קדימה. לאחר שהפרויקט מובן ומפורט - מגדירים יחד תאריך עלייה לאוויר.</p>
+            <h3>Discovery</h3>
+            <p>We map out your business together - its audience, its goals - and figure out the strategy going forward. Once the project is clear and detailed, we set a launch date together.</p>
           </div>
         </li>
         <li class="proc__step">
           <span class="proc__num"><b>2</b><i>/4</i></span>
           <div class="proc__body">
-            <h3>עיצוב ובנייה</h3>
-            <p>נותנים לקנבס להתמלא: בונים ומעצבים אתר עבור המותג שלכם...</p>
+            <h3>Design & Build</h3>
+            <p>We let the canvas fill up: building and designing a site for your brand...</p>
           </div>
         </li>
         <li class="proc__step">
           <span class="proc__num"><b>3</b><i>/4</i></span>
           <div class="proc__body">
-            <h3>השקה</h3>
-            <p>לאחר בדיקות תקינות על כל מסך ומכשיר, נגישות, חוויית משתמש - עולים לאוויר!</p>
+            <h3>Launch</h3>
+            <p>After QA across every screen and device, accessibility, and user experience - we go live!</p>
           </div>
         </li>
         <li class="proc__step">
           <span class="proc__num"><b>4</b><i>/4</i></span>
           <div class="proc__body">
-            <h3>אנחנו זה לטווח הארוך</h3>
-            <p>אין ״שגר ושכח״ - האתר עלה ואנחנו עוד כאן. עדכונים, שיפורים ורעיונות חדשים. May I צומחת איתכם לטווח הארוך.</p>
+            <h3>We're in it for the long run</h3>
+            <p>There's no "launch and forget" here - the site goes live and we're still around. Updates, improvements, new ideas. May I grows with you for the long run.</p>
           </div>
         </li>
       </ol>
     </section>
 
     <!-- ============ SECTION 5 — written reviews: falling paper stack ============ -->
-    <section class="revs" id="reviews" aria-label="ביקורות לקוחות" dir="rtl">
+    <section class="revs" id="reviews" aria-label="Customer reviews" dir="ltr">
       <div class="revs__stage">
-        <h2 class="revs__title">מה אומרים עלינו</h2>
+        <h2 class="revs__title">What people say about us</h2>
         <a class="revs__google" target="_blank" rel="noopener"
            href="https://www.google.com/search?q=may+i+-+%D7%90%D7%95%D7%98%D7%95%D7%9E%D7%A6%D7%99%D7%95%D7%AA+%D7%95%D7%90%D7%AA%D7%A8%D7%99%D7%9D+%D7%9C%D7%A2%D7%A1%D7%A7%D7%99%D7%9D#mpd=~16390080908220719585/customers/reviews">
-          לכל הביקורות שלנו בגוגל
-          <span aria-hidden="true">←</span>
+          See all our reviews on Google
+          <span aria-hidden="true">→</span>
         </a>
 
         <div class="revs__stack">
           <figure class="rev" data-rot="2.4">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/amit-profile.webp" alt="" loading="lazy">
-              <figcaption>עמית ברק</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/amit-profile.webp" alt="" loading="lazy">
+              <figcaption>Amit Barak</figcaption>
             </div>
-            <blockquote class="rev__quote">״רותם מקצוענית, ברורה והייתה קשובה לכל בקשה שהייתה לי. ליוותה והדריכה אותי היכן שחסר היה לי ידע. התוצאה שקיבלתי היא בדיוק כמו שרציתי. תודה רבה לך רותם על עבודה מקצועית, איכותית ומהירה כלכך שמח שהכרתי אותך 😊״</blockquote>
+            <blockquote class="rev__quote">"Rotem is professional, clear, and attentive to every request I had. She guided me wherever I lacked knowledge. The result I got is exactly what I wanted. Thank you so much, Rotem, for such professional, high-quality, and fast work - so glad I found you 😊"</blockquote>
           </figure>
           <figure class="rev" data-rot="-1.6">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/rongo.webp" alt="" loading="lazy">
-              <figcaption>רון גויטע</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/rongo.webp" alt="" loading="lazy">
+              <figcaption>Ron Goyta</figcaption>
             </div>
-            <blockquote class="rev__quote">״הקימה אתר הרבה מעבר לציפיות, הייתה זמינה לשינוים בדרך ושירות מעולה ממליץ בחום״</blockquote>
+            <blockquote class="rev__quote">"Built a site way beyond expectations, was available for changes along the way, and gave excellent service - highly recommend."</blockquote>
           </figure>
           <figure class="rev" data-rot="2.8">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/shanina-profile.webp" alt="" loading="lazy">
-              <figcaption>שנינה עזריאל</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/shanina-profile.webp" alt="" loading="lazy">
+              <figcaption>Shanina Azriel</figcaption>
             </div>
-            <blockquote class="rev__quote">״מאוד ממליצה על רותם, תמיד זמינה למענה ומוסיפה מזמנה. משרה אווירה טובה. כיף לעבוד עם מקצוענים שמבינים עניין ונותנים תוצאה לא פחות ממושלמת.״</blockquote>
+            <blockquote class="rev__quote">"Highly recommend Rotem - always available and generous with her time. Creates a great atmosphere. It's a pleasure working with professionals who know their craft and deliver nothing short of a perfect result."</blockquote>
           </figure>
           <figure class="rev rev--tall" data-rot="-3.2">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/ella.webp" alt="" loading="lazy">
-              <figcaption>אלה קופמן</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/ella.webp" alt="" loading="lazy">
+              <figcaption>Ella Kaufman</figcaption>
             </div>
-            <blockquote class="rev__quote">״רותם מ- MAY I היא פשוט הפרילנסרית המושלמת לעבוד מולה - אינטיליגנטית, אבל כזו שגם כשהיא נתקלת בקושי היא לא מוותרת ומתמודדת ותמיד מוצאת פתרון. התקלתי אותה הרבה בעבודה על האתר, והכי יפה זה שכל מייל של סבב תיקונים ששלחתי לה (היו 2 כאלו) התשובה והעדכונים הגיעו תוך מספר שעות מועט, כלומר במהירות מטורפת. היא זמינה, קשובה, שירותית, ודף הנחיתה פשוט יפהפה, כלומר יש פה גם עין עיצובית. ממליצה בחום לעבוד איתה!״</blockquote>
+            <blockquote class="rev__quote">"Rotem from MAY I is simply the perfect freelancer to work with - intelligent, and even when she runs into a difficulty, she doesn't give up, she works through it and always finds a solution. I put her to the test a lot during the build, and the best part is that every revision-round email I sent her (there were 2) got a reply and updates within just a few hours - insanely fast. She's available, attentive, service-minded, and the landing page is simply gorgeous, so there's a real design eye here too. Highly recommend working with her!"</blockquote>
           </figure>
           <figure class="rev" data-rot="-2.6">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/yohanan.webp" alt="" loading="lazy">
-              <figcaption>יוחנן גלאי</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/yohanan.webp" alt="" loading="lazy">
+              <figcaption>Yochanan Galai</figcaption>
             </div>
-            <blockquote class="rev__quote">״העבודה עם רותם הייתה תענוג אמיתי. מעבר למקצועיות שלה, רותם הגיעה עם חזון ברור ופתיחות יצירתית שאפשרו לי לדייק את דף הנחיתה של Words, Media & Strategy עד לפרטים הקטנים ביותר. כשיש תקשורת טובה ואמון הדדי, התוצאות מגיעות מהר ובצורה הטובה ביותר. תודה רבה רותם, ומחכה לשיתוף הפעולה הבא!״</blockquote>
+            <blockquote class="rev__quote">"Working with Rotem was a real pleasure. Beyond her professionalism, Rotem brought a clear vision and creative openness that let me fine-tune the Words, Media & Strategy landing page down to the smallest detail. When there's good communication and mutual trust, results come fast and in the best possible way. Thank you so much, Rotem - looking forward to the next collaboration!"</blockquote>
           </figure>
           <figure class="rev" data-rot="1.8">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/haim.webp" alt="" loading="lazy">
-              <figcaption>חיים עזריאל</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/haim.webp" alt="" loading="lazy">
+              <figcaption>Chaim Azriel</figcaption>
             </div>
-            <blockquote class="rev__quote">״שיתוף פעולה מלא זמינות מהירה מענה לשאלות מקצועיות מהיר ממליץ מאוד״</blockquote>
+            <blockquote class="rev__quote">"Full collaboration, quick availability, fast professional answers to questions - highly recommend."</blockquote>
           </figure>
           <figure class="rev" data-rot="-2.2">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/eliyahu.webp" alt="" loading="lazy">
-              <figcaption>אליהו משה</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/eliyahu.webp" alt="" loading="lazy">
+              <figcaption>Eliyahu Moshe</figcaption>
             </div>
-            <blockquote class="rev__quote">״שירותיות מהירות ומקצועיות ברמה גבוהה מאוד!!״</blockquote>
+            <blockquote class="rev__quote">"Fast, professional, top-notch service!!"</blockquote>
           </figure>
           <figure class="rev" data-rot="3.0">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__stars" aria-label="5 stars">★★★★★</div>
             <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/reuven-profile.webp" alt="" loading="lazy">
-              <figcaption>ראובן יוסופוב</figcaption>
+              <img class="rev__avatar" src="../assets/testimonials/reuven-profile.webp" alt="" loading="lazy">
+              <figcaption>Reuven Yosupov</figcaption>
             </div>
-            <blockquote class="rev__quote">״איכות העבודה ברמה גבוהה מאוד גורף מחמאות בלי סוף שליטה איכותית במערכות ה-ai״</blockquote>
+            <blockquote class="rev__quote">"The quality of the work is extremely high - constant compliments, and excellent command of AI systems."</blockquote>
           </figure>
         </div>
 
         <div class="revs__nav" aria-hidden="false">
-          <button type="button" class="revs__arrow revs__arrow--prev" aria-label="ביקורת קודמת">→</button>
-          <button type="button" class="revs__arrow revs__arrow--next" aria-label="ביקורת הבאה">←</button>
+          <button type="button" class="revs__arrow revs__arrow--prev" aria-label="Previous review">←</button>
+          <button type="button" class="revs__arrow revs__arrow--next" aria-label="Next review">→</button>
         </div>
 
       </div>
     </section>
 
     <!-- ============ SECTION 6 — FAQ ============ -->
-    <section class="faq" id="faq" aria-labelledby="faq-title" dir="rtl">
+    <section class="faq" id="faq" aria-labelledby="faq-title" dir="ltr">
       <div class="faq__stage">
-        <h2 class="faq__title" id="faq-title">שאלות? <span class="faq__hl">יש תשובות.</span></h2>
+        <h2 class="faq__title" id="faq-title">Questions? <span class="faq__hl">We've got answers.</span></h2>
 
         <div class="faq__list">
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>כמה זמן לוקח עד שהאתר באוויר?</span>
+              <span>How long until the site goes live?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>קובעים דדליין ביחד ביום הראשון - ועומדים בו. זו לא הבטחה, זו שיטת עבודה. רוב הפרויקטים נמדדים בשבועות, לא בחודשים.</p>
+              <p>We set a deadline together on day one - and stick to it. It's not a promise, it's a way of working. Most projects are measured in weeks, not months.</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>אתם עובדים עם תבניות?</span>
+              <span>Do you work with templates?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>לא. כל אתר נכתב בקוד, פיקסל אחר פיקסל, סביב המותג שלך. תבניות זה בדיוק מה שבאנו להחליף.</p>
+              <p>No. Every site is hand-coded, pixel by pixel, around your brand. Templates are exactly what we're here to replace.</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>גוגל בכלל ימצא אותי?</span>
+              <span>Will Google even find me?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>האתר נבנה מהיסוד עם SEO טכני מלא, והוא מוכן גם לעידן הבא - GEO ו-AEO. גוגל מוצא אתכם, וה-AI ממליץ עליכם.</p>
+              <p>The site is built from the ground up with full technical SEO, and it's ready for the next era too - GEO and AEO. Google finds you, and AI recommends you.</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>כמה אני צריך להיות מעורב בתהליך?</span>
+              <span>How involved do I need to be in the process?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>אנחנו שואפים לשיתוף פעולה ושקיפות מלאה עם הלקוחות שלנו - כדי לבטל פערי ידע ותקשורת בתהליכים ולהבטיח שביעות רצון מיטבית ויעילות בעבודה.</p>
+              <p>We aim for full collaboration and transparency with our clients - to close knowledge and communication gaps along the way, and make sure you get the best outcome as efficiently as possible.</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>אני לא יודע בדיוק מה אני צריך בדף - זה בסדר להתחיל?</span>
+              <span>I'm not exactly sure what I need on the page - is it okay to start anyway?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>בדיוק בשביל זה התהליך מתחיל בשאלון אפיון ופגישת ייעוץ. שואלים, מבינים, מאפיינים - ובונים דף שמדויק למותג שלך. לא צריך להגיע עם תשובות מוכנות, רק עם רצון להתקדם.</p>
+              <p>That's exactly what the discovery questionnaire and consultation call are for. We ask, we understand, we map it out - and build a page that's exactly right for your brand. You don't need to show up with ready answers, just the will to move forward.</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>מה כולל המחיר? יש עלויות נסתרות?</span>
+              <span>What's included in the price? Any hidden costs?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>הצעת מחיר אחת, שקופה, לפי היקף - דף נחיתה או אתר מרובה עמודים. סבבי תיקונים כלולים במחיר, בלי הפתעות בהמשך. אפשר להיפרד מלשלם 300 שקל על שינוי כותרת 😁</p>
+              <p>One transparent quote, based on scope - a landing page or a multi-page site. Revision rounds are included in the price, no surprises down the line. Say goodbye to paying extra just to change a headline 😁</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>מה אם אני לא מרוצה מהתוצאה?</span>
+              <span>What if I'm not happy with the result?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>עובדים עד שאתה מרוצה - זה הסטנדרט, לא טובה. סבבי תיקונים הם חלק מהתהליך, לא תוספת בתשלום. אף לקוח לא נשאר בלי התוצאה שהוא רצה.</p>
+              <p>We work until you're happy - that's the standard, not a favor. Revision rounds are part of the process, not a paid add-on. No client is ever left without the result they wanted.</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>מה קורה אחרי ההשקה?</span>
+              <span>What happens after launch?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>לא נעלמים. רוצה לשנות משהו אחרי שהדף עלה? מתקנים. שינויים גדולים והוספת עמודים - בתמחור נפרד ושקוף מראש. הדף שלך לא הופך ל"יתום" אחרי ההקמה - ליווי, עדכונים ושותפות לשנים קדימה.</p>
+              <p>We don't disappear. Want to change something after the page goes live? We'll fix it. Bigger changes and new pages are priced separately and transparently, upfront. Your page doesn't become an "orphan" after launch - ongoing support, updates, and a partnership for years to come.</p>
             </div></div>
           </div>
 
           <div class="faq__item">
             <button class="faq__q" type="button" aria-expanded="false">
-              <span>למה שלא אבנה לבד ב-Wix או וורדפרס?</span>
+              <span>Why not just build it myself on Wix or WordPress?</span>
               <span class="faq__x" aria-hidden="true"></span>
             </button>
             <div class="faq__a"><div class="faq__a-inner">
-              <p>אפשר. אבל יש הבדל בין "דף באינטרנט" לבין משפך שיווקי שממיר. בילדר נותן לך כלים - בלי אסטרטגיה, SEO ומבנה שממיר, מקבלים דף יפה שאף אחד לא מוצא. אתר פרימיום הוא ההבדל בין "יש לנו אתר" ל"רגע, ראית את האתר שלהם?"</p>
+              <p>You can. But there's a difference between a "page on the internet" and a marketing funnel that actually converts. A builder gives you tools - without strategy, SEO, or a structure built to convert, you end up with a pretty page nobody finds. A premium website is the difference between "we have a website" and "wait, have you seen their site?"</p>
             </div></div>
           </div>
         </div>
@@ -546,23 +559,23 @@
     </section>
 
     <!-- ============ SECTION 7 — LEAD FORM ============ -->
-    <section class="lform" id="lead-form" aria-labelledby="lform-title" dir="rtl">
+    <section class="lform" id="lead-form" aria-labelledby="lform-title" dir="ltr">
       <div class="lform__stage">
-        <h2 class="lform__title" id="lform-title">אוטוריטות <span class="lform__hl">זה מפה</span></h2>
-        <p class="lform__sub">כאן מתחילים את הדרך למיתוג מצליח וממיר בדיגיטל.</p>
+        <h2 class="lform__title" id="lform-title">Authority <span class="lform__hl">starts here</span></h2>
+        <p class="lform__sub">This is where the journey to a successful, high-converting digital brand begins.</p>
 
         <form class="lform__form" id="leadForm" novalidate>
-          <input class="lform__input" type="text" name="name" placeholder="היי, איך קוראים לך?" required autocomplete="name">
-          <input class="lform__input" type="tel" name="phone" placeholder="מה הטלפון?" required autocomplete="tel" inputmode="tel" dir="rtl">
-          <textarea class="lform__input lform__textarea" name="business" rows="4" placeholder="ספרו לנו על העסק שלכם"></textarea>
+          <input class="lform__input" type="text" name="name" placeholder="Hey, what's your name?" required autocomplete="name">
+          <input class="lform__input" type="tel" name="phone" placeholder="What's your phone number?" required autocomplete="tel" inputmode="tel" dir="ltr">
+          <textarea class="lform__input lform__textarea" name="business" rows="4" placeholder="Tell us about your business"></textarea>
 
           <label class="lform__consent">
             <input class="lform__check" type="checkbox" name="consent" required>
-            <span>באישור טופס זה אני מסכים/ה ל<a href="privacy.html" target="_blank" rel="noopener">מדיניות הפרטיות</a> של האתר</span>
+            <span>By submitting this form, I agree to the site's <a href="../privacy.html" target="_blank" rel="noopener">privacy policy</a></span>
           </label>
 
           <button class="btn btn--pink lform__submit" type="submit">
-            <span class="btn__txt">שלחו - ונחזור אליכם בהקדם</span>
+            <span class="btn__txt">Send - we'll get back to you shortly</span>
             <span class="btn__icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
             </span>
@@ -578,45 +591,44 @@
   <footer class="site-footer">
     <div class="container">
       <p class="credit" data-role="credit">
-        <a href="https://mayi.dev/prowebs" rel="follow">נבנה ועוצב באהבה על ידי May I - המערכת העסקית שלך 2026</a>
+        <a href="https://mayi.dev/prowebs/en" rel="follow">Built and designed with love by May I - your business engine © 2026</a>
       </p>
-      <nav class="footer-social" aria-label="רשתות חברתיות" dir="rtl">
-        <a href="https://www.instagram.com/mayi.dev_ai/" target="_blank" rel="noopener" aria-label="אינסטגרם" class="fsoc fsoc--ig">
+      <nav class="footer-social" aria-label="Social media" dir="ltr">
+        <a href="https://www.instagram.com/mayi.dev_ai/" target="_blank" rel="noopener" aria-label="Instagram" class="fsoc fsoc--ig">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.15" fill="currentColor" stroke="none"/></svg>
         </a>
-        <a href="https://www.facebook.com/mayi.ai.systemize" target="_blank" rel="noopener" aria-label="פייסבוק" class="fsoc fsoc--fb">
+        <a href="https://www.facebook.com/mayi.ai.systemize" target="_blank" rel="noopener" aria-label="Facebook" class="fsoc fsoc--fb">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14.5 8.5V6.9c0-.9.5-1.4 1.5-1.4h1.6V2.6h-2.6c-2.6 0-4 1.6-4 4v1.9H8.4v3h2.6v9.9h3.5v-9.9h2.7l.4-3h-3.1z" fill="currentColor" stroke="none"/></svg>
         </a>
-        <a href="https://www.tiktok.com/@mayi.dev_systemiz" target="_blank" rel="noopener" aria-label="טיקטוק" class="fsoc fsoc--tt">
+        <a href="https://www.tiktok.com/@mayi.dev_systemiz" target="_blank" rel="noopener" aria-label="TikTok" class="fsoc fsoc--tt">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 2.8c.4 2.2 1.8 3.6 4 3.9v3.1c-1.5 0-2.9-.5-4-1.3v6.2c0 4-2.7 6.5-6.2 6.5-3.3 0-5.8-2.4-5.8-5.6 0-3.3 2.8-5.7 6.3-5.4v3.2c-1.7-.3-3.1.7-3.1 2.2 0 1.4 1.1 2.4 2.6 2.4 1.7 0 2.9-1.2 2.9-3.3V2.8h3.3z" fill="currentColor" stroke="none"/></svg>
         </a>
-        <a href="https://www.linkedin.com/in/rotem-automations/" target="_blank" rel="noopener" aria-label="לינקדאין" class="fsoc fsoc--in">
+        <a href="https://www.linkedin.com/in/rotem-automations/" target="_blank" rel="noopener" aria-label="LinkedIn" class="fsoc fsoc--in">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.4 8.9v11.4H2.9V8.9h3.5zM4.6 3.2a2 2 0 110 4 2 2 0 010-4zM20.9 13.9v6.4h-3.5v-6c0-1.5-.6-2.5-2-2.5-1.1 0-1.7.7-2 1.4-.1.3-.1.6-.1 1v6.1H9.8V8.9h3.5v1.5c.5-.8 1.4-1.8 3.3-1.8 2.4 0 4.3 1.6 4.3 5.3z" fill="currentColor" stroke="none"/></svg>
         </a>
       </nav>
-      <nav class="footer-legal" aria-label="קישורים משפטיים" dir="rtl">
-        <a href="privacy.html">מדיניות פרטיות</a>
+      <nav class="footer-legal" aria-label="Legal links" dir="ltr">
+        <a href="../privacy.html">Privacy Policy</a>
         <span aria-hidden="true">·</span>
-        <a href="accessibility.html">הצהרת נגישות</a>
+        <a href="../accessibility.html">Accessibility Statement</a>
         <span aria-hidden="true">·</span>
-        <a href="terms.html">תנאי שימוש</a>
+        <a href="../terms.html">Terms of Use</a>
       </nav>
-      <p class="footer-note" dir="rtl">בעלת עסק יקרה - האתר נכתב בלשון זכר אבל מופנה גם אלייך.</p>
     </div>
   </footer>
 
   <!-- in-site preview popup (scroll the full site, no external navigation) -->
-  <div class="preview" hidden role="dialog" aria-modal="true" aria-label="תצוגת אתר">
+  <div class="preview" hidden role="dialog" aria-modal="true" aria-label="Site preview">
     <div class="preview__backdrop"></div>
     <div class="preview__window">
       <div class="preview__bar">
         <span class="preview__title"></span>
-        <span class="preview__hint">גללו לתצוגה מלאה</span>
-        <button class="preview__close" type="button" aria-label="סגור">✕</button>
+        <span class="preview__hint">Scroll to view full page</span>
+        <button class="preview__close" type="button" aria-label="Close">✕</button>
       </div>
       <div class="preview__body">
-        <div class="preview__loading">טוען אתר…</div>
-        <iframe class="preview__frame" title="תצוגת אתר חי" referrerpolicy="no-referrer" hidden></iframe>
+        <div class="preview__loading">Loading site…</div>
+        <iframe class="preview__frame" title="Live site preview" referrerpolicy="no-referrer" hidden></iframe>
         <div class="preview__imgwrap" hidden><img class="preview__img" alt=""></div>
       </div>
     </div>
@@ -633,10 +645,10 @@
     </defs>
   </svg>
 
-  <script src="js/starfield.js" defer></script>
+  <script src="../js/starfield.js" defer></script>
   <script src="js/showcase.js"></script>
   <script type="module" src="js/app.js"></script>
-  <script type="module" src="js/voxel-logo.js"></script>
+  <script type="module" src="../js/voxel-logo.js"></script>
 
   <!-- ===== Accessibility widget (UserWay · brand pink) ===== -->
   <script src="https://cdn.userway.org/widget.js" data-account="8BALlPTKaC" data-color="#ff007f" defer></script>
@@ -803,7 +815,7 @@
         // people STAY on screen — persistent floating element behind the next sections (k95-style)
         tl.to(words2, { yPercent: 145, rotate: 5, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.45)
           .to(words1, { yPercent: 145, rotate: 5, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.52)
-          // fully hide the lines once sunk so tall glyphs (ל, ט) leave no fragments
+          // fully hide the lines once sunk so tall glyphs leave no fragments
           .set([line1, line2], { autoAlpha: 0 }, 3.0)
           // once the text is gone, the trio glides back to centre; only then the pin releases
           .to(stage, { x: 0, ease: 'power2.inOut', duration: 0.55 }, 3.05);
@@ -835,7 +847,7 @@
         }
         gsap.set(beats, { autoAlpha: 0 });
 
-        // split the typing line into chars (word "מומחים" and " ב:" tracked separately)
+        // split the typing line into chars (word "Experts" and " in:" tracked separately)
         const splitChars = (el) => {
           const chars = [...el.textContent].map((ch) => {
             const sp = document.createElement('span');
@@ -924,7 +936,7 @@
               { autoAlpha: 0, y: -30, duration: 0.35, stagger: 0.05 }, 6.25)
           .set(b3, { autoAlpha: 0 }, 6.65);
 
-        // ---- beat 4: "מומחים ב:" typed out, list pops, micro line ----
+        // ---- beat 4: "Experts in:" typed out, list pops, micro line ----
         const b4 = q('.feat__beat--exp');
         const items = gsap.utils.toArray('.feat__list li');
         const micro = q('.feat__micro');
@@ -936,15 +948,15 @@
                   { scale: 1, y: 0, autoAlpha: 1, duration: 0.32, stagger: 0.3, ease: 'back.out(1.9)' }, 7.6)
           .fromTo(micro, { autoAlpha: 0, y: 18 }, { autoAlpha: 1, y: 0, duration: 0.3 }, 8.55);
 
-        // ---- beat 5: reverse — everything deletes back until only "מומחים." remains ----
+        // ---- beat 5: reverse — everything deletes back until only "Experts." remains ----
         const type = q('.feat__type');
         tl.to(micro, { autoAlpha: 0, duration: 0.2 }, 8.95)
           .to([...items].reverse(), { y: 24, autoAlpha: 0, duration: 0.22, stagger: 0.1, ease: 'power2.in' }, 9.0)
-          // backspace the " ב:" chars in reverse order
+          // backspace the " in:" chars in reverse order
           .to([...typedChars].reverse(), { opacity: 0, duration: 0.03, stagger: 0.1 }, 9.35)
-          // collapse the invisible " ב:" (and retire the caret) so the dot hugs the word dead-centre
+          // collapse the invisible " in:" (and retire the caret) so the dot hugs the word dead-centre
           .set([...typedChars, q('.feat__caret')], { display: 'none' }, 9.72)
-          // "מומחים" glides to the exact centre of the screen, gains its full stop
+          // "Experts" glides to the exact centre of the screen, gains its full stop
           .to(type, {
             y: () => window.innerHeight * 0.5 - (type.offsetTop + type.offsetHeight / 2),
             scale: 1.1, duration: 0.5, ease: 'power2.inOut'
@@ -1269,15 +1281,15 @@
             msg.hidden = false;
             msg.classList.add('is-error');
             msg.textContent = consent.checked
-              ? 'רגע - חסרים לנו כמה פרטים למעלה.'
-              : 'כמעט שם - צריך רק לאשר את מדיניות הפרטיות.';
+              ? 'Hold on - some details above are missing.'
+              : 'Almost there - just need you to accept the privacy policy.';
             return;
           }
           const payload = {
             name: form.querySelector('[name="name"]').value.trim(),
             phone: form.querySelector('[name="phone"]').value.trim(),
             business: form.querySelector('[name="business"]').value.trim(),
-            source: 'may-i-landing-page',
+            source: 'may-i-landing-page-en',
           };
           form.querySelectorAll('.lform__input, .lform__check, .lform__submit').forEach((el) => (el.disabled = true));
           fetch('https://services.leadconnectorhq.com/hooks/2nDPMlOipnxbqlydqEp9/webhook-trigger/1efb2166-d2ab-4e5a-9e09-30cbcb9fb3e2', {
@@ -1286,13 +1298,13 @@
             body: JSON.stringify(payload),
           })
             .then(() => {
-              window.location.href = 'thanks.html';
+              window.location.href = '../thanks.html';
             })
             .catch(() => {
               form.querySelectorAll('.lform__input, .lform__check, .lform__submit').forEach((el) => (el.disabled = false));
               msg.hidden = false;
               msg.classList.add('is-error');
-              msg.textContent = 'משהו השתבש - נסו שוב או כתבו לנו בוואטסאפ.';
+              msg.textContent = 'Something went wrong - try again or message us on WhatsApp.';
             });
         });
       })();
@@ -1301,16 +1313,16 @@
 
   <!-- floating WhatsApp (kadabra-style) -->
   <a class="wa-float"
-     href="https://wa.me/972523671878?text=%D7%94%D7%99%D7%99%20%D7%91%D7%95%D7%90%D7%95%20%D7%A0%D7%93%D7%91%D7%A8%20%D7%A2%D7%9C%20%D7%90%D7%AA%D7%A8"
-     target="_blank" rel="noopener" aria-label="דברו איתנו בוואטסאפ">
+     href="https://wa.me/972523671878?text=Hi!%20I%27d%20like%20to%20talk%20about%20a%20website"
+     target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
     <span class="wa-float__icon">
       <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.04 3C9.02 3 3.32 8.7 3.32 15.72c0 2.24.59 4.42 1.7 6.35L3.2 29l7.11-1.86a12.66 12.66 0 0 0 5.72 1.37h.01c7.01 0 12.72-5.7 12.72-12.72 0-3.4-1.32-6.6-3.72-9A12.65 12.65 0 0 0 16.04 3zm0 23.36h-.01c-1.9 0-3.76-.51-5.38-1.47l-.39-.23-4.22 1.1 1.13-4.11-.25-.42a10.5 10.5 0 0 1-1.61-5.61c0-5.83 4.74-10.57 10.58-10.57 2.82 0 5.48 1.1 7.47 3.1a10.5 10.5 0 0 1 3.1 7.48c0 5.83-4.75 10.57-10.57 10.57zm5.8-7.92c-.32-.16-1.88-.93-2.17-1.03-.29-.11-.5-.16-.72.16-.21.32-.82 1.03-1 1.24-.19.21-.37.24-.69.08-.32-.16-1.34-.5-2.56-1.58-.95-.84-1.58-1.88-1.77-2.2-.18-.32-.02-.49.14-.65.14-.14.32-.37.48-.56.16-.19.21-.32.32-.53.1-.21.05-.4-.03-.56-.08-.16-.72-1.72-.98-2.36-.26-.62-.52-.53-.72-.54l-.61-.01c-.21 0-.56.08-.85.4-.29.32-1.11 1.09-1.11 2.65s1.14 3.07 1.3 3.28c.16.21 2.24 3.42 5.42 4.8.76.33 1.35.52 1.81.67.76.24 1.45.21 2 .13.61-.09 1.88-.77 2.14-1.51.26-.74.26-1.38.19-1.51-.08-.13-.29-.21-.61-.37z"/></svg>
     </span>
-    <span class="wa-float__text">היוש</span>
+    <span class="wa-float__text">Hi!</span>
   </a>
 
   <!-- cookie consent -->
-  <aside class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <aside class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
     <div class="cookie__head">
       <span class="cookie__icon" aria-hidden="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
@@ -1321,12 +1333,12 @@
           <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
         </svg>
       </span>
-      <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+      <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
     </div>
-    <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+    <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
     <div class="cookie__actions">
-      <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
-      <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+      <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+      <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
     </div>
   </aside>
 
@@ -1339,8 +1351,8 @@
       // appear once the loader is done (body.loading removed), or after 8s fallback
       const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
       const waitForLoad = setInterval(() => {
-        if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
-      }, 300);
+        if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); show(); }
+      }, 200);
       const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
 
       box.addEventListener('click', (e) => {
