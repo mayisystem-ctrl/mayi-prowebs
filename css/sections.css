@@ -1,3 +1,65 @@
+/* ============ Section 3.5 — services detail (static, no animation) ============ */
+.svcs {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 14vh 6vw 12vh;
+}
+.svcs__title {
+  margin: 0 0 clamp(40px, 7vh, 76px);
+  font-family: var(--font-display, system-ui);
+  font-weight: 800;
+  font-size: clamp(28px, 4vw, 52px);
+  color: var(--ink, #fff);
+  text-align: center;
+}
+.svcs__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: clamp(24px, 3vw, 40px);
+}
+.svcs__item {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(14px, 2vh, 22px);
+  padding: clamp(24px, 2.6vw, 36px);
+  background: var(--bg-2, #0e0e12);
+  border: 1px solid var(--line, #26262e);
+}
+.svcs__item-title {
+  margin: 0;
+  font-family: var(--font-display, system-ui);
+  font-weight: 700;
+  font-size: clamp(19px, 1.7vw, 24px);
+  color: var(--ink, #fff);
+}
+.svcs__item-text {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: 15px;
+  line-height: 1.75;
+  color: var(--ink-2, #c8c8d0);
+}
+.svcs__item .btn--outline {
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 12px 22px;
+  border: 1px solid var(--line-2, #33333d);
+  background: transparent;
+  color: var(--ink, #fff);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  text-decoration: none;
+  transition: border-color .2s ease, color .2s ease;
+}
+.svcs__item .btn--outline:hover { border-color: var(--ink, #fff); }
+
+@media (max-width: 900px) {
+  .svcs__grid { grid-template-columns: 1fr; }
+}
+
 /* ============ Section 2.5 — expertise wormhole scroll sequence ============ */
 .feat {
   position: relative;
