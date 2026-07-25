@@ -151,8 +151,10 @@
   .fm-mob { display: inline; }
   .feat__beat--mobile { gap: 10px; }
   .feat__beat--mobile .feat__line { line-height: 1.1; position: relative; top: -11vh; }
-  .feat__beat--mobile .feat__line--sub { top: 10vh; }
+  .feat__beat--mobile .feat__line--sub { top: 17vh; }
   .feat__wink { display: none; }
+  /* extra breathing room between "מומחים." and the CTA button on short phones */
+  .feat__cta { top: calc(50% + clamp(62px, 11vh, 108px)); }
 }
 
 /* ============ Section 3 — video testimonials ============ */

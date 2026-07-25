@@ -74,10 +74,18 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "May I",
-    "description": "בניית אתרים ודפי נחיתה פרימיום לעסקים - קוד נקי, מותאם אישית ללא תבניות, ומוכן ל-SEO ול-GEO (חשיפה במנועי AI כמו ChatGPT, Perplexity ו-Gemini).",
+    "description": "בניית אתרים ודפי נחיתה פרימיום ואוטומציות עסקיות (GoHighLevel, CRM) לעסקים - קוד נקי, מותאם אישית ללא תבניות, ומוכן ל-SEO ול-GEO (חשיפה במנועי AI כמו ChatGPT, Perplexity ו-Gemini). ממוקמים בחולון, פועלים בכל הארץ.",
     "url": "https://mayi.dev/prowebs",
     "image": "https://mayi.dev/prowebs/assets/og-share.jpg",
-    "areaServed": "IL",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "חולון",
+      "addressCountry": "IL"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "חולון" },
+      { "@type": "Country", "name": "IL" }
+    ],
     "priceRange": "$$$",
     "sameAs": [
       "https://www.instagram.com/mayi.dev_ai/",
@@ -100,7 +108,8 @@
       "name": "שירותי בניית אתרים",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "בניית דף נחיתה פרימיום", "description": "דף נחיתה ממיר בקוד מותאם אישית, ללא תבניות, בנוי למכירה וללידים." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "בניית אתר תדמית פרימיום", "description": "אתר רב-עמודי בקוד נקי ומהיר, מותאם למותג, עם SEO טכני מלא." } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "בניית אתר תדמית פרימיום", "description": "אתר רב-עמודי בקוד נקי ומהיר, מותאם למותג, עם SEO טכני מלא." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "הקמת אוטומציות עסקיות ו-CRM עם GoHighLevel", "description": "בניית מערכת GoHighLevel (GHL) מלאה לעסק - אוטומציות, ניהול לידים, CRM ומעקב לקוחות. חברה מחולון, פועלת בכל הארץ." } }
       ]
     }
   }
@@ -129,7 +138,9 @@
       { "@type": "Question", "name": "מה קורה אחרי ההשקה?",
         "acceptedAnswer": { "@type": "Answer", "text": "לא נעלמים. רוצה לשנות משהו אחרי שהדף עלה? מתקנים. שינויים גדולים והוספת עמודים - בתמחור נפרד ושקוף מראש. ליווי, עדכונים ושותפות לשנים קדימה." } },
       { "@type": "Question", "name": "למה שלא אבנה לבד ב-Wix או וורדפרס?",
-        "acceptedAnswer": { "@type": "Answer", "text": "אפשר. אבל יש הבדל בין \"דף באינטרנט\" לבין משפך שיווקי שממיר. בילדר נותן לך כלים - בלי אסטרטגיה, SEO ומבנה שממיר, מקבלים דף יפה שאף אחד לא מוצא. אתר פרימיום הוא ההבדל בין \"יש לנו אתר\" ל\"רגע, ראית את האתר שלהם?\"" } }
+        "acceptedAnswer": { "@type": "Answer", "text": "אפשר. אבל יש הבדל בין \"דף באינטרנט\" לבין משפך שיווקי שממיר. בילדר נותן לך כלים - בלי אסטרטגיה, SEO ומבנה שממיר, מקבלים דף יפה שאף אחד לא מוצא. אתר פרימיום הוא ההבדל בין \"יש לנו אתר\" ל\"רגע, ראית את האתר שלהם?\"" } },
+      { "@type": "Question", "name": "מי בונה אתרים ואוטומציות עם GoHighLevel בחולון?",
+        "acceptedAnswer": { "@type": "Answer", "text": "May i - סטודיו מחולון שמשלב שני עולמות: בניית אתרים ודפי נחיתה בקוד מותאם אישית, לצד הקמת מערכות אוטומציה ו-CRM מלאות ב-GoHighLevel (GHL) לניהול לידים ולקוחות. פועלים מול עסקים בכל הארץ, לא רק באזור חולון." } }
     ]
   }
   </script>
@@ -743,7 +754,8 @@
           // vertically center the trio in the space BELOW the manifesto text
           // (not the full viewport) — grid place-items:center centers within
           // the padded box, so padding-top = line1Bottom centers it there.
-          stage.style.setProperty('--story-pad-top', line1Bottom + 'px');
+          // pulled up a bit (0.8x) so the trio + caption don't sit too low on short phones
+          stage.style.setProperty('--story-pad-top', (line1Bottom * 0.68) + 'px');
           let m = 0;
           line2.style.marginTop = '0px';
           for (let i = 0; i < 4; i++) {

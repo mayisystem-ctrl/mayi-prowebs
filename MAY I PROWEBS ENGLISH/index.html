@@ -87,10 +87,18 @@
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     "name": "May I",
-    "description": "Premium websites and landing pages for businesses - clean, fast, custom code, no templates, built ready for SEO and GEO (AI answer engines like ChatGPT, Perplexity, Gemini).",
+    "description": "Premium websites, landing pages, and GoHighLevel (GHL) business automation/CRM systems for businesses - clean, fast, custom code, no templates, built ready for SEO and GEO (AI answer engines like ChatGPT, Perplexity, Gemini). Based in Cholon, Israel, serving clients nationwide.",
     "url": "https://mayi.dev/prowebs/en",
     "image": "https://mayi.dev/prowebs/assets/og-share.jpg",
-    "areaServed": "IL",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Cholon",
+      "addressCountry": "IL"
+    },
+    "areaServed": [
+      { "@type": "City", "name": "Cholon" },
+      { "@type": "Country", "name": "IL" }
+    ],
     "priceRange": "$$$",
     "sameAs": [
       "https://www.instagram.com/mayi.dev_ai/",
@@ -113,7 +121,8 @@
       "name": "Website building services",
       "itemListElement": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium landing page build", "description": "Custom-coded, high-converting landing page - no templates, built for sales and leads." } },
-        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium business website build", "description": "Multi-page, custom-coded, fast website matched to the brand, with full technical SEO." } }
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Premium business website build", "description": "Multi-page, custom-coded, fast website matched to the brand, with full technical SEO." } },
+        { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "GoHighLevel (GHL) business automation and CRM setup", "description": "Full GoHighLevel (GHL) system build - automations, lead management, CRM, and client tracking. Based in Cholon, Israel, serving clients nationwide." } }
       ]
     }
   }
@@ -142,7 +151,9 @@
       { "@type": "Question", "name": "What happens after launch?",
         "acceptedAnswer": { "@type": "Answer", "text": "We don't disappear. Want to change something after the page goes live? We'll fix it. Bigger changes and new pages are priced separately and transparently, upfront. Ongoing support, updates, and a partnership for years to come." } },
       { "@type": "Question", "name": "Why not just build it myself on Wix or WordPress?",
-        "acceptedAnswer": { "@type": "Answer", "text": "You can. But there's a difference between a page on the internet and a marketing funnel that actually converts. A builder gives you tools - without strategy, SEO, or a structure built to convert, you end up with a pretty page nobody finds. A premium website is the difference between \"we have a website\" and \"wait, have you seen their site?\"" } }
+        "acceptedAnswer": { "@type": "Answer", "text": "You can. But there's a difference between a page on the internet and a marketing funnel that actually converts. A builder gives you tools - without strategy, SEO, or a structure built to convert, you end up with a pretty page nobody finds. A premium website is the difference between \"we have a website\" and \"wait, have you seen their site?\"" } },
+      { "@type": "Question", "name": "Who builds websites and GoHighLevel automations in Cholon?",
+        "acceptedAnswer": { "@type": "Answer", "text": "May I - a studio based in Cholon, Israel, combining two things: custom-coded websites and landing pages, plus full GoHighLevel (GHL) automation and CRM system builds for lead and client management. Works with businesses across all of Israel, not just the Cholon area." } }
     ]
   }
   </script>
@@ -755,7 +766,7 @@
           // vertically center the trio in the space BELOW the manifesto text
           // (not the full viewport) — grid place-items:center centers within
           // the padded box, so padding-top = line1Bottom centers it there.
-          stage.style.setProperty('--story-pad-top', line1Bottom + 'px');
+          stage.style.setProperty('--story-pad-top', (line1Bottom * 0.68) + 'px');
           let m = 0;
           line2.style.marginTop = '0px';
           for (let i = 0; i < 4; i++) {
