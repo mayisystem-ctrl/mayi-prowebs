@@ -2,27 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://mayi.dev/prowebs</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mayi.dev/prowebs/en</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://mayi.dev/prowebs/privacy</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://mayi.dev/prowebs/terms</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <priority>0.3</priority>
   </url>
   <url>
     <loc>https://mayi.dev/prowebs/accessibility</loc>
-    <lastmod>2026-07-12</lastmod>
+    <lastmod>2026-08-02</lastmod>
     <priority>0.3</priority>
   </url>
 </urlset>
