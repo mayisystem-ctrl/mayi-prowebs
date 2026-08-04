@@ -1,23 +1,23 @@
 @import url("../css/style.css");
 
 /* ============================================================
-   May i — Blog
+   May i - Blog
    Extends the locked design system (dark, pink accent, Rubik body).
-   Headings use Pfennig (OFL) instead of Anka — distinct editorial
+   Headings use Open Sans Hebrew instead of Anka - distinct editorial
    voice for the blog only, doesn't touch the main site's type lock.
    ============================================================ */
 
 @font-face {
-  font-family: "Pfennig";
-  src: url("../assets/fonts/pfennig/pfennig-webfont.woff") format("woff");
+  font-family: "Open Sans Hebrew";
+  src: url("../assets/fonts/open-sans-hebrew/opensanshebrew-regular-webfont.woff") format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Pfennig";
-  src: url("../assets/fonts/pfennig/pfennigbold-webfont.woff") format("woff");
+  font-family: "Open Sans Hebrew";
+  src: url("../assets/fonts/open-sans-hebrew/opensanshebrew-bold-webfont.woff") format("woff");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -28,7 +28,7 @@
 .article h1,
 .article-body h2,
 .article-cta h2 {
-  font-family: "Pfennig", var(--font-display);
+  font-family: "Open Sans Hebrew", var(--font-display);
 }
 
 .blog-header {
