@@ -2,9 +2,34 @@
 
 /* ============================================================
    May i — Blog
-   Extends the locked design system (Anka/Rubik, dark, pink accent).
-   No new tokens invented — reuses --pink/--green/--ink from style.css.
+   Extends the locked design system (dark, pink accent, Rubik body).
+   Headings use Pfennig (OFL) instead of Anka — distinct editorial
+   voice for the blog only, doesn't touch the main site's type lock.
    ============================================================ */
+
+@font-face {
+  font-family: "Pfennig";
+  src: url("../assets/fonts/pfennig/pfennig-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Pfennig";
+  src: url("../assets/fonts/pfennig/pfennigbold-webfont.woff") format("woff");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+.blog-header h1,
+.post-card h2,
+.article h1,
+.article-body h2,
+.article-cta h2 {
+  font-family: "Pfennig", var(--font-display);
+}
 
 .blog-header {
   padding: 48px 0 32px;
