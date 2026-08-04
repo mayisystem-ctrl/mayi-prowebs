@@ -26,6 +26,7 @@ Israeli businesses and brands - particularly larger companies and premium/presti
 ## Pages
 - [Hebrew (primary)](https://mayi.dev/prowebs)
 - [English](https://mayi.dev/prowebs/en)
+- [Blog](https://mayi.dev/prowebs/blog) - practical articles on websites, landing pages, and business automation
 
 ## Contact / social
 - [Instagram](https://www.instagram.com/mayi.dev_ai/)
