@@ -130,9 +130,15 @@
 .article h1 { margin-bottom: 20px; }
 
 .article .lead {
-  border-inline-start: 3px solid var(--pink);
-  padding-inline-start: 20px;
   margin-bottom: 40px;
+}
+
+.hl {
+  color: var(--ink);
+  text-decoration: underline;
+  text-decoration-color: var(--pink);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
 }
 
 .article-body { max-width: 760px; margin-inline: auto; padding-bottom: 96px; }
