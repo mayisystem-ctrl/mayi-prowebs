@@ -17,7 +17,7 @@
         { "key": "X-Frame-Options", "value": "SAMEORIGIN" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
-        { "key": "Content-Security-Policy-Report-Only", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://unpkg.com https://cdn.userway.org; style-src 'self' 'unsafe-inline' https://cdn.userway.org; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://services.leadconnectorhq.com https://cdn.userway.org https://*.userway.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://services.leadconnectorhq.com" }
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://cdn.jsdelivr.net https://unpkg.com https://cdn.userway.org; style-src 'self' 'unsafe-inline' https://cdn.userway.org; img-src 'self' data: https:; font-src 'self' data:; connect-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://services.leadconnectorhq.com https://cdn.userway.org https://*.userway.org; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://services.leadconnectorhq.com" }
       ]
     }
   ]
