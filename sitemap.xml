@@ -31,6 +31,16 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://mayi.dev/prowebs/blog/geo-aeo-ai-search-guide</loc>
+    <lastmod>2026-08-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mayi.dev/prowebs/en/blog/geo-aeo-ai-search-guide</loc>
+    <lastmod>2026-08-07</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mayi.dev/prowebs/privacy</loc>
     <lastmod>2026-08-02</lastmod>
     <priority>0.3</priority>
