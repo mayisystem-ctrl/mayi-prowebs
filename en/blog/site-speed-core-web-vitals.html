@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Site Speed &amp; Core Web Vitals - Why It Matters More Than Design | May I</title>
+<meta name="description" content="Google found that 53% of mobile visitors abandon a page that takes over 3 seconds to load, and since June 2021 Core Web Vitals is an official ranking factor. A practical guide to what actually determines site speed, and why template builders usually lose on it.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/site-speed-core-web-vitals">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/site-speed-core-web-vitals">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/site-speed-core-web-vitals">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/site-speed-core-web-vitals">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Site Speed & Core Web Vitals - Why It Matters More Than Design",
+  "datePublished": "2026-08-10",
+  "dateModified": "2026-08-10",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/site-speed-core-web-vitals"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are Core Web Vitals and why does Google use them?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Core Web Vitals are three official Google metrics for speed and user experience: LCP (how long it takes for the main content to appear), INP (how fast the page responds to a click), and CLS (how much the page shifts around while loading). Google announced them as a ranking factor in May 2020, and the actual rollout into search results began in June 2021." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can a site built on WordPress or Wix pass Core Web Vitals?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Technically yes, but in practice it depends on the number of plugins, third-party scripts, and the theme chosen - all of which add code the page doesn't actually need. A site built with custom code for the specific page tends to clear the metrics far more easily, because there's no excess weight to drag along." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check if my site is fast enough?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The official tool is Google's PageSpeed Insights, which shows both a lab score and real-user data (CrUX) for a specific URL. Check mobile performance especially - that's where the gap between a fast and a slow site is felt most." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Aug 10, 2026 · May I</span></div>
+    <h1>Site Speed &amp; Core Web Vitals - Why It Matters More Than Design</h1>
+    <p class="lead">Short answer: load speed affects two separate things at once - how many people even stay on your site, and how highly it ranks in Google. On mobile, Google found that <span class="hl">53% of visitors abandon a page that takes longer than 3 seconds to load</span> (source: <a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/" target="_blank" rel="noopener">thinkwithgoogle.com</a>), and since June 2021 speed is also an official Google ranking factor through three metrics called Core Web Vitals. This isn't a minor technical detail - it's the difference between a site people actually see, and one nobody waits around for.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>What Core Web Vitals actually measure</h2>
+    <p>Three metrics, each checking something different: LCP (Largest Contentful Paint) measures how long it takes for the main content on the page to appear on screen. INP (Interaction to Next Paint) measures how fast the page responds when someone clicks a button or link. CLS (Cumulative Layout Shift) measures how much elements on the page jump around while loading - the annoying effect where you tap a button and, because an image loaded above it, you actually tap something else.</p>
+    <p>Google announced these metrics would become part of ranking in May 2020, giving site owners a full year to prepare - the actual rollout into search results began in June 2021 (source: <a href="https://developers.google.com/search/blog/2020/11/timing-for-page-experience" target="_blank" rel="noopener">developers.google.com</a>). Worth being precise here: Google never published an exact weighting, and most industry testing suggests Core Web Vitals mainly act as a tiebreaker between pages of similar relevance - not a factor that catapults a weak page to the top. But as a tiebreaker between two sites competing for the same search intent, it decides the outcome more often than not.</p>
+
+    <h2>The number that explains why this is also money, not just rankings</h2>
+    <p>Beyond Google, there's a direct effect on human behavior. In the same Google study, which analyzed traffic across hundreds of thousands of mobile landing pages, the probability of a bounce increased by 32% as load time went from 1 second to 3 seconds - and by the time a page reaches 10 seconds, bounce probability more than doubles (source: <a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/" target="_blank" rel="noopener">thinkwithgoogle.com</a>). Put simply: every extra second of load time isn't just a worse user experience - it's leads and customers who simply don't wait.</p>
+
+    <h2>Why template builders usually lose here</h2>
+    <p>WordPress with a ready-made theme, a page builder like Elementor, or a platform like Wix - all of them are built to serve thousands of different use cases at once. That's exactly what makes them easy to start with, and also what weighs them down on speed: your page loads alongside CSS and JavaScript meant to support design options you never use, plugins each adding their own network requests and dependencies, and third-party scripts that accumulated over time and nobody ever removes.</p>
+    <p>This isn't necessarily a defect - it's a structural consequence of a general-purpose platform. The problem starts once dozens of plugins pile up on top of a theme that was never built exactly for your content, and every layer adds a few more tenths of a second to load time.</p>
+
+    <h2>Custom code - not magic, a structural advantage</h2>
+    <p>A site built with custom code for the specific page isn't "faster" because of some magical technology - it's faster because <span class="hl">it only sends the browser what the page actually needs</span>, without generic styling layers or plugins built for other scenarios. That's a structural advantage, not a marketing claim: less code to load, fewer network requests, fewer surprises where the layout shifts mid-load. That's why building on clean custom code is usually a better starting point for clearing Core Web Vitals - not an absolute guarantee, since you can also build a slow custom site if nobody's paying attention, but the potential performance ceiling is far higher.</p>
+
+    <h2>Speed and content structure also affect visibility in AI engines</h2>
+    <p>There's another angle here that matters more every month: AI engines like ChatGPT and Perplexity don't just cite sites based on content - they first need to crawl and load the page, then find the answer quickly. A study on ChatGPT citations published in Search Engine Land found that 44.2% of citations come from the first 30% of a document (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). A slow site with a bloated page that delays the main content from appearing (high LCP) doesn't just hurt user experience - it also makes it harder for an AI engine to quickly reach the answer that should be right at the top of the page. Load speed and good content structure are two sides of the same coin: both are trying to get someone - a human or a machine - what they're looking for as fast as possible.</p>
+
+    <h2>What to actually check</h2>
+    <ul>
+      <li>The official tool is Google's PageSpeed Insights - it shows both a lab score and real-user data (CrUX) for a specific URL.</li>
+      <li>Always check mobile, not just desktop - that's where the gap is felt most, and where most businesses' traffic actually is.</li>
+      <li>Look at all three metrics separately - a page can score great on LCP and poorly on CLS, and the fix for each is completely different.</li>
+      <li>Recheck after any significant site change - a new plugin, a theme change, or a new heavy image can move the numbers without anyone noticing.</li>
+    </ul>
+
+    <div class="article-cta">
+      <h2>Want a site that looks great and loads fast?</h2>
+      <p>We build sites with custom code that's tested against Core Web Vitals before it goes live - not a generic template carrying weight that has nothing to do with your page.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מהירות אתר ו-Core Web Vitals - למה זה קובע יותר מהעיצוב | May I</title>
+<meta name="description" content="גוגל מצאה ש-53% מגולשי הנייד עוזבים דף שטוען מעל 3 שניות, ומיוני 2021 Core Web Vitals הם גורם דירוג רשמי. מדריך מעשי למה שבאמת קובע מהירות אתר, ולמה תבניות מוכנות בדרך כלל מפסידות בזה.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/site-speed-core-web-vitals">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/site-speed-core-web-vitals">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/site-speed-core-web-vitals">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/site-speed-core-web-vitals">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "מהירות אתר ו-Core Web Vitals - למה זה קובע יותר מהעיצוב",
+  "datePublished": "2026-08-10",
+  "dateModified": "2026-08-10",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/site-speed-core-web-vitals"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה זה Core Web Vitals ולמה גוגל משתמשת בהם?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Core Web Vitals הם שלושה מדדים רשמיים של גוגל למהירות וחוויית שימוש: LCP (כמה זמן לוקח לתוכן העיקרי להופיע), INP (כמה מהר האתר מגיב ללחיצה) ו-CLS (כמה האתר קופץ בזמן הטעינה). גוגל הכריזה עליהם כגורם דירוג במאי 2020, וההטמעה בפועל בתוצאות החיפוש יצאה לדרך ביוני 2021." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם אתר שנבנה בוורדפרס או Wix יכול לעמוד ב-Core Web Vitals?",
+      "acceptedAnswer": { "@type": "Answer", "text": "טכנית כן, אבל בפועל זה תלוי במספר התוספים, סקריפטים של צד שלישי והתבנית שנבחרה - כל אלה מוסיפים קוד שהעמוד לא באמת צריך. אתר שנבנה בקוד מותאם אישית לדף הספציפי נוטה לעמוד במדדים בקלות רבה יותר, כי אין בו עודף שצריך לגרור." }
+    },
+    {
+      "@type": "Question",
+      "name": "איך בודקים אם האתר שלי מספיק מהיר?",
+      "acceptedAnswer": { "@type": "Answer", "text": "הכלי הרשמי הוא PageSpeed Insights של גוגל, שמציג גם ציון מעבדה וגם נתוני משתמשים אמיתיים (CrUX) לפי כתובת URL. חשוב לבדוק במיוחד את חוויית הנייד, כי שם הפער בין אתר מהיר לאיטי מורגש הכי חזק." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">SEO טכני <span>· 10.8.2026 · May I</span></div>
+    <h1>מהירות אתר ו-Core Web Vitals - למה זה קובע יותר מהעיצוב</h1>
+    <p class="lead">התשובה הקצרה: מהירות טעינה משפיעה בו-זמנית על שני דברים נפרדים - כמה אנשים בכלל נשארים באתר, וכמה גבוה הוא מדורג בגוגל. גוגל מצאה שבנייד <span class="hl">53% מהגולשים עוזבים דף שלוקח יותר מ-3 שניות להיטען</span> (מקור: <a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/" target="_blank" rel="noopener">thinkwithgoogle.com</a>), ומיוני 2021 המהירות היא גם גורם דירוג רשמי בגוגל דרך שלושה מדדים שנקראים Core Web Vitals. זה לא פרט טכני שולי - זה ההבדל בין אתר שאנשים בכלל רואים, לאתר שאיש לא מחכה שייטען.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>מה בעצם נמדד ב-Core Web Vitals</h2>
+    <p>שלושה מדדים, כל אחד בודק דבר אחר: LCP (Largest Contentful Paint) מודד כמה זמן לוקח לתוכן העיקרי בעמוד להופיע על המסך. INP (Interaction to Next Paint) מודד כמה מהר העמוד מגיב כשמישהו לוחץ על כפתור או קישור. CLS (Cumulative Layout Shift) מודד כמה האלמנטים בעמוד "קופצים" ממקום למקום תוך כדי טעינה - התופעה המעצבנת שבה לוחצים על כפתור ובגלל שתמונה נטענה למעלה, בפועל לוחצים על משהו אחר.</p>
+    <p>גוגל הכריזה שהמדדים האלה יהפכו לחלק מהדירוג במאי 2020, ונתנה לבעלי אתרים שנה שלמה להתכונן - ההטמעה בתוצאות החיפוש עצמן יצאה לדרך ביוני 2021 (מקור: <a href="https://developers.google.com/search/blog/2020/11/timing-for-page-experience" target="_blank" rel="noopener">developers.google.com</a>). חשוב לדייק: גוגל לא פרסמה משקל מדויק, ורוב הבדיקות בתעשייה מצביעות על כך ש-Core Web Vitals פועלים בעיקר כשובר שוויון בין עמודים דומים ברלוונטיות - לא כגורם שמזניק עמוד חלש למקום ראשון. אבל כשובר שוויון, בין שני אתרים שמתחרים על אותה כוונת חיפוש, הוא מכריע לא פעם.</p>
+
+    <h2>המספר שמסביר למה זה גם כסף, לא רק דירוג</h2>
+    <p>מעבר לגוגל, יש כאן השפעה ישירה על התנהגות אנשים. באותו מחקר של גוגל, שבדק תעבורה במאות אלפי דפי נחיתה בנייד, נמצא שכשזמן הטעינה עולה מ-1 שניה ל-3 שניות, הסבירות לנטישה עולה ב-32% - וכשהטעינה מגיעה ל-10 שניות, הסבירות לנטישה גדלה ביותר מפי 2 (מקור: <a href="https://www.thinkwithgoogle.com/marketing-strategies/app-and-mobile/mobile-page-speed-new-industry-benchmarks/" target="_blank" rel="noopener">thinkwithgoogle.com</a>). במילים פשוטות: כל שניה נוספת של טעינה היא לא רק חוויית משתמש פחות טובה - היא לידים ולקוחות שפשוט לא מחכים.</p>
+
+    <h2>למה תבניות מוכנות בדרך כלל מפסידות כאן</h2>
+    <p>וורדפרס עם ערכת עיצוב מוכנה, בילדר עמודים כמו Elementor, או פלטפורמה כמו Wix - כולן בנויות לשרת אלפי מקרי שימוש שונים בו-זמנית. זה בדיוק מה שהופך אותן לנוחות להתחלה, וגם למה שמכביד עליהן במהירות: העמוד שלכם נטען יחד עם קוד CSS ו-JavaScript שנועדו לתמוך באפשרויות עיצוב שאתם לא משתמשים בהן, תוספים (plugins) שכל אחד מהם מוסיף בקשות רשת ותלות משלו, וסקריפטים של צד שלישי שהצטברו עם הזמן ואף אחד לא מסיר.</p>
+    <p>זו לא בהכרח תקלה - זו תוצאה מובנית של פלטפורמה כללית. הבעיה מתחילה כשמצטברים עשרות תוספים על גבי תבנית שממילא לא בנויה בדיוק לתוכן שלכם, וכל שכבה כזו מוסיפה עוד כמה עשיריות שניה לטעינה.</p>
+
+    <h2>קוד מותאם אישית - לא קסם, יתרון מבני</h2>
+    <p>אתר שנבנה בקוד מותאם אישית לדף הספציפי לא "מהיר יותר" בגלל איזו טכנולוגיה קסומה - הוא מהיר יותר כי <span class="hl">הוא שולח לדפדפן רק את מה שהעמוד באמת צריך</span>, בלי שכבות עיצוב כלליות ובלי תוספים שנועדו לתרחישים אחרים. זה יתרון מבני, לא שיווקי: פחות קוד לטעון, פחות בקשות רשת, פחות הפתעות בזמן שינוי עיצוב תוך כדי טעינה. זו הסיבה שבניית אתר בקוד נקי היא בדרך כלל נקודת פתיחה טובה יותר לעמידה ב-Core Web Vitals - לא ערבון מוחלט, כי אפשר גם לבנות אתר מותאם אישית איטי אם לא שמים לב, אבל תקרת הביצועים הפוטנציאלית גבוהה בהרבה.</p>
+
+    <h2>מהירות ומבנה תוכן משפיעים גם על נראות במנועי AI</h2>
+    <p>יש כאן זווית נוספת שרלוונטית יותר ויותר: מנועי AI כמו ChatGPT ו-Perplexity לא רק מצטטים אתרים לפי תוכן - הם צריכים קודם לסרוק ולטעון את העמוד, ואז למצוא בו את התשובה מהר. מחקר על ציטוטי ChatGPT שפורסם ב-Search Engine Land מצא ש-44.2% מהציטוטים מגיעים מה-30% הראשונים של המסמך (מקור: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). אתר איטי עם עמוד עמוס שמעכב את הופעת התוכן העיקרי (LCP גבוה) לא רק פוגע בחוויית המשתמש - הוא גם מקשה על מנוע AI להגיע במהירות לתשובה שאמורה להיות בתחילת העמוד. מהירות טעינה ומבנה תוכן טוב הם שני צדדים של אותו מטבע: שניהם מנסים לתת למישהו - בן אדם או מכונה - את מה שהוא מחפש בהקדם האפשרי.</p>
+
+    <h2>מה בודקים בפועל</h2>
+    <ul>
+      <li>הכלי הרשמי הוא PageSpeed Insights של גוגל - הוא מציג גם ציון מעבדה וגם נתוני משתמשים אמיתיים (CrUX) לפי כתובת URL ספציפית.</li>
+      <li>בודקים תמיד בנייד, לא רק בדסקטופ - שם הפער הכי מורגש, ושם רוב התנועה של רוב העסקים נמצאת.</li>
+      <li>מסתכלים על שלושת המדדים בנפרד - עמוד יכול להיות מצוין ב-LCP וגרוע ב-CLS, והבעיה בכל אחד שונה לגמרי.</li>
+      <li>בודקים מחדש אחרי כל שינוי משמעותי באתר - הוספת תוסף, שינוי תבנית, או תמונה כבדה חדשה יכולים להזיז את המספרים בלי שמישהו ישים לב.</li>
+    </ul>
+
+    <div class="article-cta">
+      <h2>רוצים אתר שגם נראה טוב וגם נטען מהר?</h2>
+      <p>אנחנו בונים אתרים בקוד מותאם אישית שנבדק מול Core Web Vitals לפני שהוא עולה לאוויר - לא תבנית כללית שנושאת איתה עומס שלא רלוונטי לעמוד שלכם.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+</body>
+</html>
