@@ -16,6 +16,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mayi.dev/prowebs/blog/site-speed-core-web-vitals</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mayi.dev/prowebs/en/blog/site-speed-core-web-vitals</loc>
+    <lastmod>2026-08-10</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mayi.dev/prowebs/blog/landing-page-vs-website</loc>
     <lastmod>2026-08-04</lastmod>
     <priority>0.6</priority>
