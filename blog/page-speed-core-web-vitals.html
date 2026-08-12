@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מהירות אתר ו-Core Web Vitals - למה כל שנייה עולה לכם לקוחות | May I</title>
+<meta name="description" content="שיפור של 0.1 שנייה בזמן טעינה מעלה המרות ב-8.4%-10.1% במחקר של גוגל ו-Deloitte. איך Core Web Vitals משפיעים על דירוג וסגירת עסקאות, ולמה קוד מותאם אישית מנצח בילדרים.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/page-speed-core-web-vitals">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/page-speed-core-web-vitals">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/page-speed-core-web-vitals">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/page-speed-core-web-vitals">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "מהירות אתר ו-Core Web Vitals - למה כל שנייה עולה לכם לקוחות (ולמה קוד מותאם אישית מנצח בילדרים)",
+  "datePublished": "2026-08-12",
+  "dateModified": "2026-08-12",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/page-speed-core-web-vitals"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה זה Core Web Vitals ולמה זה חשוב ל-SEO?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Core Web Vitals הם שלושה מדדים שגוגל משתמשת בהם כדי לדרג חוויית משתמש בפועל: LCP (מהירות טעינת התוכן העיקרי, יעד מתחת ל-2.5 שניות), INP (מהירות תגובה ללחיצה, יעד מתחת ל-200 מילישניות), ו-CLS (יציבות ויזואלית, יעד מתחת ל-0.1). מאז 2021 הם חלק רשמי מגורמי הדירוג של גוגל, כך שאתר איטי לא רק מאבד המרות - הוא גם מדורג נמוך יותר." }
+    },
+    {
+      "@type": "Question",
+      "name": "אתר וורדפרס או ווליקס חייב להיות איטי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא בהכרח, אבל בפועל רוב האתרים שנבנים על בילדרים ותבניות מוכנות סוחבים קוד, פלאגינים וסקריפטים של צד שלישי שהם לא צריכים - כל שכבה כזו מוסיפה קריאות רשת ומאטה את הטעינה. קוד מותאם אישית נבנה מלכתחילה בלי את השכבות המיותרות, כך שקל הרבה יותר לשמור אותו מתחת לספים של Core Web Vitals." }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה מהירות הטעינה באמת משפיעה על שיעור ההמרה?",
+      "acceptedAnswer": { "@type": "Answer", "text": "מחקר משותף של גוגל ו-Deloitte על 37 אתרי מותג ומעל 30 מיליון סשנים מצא ששיפור של 0.1 שנייה בלבד בזמן טעינה בנייד מעלה המרות ב-8.4% בקמעונאות וב-10.1% בתעשיית הנסיעות. מחקר נפרד של Portent על מעל 100 מיליון צפיות עמוד מצא שאתר שנטען תוך שנייה ממיר פי שלושה יותר מאתר שנטען תוך חמש שניות." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">אתרים <span>· 12.8.2026 · May I</span></div>
+    <h1>מהירות אתר ו-Core Web Vitals - למה כל שנייה עולה לכם לקוחות</h1>
+    <p class="lead">התשובה הישירה: מחקר משותף של גוגל ו-Deloitte על 37 אתרי מותג ומעל 30 מיליון סשנים מצא ששיפור של <span class="hl">0.1 שנייה בלבד</span> בזמן טעינה בנייד מעלה המרות ב-8.4% בקמעונאות וב-10.1% בתעשיית הנסיעות (מקור: <a href="https://web.dev/case-studies/milliseconds-make-millions" target="_blank" rel="noopener">web.dev</a>). זו לא סטטיסטיקה תיאורטית - זו הסיבה שגוגל הפכה את מהירות הטעינה לגורם דירוג רשמי דרך Core Web Vitals, ולמה קוד מותאם אישית עדיף כמעט תמיד על בילדרים ותבניות מוכנות כשמדובר בביצועים.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>שלושת המספרים שגוגל באמת מודדת</h2>
+    <p>Core Web Vitals הם שלושה מדדים קונקרטיים, לא תחושה כללית של "מהיר" או "איטי":</p>
+    <ul>
+      <li><strong>LCP</strong> (Largest Contentful Paint) - כמה זמן לוקח עד שהתוכן העיקרי בעמוד נטען. היעד: מתחת ל-2.5 שניות.</li>
+      <li><strong>INP</strong> (Interaction to Next Paint) - כמה זמן לוקח לעמוד להגיב ללחיצה או נגיעה. היעד: מתחת ל-200 מילישניות.</li>
+      <li><strong>CLS</strong> (Cumulative Layout Shift) - כמה האלמנטים "קופצים" תוך כדי טעינה. היעד: מתחת ל-0.1.</li>
+    </ul>
+    <p>שלושת המדדים האלה (מקור: <a href="https://web.dev/articles/vitals" target="_blank" rel="noopener">web.dev</a>) הם חלק רשמי מאלגוריתם הדירוג של גוגל מאז 2021 - כלומר אתר שלא עומד בהם לא רק מאבד מבקרים באופן ישיר, הוא גם מתחיל את המרוץ על מקום בגוגל בנחיתות.</p>
+
+    <h2>איך זה מתורגם לכסף בפועל</h2>
+    <p>מעבר למחקר של גוגל ו-Deloitte, מחקר נפרד של סוכנות Portent שבדק מעל 100 מיליון צפיות עמוד ב-20 אתרים עסקיים מצא שאתר שנטען תוך שנייה אחת ממיר <span class="hl">פי שלושה</span> יותר מאתר שנטען תוך חמש שניות (מקור: <a href="https://portent.com/blog/analytics/research-site-speed-hurting-everyones-revenue.htm" target="_blank" rel="noopener">portent.com</a>). זה עקבי לגמרי עם ההיגיון: לקוח פוטנציאלי שממתין יותר מדי מאבד את הכוונה לפעולה, ולפעמים סוגר את הטאב לפני שהעמוד בכלל נטען.</p>
+    <p>הבעיה היא שרוב בעלי העסקים לא רואים את זה כמספר על המסך - הם רואים אותו כ"פחות פניות משהיה צריך", בלי לדעת למה. מהירות טעינה היא אחד הגורמים הבודדים שאפשר למדוד בדיוק, לתקן, ולראות את התוצאה תוך שבועות.</p>
+
+    <h2>למה בילדרים ותבניות מוכנות נכשלים כאן</h2>
+    <p>וורדפרס עם ערכת נושא כבדה, Wix, או כל בילדר גרירה-ושחרור לא בהכרח יעילים מבחינת קוד. כל פלאגין, כל תבנית מעוצבת מראש, וכל אפקט "יפה" שמותקן דרך שוק הרחבות מוסיף קובצי JavaScript ו-CSS שהדפדפן חייב להוריד ולהריץ - גם אם 90% מהקוד הזה לא רלוונטי לעמוד הספציפי שהמשתמש רואה. זו הסיבה שאתרי בילדר נוטים להיתקע על LCP איטי ו-CLS גבוה, גם כשהעיצוב עצמו נראה פשוט.</p>
+    <p>קוד מותאם אישית נבנה בכיוון ההפוך: מתחילים מדף ריק, ומוסיפים רק את מה שהעמוד באמת צריך. אין שכבת תרגום בין "מה שרוצים לבנות" לבין "מה שהבילדר יודע לייצר". התוצאה היא בדרך כלל עמוד קליל יותר, עם פחות בקשות רשת, שקל הרבה יותר לשמור מתחת לספים של Core Web Vitals - לא כי זה "יותר יקר", אלא כי אין קוד מיותר שצריך לפצות עליו.</p>
+
+    <h2>מה בפועל מאט אתרים</h2>
+    <ul>
+      <li>תמונות לא מותאמות - קובץ מקורי של 3MB במקום גרסה דחוסה ומותאמת גודל.</li>
+      <li>סקריפטים של צד שלישי - צ'אט, אנליטיקס, פיקסלים - שנטענים לפני התוכן במקום אחריו.</li>
+      <li>גופנים חיצוניים שחוסמים רינדור עד שהם נטענים במלואם.</li>
+      <li>קוד CSS/JS שמגיע מפלאגינים שרלוונטיים רק לעמודים אחרים באתר, אבל נטענים בכל מקרה.</li>
+    </ul>
+    <p>אף אחד מהם לא דורש "קסם טכני" כדי לתקן - הם דורשים שמישהו שם לב אליהם מלכתחילה, וזה בדיוק ההבדל בין אתר שנבנה עם תשומת לב לביצועים לבין אתר שהורכב מרכיבים מוכנים.</p>
+
+    <h2>הזווית שרוב העסקים מפספסים - זה משפיע גם על AI</h2>
+    <p>מהירות וביצועים לא משפיעים רק על משתמשים אנושיים וגוגל - הם משפיעים גם על כמה קל לרובוטים של מנועי AI לסרוק ולהבין את האתר. וזה מתחבר לכלל רחב יותר: מחקר שבדק ציטוטים של ChatGPT מצא ש-<span class="hl">44.2% מהציטוטים מגיעים מה-30% הראשונים של המסמך</span> (מקור: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). כלומר גם אתר עם תוכן מצוין לא ייעזר בו הרבה אם מנוע ה-AI (או המשתמש האנושי) נתקל בעיכוב טעינה עוד לפני שהוא מגיע לתוכן הזה. תשתית טכנית מהירה היא תנאי בסיס - לא בונוס - למי שרוצה גם דירוג בגוגל וגם נראות במנועי AI.</p>
+
+    <h2>איך בודקים את זה תוך שתי דקות</h2>
+    <p>הכלי הרשמי של גוגל, PageSpeed Insights, נותן ציון ומספרים מדויקים ל-LCP, INP ו-CLS על סמך נתונים אמיתיים ממשתמשים (כשיש מספיק תנועה) ובדיקת מעבדה. זה לא כלי שצריך לפרש - הוא פשוט אומר אם העמוד עומד ביעד או לא, ומצביע על הגורם הספציפי שגורם לעיכוב.</p>
+
+    <div class="article-cta">
+      <h2>רוצים לדעת איפה האתר שלכם עומד?</h2>
+      <p>אנחנו בונים אתרים ודפי נחיתה בקוד מותאם אישית מהיסוד - בלי בילדרים, בלי שכבות מיותרות - כדי שהביצועים יהיו חלק מהתוצאה, לא בעיה שמתקנים אחר כך.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+</body>
+</html>
