@@ -57,7 +57,7 @@
       // phones: place row so CTA→gallery gap == mark→title gap, measured from
       // real layout (offsetTop — immune to intro entrance transform & Safari
       // innerHeight changes). Fallback to old factor if elements missing.
-      const mark = hero.querySelector('.hero__mark');
+      const mark = document.querySelector('.hero__mark'); // body-level now (stays pinned across the whole page)
       const h1 = intro?.querySelector('h1');
       const actions = intro?.querySelector('.hero__actions');
       if (mark && h1 && actions && intro) {
@@ -110,7 +110,7 @@
       return;
     }
     // mobile: half the update rate (~30fps) — this loop runs through the heaviest
-    // moment on the page (spin + morph + WebGL logo mounting all at once).
+    // moment on the page (spin + morph, both driven by main-thread transforms).
     if (MOBILE && (skip = !skip)) { requestAnimationFrame(step); return; }
     if (startTS === null) startTS = now;
     const dt = Math.min(50, now - last) / 1000; last = now;

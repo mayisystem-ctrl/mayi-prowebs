@@ -480,38 +480,73 @@ export function mountVoxelPeople(container, options = {}) {
 }
 
 // auto-mount
+function mountPeopleEl(el) {
+  el._voxel = mountVoxelPeople(el);
+}
+function mountLogoEl(el) {
+  const mini = el.hasAttribute('data-voxel-mini');
+  // May i brand marks (default image) always stay fully alive.
+  // Other mobile shapes (target/star/question/rocket) get degraded — minis become
+  // one-shot snapshots (no live WebGL), non-mini decorative shapes (rocket) go lite (30fps).
+  const mayi = !el.dataset.voxelImage;
+  const snapshot = MOBILE && mini && !mayi;
+  const lite = MOBILE && !mini && !mayi;
+  const still = el.hasAttribute('data-voxel-still');
+  const baseRes = el.dataset.voxelRes ? parseFloat(el.dataset.voxelRes) : (mini ? 22 : CFG.res);
+  el._voxel = mountVoxelLogo(el, {
+    image: el.dataset.voxelImage || CFG.image,
+    interactive: still ? false : !mini,
+    hover: mini,
+    snapshot,
+    lite,
+    res: snapshot ? Math.max(16, Math.round(baseRes * 0.8)) : (lite ? Math.max(18, Math.round(baseRes * 0.7)) : baseRes),
+    autoSpeed: still ? 0 : (mini ? 0.006 : CFG.autoSpeed),
+    // the head-ring cleanup is specific to the May i logo; turn off for other shapes
+    cleanCircle: el.dataset.voxelCircle === 'off' ? false : CFG.cleanCircle,
+    // fixed tilt in degrees (e.g. 45 = leaning to the upper-left)
+    tilt: el.dataset.voxelTilt ? parseFloat(el.dataset.voxelTilt) * Math.PI / 180 : 0,
+    // left/right mirroring — turn off for directional shapes (flag)
+    symmetry: el.dataset.voxelSym === 'off' ? false : true,
+    // custom chrome tint (e.g. "#dfa422" mustard star) — default silver
+    color: el.dataset.voxelColor || null,
+  });
+}
+// mounting a WebGL voxel logo is inherently ~150-400ms of synchronous
+// main-thread work (mesh built from the source image) — requestIdleCallback
+// looked like the fix but a throttled device still has per-frame "idle" gaps
+// while the hero spin/morph loop runs, so it just fired the mount mid-animation
+// anyway. Mounting all 6-7 shapes together made it worse (this used to be
+// mobile-only, but the same collision — every shape mounting synchronously
+// right as the card-spin loop starts — stutters the spin on desktop too).
+// Fix: only the hero mark is needed soon (fades in right after the loading
+// screen) — mount it a beat after the gallery has visibly settled, not the
+// instant it settles. The .story shapes (rocket/people/pin/star/question)
+// stay invisible until the user scrolls to the .voxel section, so skip
+// paying for them up front at all — mount lazily once that section is
+// actually being scrolled into view.
 function boot() {
-  document.querySelectorAll('[data-voxel-people]').forEach((el) => {
-    el._voxel = mountVoxelPeople(el);
-  });
-  document.querySelectorAll('[data-voxel-logo]').forEach((el) => {
-    const mini = el.hasAttribute('data-voxel-mini');
-    // May i brand marks (default image) always stay fully alive.
-    // Other mobile shapes (target/star/question/rocket) get degraded — minis become
-    // one-shot snapshots (no live WebGL), non-mini decorative shapes (rocket) go lite (30fps).
-    const mayi = !el.dataset.voxelImage;
-    const snapshot = MOBILE && mini && !mayi;
-    const lite = MOBILE && !mini && !mayi;
-    const still = el.hasAttribute('data-voxel-still');
-    const baseRes = el.dataset.voxelRes ? parseFloat(el.dataset.voxelRes) : (mini ? 22 : CFG.res);
-    el._voxel = mountVoxelLogo(el, {
-      image: el.dataset.voxelImage || CFG.image,
-      interactive: still ? false : !mini,
-      hover: mini,
-      snapshot,
-      lite,
-      res: snapshot ? Math.max(16, Math.round(baseRes * 0.8)) : (lite ? Math.max(18, Math.round(baseRes * 0.7)) : baseRes),
-      autoSpeed: still ? 0 : (mini ? 0.006 : CFG.autoSpeed),
-      // the head-ring cleanup is specific to the May i logo; turn off for other shapes
-      cleanCircle: el.dataset.voxelCircle === 'off' ? false : CFG.cleanCircle,
-      // fixed tilt in degrees (e.g. 45 = leaning to the upper-left)
-      tilt: el.dataset.voxelTilt ? parseFloat(el.dataset.voxelTilt) * Math.PI / 180 : 0,
-      // left/right mirroring — turn off for directional shapes (flag)
-      symmetry: el.dataset.voxelSym === 'off' ? false : true,
-      // custom chrome tint (e.g. "#dfa422" mustard star) — default silver
-      color: el.dataset.voxelColor || null,
-    });
-  });
+  const hero = document.querySelector('.hero');
+  const settle = (fn) => {
+    if (!hero || hero.classList.contains('is-gallery')) { setTimeout(fn, 600); return; }
+    new MutationObserver((_, obs) => {
+      if (hero.classList.contains('is-gallery')) { obs.disconnect(); setTimeout(fn, 600); }
+    }).observe(hero, { attributes: true, attributeFilter: ['class'] });
+  };
+  settle(() => document.querySelectorAll('.hero__mark[data-voxel-logo]').forEach(mountLogoEl));
+
+  const voxelSection = document.querySelector('.voxel');
+  const mountStory = () => {
+    document.querySelectorAll('.story [data-voxel-people]').forEach(mountPeopleEl);
+    document.querySelectorAll('.story [data-voxel-logo]').forEach(mountLogoEl);
+  };
+  if (!voxelSection) { settle(mountStory); return; }
+  // shrink the intersection root's bottom edge so this only fires once the
+  // section is genuinely being scrolled toward, not already true at load
+  // (the section sits right below the 100vh hero, so a 0px margin would
+  // count it as "intersecting" before the user has scrolled at all).
+  new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting) { obs.disconnect(); mountStory(); }
+  }, { rootMargin: '0px 0px -40% 0px' }).observe(voxelSection);
 }
 if (document.readyState === 'loading') addEventListener('DOMContentLoaded', boot);
 else boot();

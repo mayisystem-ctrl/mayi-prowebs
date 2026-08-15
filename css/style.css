@@ -464,6 +464,93 @@ body { background: #050507; }
 }
 .goo-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
 
+/* ---- shortcuts menu: small burger tight to the brand mark's right edge ----
+   Lives at body level (see index.html), not inside .hero, so position:fixed
+   keeps it pinned for the whole page instead of riding off with the hero's
+   GSAP pin transform. GSAP's pin also gives .hero an inline transform, which
+   makes it a containing block for fixed descendants — so .hero__mark's own
+   50% resolves against a different width than this body-level button's 50%
+   would (off by half the scrollbar width). Rather than hardcode that gap,
+   `left` is set in JS from the mark's real getBoundingClientRect() (see the
+   hero-menu IIFE in index.html); the value below is just a pre-JS fallback.
+   Fades in with the mark itself (same body:not(.loading) gate, same .8s). */
+.hero__menu-btn {
+  position: fixed;
+  top: 21px;                  /* centers the 32px box on the mark's own vertical center */
+  left: calc(50% + 33px);     /* fallback until JS positions it precisely */
+  width: 32px;
+  height: 32px;
+  z-index: 40;
+  border: 0;
+  background: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  cursor: pointer;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .8s ease;
+}
+body:not(.loading) .hero__menu-btn { opacity: 1; pointer-events: auto; }
+.hero__menu-btn span {
+  display: block;
+  width: 14px;
+  height: 2px;
+  background: #fff;
+  transition: transform .25s var(--ease), opacity .25s var(--ease);
+}
+.hero__menu-btn.is-open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.hero__menu-btn.is-open span:nth-child(2) { opacity: 0; }
+.hero__menu-btn.is-open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.hero__menu {
+  position: fixed;
+  top: 62px;
+  left: 50%;
+  transform: translate(-50%, -8px);
+  width: min(240px, calc(100vw - 32px));
+  z-index: 40;
+  background: color-mix(in oklab, var(--bg-2) 92%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line-2);
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .22s var(--ease), transform .22s var(--ease);
+}
+.hero__menu.is-open { opacity: 1; transform: translate(-50%, 0); pointer-events: auto; }
+
+/* brief fade used only for the shortcuts-menu jump (see index.html) — hides
+   the instant scroll jump so it reads as a transition, not a hard cut */
+body { transition: opacity .18s ease; }
+body.page-flash { opacity: 0; }
+.hero__menu a {
+  display: block;
+  padding: 11px 10px;
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 15px;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  transition: color .2s var(--ease);
+}
+.hero__menu a:last-child { border-bottom: 0; }
+.hero__menu a:hover, .hero__menu a:focus-visible { color: var(--pink); }
+
+@media (max-width: 768px) {
+  .hero__menu-btn { top: 22px; left: calc(50% + 25px); width: 26px; height: 26px; gap: 3px; } /* fallback, see JS */
+  .hero__menu-btn span { width: 12px; height: 1.5px; }
+  .hero__menu-btn.is-open span:nth-child(1) { transform: translateY(4.5px) rotate(45deg); }
+  .hero__menu-btn.is-open span:nth-child(3) { transform: translateY(-4.5px) rotate(-45deg); }
+  .hero__menu { top: 56px; }
+}
+
 /* ---- custom accessibility button (replaces UserWay's locked gold icon) ----
    color follows the active section: green on the loading screen, pink on hero.
    set data-accent="green|pink|mustard" on any <section> to extend. */
