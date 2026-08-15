@@ -752,6 +752,12 @@
       // phones: the collapsing URL bar fires resize on every scroll direction change,
       // which would recalc all pinned triggers mid-scroll — a classic mobile jank source
       ScrollTrigger.config({ ignoreMobileResize: true });
+      // phones: the dynamic URL bar also changes the visual viewport height mid-gesture,
+      // which desyncs position:fixed pin math from the touch scroll itself — this is what
+      // let the hero unpin/scroll away instead of holding still while the rocket grows.
+      // normalizeScroll locks pin math to a stable unit immune to that toolbar collapse.
+      // Desktop is untouched (Lenis already owns that scroll and works correctly).
+      if (matchMedia('(max-width: 768px)').matches) ScrollTrigger.normalizeScroll(true);
       lenis.on('scroll', ScrollTrigger.update);
       gsap.ticker.add((time) => { lenis.raf(time * 1000); });
       gsap.ticker.lagSmoothing(0);

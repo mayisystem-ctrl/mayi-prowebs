@@ -76,6 +76,11 @@
     document.documentElement.style.setProperty('--cardw', cardW + 'px');
   }
   measure(); addEventListener('resize', measure, { passive: true });
+  // phones: h1Top/ctaBottom above are read from real layout, but the intro title
+  // still renders in a fallback font for a beat before the webfont swaps in — that
+  // changes its wrap/offsetTop, so the very first measure() can land short. Re-run
+  // once the real font is in so the row doesn't have to wait for a resize to fix itself.
+  document.fonts && document.fonts.ready.then(measure);
 
   const LOAD_MS = reduce ? 400 : (MOBILE ? 1100 : 2800), MORPH_MS = reduce ? 200 : (MOBILE ? 800 : 1400);
   const lerp = (a, b, m) => a + (b - a) * m;
