@@ -730,6 +730,95 @@
 
 .revs__nav { display: none; }
 
+/* ---- desktop: editorial mosaic — short reviews flank one featured long one.
+   No pile, no rotation: the section reads as a page of proof, and the arrows
+   page between groups. Sharp corners throughout (the avatars stay circular —
+   a circle is its own shape, not a rounded rectangle). ---- */
+@media (min-width: 769px) {
+  .revs { height: auto; overflow: visible; padding: 13vh 0 11vh; }
+  .revs__stage {
+    position: static; inset: auto;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 0 5vw;
+  }
+  .revs__stack {
+    width: min(1320px, 92vw);
+    margin-top: 46px;
+    display: grid;
+    grid-template-columns: 1fr 1.12fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+    min-height: 48vh;
+    align-self: center;
+  }
+  .rev {
+    position: relative; inset: auto; top: auto; translate: none;
+    height: auto; visibility: visible;
+    display: none;
+    align-content: center;
+    gap: 14px;
+    border-radius: 0;
+    box-shadow: none;
+    padding: clamp(22px, 1.9vw, 32px);
+  }
+  .rev.is-on { display: grid; }
+  .rev--tall { translate: none; }
+
+  .rev--lt { grid-column: 1; grid-row: 1; }
+  .rev--lb { grid-column: 1; grid-row: 2; }
+  .rev--rt { grid-column: 3; grid-row: 1; }
+  .rev--rb { grid-column: 3; grid-row: 2; }
+  .rev--l  { grid-column: 1; grid-row: 1 / span 2; }
+  .rev--r  { grid-column: 3; grid-row: 1 / span 2; }
+  .rev--c  { grid-column: 2; grid-row: 1 / span 2; }
+
+  /* the featured middle card carries the weight: lighter surface, live border */
+  .rev--c {
+    background: var(--bg-2, #0e0e12);
+    border-color: color-mix(in oklab, var(--mustard, #d6fb4c) 32%, var(--line-2, #33333d));
+    align-content: center;
+    padding: clamp(28px, 2.6vw, 44px);
+  }
+  .rev--c .rev__quote { font-size: clamp(15px, 1.18vw, 19px); }
+  .rev--c .rev__who figcaption { font-size: clamp(19px, 1.5vw, 24px); }
+
+  .rev__quote { font-size: clamp(13.5px, 0.95vw, 16px); line-height: 1.68; }
+  .rev__stars { font-size: 16px; }
+  .rev__avatar { width: 44px; height: 44px; }
+  .rev__who figcaption { font-size: clamp(16px, 1.15vw, 19px); }
+
+  .revs__nav {
+    display: flex; align-items: center; justify-content: center;
+    gap: 18px;
+    margin-top: 34px;
+  }
+  .revs__arrow {
+    width: 48px; height: 48px;
+    border: 1px solid var(--line-2, #33333d);
+    background: transparent;
+    color: #fff;
+    font-size: 19px;
+    line-height: 1;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: background .22s, color .22s, border-color .22s;
+  }
+  .revs__arrow:hover {
+    background: var(--mustard, #d6fb4c);
+    border-color: var(--mustard, #d6fb4c);
+    color: #08080a;
+  }
+  .revs__arrow:focus-visible { outline: 2px solid var(--mustard, #d6fb4c); outline-offset: 3px; }
+  .revs__count {
+    font-family: var(--font-body, system-ui);
+    font-size: 15px;
+    color: #9a9aa6;
+    min-width: 46px;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+  }
+}
+
 @media (max-width: 768px) {
   .revs__stage {
     display: flex; flex-direction: column; align-items: center; justify-content: center;

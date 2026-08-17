@@ -31,6 +31,12 @@
   <!-- Favicon (May i brand mark) -->
   <link rel="icon" type="image/svg+xml" href="assets/logo-favicon.svg">
 
+  <!-- the two CDNs every render path depends on (three via importmap, gsap +
+       lenis at the end of body) — open the connections while the HTML is still
+       parsing instead of paying DNS+TLS twice further down the waterfall -->
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+
   <!-- Preload local fonts -->
   <link rel="preload" href="assets/fonts/anka-bold.woff" as="font" type="font/woff" crossorigin>
   <!-- loader headline shows on first paint in Dancing Script (Latin subset) —
@@ -61,6 +67,10 @@
     }
   }
   </script>
+  <!-- three is the biggest module on the page and nothing 3D can start until it
+       lands; fetch it alongside the CSS instead of waiting for voxel-logo.js to
+       be parsed first -->
+  <link rel="modulepreload" href="https://unpkg.com/three@0.160.0/build/three.module.js" crossorigin>
 
   <!-- ===== Google Analytics 4 ===== -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
@@ -455,15 +465,7 @@
         </a>
 
         <div class="revs__stack">
-          <figure class="rev" data-rot="2.4">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
-            <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/amit-profile.webp" alt="עמית ברק, לקוח May I" loading="lazy">
-              <figcaption>עמית ברק</figcaption>
-            </div>
-            <blockquote class="rev__quote">״רותם מקצוענית, ברורה והייתה קשובה לכל בקשה שהייתה לי. ליוותה והדריכה אותי היכן שחסר היה לי ידע. התוצאה שקיבלתי היא בדיוק כמו שרציתי. תודה רבה לך רותם על עבודה מקצועית, איכותית ומהירה כלכך שמח שהכרתי אותך 😊״</blockquote>
-          </figure>
-          <figure class="rev" data-rot="-1.6">
+          <figure class="rev rev--lt" data-page="1" data-rot="-1.6">
             <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
             <div class="rev__who">
               <img class="rev__avatar" src="assets/testimonials/rongo.webp" alt="רון גויטע, לקוח May I" loading="lazy">
@@ -471,47 +473,7 @@
             </div>
             <blockquote class="rev__quote">״הקימה אתר הרבה מעבר לציפיות, הייתה זמינה לשינוים בדרך ושירות מעולה ממליץ בחום״</blockquote>
           </figure>
-          <figure class="rev" data-rot="2.8">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
-            <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/shanina-profile.webp" alt="שנינה עזריאל, לקוחת May I" loading="lazy">
-              <figcaption>שנינה עזריאל</figcaption>
-            </div>
-            <blockquote class="rev__quote">״מאוד ממליצה על רותם, תמיד זמינה למענה ומוסיפה מזמנה. משרה אווירה טובה. כיף לעבוד עם מקצוענים שמבינים עניין ונותנים תוצאה לא פחות ממושלמת.״</blockquote>
-          </figure>
-          <figure class="rev rev--tall" data-rot="-3.2">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
-            <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/ella.webp" alt="אלה קופמן, לקוחת May I" loading="lazy">
-              <figcaption>אלה קופמן</figcaption>
-            </div>
-            <blockquote class="rev__quote">״רותם מ- MAY I היא פשוט הפרילנסרית המושלמת לעבוד מולה - אינטיליגנטית, אבל כזו שגם כשהיא נתקלת בקושי היא לא מוותרת ומתמודדת ותמיד מוצאת פתרון. התקלתי אותה הרבה בעבודה על האתר, והכי יפה זה שכל מייל של סבב תיקונים ששלחתי לה (היו 2 כאלו) התשובה והעדכונים הגיעו תוך מספר שעות מועט, כלומר במהירות מטורפת. היא זמינה, קשובה, שירותית, ודף הנחיתה פשוט יפהפה, כלומר יש פה גם עין עיצובית. ממליצה בחום לעבוד איתה!״</blockquote>
-          </figure>
-          <figure class="rev" data-rot="-2.6">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
-            <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/yohanan.webp" alt="יוחנן גלאי, לקוח May I" loading="lazy">
-              <figcaption>יוחנן גלאי</figcaption>
-            </div>
-            <blockquote class="rev__quote">״העבודה עם רותם הייתה תענוג אמיתי. מעבר למקצועיות שלה, רותם הגיעה עם חזון ברור ופתיחות יצירתית שאפשרו לי לדייק את דף הנחיתה של Words, Media & Strategy עד לפרטים הקטנים ביותר. כשיש תקשורת טובה ואמון הדדי, התוצאות מגיעות מהר ובצורה הטובה ביותר. תודה רבה רותם, ומחכה לשיתוף הפעולה הבא!״</blockquote>
-          </figure>
-          <figure class="rev" data-rot="1.8">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
-            <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/haim.webp" alt="חיים עזריאל, לקוח May I" loading="lazy">
-              <figcaption>חיים עזריאל</figcaption>
-            </div>
-            <blockquote class="rev__quote">״שיתוף פעולה מלא זמינות מהירה מענה לשאלות מקצועיות מהיר ממליץ מאוד״</blockquote>
-          </figure>
-          <figure class="rev" data-rot="-2.2">
-            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
-            <div class="rev__who">
-              <img class="rev__avatar" src="assets/testimonials/eliyahu.webp" alt="אליהו משה, לקוח May I" loading="lazy">
-              <figcaption>אליהו משה</figcaption>
-            </div>
-            <blockquote class="rev__quote">״שירותיות מהירות ומקצועיות ברמה גבוהה מאוד!!״</blockquote>
-          </figure>
-          <figure class="rev" data-rot="3.0">
+          <figure class="rev rev--lb" data-page="1" data-rot="3.0">
             <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
             <div class="rev__who">
               <img class="rev__avatar" src="assets/testimonials/reuven-profile.webp" alt="ראובן יוסופוב, לקוח May I" loading="lazy">
@@ -519,11 +481,60 @@
             </div>
             <blockquote class="rev__quote">״איכות העבודה ברמה גבוהה מאוד גורף מחמאות בלי סוף שליטה איכותית במערכות ה-ai״</blockquote>
           </figure>
+          <figure class="rev rev--tall rev--c" data-page="1" data-rot="-3.2">
+            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__who">
+              <img class="rev__avatar" src="assets/testimonials/ella.webp" alt="אלה קופמן, לקוחת May I" loading="lazy">
+              <figcaption>אלה קופמן</figcaption>
+            </div>
+            <blockquote class="rev__quote">״רותם מ- MAY I היא פשוט הפרילנסרית המושלמת לעבוד מולה - אינטיליגנטית, אבל כזו שגם כשהיא נתקלת בקושי היא לא מוותרת ומתמודדת ותמיד מוצאת פתרון. התקלתי אותה הרבה בעבודה על האתר, והכי יפה זה שכל מייל של סבב תיקונים ששלחתי לה (היו 2 כאלו) התשובה והעדכונים הגיעו תוך מספר שעות מועט, כלומר במהירות מטורפת. היא זמינה, קשובה, שירותית, ודף הנחיתה פשוט יפהפה, כלומר יש פה גם עין עיצובית. ממליצה בחום לעבוד איתה!״</blockquote>
+          </figure>
+          <figure class="rev rev--rt" data-page="1" data-rot="1.8">
+            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__who">
+              <img class="rev__avatar" src="assets/testimonials/haim.webp" alt="חיים עזריאל, לקוח May I" loading="lazy">
+              <figcaption>חיים עזריאל</figcaption>
+            </div>
+            <blockquote class="rev__quote">״שיתוף פעולה מלא זמינות מהירה מענה לשאלות מקצועיות מהיר ממליץ מאוד״</blockquote>
+          </figure>
+          <figure class="rev rev--rb" data-page="1" data-rot="-2.2">
+            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__who">
+              <img class="rev__avatar" src="assets/testimonials/eliyahu.webp" alt="אליהו משה, לקוח May I" loading="lazy">
+              <figcaption>אליהו משה</figcaption>
+            </div>
+            <blockquote class="rev__quote">״שירותיות מהירות ומקצועיות ברמה גבוהה מאוד!!״</blockquote>
+          </figure>
+          <figure class="rev rev--l" data-page="2" data-rot="2.4">
+            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__who">
+              <img class="rev__avatar" src="assets/testimonials/amit-profile.webp" alt="עמית ברק, לקוח May I" loading="lazy">
+              <figcaption>עמית ברק</figcaption>
+            </div>
+            <blockquote class="rev__quote">״רותם מקצוענית, ברורה והייתה קשובה לכל בקשה שהייתה לי. ליוותה והדריכה אותי היכן שחסר היה לי ידע. התוצאה שקיבלתי היא בדיוק כמו שרציתי. תודה רבה לך רותם על עבודה מקצועית, איכותית ומהירה כלכך שמח שהכרתי אותך 😊״</blockquote>
+          </figure>
+          <figure class="rev rev--c" data-page="2" data-rot="-2.6">
+            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__who">
+              <img class="rev__avatar" src="assets/testimonials/yohanan.webp" alt="יוחנן גלאי, לקוח May I" loading="lazy">
+              <figcaption>יוחנן גלאי</figcaption>
+            </div>
+            <blockquote class="rev__quote">״העבודה עם רותם הייתה תענוג אמיתי. מעבר למקצועיות שלה, רותם הגיעה עם חזון ברור ופתיחות יצירתית שאפשרו לי לדייק את דף הנחיתה של Words, Media & Strategy עד לפרטים הקטנים ביותר. כשיש תקשורת טובה ואמון הדדי, התוצאות מגיעות מהר ובצורה הטובה ביותר. תודה רבה רותם, ומחכה לשיתוף הפעולה הבא!״</blockquote>
+          </figure>
+          <figure class="rev rev--r" data-page="2" data-rot="2.8">
+            <div class="rev__stars" aria-label="5 כוכבים">★★★★★</div>
+            <div class="rev__who">
+              <img class="rev__avatar" src="assets/testimonials/shanina-profile.webp" alt="שנינה עזריאל, לקוחת May I" loading="lazy">
+              <figcaption>שנינה עזריאל</figcaption>
+            </div>
+            <blockquote class="rev__quote">״מאוד ממליצה על רותם, תמיד זמינה למענה ומוסיפה מזמנה. משרה אווירה טובה. כיף לעבוד עם מקצוענים שמבינים עניין ונותנים תוצאה לא פחות ממושלמת.״</blockquote>
+          </figure>
         </div>
 
         <div class="revs__nav" aria-hidden="false">
-          <button type="button" class="revs__arrow revs__arrow--prev" aria-label="ביקורת קודמת">→</button>
-          <button type="button" class="revs__arrow revs__arrow--next" aria-label="ביקורת הבאה">←</button>
+          <button type="button" class="revs__arrow revs__arrow--prev" aria-label="ביקורות קודמות">→</button>
+          <span class="revs__count" aria-hidden="true"></span>
+          <button type="button" class="revs__arrow revs__arrow--next" aria-label="ביקורות הבאות">←</button>
         </div>
 
       </div>
@@ -1043,7 +1054,7 @@
       })();
 
       // ---- Section 5: written reviews ----
-      // Desktop: cards drop onto the pile one per scroll beat (pinned + scrubbed).
+      // Desktop: a mosaic of five cards per page, arrows page between groups.
       // Mobile: plain arrow slider — no pin, no scrub, nothing to get caught
       // mid-rotation on a janky/low-fps scroll. Ella's card shows first.
       (() => {
@@ -1052,11 +1063,7 @@
         const cards = gsap.utils.toArray('.rev');
         const glink = sec.querySelector('.revs__google');
 
-        if (reduce && !MOBILE) {
-          cards.forEach((c, i) => gsap.set(c, { autoAlpha: 1, rotation: +c.dataset.rot, y: i * 6 }));
-          gsap.set(glink, { autoAlpha: 1 });
-          return;
-        }
+        gsap.set(glink, { autoAlpha: 1 });
 
         if (MOBILE) {
           gsap.set(glink, { autoAlpha: 1 });
@@ -1073,24 +1080,35 @@
           return;
         }
 
-        const tl = gsap.timeline({
-          scrollTrigger: {
-            trigger: sec, start: 'top top', end: '+=' + (cards.length * 90) + '%',
-            pin: true, scrub: 1, anticipatePin: 1, invalidateOnRefresh: true
+        // Desktop: static mosaic — four short reviews flanking one featured long
+        // one, arrows page between groups. The old falling-pile pinned the page
+        // for seven screen-heights of scroll before it would move on; this reads
+        // the same story in one screen and gives the scroll back to the visitor.
+        cards.forEach((c) => gsap.set(c, { clearProps: 'all' }));
+        const pages = [...new Set(cards.map((c) => c.dataset.page))];
+        const countEl = sec.querySelector('.revs__count');
+        const prevBtn = sec.querySelector('.revs__arrow--prev');
+        const nextBtn = sec.querySelector('.revs__arrow--next');
+        let page = 0;
+        const show = (i, animate) => {
+          page = (i + pages.length) % pages.length;
+          const on = cards.filter((c) => c.dataset.page === pages[page]);
+          cards.forEach((c) => c.classList.toggle('is-on', on.indexOf(c) > -1));
+          if (countEl) countEl.textContent = (page + 1) + ' / ' + pages.length;
+          if (animate && !reduce) {
+            gsap.fromTo(on, { opacity: 0, y: 22 },
+              { opacity: 1, y: 0, duration: 0.45, stagger: 0.05, ease: 'power2.out', overwrite: true });
           }
-        });
+        };
+        show(0, false);
+        if (prevBtn) prevBtn.addEventListener('click', () => show(page - 1, true));
+        if (nextBtn) nextBtn.addEventListener('click', () => show(page + 1, true));
 
-        cards.forEach((card, i) => {
-          const rot = +card.dataset.rot;
-          tl.fromTo(card,
-            { autoAlpha: 0, yPercent: -160, rotation: rot * 4, scale: 1.06 },
-            { autoAlpha: 1, yPercent: 0, rotation: rot, scale: 1, duration: 0.7, ease: 'power2.in' }, i * 1)
-            // the landing thud — a tiny settle bounce
-            .to(card, { scale: 0.985, duration: 0.08, ease: 'power1.out' }, i * 1 + 0.7)
-            .to(card, { scale: 1, duration: 0.12, ease: 'power1.in' }, i * 1 + 0.78);
-        });
-        tl.fromTo(glink, { autoAlpha: 0, y: 16 },
-                  { autoAlpha: 1, y: 0, duration: 0.4, ease: 'power2.out' }, cards.length - 0.2);
+        if (!reduce) {
+          gsap.from(cards.filter((c) => c.classList.contains('is-on')),
+            { opacity: 0, y: 34, duration: 0.6, stagger: 0.06, ease: 'power3.out',
+              scrollTrigger: { trigger: sec, start: 'top 72%', once: true } });
+        }
       })();
 
       // ---- Section 3: testimonials — luxe rise-in ----

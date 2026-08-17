@@ -82,7 +82,10 @@
   // once the real font is in so the row doesn't have to wait for a resize to fix itself.
   document.fonts && document.fonts.ready.then(measure);
 
-  const LOAD_MS = reduce ? 400 : (MOBILE ? 1100 : 2800), MORPH_MS = reduce ? 200 : (MOBILE ? 800 : 1400);
+  // The counter is a paced intro, not a real progress bar — desktop used to sit
+  // on it for 2.8s plus 1.4s of morph before the hero was usable, which is most
+  // of what "the site takes forever to load" actually was.
+  const LOAD_MS = reduce ? 400 : (MOBILE ? 1000 : 1400), MORPH_MS = reduce ? 200 : (MOBILE ? 800 : 950);
   const lerp = (a, b, m) => a + (b - a) * m;
   const ease = (x) => 1 - Math.pow(1 - x, 3);
 

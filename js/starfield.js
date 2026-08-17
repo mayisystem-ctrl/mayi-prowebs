@@ -14,7 +14,10 @@
     const ctx = canvas.getContext('2d');
     const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    let W = 0, H = 0, dpr = Math.min(MOBILE ? 1.25 : 2, window.devicePixelRatio || 1);
+    // Stars are 1-2px dots: past 1.5x the extra pixels are invisible, but a
+    // full-screen canvas repainted every frame at 2x is real fill cost that
+    // competes with the WebGL shapes for the same 16ms.
+    let W = 0, H = 0, dpr = Math.min(MOBILE ? 1.25 : 1.5, window.devicePixelRatio || 1);
     let stars = [], orbs = [];
     let mx = -9999, my = -9999, t = 0;
     // wormhole mode: 0 = calm starfield, 1 = full tunnel (stars streak from the centre)
@@ -144,6 +147,7 @@
     let skip = false;
     function frame() {
       requestAnimationFrame(frame);
+      if (document.hidden) return;            // nothing to paint in a background tab
       if (MOBILE && (skip = !skip)) return;   // 30fps on phones
       t += MOBILE ? 0.032 : 0.016;
       ctx.clearRect(0, 0, W, H);

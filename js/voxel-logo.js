@@ -534,19 +534,52 @@ function boot() {
   };
   settle(() => document.querySelectorAll('.hero__mark[data-voxel-logo]').forEach(mountLogoEl));
 
-  const voxelSection = document.querySelector('.voxel');
-  const mountStory = () => {
-    document.querySelectorAll('.story [data-voxel-people]').forEach(mountPeopleEl);
-    document.querySelectorAll('.story [data-voxel-logo]').forEach(mountLogoEl);
+  // One mount per idle slot, with a paint in between. Firing them as a burst
+  // is what used to stall the scroll for a beat and make the rocket appear
+  // late, in one pop, instead of already being there when the story starts.
+  const queue = [];
+  let draining = false;
+  const idle = window.requestIdleCallback
+    ? (fn) => window.requestIdleCallback(fn, { timeout: 400 })
+    : (fn) => setTimeout(fn, 40);
+  const drain = () => {
+    const job = queue.shift();
+    if (!job) {
+      draining = false;
+      // pins were measured before these shapes existed — re-measure once
+      if (window.ScrollTrigger) window.ScrollTrigger.refresh();
+      return;
+    }
+    job();
+    requestAnimationFrame(() => idle(drain));
   };
-  if (!voxelSection) { settle(mountStory); return; }
-  // shrink the intersection root's bottom edge so this only fires once the
-  // section is genuinely being scrolled toward, not already true at load
-  // (the section sits right below the 100vh hero, so a 0px margin would
-  // count it as "intersecting" before the user has scrolled at all).
-  new IntersectionObserver((entries, obs) => {
-    if (entries[0].isIntersecting) { obs.disconnect(); mountStory(); }
-  }, { rootMargin: '0px 0px -40% 0px' }).observe(voxelSection);
+  const enqueue = (job) => {
+    queue.push(job);
+    if (!draining) { draining = true; idle(drain); }
+  };
+
+  // The rocket and the trio carry the story section itself, so they are built
+  // as soon as the hero has settled — well before the user can scroll to them.
+  // Rocket first: it is the first shape the story reveals.
+  settle(() => {
+    document.querySelectorAll('.story__rocket[data-voxel-logo]').forEach((el) => enqueue(() => mountLogoEl(el)));
+    document.querySelectorAll('.story [data-voxel-people]').forEach((el) => enqueue(() => mountPeopleEl(el)));
+  });
+
+  // The four small shapes only ever appear next to a specific section further
+  // down, so each one waits for its own section to come within a screen.
+  [['.story__target', '.proc'], ['.story__star', '.revs'],
+   ['.story__question', '.faq'], ['.story__mayi', '.lform']].forEach(([shapeSel, secSel]) => {
+    const el = document.querySelector(shapeSel + '[data-voxel-logo]');
+    if (!el) return;
+    const sec = document.querySelector(secSel);
+    if (!sec) { enqueue(() => mountLogoEl(el)); return; }
+    new IntersectionObserver((entries, obs) => {
+      if (!entries[0].isIntersecting) return;
+      obs.disconnect();
+      enqueue(() => mountLogoEl(el));
+    }, { rootMargin: '100% 0px 0px 0px' }).observe(sec);
+  });
 }
 if (document.readyState === 'loading') addEventListener('DOMContentLoaded', boot);
 else boot();
