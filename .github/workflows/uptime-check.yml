@@ -1,32 +1,73 @@
-name: Uptime check
+name: Uptime check and auto-heal (proposes fixes, never pushes to production alone)
 
 on:
   schedule:
     - cron: '0 * * * *'   # every hour
   workflow_dispatch:        # allow manual "Run workflow" for testing
 
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 jobs:
   check:
     runs-on: ubuntu-latest
     steps:
-      - name: Check mayi.dev/prowebs is up and serving real content
-        run: |
-          status=$(curl -sS -o response.html -w "%{http_code}" --max-time 15 https://mayi.dev/prowebs)
-          echo "HTTP status: $status"
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
-          if [ "$status" -lt 200 ] || [ "$status" -ge 400 ]; then
-            echo "::error::Site returned HTTP $status"
-            exit 1
+      - name: Check site health and propose a fix if needed (no direct push to main)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -e
+
+          check_health() {
+            status=$(curl -sS -o response.html -w "%{http_code}" --max-time 15 https://mayi.dev/prowebs || echo "000")
+            [ "$status" -ge 200 ] && [ "$status" -lt 400 ] && grep -qi "May i" response.html && ! grep -qi "Security Checkpoint" response.html
+          }
+
+          if check_health; then
+            echo "Site healthy, nothing to do."
+            exit 0
           fi
+
+          ATTACK_BODY=$(printf 'האתר mayi.dev נחסם זמנית על ידי הגנת אבטחה של Vercel.\nכדי לשחרר אותו:\n1. פתחי את Terminal במחשב\n2. הדביקי את השורה הבאה ולחצי Enter:\ncd "/Users/Rotem/premium websites /prowebs" \&\& vercel firewall attack-mode disable\n3. כשתישאלי אישור, הקלידי yes ולחצי Enter\n\nזהו - האתר יחזור לפעול תוך שניות.')
 
           if grep -qi "Security Checkpoint" response.html; then
-            echo "::error::Vercel Attack Mode challenge page detected instead of the real site"
-            exit 1
+            gh issue create --repo "$GITHUB_REPOSITORY" \
+              --title "האתר מושבת - צריך פעולה קצרה ממך" \
+              --body "$ATTACK_BODY"
+            exit 0
           fi
 
-          if ! grep -qi "May i" response.html; then
-            echo "::error::Response doesn't look like the real homepage (expected content not found)"
-            exit 1
+          git config user.name "uptime-autoheal"
+          git config user.email "actions@users.noreply.github.com"
+          last_sha=$(git rev-parse HEAD)
+          branch="autoheal/revert-${last_sha:0:7}"
+          git checkout -b "$branch"
+
+          if ! git revert --no-edit "$last_sha" 2>revert_err.log; then
+            git revert --abort || true
+            gh issue create --repo "$GITHUB_REPOSITORY" \
+              --title "האתר מושבת - זקוקה לעזרה" \
+              --body "האתר mayi.dev לא זמין, וניסיתי להכין תיקון אוטומטי אבל לא הצלחתי. כדאי לבדוק את זה בהקדם - אפשר לפתוח שיחה חדשה ולבקש ממני לבדוק את זה."
+            exit 0
           fi
 
-          echo "Site is up and serving real content."
+          git push origin "$branch"
+
+          PR_BODY=$(printf 'האתר mayi.dev לא היה זמין. הכנתי תיקון (חזרה לגרסה הקודמת שעבדה) אבל לא פרסמתי אותו - זה מחכה לאישור שלך.\n\nכדי לאשר ולפרסם: גללי למטה בעמוד הזה ולחצי על הכפתור הירוק שכתוב עליו Merge pull request, ואז על הכפתור שמופיע אחריו לאישור.\nאם את לא בטוחה - את יכולה גם לפתוח שיחה חדשה ולבקש ממני להסביר.')
+
+          pr_url=$(gh pr create --repo "$GITHUB_REPOSITORY" \
+            --base main --head "$branch" \
+            --title "תיקון מוצע: האתר לא היה זמין" \
+            --body "$PR_BODY")
+
+          ISSUE_BODY=$(printf 'האתר mayi.dev לא היה זמין. הכנתי תיקון אבל לא פרסמתי אותו - הוא מחכה לאישור שלך כאן:\n%s\n\nכדי לאשר: פתחי את הקישור, גללי למטה, ולחצי על הכפתור הירוק שכתוב עליו Merge pull request.' "$pr_url")
+
+          gh issue create --repo "$GITHUB_REPOSITORY" \
+            --title "האתר מושבת - הכנתי תיקון, מחכה לאישור שלך" \
+            --body "$ISSUE_BODY"
