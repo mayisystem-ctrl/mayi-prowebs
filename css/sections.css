@@ -349,7 +349,7 @@
 /* full benefit sentences, not single display words — wrap inside a fixed
    column instead of running edge-to-edge across the screen */
 .feat__list li { position: absolute; display: block; max-width: 260px; }
-.feat__list li:nth-child(1) { top: 22%; right: 7%; text-align: right; }
+.feat__list li:nth-child(1) { top: 29%; right: 16%; max-width: 300px; text-align: right; }
 .feat__list li:nth-child(2) { top: 46%; left: 5%; text-align: right; max-width: 280px; }
 .feat__list li:nth-child(3) { bottom: 15%; left: 0; right: 0; max-width: 340px; margin-inline: auto; text-align: center; }
 .feat__ai { font-family: 'Anton', system-ui, sans-serif; font-weight: 400; letter-spacing: 0.03em; }
