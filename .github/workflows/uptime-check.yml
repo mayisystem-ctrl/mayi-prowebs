@@ -1,0 +1,32 @@
+name: Uptime check
+
+on:
+  schedule:
+    - cron: '0 * * * *'   # every hour
+  workflow_dispatch:        # allow manual "Run workflow" for testing
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check mayi.dev/prowebs is up and serving real content
+        run: |
+          status=$(curl -sS -o response.html -w "%{http_code}" --max-time 15 https://mayi.dev/prowebs)
+          echo "HTTP status: $status"
+
+          if [ "$status" -lt 200 ] || [ "$status" -ge 400 ]; then
+            echo "::error::Site returned HTTP $status"
+            exit 1
+          fi
+
+          if grep -qi "Security Checkpoint" response.html; then
+            echo "::error::Vercel Attack Mode challenge page detected instead of the real site"
+            exit 1
+          fi
+
+          if ! grep -qi "May i" response.html; then
+            echo "::error::Response doesn't look like the real homepage (expected content not found)"
+            exit 1
+          fi
+
+          echo "Site is up and serving real content."
