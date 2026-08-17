@@ -859,6 +859,8 @@
         document.fonts && document.fonts.ready.then(balanceStoryGaps);
         const words1 = splitWords(line1);
         const words2 = splitWords(line2);
+        // every word starts fully below its own mask and they all move as one:
+        // no per-word stagger, no rotation — the line arrives straight, whole.
         gsap.set([words1, words2], { yPercent: 118, rotate: 0, transformOrigin: '100% 100%' });
 
         const tl = gsap.timeline({
@@ -875,7 +877,7 @@
                        ease: 'power2.inOut', duration: 0.6 }, 0)
           // line 1: words cascade up out of their masks, settling straight
           .set(line1, { autoAlpha: 1 }, 0.48)
-          .to(words1, { yPercent: 0, rotate: 0, duration: 0.55, stagger: 0.05, ease: 'power3.out' }, 0.5)
+          .to(words1, { yPercent: 0, rotate: 0, duration: 0.7, ease: 'power3.out' }, 0.5)
           // once the text is in, swap the rocket for the 3 people (in place, on the left)
           .to(rocket, { autoAlpha: 0, duration: 0.35, immediateRender: false }, 0.62)
           // people rise & settle into place rather than just fading
@@ -883,7 +885,7 @@
                   { autoAlpha: 1, y: 0, scale: 1, duration: 0.5, ease: 'power2.out' }, 0.64)
           // second beat: line 1 STAYS; line 2 cascades in below as the middle person turns pink
           .set(line2, { autoAlpha: 1 }, 1.70)
-          .to(words2, { yPercent: 0, rotate: 0, duration: 0.55, stagger: 0.055, ease: 'power3.out' }, 1.72);
+          .to(words2, { yPercent: 0, rotate: 0, duration: 0.7, ease: 'power3.out' }, 1.72);
 
         // colour the middle person silver → brand pink, synced with line 2
         // (the trio's materials load async — resolve lazily on each scrub update)
@@ -901,8 +903,8 @@
 
         // exit mirrors the entrance: words sink back into their masks.
         // people STAY on screen — persistent floating element behind the next sections (k95-style)
-        tl.to(words2, { yPercent: 145, rotate: 0, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.45)
-          .to(words1, { yPercent: 145, rotate: 0, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.52)
+        tl.to(words2, { yPercent: 145, rotate: 0, duration: 0.5, ease: 'power2.in' }, 2.45)
+          .to(words1, { yPercent: 145, rotate: 0, duration: 0.5, ease: 'power2.in' }, 2.52)
           // fully hide the lines once sunk so tall glyphs (ל, ט) leave no fragments
           .set([line1, line2], { autoAlpha: 0 }, 3.0)
           // once the text is gone, the trio glides back to centre; only then the pin releases
