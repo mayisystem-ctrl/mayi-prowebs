@@ -848,7 +848,7 @@
         document.fonts && document.fonts.ready.then(balanceStoryGaps);
         const words1 = splitWords(line1);
         const words2 = splitWords(line2);
-        gsap.set([words1, words2], { yPercent: 118, rotate: 5, transformOrigin: '100% 100%' });
+        gsap.set([words1, words2], { yPercent: 118, rotate: 0, transformOrigin: '100% 100%' });
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -890,8 +890,8 @@
 
         // exit mirrors the entrance: words sink back into their masks.
         // people STAY on screen — persistent floating element behind the next sections (k95-style)
-        tl.to(words2, { yPercent: 145, rotate: 5, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.45)
-          .to(words1, { yPercent: 145, rotate: 5, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.52)
+        tl.to(words2, { yPercent: 145, rotate: 0, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.45)
+          .to(words1, { yPercent: 145, rotate: 0, duration: 0.45, stagger: 0.04, ease: 'power2.in' }, 2.52)
           // fully hide the lines once sunk so tall glyphs (ל, ט) leave no fragments
           .set([line1, line2], { autoAlpha: 0 }, 3.0)
           // once the text is gone, the trio glides back to centre; only then the pin releases
