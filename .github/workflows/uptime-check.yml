@@ -34,7 +34,7 @@ jobs:
             exit 0
           fi
 
-          ATTACK_BODY=$(printf 'האתר mayi.dev נחסם זמנית על ידי הגנת אבטחה של Vercel.\nכדי לשחרר אותו:\n1. פתחי את Terminal במחשב\n2. הדביקי את השורה הבאה ולחצי Enter:\ncd "/Users/Rotem/premium websites /prowebs" \&\& vercel firewall attack-mode disable\n3. כשתישאלי אישור, הקלידי yes ולחצי Enter\n\nזהו - האתר יחזור לפעול תוך שניות.')
+          ATTACK_BODY=$(printf 'האתר mayi.dev נחסם זמנית על ידי הגנת אבטחה של Vercel.\nמה זה אומר בפועל: כל מי שמנסה להיכנס לאתר שלך עכשיו רואה עמוד אבטחה חסום, במקום התוכן האמיתי - זה כולל את עמוד ה-prowebs שמציג את השירותים שלך.\n\nכדי לשחרר אותו:\n1. פתחי את Terminal במחשב\n2. הדביקי את השורה הבאה ולחצי Enter:\ncd "/Users/Rotem/premium websites /prowebs" \&\& vercel firewall attack-mode disable\n3. כשתישאלי אישור, הקלידי yes ולחצי Enter\n\nזהו - האתר יחזור לפעול תוך שניות.')
 
           if grep -qi "Security Checkpoint" response.html; then
             gh issue create --repo "$GITHUB_REPOSITORY" \
@@ -42,6 +42,17 @@ jobs:
               --body "$ATTACK_BODY"
             exit 0
           fi
+
+          if [ "$status" = "000" ]; then
+            DIAGNOSIS="האתר לא נטען בכלל - מי שמנסה להיכנס רואה שגיאת חיבור, כאילו האתר לא קיים."
+          elif [ "$status" -ge 500 ]; then
+            DIAGNOSIS="השרת של האתר קורס ומחזיר שגיאה (קוד $status) - מי שנכנס רואה עמוד שגיאה במקום התוכן."
+          elif [ "$status" -ge 400 ]; then
+            DIAGNOSIS="האתר מחזיר שגיאה (קוד $status) - מי שנכנס לא רואה את התוכן שאמור להיות שם."
+          else
+            DIAGNOSIS="העמוד נטען, אבל נראה שבור - התוכן הרגיל שאמור להופיע חסר או לא מוצג כמו שצריך."
+          fi
+          IMPACT="זה משפיע על עמוד ה-prowebs באתר mayi.dev - העמוד שמציג את השירותים שלך ללקוחות פוטנציאליים."
 
           git config user.name "uptime-autoheal"
           git config user.email "actions@users.noreply.github.com"
@@ -51,22 +62,23 @@ jobs:
 
           if ! git revert --no-edit "$last_sha" 2>revert_err.log; then
             git revert --abort || true
+            HELP_BODY=$(printf '%s\n%s\n\nניסיתי להכין תיקון אוטומטי אבל לא הצלחתי. כדאי לבדוק את זה בהקדם - אפשר לפתוח שיחה חדשה ולבקש ממני לבדוק את זה.' "$DIAGNOSIS" "$IMPACT")
             gh issue create --repo "$GITHUB_REPOSITORY" \
               --title "האתר מושבת - זקוקה לעזרה" \
-              --body "האתר mayi.dev לא זמין, וניסיתי להכין תיקון אוטומטי אבל לא הצלחתי. כדאי לבדוק את זה בהקדם - אפשר לפתוח שיחה חדשה ולבקש ממני לבדוק את זה."
+              --body "$HELP_BODY"
             exit 0
           fi
 
           git push origin "$branch"
 
-          PR_BODY=$(printf 'האתר mayi.dev לא היה זמין. הכנתי תיקון (חזרה לגרסה הקודמת שעבדה) אבל לא פרסמתי אותו - זה מחכה לאישור שלך.\n\nכדי לאשר ולפרסם: גללי למטה בעמוד הזה ולחצי על הכפתור הירוק שכתוב עליו Merge pull request, ואז על הכפתור שמופיע אחריו לאישור.\nאם את לא בטוחה - את יכולה גם לפתוח שיחה חדשה ולבקש ממני להסביר.')
+          PR_BODY=$(printf '%s\n%s\n\nהכנתי תיקון (חזרה לגרסה הקודמת שעבדה) אבל לא פרסמתי אותו - זה מחכה לאישור שלך.\n\nכדי לאשר ולפרסם: גללי למטה בעמוד הזה ולחצי על הכפתור הירוק שכתוב עליו Merge pull request, ואז על הכפתור שמופיע אחריו לאישור.\nאם את לא בטוחה - את יכולה גם לפתוח שיחה חדשה ולבקש ממני להסביר.' "$DIAGNOSIS" "$IMPACT")
 
           pr_url=$(gh pr create --repo "$GITHUB_REPOSITORY" \
             --base main --head "$branch" \
             --title "תיקון מוצע: האתר לא היה זמין" \
             --body "$PR_BODY")
 
-          ISSUE_BODY=$(printf 'האתר mayi.dev לא היה זמין. הכנתי תיקון אבל לא פרסמתי אותו - הוא מחכה לאישור שלך כאן:\n%s\n\nכדי לאשר: פתחי את הקישור, גללי למטה, ולחצי על הכפתור הירוק שכתוב עליו Merge pull request.' "$pr_url")
+          ISSUE_BODY=$(printf '%s\n%s\n\nהכנתי תיקון אבל לא פרסמתי אותו - הוא מחכה לאישור שלך כאן:\n%s\n\nכדי לאשר: פתחי את הקישור, גללי למטה, ולחצי על הכפתור הירוק שכתוב עליו Merge pull request.' "$DIAGNOSIS" "$IMPACT" "$pr_url")
 
           gh issue create --repo "$GITHUB_REPOSITORY" \
             --title "האתר מושבת - הכנתי תיקון, מחכה לאישור שלך" \
