@@ -1,5 +1,5 @@
 @import url("../assets/fonts/rubik/rubik.css");
-@import url("../assets/fonts/plex/plex.css");
+@import url("../assets/fonts/secular/secular.css");
 
 /* ============================================================
    May i — prowebs · Design System Foundation
@@ -42,7 +42,7 @@
   /* text on green */
 
   /* ---- typography (LOCKED) ---- */
-  --font-display: "IBM Plex Sans Hebrew", system-ui, sans-serif;
+  --font-display: "Secular One", system-ui, sans-serif;
   --font-body: "Rubik", system-ui, "Helvetica Neue", Arial, sans-serif;
 
   --h1-fs: clamp(38px, 7.4vw, 70px);
