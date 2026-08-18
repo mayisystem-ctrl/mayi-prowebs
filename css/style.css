@@ -13,11 +13,27 @@
   font-display: swap;
 }
 
+/* OS Aran — three real cuts (Ofir Shavit, free for commercial use).
+   Replaces Anka, which was one physical file stretched over 400–900, so every
+   heading weight above the single cut was synthesised by the browser. */
 @font-face {
-  font-family: "Anka";
-  src: url("../assets/fonts/anka-bold.woff") format("woff");
-  font-weight: 400 900;
-  /* single physical weight (Bold) — nominal range */
+  font-family: "OS Aran";
+  src: url("../assets/fonts/os-aran/os-aran-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OS Aran";
+  src: url("../assets/fonts/os-aran/os-aran-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "OS Aran";
+  src: url("../assets/fonts/os-aran/os-aran-600.woff2") format("woff2");
+  font-weight: 600 900;   /* heaviest real cut — anything above maps here, never synthesised */
   font-style: normal;
   font-display: swap;
 }
@@ -50,7 +66,7 @@
   /* text on green */
 
   /* ---- typography (LOCKED) ---- */
-  --font-display: "Anka", system-ui, sans-serif;
+  --font-display: "OS Aran", system-ui, sans-serif;
   --font-body: "Rubik", system-ui, "Helvetica Neue", Arial, sans-serif;
 
   --h1-fs: clamp(38px, 7.4vw, 70px);
