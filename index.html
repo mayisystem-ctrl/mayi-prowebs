@@ -227,7 +227,7 @@
           <div class="story__mayi"
                data-voxel-logo
                data-voxel-mini></div>
-          <p class="story__line story__line--2">הגיע הזמן שגם העסק שלך יהיה יוצא דופן בדיגיטל.</p>
+          <p class="story__line story__line--2">הגיע הזמן שגם העסק שלך יהיה <span class="story__highlight">יוצא דופן בדיגיטל<span class="story__highlight-bar" aria-hidden="true"></span></span>.</p>
         </div>
       </div>
       <div class="story__text" dir="rtl">
@@ -814,8 +814,15 @@
                 const wi = document.createElement('span'); wi.className = 'wi';
                 wi.textContent = part; w.appendChild(wi); frag.appendChild(w);
               });
+            } else if (node.nodeType === 1 && node.tagName === 'BR') {
+              frag.appendChild(node.cloneNode(true));
+            } else if (node.nodeType === 1) {
+              // recurse into element wrappers (e.g. the pink-underline highlight
+              // span) so the words inside still get the same rise/sink mask
+              splitWords(node);
+              frag.appendChild(node);
             } else {
-              frag.appendChild(node.cloneNode(true));   // keeps the <br>
+              frag.appendChild(node.cloneNode(true));
             }
           });
           el.textContent = ''; el.appendChild(frag);
@@ -862,6 +869,10 @@
         // every word starts fully below its own mask and they all move as one:
         // no per-word stagger, no rotation — the line arrives straight, whole.
         gsap.set([words1, words2], { yPercent: 118, rotate: 0, transformOrigin: '100% 100%' });
+        // pink underline under "יוצא דופן בדיגיטל" — draws in right→left, only
+        // once line 2's words have fully risen into place (not before).
+        const highlightBar = line2.querySelector('.story__highlight-bar');
+        if (highlightBar) gsap.set(highlightBar, { scaleX: 0, transformOrigin: '100% 50%' });
 
         const tl = gsap.timeline({
           scrollTrigger: {
@@ -886,6 +897,9 @@
           // second beat: line 1 STAYS; line 2 cascades in below as the middle person turns pink
           .set(line2, { autoAlpha: 1 }, 1.70)
           .to(words2, { yPercent: 0, rotate: 0, duration: 0.7, ease: 'power3.out' }, 1.72);
+
+        // underline draws in only after line 2 is fully in (1.72 + 0.7 = 2.42)
+        if (highlightBar) tl.to(highlightBar, { scaleX: 1, duration: 0.26, ease: 'power2.out' }, 2.44);
 
         // colour the middle person silver → brand pink, synced with line 2
         // (the trio's materials load async — resolve lazily on each scrub update)

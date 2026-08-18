@@ -8,14 +8,17 @@
     'noa-gross-photography': 'Noa Gross', 'rongo': 'Ron-go', 'hasdeisaada': 'חסדי סעדה', 'ask-reuven': 'ראובן יוסופוב',
   };
   // live URLs for the in-popup iframe (null = blocks framing → screenshot fallback)
+  // all set to null: several of these hosts (Cloudflare/WAF/security-plugin fronted)
+  // block iframe embedding based on request headers curl can't reproduce, so the
+  // live preview silently failed per-browser. Screenshot fallback opens every time.
   const LIVE = {
-    'aurelia-yachts': 'https://aurelia-yachts.vercel.app/',
-    'smash-burger': 'https://smash-burger-co.vercel.app/',
-    'forma-studio-tlv': 'https://demo-site-two-wheat.vercel.app/',  // public domain of same project (embeddable)
-    'noa-gross-photography': 'https://noa-gross-photography.vercel.app/',
-    'rongo': 'https://rongo.co.il/',
-    'hasdeisaada': 'https://hasdeisaada.org/',
-    'ask-reuven': 'https://ask-reuven.co.il/',
+    'aurelia-yachts': null,
+    'smash-burger': null,
+    'forma-studio-tlv': null,
+    'noa-gross-photography': null,
+    'rongo': null,
+    'hasdeisaada': null,
+    'ask-reuven': null,
   };
 
   const stage     = document.querySelector('.hero__stage');

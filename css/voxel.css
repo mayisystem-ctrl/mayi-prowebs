@@ -145,6 +145,18 @@
 }
 .story__line .wi { display: inline-block; will-change: transform; }
 
+/* pink underline under "יוצא דופן בדיגיטל" — drawn in via JS (scaleX), right→left */
+.story__highlight { position: relative; display: inline-block; }
+.story__highlight-bar {
+  position: absolute;
+  right: 0; left: 0;
+  bottom: -0.08em;
+  height: 0.07em;
+  min-height: 3px;
+  background: var(--pink);
+  will-change: transform;
+}
+
 /* ===== Mini 3D brand mark in the hero top line (LOCKED — same line as the a11y icon) ===== */
 .hero__mark {
   position: fixed;
