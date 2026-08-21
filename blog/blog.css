@@ -57,9 +57,45 @@
 
 .blog-header .lead { max-width: 640px; }
 
+/* ---- category system ----
+   Colors reuse the site's own documented accent meanings:
+   green = digital/tech, mustard = attitude/business, pink = style/fashion. */
+.cat-tech     { --cat: var(--green); }
+.cat-business { --cat: var(--mustard); }
+.cat-style    { --cat: var(--pink); }
+
+/* ---- filter bar ---- */
+.blog-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 28px 0 4px;
+}
+
+.filter-pill {
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--ink-2);
+  background: transparent;
+  border: 1px solid var(--line-2);
+  padding: 8px 16px;
+  cursor: pointer;
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease), background var(--dur) var(--ease);
+}
+
+.filter-pill:hover { color: var(--ink); border-color: var(--ink-2); }
+
+.filter-pill.is-active {
+  color: var(--bg);
+  background: var(--pill-active, var(--ink));
+  border-color: var(--pill-active, var(--ink));
+}
+
 /* ---- article list ---- */
 .post-list {
-  padding: 48px 0 96px;
+  padding: 20px 0 96px;
   display: grid;
   gap: 1px;
   background: var(--line);
@@ -73,23 +109,33 @@
   grid-template-columns: 140px 1fr;
   gap: 24px;
   align-items: start;
-  transition: background var(--dur) var(--ease);
+  border-inline-start: 3px solid transparent;
+  transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
 
-.post-card:hover { background: var(--bg-2); }
+.post-card:hover { background: var(--bg-2); border-inline-start-color: var(--cat, var(--pink)); }
+
+.post-card[hidden] { display: none; }
 
 .post-card__meta {
-  font-size: 13px;
-  color: var(--pink);
-  font-weight: 600;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.post-card__category {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 700;
   letter-spacing: 0.04em;
+  color: var(--cat, var(--pink));
 }
 
 .post-card__date {
-  display: block;
   color: var(--ink-2);
+  font-size: 13px;
   font-weight: 400;
-  margin-top: 4px;
 }
 
 .post-card h2 {
@@ -98,7 +144,7 @@
 }
 
 .post-card h2 a { color: var(--ink); }
-.post-card h2 a:hover { color: var(--pink); }
+.post-card h2 a:hover { color: var(--cat, var(--pink)); }
 
 .post-card p {
   color: var(--ink-2);
@@ -107,7 +153,43 @@
 }
 
 @media (max-width: 640px) {
-  .post-card { grid-template-columns: 1fr; }
+  .post-card, .post-card--featured { grid-template-columns: 1fr; border-inline-start-width: 2px; }
+  .post-card__meta { flex-direction: row; align-items: center; gap: 12px; }
+}
+
+/* ---- featured (latest) post ---- */
+.post-card--featured {
+  grid-template-columns: 1fr;
+  padding: 44px clamp(24px, 5vw, 56px);
+  border-inline-start-width: 4px;
+  border-inline-start-color: var(--cat, var(--pink));
+}
+
+.post-card--featured:hover { border-inline-start-color: var(--cat, var(--pink)); }
+
+.post-card--featured .post-card__meta {
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.post-card--featured .post-card__category {
+  font-size: 13px;
+  padding: 4px 10px;
+  border: 1px solid var(--cat, var(--pink));
+}
+
+.post-card--featured h2 {
+  font-family: "Open Sans Hebrew", var(--font-display);
+  font-size: clamp(28px, 4.4vw, 42px);
+  line-height: 1.12;
+  max-width: 18ch;
+}
+
+.post-card--featured p {
+  font-size: 17px;
+  max-width: 62ch;
 }
 
 /* ---- single article ---- */
@@ -170,6 +252,31 @@
 }
 
 .article-body strong { color: var(--ink); }
+
+.article-related {
+  margin-top: 56px;
+  padding-top: 32px;
+  border-top: 1px solid var(--line);
+}
+
+.article-related h2 { margin-bottom: 16px; }
+
+.article-related ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.article-related a {
+  color: var(--ink);
+  font-size: 17px;
+  text-decoration: underline;
+  text-decoration-color: var(--line);
+  text-underline-offset: 4px;
+}
 
 .article-cta {
   margin-top: 56px;

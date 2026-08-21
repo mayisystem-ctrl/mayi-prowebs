@@ -167,54 +167,26 @@
     intro?.classList.add('is-live');
   }
 
-  // ---- in-site preview popup (scroll the full site, no external navigation) ----
-  const overlay = document.querySelector('.preview');
-  const frame = overlay?.querySelector('.preview__frame');
-  const imgwrap = overlay?.querySelector('.preview__imgwrap');
-  const img = overlay?.querySelector('.preview__img');
-  function openPreview(id, name) {
-    if (!overlay) return;
-    overlay.querySelector('.preview__title').textContent = name;
-    overlay.classList.remove('ready');
-    const live = LIVE[id];
-    if (live) {                                   // scroll the actual live site inside the popup
-      imgwrap.hidden = true; img.src = '';
-      frame.hidden = false;
-      frame.onload = () => overlay.classList.add('ready');
-      frame.src = live;
-      overlay.querySelector('.preview__hint').textContent = 'אתר חי · גללו בתוך החלון';
-    } else {                                      // site blocks embedding → full-page snapshot
-      frame.hidden = true; frame.src = '';
-      imgwrap.hidden = false; imgwrap.scrollTop = 0;
-      img.onload = () => overlay.classList.add('ready');
-      img.src = `assets/previews/${id}.jpg`; img.alt = name;
-      overlay.querySelector('.preview__hint').textContent = 'תצוגת snapshot · גללו';
-    }
-    overlay.hidden = false;
-    requestAnimationFrame(() => overlay.classList.add('open'));
-    document.body.style.overflow = 'hidden';
-  }
-  function closePreview() {
-    if (!overlay) return;
-    overlay.classList.remove('open');
-    document.body.style.overflow = '';
-    setTimeout(() => { overlay.hidden = true; frame.src = ''; img.src = ''; overlay.classList.remove('ready'); }, 320);
+  // ---- preview: open the real live site in a new tab ----
+  // an in-page iframe/overlay depended on every third-party host's framing
+  // policy (Cloudflare/WAF/security plugins) - unreliable per-site and per-
+  // browser, and doubled page weight (a whole second site's JS/CSS/video
+  // running inside ours). A plain new-tab link has zero such dependency and
+  // costs nothing until clicked.
+  function openPreview(id) {
+    const url = LIVE[id];
+    if (url) window.open(url, '_blank', 'noopener');
   }
   stage.addEventListener('click', (e) => {
     if (phase !== 'gallery') return;
     const card = e.target.closest('.hero-card');
-    if (card) openPreview(card.dataset.id, card.dataset.name);
+    if (card) openPreview(card.dataset.id);
   });
   stage.addEventListener('keydown', (e) => {
     if (phase !== 'gallery' || (e.key !== 'Enter' && e.key !== ' ')) return;
     const card = e.target.closest('.hero-card');
-    if (card) { e.preventDefault(); openPreview(card.dataset.id, card.dataset.name); }
+    if (card) { e.preventDefault(); openPreview(card.dataset.id); }
   });
-  if (overlay) {
-    overlay.querySelector('.preview__close').addEventListener('click', closePreview);
-    overlay.querySelector('.preview__backdrop').addEventListener('click', closePreview);
-    addEventListener('keydown', (e) => { if (e.key === 'Escape' && !overlay.hidden) closePreview(); });
-  }
 
   requestAnimationFrame(step);
 })();

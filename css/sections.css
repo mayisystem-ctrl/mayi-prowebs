@@ -755,7 +755,7 @@
     position: relative; inset: auto; top: auto; translate: none;
     height: auto; visibility: visible;
     display: none;
-    align-content: center;
+    align-content: start;
     gap: 14px;
     border-radius: 0;
     box-shadow: none;
