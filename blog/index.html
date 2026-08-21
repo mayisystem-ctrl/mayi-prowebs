@@ -28,58 +28,71 @@
     <p class="lead">אתרים, דפי נחיתה, ואוטומציה עסקית - מה שלמדנו בפועל מבניית מערכות דיגיטליות לעסקים.</p>
   </header>
 
+  <nav class="blog-filters" aria-label="סינון לפי נושא">
+    <button class="filter-pill is-active" data-filter="all" type="button">הכל</button>
+    <button class="filter-pill" data-filter="accessibility" type="button">נגישות</button>
+    <button class="filter-pill" data-filter="automation" type="button">אוטומציה</button>
+    <button class="filter-pill" data-filter="partner" type="button">בחירת שותף</button>
+    <button class="filter-pill" data-filter="seo" type="button">SEO טכני</button>
+    <button class="filter-pill" data-filter="geo" type="button">GEO/AEO</button>
+    <button class="filter-pill" data-filter="websites" type="button">אתרים</button>
+  </nav>
+
   <section class="post-list">
-    <article class="post-card">
-      <div class="post-card__meta">נגישות<span class="post-card__date">19.8.2026</span></div>
+    <article class="post-card post-card--featured cat-tech" data-cat="accessibility">
+      <div class="post-card__meta">
+        <span class="post-card__category">נגישות</span>
+        <span class="post-card__date">19.8.2026</span>
+      </div>
       <div>
         <h2><a href="/blog/website-accessibility-wcag-business-case.html">נגישות אתרים (WCAG) - למה זה סיכון משפטי אמיתי ויתרון עסקי, לא רק "נחמד שיהיה"</a></h2>
         <p>ב-2025 הוגשו בארה"ב מעל 5,000 תביעות נגישות דיגיטלית, ו-95.9% מדפי הבית המובילים ברשת עדיין נכשלים בבדיקת WCAG בסיסית. למה קוד מותאם אישית מטפל בזה אחרת מתבנית מוכנה.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">אוטומציה<span class="post-card__date">17.8.2026</span></div>
+    <article class="post-card cat-business" data-cat="automation">
+      <div class="post-card__meta"><span class="post-card__category">אוטומציה</span><span class="post-card__date">17.8.2026</span></div>
       <div>
         <h2><a href="/blog/review-automation-gohighlevel.html">אוטומציית ביקורות ב-GoHighLevel - איך עסק קטן בונה מוניטין דיגיטלי בלי לרדוף אחרי לקוחות</a></h2>
         <p>בקשת ביקורת אוטומטית ברגע שהעבודה הושלמה, בלי לסנן ביקורות שליליות ובלי להפר את כללי ה-FTC וגוגל. מה כדאי לאוטומט, מה אסור, ואיפה בן אדם עדיין חייב להיות בתמונה.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">בחירת שותף<span class="post-card__date">14.8.2026</span></div>
+    <article class="post-card cat-business" data-cat="partner">
+      <div class="post-card__meta"><span class="post-card__category">בחירת שותף</span><span class="post-card__date">14.8.2026</span></div>
       <div>
         <h2><a href="/blog/boutique-studio-vs-agency-vs-freelancer.html">סטודיו בוטיק מול פרילנסר מול אג'נסי - איך בוחרים נכון לפרויקט אתר פרימיום או GHL</a></h2>
         <p>שלושת המודלים מוכרים דבר שונה מהותית, לא רק מחיר שונה. מדריך מעשי לבחירת השותף הנכון לפי היקף הפרויקט האמיתי - לא לפי הגודל של השם על החשבונית.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">SEO טכני<span class="post-card__date">10.8.2026</span></div>
+    <article class="post-card cat-tech" data-cat="seo">
+      <div class="post-card__meta"><span class="post-card__category">SEO טכני</span><span class="post-card__date">10.8.2026</span></div>
       <div>
         <h2><a href="/blog/site-speed-core-web-vitals.html">מהירות אתר ו-Core Web Vitals - למה זה קובע יותר מהעיצוב</a></h2>
         <p>גוגל מצאה ש-53% מגולשי הנייד עוזבים דף שטוען מעל 3 שניות, ומיוני 2021 המהירות היא גורם דירוג רשמי. למה תבניות מוכנות בדרך כלל מפסידות כאן, ומה כן משנה.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">GEO/AEO<span class="post-card__date">7.8.2026</span></div>
+    <article class="post-card cat-tech" data-cat="geo">
+      <div class="post-card__meta"><span class="post-card__category">GEO/AEO</span><span class="post-card__date">7.8.2026</span></div>
       <div>
         <h2><a href="/blog/geo-aeo-ai-search-guide.html">איך גורמים ל-ChatGPT, Perplexity וג'מיני לצטט את העסק שלך - מדריך GEO/AEO מעשי</a></h2>
         <p>מנועי AI לא מדרגים קישורים, הם מצטטים תשובות. איך בונים תוכן עסקי שנבחר להיות המקור המצוטט - עם נתונים אמיתיים, לא הבטחות.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">אוטומציה<span class="post-card__date">5.8.2026</span></div>
+    <article class="post-card cat-business" data-cat="automation">
+      <div class="post-card__meta"><span class="post-card__category">אוטומציה</span><span class="post-card__date">5.8.2026</span></div>
       <div>
         <h2><a href="/blog/gohighlevel-automation-speed-to-lead.html">אוטומציה עסקית עם GoHighLevel - מה היא באמת מחליפה לעסק קטן, ולמה מהירות התגובה קובעת עסקה</a></h2>
         <p>מחקר של Harvard Business Review מצא שתגובה ללידים תוך 5 דקות מעלה את סיכויי הסגירה פי 21. איך מערכת אחת מאוחדת סוגרת את הפער הזה בשבילכם, ומה היא לא עושה לבד.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">GEO/AEO<span class="post-card__date">5.8.2026</span></div>
+    <article class="post-card cat-tech" data-cat="geo">
+      <div class="post-card__meta"><span class="post-card__category">GEO/AEO</span><span class="post-card__date">5.8.2026</span></div>
       <div>
         <h2><a href="/blog/ai-citations-schema-vs-structure.html">מה באמת גורם למנועי AI לצטט אתר - ולמה תגי Schema לבד לא מספיקים</a></h2>
         <p>מחקר חדש של Ahrefs עקב אחרי 1,885 עמודים שהוסיפו Schema markup - והציטוטים כמעט לא זזו. מה שכן קובע הוא מבנה התוכן, לא התיוג הטכני שלו.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">אתרים<span class="post-card__date">4.8.2026</span></div>
+    <article class="post-card cat-style" data-cat="websites">
+      <div class="post-card__meta"><span class="post-card__category">אתרים</span><span class="post-card__date">4.8.2026</span></div>
       <div>
         <h2><a href="/blog/landing-page-vs-website.html">דף נחיתה מול אתר תדמית - מה ההבדל, ומתי כל אחד נכון לעסק שלך</a></h2>
         <p>שני הכלים נראים דומים אבל עושים עבודה שונה לגמרי. איך לדעת מה מתאים לשלב שבו העסק שלך נמצא עכשיו - לפני שמשלמים על הדבר הלא נכון.</p>
@@ -87,5 +100,21 @@
     </article>
   </section>
 </main>
+<script>
+(function () {
+  var pills = document.querySelectorAll(".filter-pill");
+  var cards = document.querySelectorAll(".post-card");
+  pills.forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      pills.forEach(function (p) { p.classList.remove("is-active"); });
+      pill.classList.add("is-active");
+      var filter = pill.dataset.filter;
+      cards.forEach(function (card) {
+        card.hidden = filter !== "all" && card.dataset.cat !== filter;
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>

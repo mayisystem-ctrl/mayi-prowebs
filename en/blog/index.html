@@ -28,58 +28,71 @@
     <p class="lead">Websites, landing pages, and business automation - what we've actually learned building digital systems for businesses.</p>
   </header>
 
+  <nav class="blog-filters" aria-label="Filter by topic">
+    <button class="filter-pill is-active" data-filter="all" type="button">All</button>
+    <button class="filter-pill" data-filter="accessibility" type="button">Accessibility</button>
+    <button class="filter-pill" data-filter="automation" type="button">Automation</button>
+    <button class="filter-pill" data-filter="partner" type="button">Choosing a Partner</button>
+    <button class="filter-pill" data-filter="seo" type="button">Technical SEO</button>
+    <button class="filter-pill" data-filter="geo" type="button">GEO/AEO</button>
+    <button class="filter-pill" data-filter="websites" type="button">Websites</button>
+  </nav>
+
   <section class="post-list">
-    <article class="post-card">
-      <div class="post-card__meta">Accessibility<span class="post-card__date">Aug 19, 2026</span></div>
+    <article class="post-card post-card--featured cat-tech" data-cat="accessibility">
+      <div class="post-card__meta">
+        <span class="post-card__category">Accessibility</span>
+        <span class="post-card__date">Aug 19, 2026</span>
+      </div>
       <div>
         <h2><a href="/prowebs/en/blog/website-accessibility-wcag-business-case.html">Website Accessibility (WCAG) - Why It's a Real Legal Risk and Business Advantage, Not Just "Nice to Have"</a></h2>
         <p>Over 5,000 digital accessibility lawsuits were filed in the US in 2025, and 95.9% of the web's top home pages still fail basic WCAG checks. Why custom code handles it differently than a template.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">Automation<span class="post-card__date">Aug 17, 2026</span></div>
+    <article class="post-card cat-business" data-cat="automation">
+      <div class="post-card__meta"><span class="post-card__category">Automation</span><span class="post-card__date">Aug 17, 2026</span></div>
       <div>
         <h2><a href="/prowebs/en/blog/review-automation-gohighlevel.html">Review Automation with GoHighLevel - How a Small Business Builds Digital Reputation Without Chasing Customers</a></h2>
         <p>Automated review requests the moment a job is complete, without filtering negative reviews and without breaking FTC or Google rules. What's worth automating, what isn't, and where a human still has to be involved.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">Choosing a Partner<span class="post-card__date">Aug 14, 2026</span></div>
+    <article class="post-card cat-business" data-cat="partner">
+      <div class="post-card__meta"><span class="post-card__category">Choosing a Partner</span><span class="post-card__date">Aug 14, 2026</span></div>
       <div>
         <h2><a href="/prowebs/en/blog/boutique-studio-vs-agency-vs-freelancer.html">Boutique Studio vs. Freelancer vs. Agency - How to Choose for a Premium Website or GHL Project</a></h2>
         <p>The three models sell fundamentally different things, not just different prices. A practical guide to choosing the right partner based on what your project actually needs - not the size of the name on the invoice.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">Technical SEO<span class="post-card__date">Aug 10, 2026</span></div>
+    <article class="post-card cat-tech" data-cat="seo">
+      <div class="post-card__meta"><span class="post-card__category">Technical SEO</span><span class="post-card__date">Aug 10, 2026</span></div>
       <div>
         <h2><a href="/prowebs/en/blog/site-speed-core-web-vitals.html">Site Speed &amp; Core Web Vitals - Why It Matters More Than Design</a></h2>
         <p>Google found that 53% of mobile visitors abandon a page that takes over 3 seconds to load, and since June 2021 speed has been an official ranking factor. Why template builders usually lose here, and what actually matters.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">GEO/AEO<span class="post-card__date">Aug 7, 2026</span></div>
+    <article class="post-card cat-tech" data-cat="geo">
+      <div class="post-card__meta"><span class="post-card__category">GEO/AEO</span><span class="post-card__date">Aug 7, 2026</span></div>
       <div>
         <h2><a href="/prowebs/en/blog/geo-aeo-ai-search-guide.html">How to Get ChatGPT, Perplexity, and Gemini to Cite Your Business - A Practical GEO/AEO Guide</a></h2>
         <p>AI engines don't rank links, they cite answers. How to build business content that gets chosen as the cited source - backed by real data, not promises.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">Automation<span class="post-card__date">Aug 5, 2026</span></div>
+    <article class="post-card cat-business" data-cat="automation">
+      <div class="post-card__meta"><span class="post-card__category">Automation</span><span class="post-card__date">Aug 5, 2026</span></div>
       <div>
         <h2><a href="/prowebs/en/blog/gohighlevel-automation-speed-to-lead.html">Business Automation with GoHighLevel - What It Actually Replaces for a Small Business, and Why Response Speed Wins Deals</a></h2>
         <p>A Harvard Business Review study found responding to leads within 5 minutes makes you 21x more likely to close them. How one unified system closes that gap for you, and what it can't do on its own.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">GEO/AEO<span class="post-card__date">Aug 5, 2026</span></div>
+    <article class="post-card cat-tech" data-cat="geo">
+      <div class="post-card__meta"><span class="post-card__category">GEO/AEO</span><span class="post-card__date">Aug 5, 2026</span></div>
       <div>
         <h2><a href="/prowebs/en/blog/ai-citations-schema-vs-structure.html">What Actually Gets Your Site Cited by AI - and Why Schema Markup Alone Isn't Enough</a></h2>
         <p>A new Ahrefs study tracked 1,885 pages that added Schema markup - and citations barely moved. What actually drives it is content structure, not technical tagging.</p>
       </div>
     </article>
-    <article class="post-card">
-      <div class="post-card__meta">Websites<span class="post-card__date">Aug 4, 2026</span></div>
+    <article class="post-card cat-style" data-cat="websites">
+      <div class="post-card__meta"><span class="post-card__category">Websites</span><span class="post-card__date">Aug 4, 2026</span></div>
       <div>
         <h2><a href="/prowebs/en/blog/landing-page-vs-website.html">Landing Page vs. Website - What's the Difference, and When Each One Is Right for Your Business</a></h2>
         <p>The two tools look similar but do completely different jobs. How to know what fits the stage your business is at right now - before you pay for the wrong one.</p>
@@ -87,5 +100,21 @@
     </article>
   </section>
 </main>
+<script>
+(function () {
+  var pills = document.querySelectorAll(".filter-pill");
+  var cards = document.querySelectorAll(".post-card");
+  pills.forEach(function (pill) {
+    pill.addEventListener("click", function () {
+      pills.forEach(function (p) { p.classList.remove("is-active"); });
+      pill.classList.add("is-active");
+      var filter = pill.dataset.filter;
+      cards.forEach(function (card) {
+        card.hidden = filter !== "all" && card.dataset.cat !== filter;
+      });
+    });
+  });
+})();
+</script>
 </body>
 </html>
