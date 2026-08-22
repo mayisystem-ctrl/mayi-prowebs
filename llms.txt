@@ -27,9 +27,9 @@ Israeli businesses and brands - particularly larger companies and premium/presti
 - [Hebrew (primary)](https://mayi.dev/prowebs)
 - [English](https://mayi.dev/prowebs/en)
 - [Blog](https://mayi.dev/prowebs/blog) - practical articles on websites, landing pages, and business automation
-- [How much does a website cost in Israel](https://mayi.dev/prowebs/blog/kama-ole-livnot-atar) - factors that actually drive website pricing, no fixed numbers published
-- [Building a website for a small business](https://mayi.dev/prowebs/blog/binyat-atar-leesek-katan)
-- [Building a website for a law firm](https://mayi.dev/prowebs/blog/binyat-atar-le-orchei-din)
+- [How much does a website cost in Israel](https://mayi.dev/prowebs/blog/kama-ole-livnot-atar) - factors that actually drive website pricing, no fixed numbers published ([EN](https://mayi.dev/prowebs/en/blog/kama-ole-livnot-atar))
+- [Building a website for a small business](https://mayi.dev/prowebs/blog/binyat-atar-leesek-katan) ([EN](https://mayi.dev/prowebs/en/blog/binyat-atar-leesek-katan))
+- [Building a website for a law firm](https://mayi.dev/prowebs/blog/binyat-atar-le-orchei-din) ([EN](https://mayi.dev/prowebs/en/blog/binyat-atar-le-orchei-din))
 
 ## Contact / social
 - [Instagram](https://www.instagram.com/mayi.dev_ai/)
