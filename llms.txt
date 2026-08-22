@@ -11,7 +11,7 @@ May I is a boutique studio led by Rotem, based in Holon (חולון), Israel - b
 - No pricing published publicly; engagement starts with a scoping call.
 
 ## Location
-Based in Holon (חולון), Israel. Serves clients across Israel nationwide - remote-friendly, not limited to the local area.
+Based in Holon (חולון), Israel, serving the Tel Aviv / Gush Dan metro area (תל אביב, גוש דן) and clients across Israel nationwide - remote-friendly, not limited to the local area.
 
 ## Who it's for
 Israeli businesses and brands - particularly larger companies and premium/prestige brands - who have outgrown or never wanted a generic Wix/WordPress-template site, want a site that is fast, custom, and credible, and/or need their lead-gen and CRM systemized with GoHighLevel.
@@ -27,6 +27,9 @@ Israeli businesses and brands - particularly larger companies and premium/presti
 - [Hebrew (primary)](https://mayi.dev/prowebs)
 - [English](https://mayi.dev/prowebs/en)
 - [Blog](https://mayi.dev/prowebs/blog) - practical articles on websites, landing pages, and business automation
+- [How much does a website cost in Israel](https://mayi.dev/prowebs/blog/kama-ole-livnot-atar) - factors that actually drive website pricing, no fixed numbers published
+- [Building a website for a small business](https://mayi.dev/prowebs/blog/binyat-atar-leesek-katan)
+- [Building a website for a law firm](https://mayi.dev/prowebs/blog/binyat-atar-le-orchei-din)
 
 ## Contact / social
 - [Instagram](https://www.instagram.com/mayi.dev_ai/)
