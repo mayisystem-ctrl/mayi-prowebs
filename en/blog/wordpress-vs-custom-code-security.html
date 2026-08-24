@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WordPress vs. Custom Code - The Maintenance & Security Cost Nobody Mentions Before You Sign | May I</title>
+<meta name="description" content="The question that actually matters isn't how much the build costs, but who patches and protects the site after it goes live. What differs in maintenance and security load between WordPress and custom code.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/wordpress-vs-custom-code-security">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/wordpress-vs-custom-code-security">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/wordpress-vs-custom-code-security">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/wordpress-vs-custom-code-security">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "WordPress vs. Custom Code - The Maintenance & Security Cost Nobody Mentions Before You Sign",
+  "datePublished": "2026-08-24",
+  "dateModified": "2026-08-24",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/wordpress-vs-custom-code-security"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is a custom-coded site more resistant to hacks than a WordPress site?",
+      "acceptedAnswer": { "@type": "Answer", "text": "In principle, yes, and for a simple reason: it carries a much smaller attack surface. Most WordPress vulnerabilities aren't in the core system but in third-party plugins, and every plugin is independent code with its own update cycle you need to track. A custom-coded site without that plugin layer carries far fewer dependencies that need urgent fixing - but it still requires server updates, an SSL certificate, and regular backups, because no code is ever fully immune." }
+    },
+    {
+      "@type": "Question",
+      "name": "How much does maintaining a custom-coded site cost compared to WordPress?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There's no single number, because it depends on the site's scope and who maintains it. But the practical principle holds: fewer third-party dependencies means fewer emergency updates and less chance of an issue that demands an urgent, costly fix. The right question to ask before signing isn't how much the build costs, but who is responsible for ongoing maintenance, and how often." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a page or CRM built inside GoHighLevel need the same security maintenance as a standalone site?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No, it's a completely different risk layer. Security updates to the underlying infrastructure in GoHighLevel are the platform vendor's responsibility, not the business's or the studio that built the page. That doesn't make you immune - you still need to manage user permissions and passwords correctly inside the system - but it fully removes the core-and-plugin update burden that exists on WordPress." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Websites <span>· Aug 24, 2026 · May I</span></div>
+    <h1>WordPress vs. Custom Code - The Maintenance & Security Cost Nobody Mentions Before You Sign</h1>
+    <p class="lead">Short answer: in 2025, 11,334 new vulnerabilities were disclosed across the WordPress ecosystem - a 42% increase over 2024 - and 91% of them were found in third-party plugins, not the core system itself. A custom-coded site, without that plugin layer, carries a significantly smaller attack surface - but not zero: it still needs server updates, an SSL certificate, and regular backups. The real difference between the two isn't how much the build costs, it's <span class="hl">who is responsible for ongoing maintenance after the site goes live</span>, and how often.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why this question matters at all</h2>
+    <p>Most of the "how much does a website cost" conversation focuses on the build moment - design, development, content. But a website isn't a one-time product, it's a system running on the open internet every day, including while nobody's watching it. What actually determines the cost over time is who handles ongoing maintenance - security updates, monitoring, backups - and what happens when something goes wrong.</p>
+
+    <h2>The plugin layer is the problem, not WordPress itself</h2>
+    <p>WordPress is the world's most widely used content management system, thanks to a massive plugin ecosystem that adds almost any functionality you want. But every plugin is independent code written by an outside developer, with its own update cycle - and per <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack's</a> annual report, 91% of the vulnerabilities disclosed across the ecosystem in 2025 were found in plugins, not WordPress core. In other words, the more plugins installed, the more potential "doors" there are that need locking and patching.</p>
+
+    <h2>What custom code actually changes</h2>
+    <p>A site built in custom code, without an external plugin marketplace, narrows the attack surface down to what the team that built it actually wrote and chose - known, documented libraries, not hundreds of third-party plugins of anonymous ownership. That doesn't mean <span class="hl">there's nothing to maintain</span> - it means the scope of dependencies you need to track is known and closed from the start, instead of expanding every time someone installs a new plugin to solve a one-off problem.</p>
+
+    <h2>What it doesn't solve</h2>
+    <p>Custom code isn't a magic bullet. Even on a custom-coded site you still need: OS and server software updates, SSL certificate renewal, uptime monitoring, and regular backups that are actually tested for restoration. The difference is in how much third-party code you have to track - not in eliminating the need for maintenance altogether.</p>
+
+    <h2>An automation system like GoHighLevel - a completely different risk layer</h2>
+    <p>When it comes to a landing page, a lead form, or a CRM built inside GoHighLevel, responsibility for the underlying infrastructure's security updates shifts to the company running the platform - not to the business, and not to the studio that built the page. That directly reduces the burden that usually falls on a WordPress site owner, though it doesn't eliminate it entirely: managing user permissions and passwords correctly inside the system remains the operator's responsibility.</p>
+
+    <h2>What to ask before you sign</h2>
+    <ul>
+      <li>Who is responsible for ongoing security updates - the team that built the site, the hosting provider, or me?</li>
+      <li>Is there a standing maintenance agreement, or is every fix a separate paid project?</li>
+      <li>What's the response process if the site is compromised or goes down - how long does it actually take to handle?</li>
+      <li>How often are backups taken, and where are they stored?</li>
+    </ul>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="binyat-atar-leesek-katan.html">Building a Website for a Small Business - What You Actually Need First</a></li>
+      <li><a href="kama-ole-livnot-atar.html">How Much Does a Business Website Cost</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Want a site that won't chase you with emergency updates?</h2>
+      <p>We build with custom code and with systems like GoHighLevel, and we explain exactly who's responsible for what after the site goes live - no surprises down the road.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
