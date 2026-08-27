@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilingual Business Website (Hebrew-English) - hreflang, International SEO, and Why It's Not Just Translation | May I</title>
+<meta name="description" content="A properly built bilingual site isn't a translation widget. A practical guide to hreflang, correct URL structure, and why it determines how both Google and AI engines see your business.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/bilingual-website-hreflang-seo">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/bilingual-website-hreflang-seo">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/bilingual-website-hreflang-seo">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/bilingual-website-hreflang-seo">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bilingual Business Website (Hebrew-English) - hreflang, International SEO, and Why It's Not Just Translation",
+  "datePublished": "2026-08-26",
+  "dateModified": "2026-08-26",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/bilingual-website-hreflang-seo"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is hreflang and why do I need it on a bilingual website?",
+      "acceptedAnswer": { "@type": "Answer", "text": "hreflang is a tag in the head of every page that tells Google which other language versions of the same content exist, so it shows each searcher the right version in results. Without hreflang, Google may show an English speaker the Hebrew version, or treat both versions as competing duplicate content instead of complementary ones." }
+    },
+    {
+      "@type": "Question",
+      "name": "Can I use an automatic translation widget (like Google Translate) instead of building a separate language version?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Technically yes, but it doesn't solve the underlying business problem. A translation widget runs client-side, usually isn't crawled as real content, doesn't get its own URL that hreflang can link to, and gives you no control over wording, tone, or keywords in the second language. For a business that wants organic presence in both languages, a real, separate version is the right investment." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does hreflang also affect how ChatGPT or Perplexity present my business?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not directly - hreflang is a standard Google and traditional search engines read, and there's no official confirmation that AI engines rely on it the same way. But the practical outcome is similar: an AI engine answering an English query tends to cite content originally written in English, not a mechanical translation. Two real, separate versions, each with a clear answer at the top of the page, is the best way to get cited in both languages." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Aug 26, 2026 · May I</span></div>
+    <h1>Bilingual Business Website (Hebrew-English) - hreflang, International SEO, and Why It's Not Just Translation</h1>
+    <p class="lead">Short answer: a properly built bilingual site is two separate content versions, on separate URLs, linked to each other with reciprocal <span class="hl">hreflang</span> tags in the head - not a translation widget layered over one site. Google requires full reciprocal linking between versions to understand they're translations of the same content rather than competing duplicate pages, per official <a href="https://developers.google.com/search/docs/specialty/international/localized-versions" target="_blank" rel="noopener">Google Search Central</a> documentation. And for anyone wondering if it's worth the effort - a global survey of 8,709 consumers across 29 countries found that <span class="hl">76%</span> prefer buying a product with information in their native language, and 40% simply won't buy from a site in another language (source: <a href="https://csa-research.com/l/media/Consumers-Prefer-their-Own-Language" target="_blank" rel="noopener">CSA Research</a>).</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why it's not just "translating the site"</h2>
+    <p>Many businesses we work with come to us after already trying a quick fix - a translation widget that adds an "EN" button in the corner. It looks like a solution, but technically it's almost always a problem: the translated text runs in client-side JavaScript, usually isn't stored on a separate URL that can be linked to, so Google doesn't crawl it as an independent page and can't show it in search results to English speakers. Beyond that - mechanical translation doesn't control tone, doesn't choose the keywords people actually search for in English, and sometimes just sounds off. A real bilingual site is two separate writing experiences, each speaking to its own audience.</p>
+
+    <h2>What hreflang actually does, and the technical rules you can't get wrong</h2>
+    <p>hreflang is a <code>&lt;link&gt;</code> tag added to the head of every page that tells Google: "this content also exists in another language, and here's its URL." Three rules you can't skip:</p>
+    <ul>
+      <li><strong>Full reciprocal linking</strong> - the Hebrew page must point to the English page, and the English page must point back to the Hebrew one. A one-way link isn't valid and Google may ignore it.</li>
+      <li><strong>Self-reference</strong> - every page also includes an hreflang tag pointing to itself, not just to the other version.</li>
+      <li><strong>x-default</strong> - an additional tag telling Google which version to show a visitor whose language doesn't match either option (say, a French speaker landing on the site).</li>
+    </ul>
+    <p>Here's what that looks like in real code, on this very site:</p>
+    <ul>
+      <li><code>&lt;link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/bilingual-website-hreflang-seo"&gt;</code></li>
+      <li><code>&lt;link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/bilingual-website-hreflang-seo"&gt;</code></li>
+      <li><code>&lt;link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/bilingual-website-hreflang-seo"&gt;</code></li>
+    </ul>
+
+    <h2>The common mistakes we've actually seen</h2>
+    <p>It's almost never one big mistake, but several small ones that add up: an hreflang link pointing to an old URL that's been removed, a one-way link (Hebrew points to English but not the reverse), a forgotten x-default, or hreflang tags injected via JavaScript that aren't always read at crawl time. The problem with all of these is that they're silent - the site still looks fine to a visitor, but Google interprets the two versions as competing content instead of complementary content, and ranks both worse for it.</p>
+
+    <h2>URL structure - a language folder, not a parameter</h2>
+    <p>The most stable approach is a separate path folder per language (for example <code>/blog/</code> for Hebrew and <code>/en/blog/</code> for English), with the same slug structure across both versions. It's consistent, easy to track in Google Search Console as two separate "sites" for search data, and simpler to maintain as you add new content - every Hebrew page gets an English counterpart at the matching path.</p>
+
+    <h2>How this affects AI engines too, not just Google</h2>
+    <p>hreflang is a standard Google and traditional search engines officially support - there's no official confirmation that engines like ChatGPT or Perplexity read it the same way. But in practice, when someone asks a question in English, the engine tends to cite content originally written in English and that reads naturally in it - not a literal translation. And it connects to a broader rule we've written about before: a study tracking ChatGPT citations found that <span class="hl">44.2% of citations come from the first 30% of a document</span> (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>) - meaning in any language, the direct answer has to be in the opening, not buried in the tenth paragraph. On a bilingual site, that adds another requirement: you can't "translate the opening later" as an afterthought - each language version needs a direct, well-written opening in its own right.</p>
+
+    <h2>When it's worth the extra investment</h2>
+    <p>Not every business needs a bilingual site. If all your customers speak Hebrew and you have no plans to reach an English-speaking market (tourists, international customers, an immigrant community), the budget is better spent deepening the Hebrew content. But if you have a real audience in both languages - say, a Tel Aviv business serving both Israeli residents and an English-speaking immigrant or tourist community - a properly built English version, not a widget, is the difference between being found in search and being invisible.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="ai-citations-schema-vs-structure.html">What Actually Gets Your Site Cited by AI</a></li>
+      <li><a href="geo-aeo-ai-search-guide.html">How to Get ChatGPT, Perplexity, and Gemini to Cite Your Business</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Building a site that needs to work in two languages?</h2>
+      <p>We build bilingual sites from the ground up with correct URL structure and hreflang - not a translation widget hiding a structural problem.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
