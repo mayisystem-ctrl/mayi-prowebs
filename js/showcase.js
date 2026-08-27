@@ -2,10 +2,11 @@
 // One set of cards: fly out → spin in a circle (loading) → morph straight into a
 // horizontal moving gallery (hero). Continuous, madrepunk-style — no fade handoff.
 (() => {
-  const BASE = ['aurelia-yachts', 'smash-burger', 'forma-studio-tlv', 'noa-gross-photography', 'rongo', 'hasdeisaada', 'ask-reuven'];
+  const BASE = ['aurelia-yachts', 'smash-burger', 'forma-studio-tlv', 'noa-gross-photography', 'rongo', 'hasdeisaada', 'ask-reuven', 'fital'];
   const NAMES = {
     'aurelia-yachts': 'Aurelia Yachts', 'smash-burger': 'SMASH Burger', 'forma-studio-tlv': 'Forma Studio',
     'noa-gross-photography': 'Noa Gross', 'rongo': 'Ron-go', 'hasdeisaada': 'חסדי סעדה', 'ask-reuven': 'ראובן יוסופוב',
+    'fital': 'Fital',
   };
   // live URLs for the in-popup iframe (null = blocks framing → screenshot fallback)
   const LIVE = {
@@ -16,6 +17,7 @@
     'rongo': 'https://rongo.co.il/',
     'hasdeisaada': 'https://hasdeisaada.org/',
     'ask-reuven': 'https://ask-reuven.co.il/',
+    'fital': 'https://fital.co.il/',
   };
 
   const stage     = document.querySelector('.hero__stage');
