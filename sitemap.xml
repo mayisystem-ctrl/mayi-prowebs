@@ -16,6 +16,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mayi.dev/prowebs/blog/redesign-vs-rebuild-website</loc>
+    <lastmod>2026-08-28</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mayi.dev/prowebs/en/blog/redesign-vs-rebuild-website</loc>
+    <lastmod>2026-08-28</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mayi.dev/prowebs/blog/website-accessibility-wcag-business-case</loc>
     <lastmod>2026-08-19</lastmod>
     <priority>0.6</priority>
