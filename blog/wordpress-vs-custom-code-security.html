@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>וורדפרס מול קוד מותאם אישית - עלות האחזקה והאבטחה שאף אחד לא מזכיר לפני שחותמים | May I</title>
+<meta name="description" content="השאלה החשובה באמת היא לא כמה עולה לבנות את האתר, אלא מי מעדכן ומגן עליו אחרי שהוא עולה לאוויר. מה ההבדל בעומס האחזקה והאבטחה בין וורדפרס לקוד מותאם אישית.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/wordpress-vs-custom-code-security">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/wordpress-vs-custom-code-security">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/wordpress-vs-custom-code-security">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/wordpress-vs-custom-code-security">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "וורדפרס מול קוד מותאם אישית - עלות האחזקה והאבטחה שאף אחד לא מזכיר לפני שחותמים",
+  "datePublished": "2026-08-24",
+  "dateModified": "2026-08-24",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/wordpress-vs-custom-code-security"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "האם אתר בקוד מותאם אישית עמיד יותר מפני פריצות מאשר אתר וורדפרס?",
+      "acceptedAnswer": { "@type": "Answer", "text": "בעיקרון כן, ומהסיבה הפשוטה שהוא נושא הרבה פחות משטח התקפה. רוב הפרצות בוורדפרס לא נמצאות בליבת המערכת אלא בתוספים (plugins) של צד שלישי, וכל תוסף הוא קוד עצמאי עם מחזור עדכונים משלו שצריך לעקוב אחריו. אתר בקוד מותאם אישית בלי שכבת תוספים כזו נושא פחות תלויות שצריך לתקן בדחיפות - אבל הוא עדיין דורש עדכוני שרת, תעודת SSL וגיבויים סדירים, כי אין קוד שחסין לגמרי." }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה עולה אחזקת אתר קוד מותאם אישית לעומת וורדפרס?",
+      "acceptedAnswer": { "@type": "Answer", "text": "אין מספר אחיד, כי זה תלוי בהיקף האתר ובמי מתחזק אותו. אבל העיקרון המעשי הוא זה: פחות תלויות של צד שלישי אומר פחות עדכוני חירום ופחות סיכוי לתקלה שדורשת תיקון דחוף ויקר. השאלה הנכונה לשאול לפני שחותמים היא לא כמה עולה הבנייה, אלא מי אחראי על התחזוקה השוטפת ובאיזו תדירות." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם אתר או דף שנבנה בתוך GoHighLevel דורש אותה תחזוקת אבטחה כמו אתר עצמאי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא, זו שכבת סיכון שונה לגמרי. עדכוני האבטחה של התשתית ב-GoHighLevel הם באחריות החברה עצמה כספק הפלטפורמה, לא באחריות העסק או הסטודיו שבנה את הדף. זה לא הופך אתכם לחסינים - עדיין צריך לנהל הרשאות משתמשים וסיסמאות נכון - אבל זה מסיר לגמרי את נטל עדכוני הליבה והתוספים שקיים בוורדפרס." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">אתרים <span>· 24.8.2026 · May I</span></div>
+    <h1>וורדפרס מול קוד מותאם אישית - עלות האחזקה והאבטחה שאף אחד לא מזכיר לפני שחותמים</h1>
+    <p class="lead">התשובה הישירה: ב-2025 נמצאו 11,334 פרצות אבטחה חדשות באקוסיסטם של וורדפרס - עלייה של 42% לעומת 2024 - כאשר 91% מהן נמצאו בתוספים (plugins) של צד שלישי, לא בליבת המערכת עצמה. אתר בקוד מותאם אישית, בלי שכבת תוספים כזו, נושא משטח התקפה קטן משמעותית - אבל לא אפס: הוא עדיין דורש עדכוני שרת, תעודת SSL וגיבויים סדירים. ההבדל האמיתי בין השניים הוא לא כמה עולה לבנות את האתר, אלא <span class="hl">מי אחראי על התחזוקה השוטפת אחרי שהוא עולה לאוויר</span>, ובאיזו תדירות.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה השאלה הזו בכלל חשובה</h2>
+    <p>רוב הדיון על "כמה עולה אתר" מתמקד ברגע הבנייה - עיצוב, פיתוח, תוכן. אבל אתר הוא לא מוצר חד-פעמי, הוא מערכת שרצה באינטרנט הפתוח כל יום, כולל בזמן שאף אחד לא מסתכל עליה. השאלה שבאמת קובעת את העלות לאורך זמן היא מי דואג לתחזוקה השוטפת שלה - עדכוני אבטחה, ניטור, גיבויים - ומה קורה כשמשהו משתבש.</p>
+
+    <h2>שכבת התוספים היא הבעיה, לא וורדפרס עצמו</h2>
+    <p>וורדפרס היא מערכת ניהול התוכן הנפוצה ביותר בעולם, בזכות אקוסיסטם עצום של תוספים שמוסיפים כמעט כל פונקציונליות שרוצים. אבל כל תוסף הוא קוד עצמאי שנכתב על ידי מפתח חיצוני, עם מחזור עדכונים משלו - ולפי הדו"ח השנתי של <a href="https://patchstack.com/whitepaper/state-of-wordpress-security-in-2026/" target="_blank" rel="noopener">Patchstack</a>, 91% מהפרצות שהתגלו באקוסיסטם ב-2025 היו בתוספים, לא בליבת וורדפרס. כלומר, ככל שמתקינים יותר תוספים, כך גדל מספר "הדלתות" הפוטנציאליות שצריך לנעול ולעדכן.</p>
+
+    <h2>מה קוד מותאם אישית באמת משנה</h2>
+    <p>אתר שנבנה בקוד מותאם אישית, בלי שוק תוספים חיצוניים, מצמצם את משטח ההתקפה למה שהצוות שבנה אותו בפועל כתב ובחר - ספריות ידועות ומתועדות, לא מאות תוספי צד שלישי בבעלות אלמונית. זה לא אומר <span class="hl">שאין מה לתחזק</span>, זה אומר שהיקף התלויות שצריך לעקוב אחריהן ידוע וסגור מלכתחילה, במקום להתרחב בכל פעם שמישהו מתקין תוסף חדש כדי לפתור בעיה נקודתית.</p>
+
+    <h2>מה זה לא פותר</h2>
+    <p>קוד מותאם אישית הוא לא כדור קסם. גם באתר כזה עדיין צריך: עדכוני מערכת הפעלה ותוכנת שרת, חידוש תעודת SSL, ניטור זמינות, וגיבויים סדירים שבודקים שאפשר לשחזר מהם בפועל. ההבדל הוא בכמות הקוד של צד שלישי שצריך לעקוב אחריו - לא בביטול הצורך בתחזוקה בכלל.</p>
+
+    <h2>מערכת אוטומציה כמו GoHighLevel - שכבת סיכון שונה לגמרי</h2>
+    <p>כשמדובר בדף נחיתה, טופס לידים או מערכת CRM שבנויים בתוך GoHighLevel, האחריות על עדכוני האבטחה של התשתית עצמה עוברת לחברה שמפעילה את הפלטפורמה - לא לעסק ולא לסטודיו שבנה את הדף. זה מקטין באופן ישיר את הנטל שבד"כ נופל על בעל אתר וורדפרס, אבל לא מבטל אותו לגמרי: ניהול נכון של הרשאות משתמשים וסיסמאות בתוך המערכת נשאר באחריות מי שמפעיל אותה.</p>
+
+    <h2>מה כדאי לשאול לפני שחותמים</h2>
+    <ul>
+      <li>מי אחראי על עדכוני אבטחה שוטפים - הצוות שבנה את האתר, ספק אחסון, או אני?</li>
+      <li>יש הסכם אחזקה קבוע, או שכל תיקון הוא פרויקט נפרד בתשלום נוסף?</li>
+      <li>מה תהליך התגובה אם האתר נפרץ או מושבת - כמה זמן לוקח לטפל בזה בפועל?</li>
+      <li>באיזו תדירות מתבצעים גיבויים, ואיפה הם נשמרים?</li>
+    </ul>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="binyat-atar-leesek-katan.html">בניית אתר לעסק קטן - מה באמת צריך לפני שמתחילים</a></li>
+      <li><a href="kama-ole-livnot-atar.html">כמה עולה בניית אתר לעסק</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>רוצים אתר שלא ירדוף אתכם עם עדכוני חירום?</h2>
+      <p>אנחנו בונים באתרים בקוד מותאם אישית ובמערכות כמו GoHighLevel, ומסבירים בדיוק מי אחראי על מה אחרי שהאתר עולה לאוויר - בלי הפתעות בהמשך.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
