@@ -6,7 +6,7 @@
   const NAMES = {
     'aurelia-yachts': 'Aurelia Yachts', 'smash-burger': 'SMASH Burger', 'forma-studio-tlv': 'Forma Studio',
     'noa-gross-photography': 'Noa Gross', 'rongo': 'Ron-go', 'hasdeisaada': 'חסדי סעדה', 'ask-reuven': 'ראובן יוסופוב',
-    'fital': 'Fital',
+    'fital': 'טל מועלם Fital | תזונה וכושר',
   };
   // live URLs for the in-popup iframe (null = blocks framing → screenshot fallback)
   const LIVE = {
