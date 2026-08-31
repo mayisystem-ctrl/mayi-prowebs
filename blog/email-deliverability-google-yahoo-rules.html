@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מיילים אוטומטיים נופלים לספאם - כללי האימות של גוגל ו-Yahoo ב-2026 | May I</title>
+<meta name="description" content="SPF, DKIM ו-DMARC כבר לא המלצה - הם תנאי סף של גוגל ו-Yahoo לשליחת מיילים אוטומטיים. מה זה אומר בפועל לעסק שמריץ קמפיינים ותזכורות דרך GoHighLevel.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/email-deliverability-google-yahoo-rules">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/email-deliverability-google-yahoo-rules">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/email-deliverability-google-yahoo-rules">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/email-deliverability-google-yahoo-rules">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "מיילים אוטומטיים נופלים לספאם - כללי האימות של גוגל ו-Yahoo ב-2026, ולמה SPF, DKIM ו-DMARC כבר לא אופציונליים",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/email-deliverability-google-yahoo-rules"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה זה SPF, DKIM ו-DMARC בקיצור?",
+      "acceptedAnswer": { "@type": "Answer", "text": "שלושה רשומות DNS שביחד מוכיחות לשרתי הדואר שהמייל באמת נשלח על ידי הדומיין שהוא טוען שנשלח ממנו. SPF מגדיר אילו שרתים מורשים לשלוח בשם הדומיין, DKIM חותם כל מייל בחתימה קריפטוגרפית שאי אפשר לזייף, ו-DMARC קובע מה קורה כששני הבדיקות האלה נכשלות - ומאפשר לך לקבל דוחות על ניסיונות התחזות." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם הדרישות האלה חלות רק על עסקים ששולחים אלפי מיילים ביום?",
+      "acceptedAnswer": { "@type": "Answer", "text": "רשמית, הסף של גוגל הוא כ-5,000 מיילים ביום לחשבונות Gmail אישיים כדי להיחשב שולח בהיקף גדול. בפועל, כל עסק ששולח מיילים אוטומטיים דרך פלטפורמת CRM כמו GoHighLevel משתמש בתשתית שליחה משותפת, ולכן דומיין לא מאומת פוגע בו הרבה לפני שהוא מגיע לנפח הזה בעצמו." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה קורה בפועל אם מייל לא עומד בדרישות האימות?",
+      "acceptedAnswer": { "@type": "Answer", "text": "גוגל דוחה את המייל באופן זמני או קבוע, בהתאם לרמת ההפרה. במקרה הטוב הוא נוחת בספאם, במקרה הרע הוא לא מגיע בכלל - וללא Postmaster Tools מוגדר, לרוב אין דרך לדעת שזה קורה." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">אוטומציה <span>· 31.8.2026 · May I</span></div>
+    <h1>מיילים אוטומטיים נופלים לספאם - כללי האימות של גוגל ו-Yahoo ב-2026, ולמה SPF, DKIM ו-DMARC כבר לא אופציונליים</h1>
+    <p class="lead">התשובה הישירה: אם תזכורות, פולואפים או קמפיינים שנשלחים אוטומטית מ-GoHighLevel נופלים לספאם או לא מגיעים בכלל, הסיבה הנפוצה ביותר היא שהדומיין השולח לא עומד בדרישות האימות שגוגל ו-Yahoo אכפו במשותף החל מפברואר 2024. הפתרון לא יצירתי ולא קשור לתוכן המייל - הוא טכני לחלוטין: להגדיר <span class="hl">SPF, DKIM ו-DMARC</span> נכון על הדומיין ששולח את המיילים, ולא להסתפק בתצורת ברירת המחדל שהפלטפורמה נתנה בהתקנה.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>מה בדיוק גוגל ו-Yahoo דרשו</h2>
+    <p>החל מפברואר 2024, גוגל מגדירה כל שולח שמעביר בסביבות 5,000 הודעות ומעלה ל-Gmail אישי תוך 24 שעות כ"שולח בהיקף גדול" (bulk sender), וממנו נדרש אימות מלא - SPF וגם DKIM, כשלפחות אחד מהם מיושר עם DMARC בעל מדיניות p=none ומעלה. Yahoo אימצה מדיניות מקבילה על אותו ציר זמן. מקור: <a href="https://support.google.com/mail/answer/81126?hl=en" target="_blank" rel="noopener">support.google.com</a>.</p>
+    <p>לצד האימות, שתי החברות דורשות גם ביטול הרשמה בלחיצה אחת (One-Click Unsubscribe) בכל מייל שיווקי או קידומי, וטיפול בבקשת הביטול תוך יומיים. זה נוגע ישירות למי שמריץ רצפי פולואפ אוטומטיים - כל מייל כזה נחשב "מסחרי" גם אם הוא נשלח מתוך CRM ולא מפלטפורמת ניוזלטר קלאסית.</p>
+
+    <h2>מי בעצם צריך לעמוד בדרישות</h2>
+    <p>הסף הרשמי של גוגל הוא כ-5,000 מיילים ביום לחשבונות אישיים - נשמע גבוה לעסק קטן. אבל בפועל, עסק ששולח מיילים אוטומטיים דרך GoHighLevel לא שולח מתשתית פרטית - הוא משתף תשתית עם מאות לקוחות אחרים של אותה פלטפורמה. דומיין לא מאומת שם נראה לגוגל בדיוק כמו דומיין לא מאומת ששולח בהיקף גדול, ולכן הפגיעה במסירות מתחילה הרבה לפני שהעסק עצמו מגיע לנפח משמעותי. <span class="hl">אין באמת "קטן מדי בשביל שזה יהיה רלוונטי"</span> - זה עניין של תצורת דומיין, לא של גודל עסק.</p>
+
+    <h2>שלושת המנגנונים, בקצרה</h2>
+    <ul>
+      <li><strong>SPF</strong> - רשומת DNS שמפרטת אילו שרתים מורשים לשלוח מיילים בשם הדומיין שלך. בלעדיה, כל שרת יכול "להתחזות" לדומיין.</li>
+      <li><strong>DKIM</strong> - חתימה קריפטוגרפית שמצורפת לכל מייל ומוכיחה שהוא לא שונה בדרך. בלי DKIM, שרת הדואר המקבל לא יכול לוודא שהתוכן אמיתי.</li>
+      <li><strong>DMARC</strong> - המדיניות שאומרת לשרת המקבל מה לעשות כש-SPF או DKIM נכשלים, ומחזירה דוחות שמראים מי בכלל שולח מיילים בשם הדומיין שלך - כולל ניסיונות התחזות שלא ידעת עליהם.</li>
+    </ul>
+
+    <h2>מה קורה אם לא עומדים בדרישות</h2>
+    <p>מנובמבר 2025 גוגל מגבירה את האכיפה על תעבורה שלא עומדת בדרישות, וההשלכה היא דחייה זמנית או קבועה של ההודעה - לא רק נחיתה בספאם. מקור: <a href="https://support.google.com/a/answer/14229414?hl=en-EN" target="_blank" rel="noopener">support.google.com</a>. הבעיה המעשית: בלי הגדרת Google Postmaster Tools על הדומיין, לרוב אין שום דרך לדעת שזה קורה - התזכורת האוטומטית "נשלחה בהצלחה" מבחינת GoHighLevel, אבל מעולם לא הגיעה ליעד.</p>
+
+    <h2>מה זה אומר בפועל למי שמריץ אוטומציה ב-GHL</h2>
+    <ul>
+      <li>לחבר דומיין שליחה ייעודי (subdomain כמו mail.yourbusiness.com) במקום לשלוח מכתובת חינמית או משותפת.</li>
+      <li>להגדיר SPF, DKIM ו-DMARC ברמת ה-DNS של אותו דומיין - לא להסתמך על ברירת המחדל של הפלטפורמה.</li>
+      <li>לוודא שכל מייל אוטומטי כולל קישור ביטול הרשמה תקני, גם תזכורות ופולואפים שלא מרגישים כמו "שיווק".</li>
+      <li>לעקוב אחרי שיעורי הגעה וספאם דרך Postmaster Tools, לא להניח שהם תקינים כי אין תלונות.</li>
+    </ul>
+    <p>זו לא עבודת תוכן ולא עבודת עיצוב - זו תשתית. אבל היא הסיבה שמסבירה הכי הרבה מקרים של "האוטומציה מוגדרת נכון אז למה אף אחד לא מגיב" שאנחנו נתקלים בהם אצל לקוחות.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="gohighlevel-automation-speed-to-lead.html">אוטומציה עסקית עם GoHighLevel</a></li>
+      <li><a href="review-automation-gohighlevel.html">אוטומציית ביקורות ב-GoHighLevel</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>האוטומציה שלכם באמת מגיעה ליעד?</h2>
+      <p>אנחנו מגדירים ובודקים את תשתית השליחה - דומיין, SPF, DKIM, DMARC - כחלק מהקמת מערכת האוטומציה ב-GoHighLevel, לא כתוספת אחרי שמגלים בעיה.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
