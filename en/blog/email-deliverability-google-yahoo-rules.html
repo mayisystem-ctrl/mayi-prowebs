@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Automated Emails Landing in Spam? Google & Yahoo's 2026 Sender Rules | May I</title>
+<meta name="description" content="SPF, DKIM, and DMARC aren't a suggestion anymore - they're Google and Yahoo's baseline requirement for automated email. What it actually means for a business running campaigns and reminders through GoHighLevel.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/email-deliverability-google-yahoo-rules">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/email-deliverability-google-yahoo-rules">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/email-deliverability-google-yahoo-rules">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/email-deliverability-google-yahoo-rules">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Automated Emails Landing in Spam - Google and Yahoo's 2026 Sender Rules, and Why SPF, DKIM, and DMARC Aren't Optional Anymore",
+  "datePublished": "2026-08-31",
+  "dateModified": "2026-08-31",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/email-deliverability-google-yahoo-rules"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What are SPF, DKIM, and DMARC, in short?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Three DNS records that together prove to receiving mail servers that an email really was sent by the domain it claims to come from. SPF lists which servers are allowed to send on behalf of a domain, DKIM signs every email with a cryptographic signature that can't be forged, and DMARC decides what happens when those checks fail - and gives you reports on who's actually sending mail as your domain, including impersonation attempts you wouldn't otherwise know about." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do these rules only apply to businesses sending thousands of emails a day?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Officially, Google's threshold is around 5,000 messages a day to personal Gmail accounts to be classified as a bulk sender. In practice, any business sending automated email through a CRM platform like GoHighLevel shares sending infrastructure with many other accounts, so an unauthenticated domain gets hurt long before the business itself reaches that volume on its own." }
+    },
+    {
+      "@type": "Question",
+      "name": "What actually happens if an email doesn't meet the authentication requirements?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Google temporarily or permanently rejects the message, depending on the severity. Best case it lands in spam, worst case it never arrives at all - and without Postmaster Tools set up on the domain, there's usually no way to know it's happening." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Automation <span>· Aug 31, 2026 · May I</span></div>
+    <h1>Automated Emails Landing in Spam - Google and Yahoo's 2026 Sender Rules, and Why SPF, DKIM, and DMARC Aren't Optional Anymore</h1>
+    <p class="lead">Short answer: if reminders, follow-ups, or campaigns sent automatically from GoHighLevel are landing in spam or not arriving at all, the most common reason is that the sending domain doesn't meet the authentication requirements Google and Yahoo jointly began enforcing in February 2024. The fix has nothing creative about it and nothing to do with the email's content - it's purely technical: configure <span class="hl">SPF, DKIM, and DMARC</span> correctly on the domain that's actually sending the mail, instead of relying on whatever default the platform set up on install.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>What Google and Yahoo actually required</h2>
+    <p>Starting in February 2024, Google classifies any sender pushing roughly 5,000 or more messages to personal Gmail accounts within 24 hours as a "bulk sender," and requires full authentication from them - both SPF and DKIM, with at least one aligned to a DMARC policy of p=none or stronger. Yahoo adopted a parallel policy on the same timeline. Source: <a href="https://support.google.com/mail/answer/81126?hl=en" target="_blank" rel="noopener">support.google.com</a>.</p>
+    <p>Alongside authentication, both companies also require one-click unsubscribe on every marketing or promotional email, with unsubscribe requests processed within two days. That matters directly for anyone running automated follow-up sequences - every such email counts as "commercial" even when it's sent from a CRM rather than a classic newsletter platform.</p>
+
+    <h2>Who actually needs to meet these requirements</h2>
+    <p>Google's official threshold is around 5,000 emails a day to personal accounts - that sounds high for a small business. But in practice, a business sending automated email through GoHighLevel isn't sending from private infrastructure - it shares sending infrastructure with hundreds of other accounts on the same platform. An unauthenticated domain there looks to Google exactly like an unauthenticated domain sending at bulk volume, so the deliverability hit starts long before the business itself reaches meaningful volume. <span class="hl">There's no real "too small for this to matter"</span> - it's a matter of domain configuration, not business size.</p>
+
+    <h2>The three mechanisms, briefly</h2>
+    <ul>
+      <li><strong>SPF</strong> - a DNS record listing which servers are authorized to send email on behalf of your domain. Without it, any server can impersonate the domain.</li>
+      <li><strong>DKIM</strong> - a cryptographic signature attached to every email that proves it wasn't altered in transit. Without DKIM, the receiving mail server can't verify the content is genuine.</li>
+      <li><strong>DMARC</strong> - the policy that tells the receiving server what to do when SPF or DKIM fail, and returns reports showing exactly who is sending email as your domain - including impersonation attempts you wouldn't otherwise know about.</li>
+    </ul>
+
+    <h2>What happens if you don't meet the requirements</h2>
+    <p>Since November 2025, Google has been ramping up enforcement against non-compliant traffic, and the consequence is temporary or permanent rejection of the message - not just a spam-folder landing. Source: <a href="https://support.google.com/a/answer/14229414?hl=en-EN" target="_blank" rel="noopener">support.google.com</a>. The practical problem: without Google Postmaster Tools set up on the domain, there's usually no way to know it's happening at all - the automated reminder shows as "sent successfully" inside GoHighLevel, but it never reached its destination.</p>
+
+    <h2>What this means in practice for anyone running automation in GHL</h2>
+    <ul>
+      <li>Connect a dedicated sending domain (a subdomain like mail.yourbusiness.com) instead of sending from a free or shared address.</li>
+      <li>Configure SPF, DKIM, and DMARC at the DNS level for that domain - don't rely on the platform's default.</li>
+      <li>Make sure every automated email includes a proper unsubscribe link, including reminders and follow-ups that don't feel like "marketing."</li>
+      <li>Track delivery and spam rates through Postmaster Tools - don't assume they're fine just because there are no complaints.</li>
+    </ul>
+    <p>This isn't content work and it isn't design work - it's infrastructure. But it's the explanation behind most of the "the automation is configured correctly, so why isn't anyone responding" cases we run into with clients.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="gohighlevel-automation-speed-to-lead.html">Business Automation with GoHighLevel</a></li>
+      <li><a href="review-automation-gohighlevel.html">Review Automation with GoHighLevel</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Is your automation actually reaching its destination?</h2>
+      <p>We configure and verify sending infrastructure - domain, SPF, DKIM, DMARC - as part of setting up your GoHighLevel automation, not as an afterthought once something's already broken.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
