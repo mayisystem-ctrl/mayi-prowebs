@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bilingual Hebrew-English Websites - What to Know Before Building an English Version | May I</title>
+<meta name="description" content="A good bilingual website is not a translation of your Hebrew site. A practical guide to correct hreflang, URL structure, and separate content per language.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/bilingual-website-he-en">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/bilingual-website-he-en">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/bilingual-website-he-en">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/bilingual-website-he-en">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Bilingual Hebrew-English Websites - What to Know Before Building an English Version of Your Site",
+  "datePublished": "2026-09-02",
+  "dateModified": "2026-09-02",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/bilingual-website-he-en"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Can I just use automatic translation (like Google Translate) for the English version of my site?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It's not recommended. Machine translation keeps the sentence structure of the original language, and often misses the search terms English speakers actually type into Google. Both AI engines and human visitors can tell content was auto-translated, and it hurts trust and the quality of the experience." }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the hreflang tag and why is it critical for a bilingual site?",
+      "acceptedAnswer": { "@type": "Answer", "text": "hreflang is a tag in the page head that tells Google which language versions exist for the same content, and who should see each version. Without it, Google might show an English-speaking visitor the Hebrew version, or treat the two versions as duplicate content. A Semrush study that analyzed 20,000 multilingual websites found that 75% of them had at least one hreflang implementation mistake." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I build two separate websites for Hebrew and English, or one site with two language versions?",
+      "acceptedAnswer": { "@type": "Answer", "text": "One site with two language versions and a parallel URL structure (for example /blog/ in Hebrew and /en/blog/ in English) with hreflang links between them is the better approach. It gives Google a clear structure, keeps content management simpler, and passes trust signals between the versions instead of splitting them across two separate domains." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Sep 2, 2026 · May I</span></div>
+    <h1>Bilingual Hebrew-English Websites - What to Know Before Building an English Version of Your Site</h1>
+    <p class="lead">Short answer: a good bilingual Hebrew-English website is not the Hebrew site run through translation - it's <span class="hl">two separate content experiences</span> speaking to different audiences, connected by correct hreflang. A version built from machine translation almost always ranks worse, looks less professional to an English-speaking client, and confuses Google about which version to show whom. The difference between a quick translation and properly building two language versions is the difference between a site that looks international and one that only pretends to be.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why "just translate it" doesn't work</h2>
+    <p>Machine translation keeps the sentence structure of the source language, so even when it's grammatically correct it reads as foreign to a native speaker of the target language. Beyond phrasing, there's a business question here: 76% of consumers worldwide prefer to buy a product when the information is presented in their native language, and 40% simply won't buy at all from a site that isn't in their language - based on a survey of 8,709 consumers across 29 countries (source: <a href="https://csa-research.com/l/media/Consumers-Prefer-their-Own-Language" target="_blank" rel="noopener">csa-research.com</a>). When the English version of a site is a word-for-word translation, that's exactly where a potential English-speaking customer feels like they aren't the site's real audience - just an afterthought tacked on at the end.</p>
+
+    <h2>hreflang - the tag most sites get wrong</h2>
+    <p>hreflang is a tag added to the head of every page that tells Google which language versions exist for the same content, and who should see each one (the official documentation is at <a href="https://developers.google.com/search/docs/specialty/international/localized-versions" target="_blank" rel="noopener">developers.google.com</a>). It sounds like a minor technical detail, but it isn't: a Semrush study that analyzed 20,000 multilingual websites found that <span class="hl">75% of them had at least one hreflang implementation mistake</span> - a missing x-default tag, a missing reciprocal link, or a link pointing to the wrong version (source: <a href="https://www.searchenginejournal.com/75-multilingual-websites-hreflang-implementation-mistakes/185737/" target="_blank" rel="noopener">searchenginejournal.com</a>). When hreflang is broken, Google may simply show the English visitor the Hebrew version, or treat the two versions as duplicate content and rank both worse.</p>
+
+    <h2>URL structure, lang, and dir - the details that decide if it works</h2>
+    <ul>
+      <li>A clear, parallel URL structure per language - for example <code>/blog/</code> in Hebrew versus <code>/en/blog/</code> in English (exactly how this site is built).</li>
+      <li>Correct <code>lang</code> and <code>dir</code> attributes on every page - <code>lang="he" dir="rtl"</code> versus <code>lang="en" dir="ltr"</code> - not just styling, but information screen readers and search engines rely on.</li>
+      <li>Reciprocal hreflang between both versions, including a self-referencing tag on every page - not just one page pointing at the other.</li>
+      <li>Canonical URLs on both versions that match the hreflang structure instead of contradicting it.</li>
+    </ul>
+    <p>And a small detail that often gets missed: English text or numbers inside a Hebrew sentence (a brand name, an email address) can create visual bidirectional (bidi) glitches if the HTML isn't built correctly. It looks minor until it happens right inside the call-to-action button.</p>
+
+    <h2>Parallel content, not word-for-word translation</h2>
+    <p>The English version needs to read as if it were originally written in English - with the keywords English speakers actually type into Google, not a direct translation of what Hebrew speakers type. The same applies to FAQ questions: the common question in Hebrew isn't always phrased the same way in English, and if the structured FAQ (schema) doesn't match how people actually ask, it loses much of its value.</p>
+
+    <h2>Bilingual GEO/AEO - each language version has to stand on its own</h2>
+    <p>A study of ChatGPT citations found that 44.2% of citations come from the first 30% of a document (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). The implication for a bilingual site: you can't just have the Hebrew version open with a clear, direct answer and assume the English translation "inherits" that automatically. <span class="hl">Each language version has to stand on its own</span> as a complete document that opens with the direct answer to the question - because an AI engine crawling the English version has no idea the Hebrew version got it right.</p>
+
+    <h2>Who the English version is actually for</h2>
+    <p>Israel ranks 46th globally in the 2025 EF English Proficiency Index, the highest score in the Middle East (source: <a href="https://www.ef.com/wwen/epi/regions/middle-east/israel/" target="_blank" rel="noopener">ef.com</a>). In other words, most of the local target audience already does fine with the Hebrew site. Who actually needs the English version is usually a <span class="hl">client, partner, or investor abroad</span> who speaks English as a first language and expects an experience written for them - not one that feels like a late addition. That's why the English version deserves to be treated as its own market, not as an accessibility gesture.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="geo-aeo-ai-search-guide.html">How to Get ChatGPT, Perplexity, and Gemini to Cite Your Business</a></li>
+      <li><a href="ai-citations-schema-vs-structure.html">What Actually Gets Your Site Cited by AI</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Not sure if your site needs an English version?</h2>
+      <p>We build bilingual websites from the ground up - correct hreflang, a clean URL structure, and content written independently for each language, not translated.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
