@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SMS Automation & A2P 10DLC - What You Must Register Before Your First Message, and What TCPA Is | May I</title>
+<meta name="description" content="Automated SMS from GoHighLevel requires A2P 10DLC registration and explicit recipient consent. What happens without it, and what a TCPA lawsuit over an unconsented text can cost.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/sms-automation-a2p-10dlc-tcpa-compliance">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/sms-automation-a2p-10dlc-tcpa-compliance">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/sms-automation-a2p-10dlc-tcpa-compliance">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/sms-automation-a2p-10dlc-tcpa-compliance">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "SMS Automation with GoHighLevel - The A2P 10DLC Registration You Need Before Your First Message, and What TCPA Can Cost You",
+  "datePublished": "2026-09-07",
+  "dateModified": "2026-09-07",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/sms-automation-a2p-10dlc-tcpa-compliance"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is A2P 10DLC, and why does a business using GoHighLevel need it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A2P 10DLC (Application-to-Person, 10-Digit Long Code) is a registration process U.S. carriers (AT&T, T-Mobile, Verizon) require from any business that sends automated SMS from a regular 10-digit phone number. Registration includes identifying the business (Brand) and declaring what kind of messages it sends (Campaign). Without it, messages simply don't reach their destination." }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if a business sends automated SMS without registering for A2P 10DLC?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Carriers block the message. Twilio, which powers GoHighLevel's SMS layer, has blocked messages from unregistered 10DLC numbers since September 2023, returning error code 30034. In practice, appointment reminders, follow-ups, and review requests just disappear, with no alert to the business that the message failed." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the difference between A2P 10DLC registration and TCPA opt-in consent?",
+      "acceptedAnswer": { "@type": "Answer", "text": "They're two separate things. A2P 10DLC is a technical registration with carriers that determines whether the message goes through at all. TCPA is a federal law that determines whether you're allowed to send it in the first place - it requires explicit consent from the recipient before sending a marketing or automated message. A business can be properly registered for A2P 10DLC and still violate TCPA if it lacks documented consent from each recipient." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Automation <span>· Sep 7, 2026 · May I</span></div>
+    <h1>SMS Automation with GoHighLevel - The A2P 10DLC Registration You Need Before Your First Message, and What TCPA Can Cost You</h1>
+    <p class="lead">Short answer: before running automated appointment reminders, follow-ups, or review requests over SMS through GoHighLevel (or any other system), you must register your phone number for <span class="hl">A2P 10DLC</span> with the carriers - otherwise the messages are simply blocked and never arrive. At the same time, you must confirm explicit opt-in consent from every recipient, because sending automated SMS without consent violates TCPA - a U.S. federal law that lets any recipient sue for $500 to $1,500 per individual message, with no aggregate cap. These are two separate hurdles, and you need to clear both.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why a phone number needs registration at all</h2>
+    <p>Until a few years ago, you could connect any regular U.S. phone number (10 digits, "10DLC") to an automated sending system and blast out large volumes of messages with no registration at all. The major U.S. carriers - AT&T, T-Mobile, Verizon - recognized this as an open channel for spam and SMS fraud, and built a mandatory registration process called A2P 10DLC (Application-to-Person, 10-Digit Long Code). Every business sending messages from software - including GoHighLevel, Twilio, and any other CRM - has to go through it before its messages reach anyone.</p>
+
+    <h2>What registration actually involves</h2>
+    <ul>
+      <li><strong>Brand registration</strong> - identifying the business with the central registry (The Campaign Registry) using a legal name, tax ID/EIN, and address.</li>
+      <li><strong>Campaign registration</strong> - declaring the type of messages actually being sent (appointment reminders, booking confirmations, review requests, etc.) with real sample text.</li>
+      <li><strong>Proof of consent</strong> - documenting how and when recipients agreed to receive messages, as part of the registry's own approval process.</li>
+    </ul>
+    <p>In GoHighLevel the process is built into the platform (Twilio runs the technical layer behind the scenes), but it doesn't happen on its own - someone has to fill in the details and submit for approval, and it typically takes anywhere from a few days to a couple of weeks to get fully approved.</p>
+
+    <h2>What happens without registration - it's not "maybe," it's blocked</h2>
+    <p>This isn't a theoretical risk. <a href="https://www.twilio.com/docs/api/errors/30034" target="_blank" rel="noopener">Twilio</a>, which powers GoHighLevel's SMS layer, has fully blocked messages sent from unregistered 10DLC numbers since <span class="hl">September 1, 2023</span>, returning error code 30034. In practice, that means an appointment reminder, a post-meeting follow-up, or a review request sent from an unregistered number simply disappears. There's no error the customer sees, no prominent warning in the interface - the message fails silently, and most businesses only discover it when a customer complains they never got anything.</p>
+
+    <h2>TCPA - the law that decides whether you're allowed to send at all</h2>
+    <p>A2P 10DLC registration solves a technical problem - whether the message goes through. It doesn't answer the legal question - whether you're allowed to send it in the first place. That's governed by the <span class="hl">TCPA</span> (Telephone Consumer Protection Act), a U.S. federal law that requires explicit consent from every recipient before sending an automated or marketing SMS. The law lets any recipient who received a message without consent sue for statutory damages of $500 per message, and up to $1,500 if the violation is shown to be willful - with no aggregate cap, meaning a campaign that accidentally goes out to 1,000 recipients without proper opt-in carries a theoretical exposure of up to $1.5 million.</p>
+    <p>This isn't a marginal risk. Between January and April 2025 alone, 880 TCPA lawsuits were filed in the U.S. - a 44% increase over the same period in 2024 (source: <a href="https://www.compliancepoint.com/marketing-compliance/tcpa-lawsuits-on-the-rise-in-2025/" target="_blank" rel="noopener">compliancepoint.com</a>). Most of these are filed as class actions, which multiplies the financial exposure for a business running automation without documented consent.</p>
+
+    <h2>What's safe to automate</h2>
+    <ul>
+      <li>Operational messages to an existing customer who already provided contact details as part of an active transaction (booking confirmation, reminder for an appointment already scheduled) - relatively lower risk, but documented consent on the intake form is still recommended.</li>
+      <li>An automated review request after a job is completed - only if the customer opted in to receiving SMS specifically, not just handed over a phone number.</li>
+      <li>Any marketing or promotional message - requires prior express written consent, not implied consent.</li>
+    </ul>
+    <p>The practical rule: any form that collects a phone number for automation purposes needs a clear consent line ("I agree to receive SMS messages from...") that the business keeps a record of - not just an empty phone field.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="gohighlevel-automation-speed-to-lead.html">Business Automation with GoHighLevel</a></li>
+      <li><a href="email-deliverability-google-yahoo-rules.html">Automated Emails Landing in Spam - Google and Yahoo's Sender Rules</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Running GHL automation and not sure it's compliant?</h2>
+      <p>We set up and maintain GoHighLevel systems for businesses - including A2P 10DLC registration and proper consent workflows, not just the automation itself.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
