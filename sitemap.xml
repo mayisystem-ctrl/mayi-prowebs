@@ -16,6 +16,16 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://mayi.dev/prowebs/blog/hreflang-bilingual-website-mistakes</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://mayi.dev/prowebs/en/blog/hreflang-bilingual-website-mistakes</loc>
+    <lastmod>2026-09-09</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://mayi.dev/prowebs/blog/local-seo-ai-visibility-gap</loc>
     <lastmod>2026-09-04</lastmod>
     <priority>0.6</priority>

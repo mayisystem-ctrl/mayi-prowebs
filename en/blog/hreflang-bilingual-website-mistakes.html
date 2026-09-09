@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Broken Hreflang on a Bilingual Site - Why Google and AI Show the Wrong Language Version | May I</title>
+<meta name="description" content="A Hebrew-English website with the wrong hreflang setup makes Google and AI engines show visitors the wrong language version. The most common mistakes, and how to check and fix them.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/hreflang-bilingual-website-mistakes">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/hreflang-bilingual-website-mistakes">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/hreflang-bilingual-website-mistakes">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/hreflang-bilingual-website-mistakes">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Broken Hreflang on a Bilingual Site - The Technical Mistake That Makes Google and AI Show the Wrong Version of Your Website",
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/hreflang-bilingual-website-mistakes"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What is hreflang, and why does a Hebrew-English site need it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Hreflang is an HTML tag (inside the head) that declares to Google and other search engines which language versions of a page exist, and at which URL. Without it, Google has to guess whether a Hebrew page and its English counterpart are really the same content in two languages - and when it guesses wrong, it can show an English-speaking searcher the Hebrew version, or the reverse." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I know if my site's hreflang is broken?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A free tool like Screaming Frog (crawl mode) shows every hreflang tag found on every page and flags mismatches. The most common real-world signal is simpler: a Hebrew-speaking visitor reports landing on the English version of the site from a Google search, or the reverse." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do builders like Wix give full control over hreflang?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Most website builders handle hreflang automatically only through their built-in multilingual module, usually without a way to manually edit the tags or verify they're correct. In custom code, the tag is written and controlled in full, including x-default and precise two-way matching between pages." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Sep 9, 2026 · May I</span></div>
+    <h1>Broken Hreflang on a Bilingual Site - The Technical Mistake That Makes Google and AI Show the Wrong Version of Your Website</h1>
+    <p class="lead">Short answer: hreflang is an HTML tag that declares to Google which language versions of a page exist and where each one lives - and per a study covered by <a href="https://searchengineland.com/study-31-of-international-websites-contain-hreflang-errors-395161" target="_blank" rel="noopener">Search Engine Land</a>, 31% of international websites have a hreflang error. On a Hebrew-English site, that means in practice that Google can show an English-speaking searcher the Hebrew version of a page (or the reverse), and that AI engines like ChatGPT simply skip the version they're not confident about. The fix itself is fairly simple and technical - the problem is that most sites don't even know it's broken.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why this happens at all</h2>
+    <p>To Google, every Hebrew-English site is really two completely separate sites - a Hebrew page and an English page are two different URLs, and without explicit markup there is nothing linking them as versions of the same content. Hreflang is how you tell Google "this page and that page are the same content, in two languages - show the visitor whichever one fits them." When the tag is missing, wrong, or doesn't match in both directions, Google simply guesses - and sometimes that guess is wrong.</p>
+
+    <h2>The most common mistakes (and what they actually do)</h2>
+    <ul>
+      <li><strong>Missing self-reference:</strong> a Hebrew page must also declare itself as the hreflang="he" version, not just point to its English counterpart. Without this, Google ignores the entire hreflang block on that page.</li>
+      <li><strong>One-way linking:</strong> the Hebrew page points to the English page, but the English page doesn't point back. Google requires full two-way agreement - otherwise it treats the tag as if it weren't there.</li>
+      <li><strong>Missing x-default:</strong> no fallback is declared for a visitor whose language is neither Hebrew nor English. Without it, Google picks for itself, and not always correctly.</li>
+      <li><strong>Hreflang and canonical disagreeing:</strong> the Hebrew page's canonical mistakenly points to the English page. That's a contradictory signal that makes Google largely ignore the Hebrew page.</li>
+      <li><strong>Invalid language codes:</strong> he-IL written as heb, or en written as eng. A tag that isn't valid ISO 639-1 simply isn't read.</li>
+    </ul>
+
+    <h2>Why this affects AI engines too, not just Google</h2>
+    <p>Answer engines like ChatGPT and Perplexity don't build their own index from scratch - they lean heavily on crawl signals and authority that already exist in Google and in the sources they do crawl directly. A page Google is confused about (because its hreflang is broken) earns less authority, and less chance of being fully crawled when the direct answer sits deep in the content. A study covered by <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">Search Engine Land</a> found that 44.2% of ChatGPT's citations come from the first 30% of a document - so even a site with correct hreflang still needs the direct answer sitting up top, not just the right page in the right language getting crawled at all.</p>
+
+    <h2>How to check whether you have a problem</h2>
+    <p>You don't need expensive tools. A one-time crawl with <span class="hl">Screaming Frog</span> (the free version is enough for a mid-sized site) shows a dedicated hreflang tab flagging exactly which pages are missing a self-reference, missing x-default, or have one-way linking. The most reliable real-world signal is simpler: a client or visitor reports landing on the wrong version from a Google search - that's almost always broken hreflang, not a content problem.</p>
+
+    <h2>How to build it correctly from the start</h2>
+    <ul>
+      <li>Every page carries three alternate tags: he, en, and x-default - including a reference to itself and to its counterpart.</li>
+      <li>Every page's canonical points to itself, never to the other-language version.</li>
+      <li>A consistent URL structure between versions (e.g. <code>/blog/slug</code> vs. <code>/en/blog/slug</code>) so the pairing is easy to maintain and hard to get wrong.</li>
+      <li>When a new page goes up in one language, the reverse tag goes into its counterpart in the same breath - <span class="hl">not a separate cleanup pass later</span>.</li>
+    </ul>
+
+    <h2>Why this happens far more often on builder sites</h2>
+    <p>Wix, Squarespace, and most builders only handle hreflang through a built-in multilingual module, usually with no way to see or edit the tag directly - if the module implements it wrong, there's no simple manual fix. In custom code, the tag is written explicitly on every page, verified by crawl, and fully controlled - including edge cases like x-default that most builders simply skip.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="geo-aeo-ai-search-guide.html">How to Get ChatGPT, Perplexity, and Gemini to Cite Your Business</a></li>
+      <li><a href="site-speed-core-web-vitals.html">Site Speed &amp; Core Web Vitals</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Building a bilingual site and want it done right from day one?</h2>
+      <p>We build the Hebrew and English versions as a matched pair from the start - hreflang, canonical, and URL structure are part of the project, not something you discover is missing after launch.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
