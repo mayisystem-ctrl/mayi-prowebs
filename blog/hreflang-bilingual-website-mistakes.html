@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>hreflang שבור באתר דו-לשוני - הטעות שגורמת לגוגל ול-AI להציג את הגרסה הלא נכונה | May I</title>
+<meta name="description" content="אתר בעברית ובאנגלית עם hreflang שגוי גורם לגוגל ולמנועי AI להציג למשתמשים את גרסת השפה הלא נכונה. אילו טעויות הכי נפוצות, ואיך בודקים ומתקנים אותן.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/hreflang-bilingual-website-mistakes">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/hreflang-bilingual-website-mistakes">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/hreflang-bilingual-website-mistakes">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/hreflang-bilingual-website-mistakes">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "hreflang שבור באתר דו-לשוני - הטעות הטכנית שגורמת לגוגל ול-AI להציג את הגרסה הלא נכונה של האתר שלכם",
+  "datePublished": "2026-09-09",
+  "dateModified": "2026-09-09",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/hreflang-bilingual-website-mistakes"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה זה hreflang ולמה אתר עברית-אנגלית צריך אותו?",
+      "acceptedAnswer": { "@type": "Answer", "text": "hreflang הוא תג בקוד ה-HTML (בתוך ה-head) שמצהיר לגוגל ולמנועי חיפוש אחרים אילו גרסאות שפה קיימות לאותו עמוד, ומאיזו כתובת. בלעדיו, גוגל צריך לנחש בעצמו אם עמוד בעברית ועמוד מקביל באנגלית הם באמת אותו תוכן בשתי שפות - וכשהוא מנחש לא נכון, הוא עלול להציג למחפש דובר אנגלית את הגרסה העברית, או להפך." }
+    },
+    {
+      "@type": "Question",
+      "name": "איך יודעים אם ה-hreflang באתר שלי שבור?",
+      "acceptedAnswer": { "@type": "Answer", "text": "כלי חינמי כמו Screaming Frog (במצב זחילה) מציג את כל תגי ה-hreflang שנמצאו בכל עמוד ומסמן חוסר התאמה. הסימן הכי נפוץ בשטח הוא פשוט: גולש בעברית מדווח שהוא נחת בגרסה האנגלית של האתר מתוך חיפוש בגוגל, או להפך." }
+    },
+    {
+      "@type": "Question",
+      "name": "בילדרים כמו וויקס נותנים שליטה מלאה על hreflang?",
+      "acceptedAnswer": { "@type": "Answer", "text": "רוב בילדרי האתרים מטפלים ב-hreflang אוטומטית רק כשמשתמשים במודול הרב-לשוני המובנה שלהם, ולרוב בלי אפשרות לערוך את התגים ידנית או לאמת שהם נכונים. בקוד מותאם אישית התג נכתב ונשלט במלואו, כולל x-default והתאמה דו-כיוונית מדויקת בין העמודים." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">SEO טכני <span>· 9.9.2026 · May I</span></div>
+    <h1>hreflang שבור באתר דו-לשוני - הטעות הטכנית שגורמת לגוגל ול-AI להציג את הגרסה הלא נכונה של האתר שלכם</h1>
+    <p class="lead">התשובה הישירה: hreflang הוא תג HTML שמצהיר לגוגל אילו גרסאות שפה קיימות לאותו עמוד ומאיפה כל אחת נטענת - ולפי מחקר שסיקר <a href="https://searchengineland.com/study-31-of-international-websites-contain-hreflang-errors-395161" target="_blank" rel="noopener">Search Engine Land</a>, ל-31% מהאתרים הבינלאומיים יש שגיאת hreflang. באתר עברית-אנגלית זה אומר בפועל שגוגל עלול להציג למחפש דובר אנגלית את הגרסה העברית של העמוד (או להפך), ושמנועי AI כמו ChatGPT פשוט מדלגים על הגרסה שהם לא בטוחים לגביה. התיקון עצמו טכני ופשוט יחסית - הבעיה היא שרוב האתרים בכלל לא יודעים שהוא שבור.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה זה קורה בכלל</h2>
+    <p>כל אתר עברית-אנגלית הוא בעיניים של גוגל שני אתרים נפרדים לגמרי - עמוד בעברית ועמוד באנגלית הם שני כתובות URL שונות, ובלי סימון מפורש אין שום דבר שמקשר ביניהם כגרסאות של אותו תוכן. hreflang הוא הדרך שבה אומרים לגוגל "העמוד הזה והעמוד ההוא הם אותו תוכן, בשתי שפות - תציג למשתמש את הגרסה שמתאימה לו". כשהתג חסר, שגוי, או לא תואם בשני הכיוונים, גוגל פשוט מנחש - ולפעמים הניחוש הזה שגוי.</p>
+
+    <h2>הטעויות הכי נפוצות (ומה הן עושות בפועל)</h2>
+    <ul>
+      <li><strong>חוסר הפניה עצמית (self-reference):</strong> עמוד בעברית חייב להצהיר גם על עצמו כגרסת ה-hreflang="he", לא רק על העמוד האנגלי המקביל. בלי זה, גוגל מתעלם מכל בלוק ה-hreflang בעמוד.</li>
+      <li><strong>קישור חד-כיווני:</strong> העמוד העברי מצביע על העמוד האנגלי, אבל העמוד האנגלי לא מצביע בחזרה. גוגל דורש התאמה דו-כיוונית מלאה - אחרת הוא מתעלם מהתג כאילו לא היה.</li>
+      <li><strong>חסר x-default:</strong> אין הגדרה של איזו גרסה להציג למשתמש שהשפה שלו לא עברית ולא אנגלית. בלי זה גוגל בוחר בעצמו, ולא תמיד נכון.</li>
+      <li><strong>אי-התאמה בין hreflang לבין canonical:</strong> ה-canonical של העמוד העברי מצביע (בטעות) על העמוד האנגלי. זה סימן סותר שגורם לגוגל להתעלם מהעמוד העברי כמעט לגמרי.</li>
+      <li><strong>קוד שפה שגוי:</strong> he-IL כתוב כ-heb, או en כתוב כ-eng. תג שלא תקין ל-ISO 639-1 פשוט לא נקרא.</li>
+    </ul>
+
+    <h2>למה זה משפיע גם על מנועי AI, לא רק גוגל</h2>
+    <p>מנועי תשובה כמו ChatGPT ו-Perplexity לא בונים אינדקס משלהם מאפס - הם נשענים במידה רבה על אותות סריקה וסמכות שכבר קיימים בגוגל ובמקורות שהם כן סורקים ישירות. עמוד שגוגל מבולבל לגביו (כי ה-hreflang שלו שבור) מקבל פחות סמכות, ופחות סיכוי להיסרק במלואו כשהתשובה הישירה יושבת דווקא בעמוק בתוכן. מחקר שסיקר <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">Search Engine Land</a> מצא ש-44.2% מהציטוטים של ChatGPT מגיעים מה-30% הראשונים של המסמך - כך שגם אתר עם hreflang תקין צריך לוודא שהתשובה הישירה יושבת למעלה, לא רק שהעמוד הנכון בשפה הנכונה בכלל נסרק.</p>
+
+    <h2>איך בודקים אם יש בעיה</h2>
+    <p>אין צורך בכלים יקרים. זחילה חד-פעמית עם <span class="hl">Screaming Frog</span> (הגרסה החינמית מספיקה לאתר בגודל בינוני) מציגה טאב ייעודי ל-hreflang שמסמן בדיוק אילו עמודים חסרי הפניה עצמית, חסרי x-default, או עם קישור חד-כיווני. הסימן הכי אמין מהשטח הוא פשוט: לקוח או גולש מדווח שהוא נחת בגרסה הלא נכונה מתוך חיפוש בגוגל - זה כמעט תמיד hreflang שבור, לא בעיה בתוכן.</p>
+
+    <h2>איך בונים את זה נכון מההתחלה</h2>
+    <ul>
+      <li>כל עמוד מכיל שלושה תגי alternate: he, en, ו-x-default - גם על עצמו וגם על המקביל.</li>
+      <li>ה-canonical של כל עמוד מצביע על עצמו, לעולם לא על הגרסה בשפה האחרת.</li>
+      <li>מבנה URL עקבי בין הגרסאות (למשל <code>/blog/slug</code> מול <code>/en/blog/slug</code>) כדי שקל לתחזק את ההתאמה ולא לטעות בקישור.</li>
+      <li>כשמוסיפים עמוד חדש בשפה אחת, מוסיפים באותה נשימה את התג ההפוך בעמוד המקביל - <span class="hl">לא בסבב תיקונים נפרד אחר כך</span>.</li>
+    </ul>
+
+    <h2>למה זה קורה הרבה יותר באתרי בילדר</h2>
+    <p>וויקס, סקוורספייס ורוב הבילדרים מטפלים ב-hreflang רק דרך מודול רב-לשוני מובנה, ולרוב בלי אפשרות לראות או לערוך את התג בפועל - אם המודול מיישם אותו לא נכון, אין דרך פשוטה לתקן ידנית. בקוד מותאם אישית התג כתוב במפורש בכל עמוד, נבדק בזחילה, ונשלט במלואו - כולל המקרים החריגים כמו x-default שרוב הבילדרים פשוט מדלגים עליהם.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="geo-aeo-ai-search-guide.html">איך גורמים ל-ChatGPT, Perplexity וג'מיני לצטט את העסק שלך</a></li>
+      <li><a href="site-speed-core-web-vitals.html">מהירות אתר ו-Core Web Vitals</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>בונים אתר דו-לשוני ורוצים שהוא ייבנה נכון מההתחלה?</h2>
+      <p>אנחנו בונים את הגרסה העברית והאנגלית כזוג מתואם מהיום הראשון - hreflang, canonical ומבנה URL כלולים בפרויקט, לא תוספת שמגלים שחסרה אחרי ההשקה.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
