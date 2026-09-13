@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בניית אתר דו-לשוני עברית-אנגלית - מלכודות RTL/LTR שעולות בהמרות | May I</title>
+<meta name="description" content="אתר דו-לשוני זה לא תרגום עם כיוון הפוך. המלכודות הטכניות של RTL/LTR שהופכות אתר מוקפד לשבור בעברית, ואיך בונים אותו נכון מהיסוד.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/bilingual-website-rtl-ltr-pitfalls">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/bilingual-website-rtl-ltr-pitfalls">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/bilingual-website-rtl-ltr-pitfalls">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/bilingual-website-rtl-ltr-pitfalls">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "בניית אתר דו-לשוני עברית-אנגלית - המלכודות הטכניות של RTL/LTR שעולות בהמרות",
+  "datePublished": "2026-09-11",
+  "dateModified": "2026-09-11",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/bilingual-website-rtl-ltr-pitfalls"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "למה לא מספיק להשתמש בתוסף תרגום אוטומטי לאתר דו-לשוני?",
+      "acceptedAnswer": { "@type": "Answer", "text": "תוסף תרגום מחליף טקסט אחרי טעינת הדף, אבל לא מתקן CSS שנכתב עם left/right קשיחים, לא יודע אילו אייקונים צריך להפוך ואילו לא, ולא פותר טקסט מעורב עם מספרים ושמות באנגלית. בנוסף, תוכן שמוזרק בג'אווהסקריפט אחרי הטעינה לרוב לא נסרק כעמוד עצמאי על ידי גוגל ומנועי AI, כך שהגרסה השנייה בפועל לא קיימת עבורם." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין להוסיף dir=\"rtl\" לעמוד לבין לבנות אותו RTL כמו שצריך?",
+      "acceptedAnswer": { "@type": "Answer", "text": "dir=\"rtl\" משנה את כיוון הקריאה הבסיסי בלבד. הוא לא הופך אוטומטית CSS שנכתב עם margin-left או padding-right קבועים, לא מחליט אילו אייקונים (חץ, ניווט) צריכים להתהפך לעומת כאלה שאסור שיתהפכו (נגן, שעון, טלפון), ולא מטפל בטקסט מעורב עברית-אנגלית. בניית RTL תקינה דורשת CSS עם logical properties ובדיקה של כל אלמנט בנפרד." }
+    },
+    {
+      "@type": "Question",
+      "name": "עדיף שני אתרים נפרדים לעברית ואנגלית, או מתג שפה באותו עמוד?",
+      "acceptedAnswer": { "@type": "Answer", "text": "עמוד HTML נפרד לכל שפה עם כתובת קנונית משלו ותגי hreflang בין הגרסאות - לא מתג שפה בצד הלקוח. כך גם גוגל וגם מנועי AI סורקים ומצטטים כל שפה כעמוד עצמאי ושלם, במקום להתבסס על תוכן שמוחלף דינמית שלעיתים לא נגיש לסריקה בכלל." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">אתרים <span>· 11.9.2026 · May I</span></div>
+    <h1>בניית אתר דו-לשוני עברית-אנגלית - המלכודות הטכניות של RTL/LTR שעולות בהמרות</h1>
+    <p class="lead">התשובה הקצרה: אתר דו-לשוני עברית-אנגלית הוא לא אתר אחד שמתורגמים בו המילים ומחליפים את כיוון הקריאה. זו תשתית טכנית נפרדת - CSS עם logical properties במקום left/right קשיחים, החלטה לכל אייקון בנפרד אם להפוך אותו או לא, וטיפול ייעודי בטקסט מעורב כמו שם מותג באנגלית או מספר טלפון בתוך משפט עברי. עסקים שמדלגים על זה ומסתפקים בתוסף תרגום או ב-dir="rtl" גורף מפסידים חלק ממשי מהקהל: מחקר של CSA Research על 8,709 צרכנים ב-29 מדינות מצא ש-<span class="hl">76% מעדיפים לקנות מוצר עם מידע בשפת האם שלהם</span>, ו-40% פשוט לא יקנו מאתר בשפה שהם לא שולטים בה (מקור: <a href="https://csa-research.com/Blogs-Events/CSA-in-the-Media/Press-Releases/Consumers-Prefer-their-Own-Language" target="_blank" rel="noopener">csa-research.com</a>). זה ההבדל בין אתר שנראה דו-לשוני לאתר שבאמת עובד בשתי השפות.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה "לתרגם ולהפוך כיוון" לא עובד</h2>
+    <p>שני האתרים אמורים להשתמש באותו קוד עם שינוי כיוון, אבל בפועל dir="rtl" משנה רק את כיוון הקריאה הבסיסי. הוא לא הופך אוטומטית CSS שנכתב עם left ו-right קשיחים, לא יודע אילו אייקונים צריך להפוך ואילו לא, ולא פותר טקסט מעורב שבו שם מותג באנגלית, מספר טלפון או מחיר מופיעים בתוך משפט עברי. אתר שנבנה באנגלית ואז "הופך" לעברית עם תוסף תרגום או dir="rtl" גורף בדרך כלל נראה שבור בפרטים הקטנים - כפתור עם חץ שמצביע לכיוון הלא נכון, רווחים לא סימטריים, מספר שמתפרק לשני חלקים באמצע השורה.</p>
+
+    <h2>המלכודת הראשונה - CSS עם כיוונים קשיחים</h2>
+    <p>כשעיצוב נכתב עם margin-left, padding-right או text-align: left, הוא "יודע" רק כיוון אחד. בעמוד RTL הכל צריך להתהפך, ותיקון ידני של כל מקום שבו מופיע left או right בקוד הוא עבודה איטית ורגישה לטעויות - קל לפספס מקום אחד ולקבל אלמנט אחד שנשאר "תקוע" בכיוון הלא נכון. הפתרון הנקי הוא לכתוב CSS מלכתחילה עם <span class="hl">logical properties</span> - margin-inline-start/end במקום margin-left/right, inset-inline במקום left/right, text-align: start במקום text-align: left. כך אותו קוד בדיוק מתהפך נכון בשתי השפות בלי שום דבר מיוחד - הדפדפן עושה את זה לבד לפי dir של העמוד.</p>
+
+    <h2>המלכודת השנייה - אייקונים שצריך להפוך, וכאלה שאסור</h2>
+    <p>לא כל אייקון אמור להתהפך רק כי הכיוון התהפך. חצים, כפתורי "הבא/הקודם", אייקוני ניווט וסרגלי התקדמות - כן צריכים להתהפך, כי הם מייצגים כיוון תנועה שקשור לכיוון הקריאה. לעומת זאת אייקון נגן וידאו, שעון, טלפון או מצלמה לא אמורים להתהפך - הם מייצגים מוסכמה בין-לאומית שלא תלויה בכיוון השפה, וכפתור "נגן" שמצביע שמאלה בעמוד עברי רק מבלבל. ההחלטה חייבת להיות פר-אייקון, לא transform גורף על כל ה-SVG-ים בעמוד.</p>
+
+    <h2>המלכודת השלישית - טקסט מעורב: מספרים ושמות באנגלית</h2>
+    <p>ברגע שיש בתוך משפט עברי מספר טלפון, מחיר, או שם מותג באנגלית - האלגוריתם הבסיסי של הדפדפן לסידור טקסט דו-כיווני (bidi) יכול לסדר את התווים בצורה לא צפויה, במיוחד ליד סימני פיסוק. הסימפטום האופייני: פרט טכני שנראה תקין בדסקטופ אבל מתפרק במובייל, כי שם ההבדלים ברינדור בין דפדפנים בולטים יותר. הפתרון המעשי: לעטוף טקסט זר מובנה (שם מוצר באנגלית, קוד, כתובת אימייל) ב-span עם unicode-bidi: isolate או dir="auto", כדי שהוא יתנהג כיחידה עצמאית בתוך המשפט העברי ולא "יידבק" לכיוון שסביבו.</p>
+
+    <h2>למה זה גם עניין של SEO ו-GEO/AEO, לא רק עיצוב</h2>
+    <p>לכל שפה צריכה להיות כתובת קנונית עצמאית משלה עם תגי hreflang בין הגרסאות - בדיוק כמו שהעמוד הזה עצמו בנוי - ולא מתג שפה בצד הלקוח שמחליף טקסט בג'אווהסקריפט. הסיבה: מנוע AI שסורק דף שהתוכן שלו נטען או מוחלף דינמית לרוב רואה רק גרסה אחת, ולפעמים אף אחת. וגם בגרסה שהוא כן רואה, התשובה הישירה חייבת לשבת בפתיחה, לא קבורה עמוק בעמוד - מחקר על ציטוטי ChatGPT מצא ש-<span class="hl">44.2% מהציטוטים מגיעים מה-30% הראשונים</span> של המסמך (מקור: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). כלומר גם עמוד דו-לשוני שבנוי נכון מפסיד ציטוטים אם התשובה הישירה נמצאת באמצע הטקסט באחת השפות ולא בפתיחה שלו.</p>
+
+    <h2>מה כן עובד</h2>
+    <ul>
+      <li>עמוד HTML נפרד לכל שפה, עם <code>lang</code> ו-<code>dir</code> משלו, וקישורי hreflang הדדיים בין הגרסאות.</li>
+      <li>CSS עם logical properties (margin-inline, inset-inline, text-align: start/end) במקום left/right קשיחים.</li>
+      <li>החלטה מפורשת פר-אייקון אם הוא צריך להתהפך בעברית או להישאר כמו שהוא.</li>
+      <li>עטיפת טקסט זר מובנה (שמות, מספרים, קודים) בסימון bidi נפרד כדי שלא "יימרח" לתוך כיוון המשפט.</li>
+      <li>בדיקה על מובייל, לא רק דסקטופ - שם באגי bidi ומירור בולטים הרבה יותר.</li>
+    </ul>
+    <p>זו בדיוק הסיבה שבנייה נכונה של אתר דו-לשוני לא נגמרת בתרגום. היא דורשת חשיבה על שתי השפות כבר בשלב העיצוב וכתיבת הקוד - לא כתוספת שמוסיפים בסוף.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="ai-citations-schema-vs-structure.html">מה באמת גורם למנועי AI לצטט אתר</a></li>
+      <li><a href="site-speed-core-web-vitals.html">מהירות אתר ו-Core Web Vitals</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>בונים אתר דו-לשוני ורוצים שהוא יעבוד נכון בשתי השפות?</h2>
+      <p>אנחנו בונים אתרים דו-לשוניים בקוד מותאם אישית - כולל תשתית RTL/LTR תקינה, לא רק תרגום עם כיוון הפוך.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
