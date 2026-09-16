@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Redesigning Your Website Without Losing Google Rankings - The 301 Redirect Map & Migration Checklist | May I</title>
+<meta name="description" content="A redesign or platform migration shouldn't cost you rankings. How a complete 301 redirect map prevents an organic traffic collapse, with a real example and a practical checklist.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/website-redesign-seo-migration-checklist">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/website-redesign-seo-migration-checklist">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/website-redesign-seo-migration-checklist">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/website-redesign-seo-migration-checklist">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Redesigning Your Website Without Losing Google Rankings - The 301 Redirect Map and Migration Checklist",
+  "datePublished": "2026-09-14",
+  "dateModified": "2026-09-14",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/website-redesign-seo-migration-checklist"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does a 301 redirect cause a loss in SEO value?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Google's own documentation states that permanent server-side redirects like 301 and 308 don't cause a loss of PageRank, and recommends using them for any URL change. The real problem isn't the redirect itself - it's the absence of one. A valuable old URL that doesn't get redirected simply disappears from Google's index." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should 301 redirects stay live after a website migration?",
+      "acceptedAnswer": { "@type": "Answer", "text": "According to Google, at least a year from launch, even if rankings appear to stabilize sooner. Removing redirects too early is a common mistake that causes a second, later, confusing drop in traffic." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does it take for rankings to recover after a redesign or platform migration?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends almost entirely on how complete the redirect mapping is. With a full, accurate 1:1 mapping, there's usually a mild temporary dip that recovers within weeks to months. When redirects are missed or broken, the impact can be far more dramatic and last much longer." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Sep 14, 2026 · May I</span></div>
+    <h1>Redesigning Your Website Without Losing Google Rankings - The 301 Redirect Map and Migration Checklist</h1>
+    <p class="lead">Short answer: a redesign or platform migration shouldn't cost you your Google rankings. The traffic drop almost always comes from a missing or broken 301 redirect map - not from the new design itself. When every old URL gets a clean 301 redirect to its matching new URL, Google recognizes that the page "moved" rather than disappeared, and the ranking moves with it. The problem starts when redirect mapping gets pushed into the launch-week to-do list instead of being planned in advance, alongside the new site's URL structure.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why a new website is "dangerous" for rankings at all</h2>
+    <p>Every URL on the old site that carries value - organic traffic, indexation, inbound links from other sites - needs a 301 redirect to its equivalent on the new site. Without one, Google simply finds a 404 where a good answer used to be, and drops the URL from its index. This isn't a rare glitch - it's the natural outcome of a project where the team designing the new structure and the team responsible for SEO never sat down together before launch.</p>
+
+    <h2>A real example of the scale of the damage</h2>
+    <p>SISTRIX documented the migration of the UK brand Topshop into the ASOS website, and found the domain lost roughly <span class="hl">80% of its search visibility</span> as a result of the merger. This isn't a theoretical worst case - it's what happens when a large platform migration runs without a complete, accurate redirect map between the old structure and the new one (source: <a href="https://www.sistrix.com/blog/topshop-to-asos-80-off-in-search-visibility-migration/" target="_blank" rel="noopener">sistrix.com</a>).</p>
+
+    <h2>What Google itself says about this</h2>
+    <p>In its official documentation on site moves, Google explicitly recommends using permanent server-side redirects - status codes 301 or 308 - for any URL change, and states that these redirects don't cause a loss of PageRank (source: <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener">developers.google.com</a>). Another point Google repeats: keep redirects live for <span class="hl">at least a year</span> from launch, even if rankings appear to stabilize much sooner - removing them too early is a common mistake that causes a second, later, confusing drop in traffic (source: <a href="https://www.searchenginejournal.com/google-keep-301-redirects-in-place-for-a-year/428998/" target="_blank" rel="noopener">searchenginejournal.com</a>).</p>
+
+    <h2>The redirect map - how to build it properly</h2>
+    <ul>
+      <li>Pull a complete list of every URL on the old site that gets organic traffic, ranks for keywords, or has inbound links - not just the pages that look "important" on the surface.</li>
+      <li>Assign each old URL a specific destination on the new site - not a blanket redirect of everything to the homepage, which preserves only a fraction of the value.</li>
+      <li>Check for redirect chains (URL A redirects to B, which redirects to C) - every chain adds crawl friction and increases the risk of losing value along the way.</li>
+      <li>Run the entire mapping on a staging environment before the actual launch, not after.</li>
+    </ul>
+
+    <h2>Checklist for the migration itself</h2>
+    <ol>
+      <li>Update sitemap.xml with the new URLs and resubmit it in Google Search Console.</li>
+      <li>Verify robots.txt isn't accidentally blocking crawlers from the new site.</li>
+      <li>Keep the URL structure identical wherever there's no business reason to change it - every unnecessary change is another point of failure.</li>
+      <li>Monitor Search Console daily in the first weeks after launch - crawl errors, a sharp drop in impressions, or a spike in 404s.</li>
+    </ol>
+
+    <h2>This applies to AI visibility too</h2>
+    <p>The same problem exists with ChatGPT, Perplexity, and Gemini, not just Google. If content built specifically to be cited moves to a new URL without a redirect, it simply disappears from the index these AI services rely on. A study covered by Search Engine Land found that <span class="hl">44.2% of ChatGPT citations</span> come from the first 30% of a document - meaning even a page that survives the move correctly, but whose internal structure gets scrambled along the way, stops being a citable source (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>).</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="site-speed-core-web-vitals.html">Site Speed & Core Web Vitals</a></li>
+      <li><a href="wordpress-vs-custom-code-security.html">WordPress vs. Custom Code</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Planning a redesign or platform migration?</h2>
+      <p>We build the redirect map before we touch any code, so the new site keeps the ranking the old one earned - instead of starting from zero.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
