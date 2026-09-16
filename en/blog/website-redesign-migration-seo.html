@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Redesign Without Losing Google Rankings | May I</title>
+<meta name="description" content="A redesign or platform migration can cost you organic rankings if you skip URL mapping and 301 redirects. The technical steps to take before and after launch.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/website-redesign-migration-seo">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/website-redesign-migration-seo">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/website-redesign-migration-seo">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/website-redesign-migration-seo">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Redesigning or Migrating Your Website Without Losing Google Rankings - The Technical Steps Google Itself Recommends",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/website-redesign-migration-seo"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does a website redesign always hurt SEO?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. The ranking damage doesn't come from the new design itself, but from what happens to the URLs and the content behind them. When every old URL that was ranking gets a 301 redirect to its matching new URL, and the content that lives there stays just as relevant, Google carries over most of the trust that page had built up. The problem starts when the URL structure changes without a precise map, or when ranking content gets removed with no replacement." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should 301 redirects stay in place after a website migration?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Google's John Mueller has explicitly recommended keeping 301 redirects active for at least a year after launch - to give Google's crawler enough passes to recognize the move as permanent and transfer trust accordingly. Removing redirects too early, even after several good months, can reset some of the signal that was already passed." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the most common mistake in DIY website migrations?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Redirecting every old URL to the homepage instead of mapping each one to its specific new equivalent. It looks like a safe shortcut, but it tells Google the old content simply vanished - and the ranking built up on specific pages doesn't transfer anywhere." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Sep 16, 2026 · May I</span></div>
+    <h1>Redesigning or Migrating Your Website Without Losing Google Rankings - The Technical Steps Google Itself Recommends</h1>
+    <p class="lead">Short answer: a website redesign or platform migration doesn't have to cost you organic rankings - the damage happens when URLs change without a <span class="hl">one-to-one 301 redirect</span> for every page that was ranking. The real risk isn't the redesign itself, it's what happens under the surface: URL mapping, redirects, and telling Google the site moved rather than disappeared. Google publishes an exact process for this in its own official documentation - and most businesses skip it because it looks "too technical" to spend time on before launch.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why a site migration is a different kind of SEO risk than a normal content update</h2>
+    <p>Updating a page, adding new content, or tweaking internal design are gradual changes Google crawls and processes without drama. A site migration is fundamentally different: when you change domains, restructure URLs, or move platforms (say, from WordPress to custom code, or from a builder to a new platform), every URL that used to exist can turn into a URL that no longer does. Google doesn't automatically "remember" that a new page is the continuation of an old one - it needs an explicit signal.</p>
+    <p>Per <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener">Google Search Central's official documentation</a> on site moves, changing domains, moving from HTTP to HTTPS, or changing URL path structure are all considered a "site move" from Google's perspective, and all require the same careful process. That page is the starting point for planning any migration or redesign that involves changing URLs.</p>
+
+    <h2>The step most businesses skip: a full URL map before launch</h2>
+    <p>Before touching the code, the design, or the new platform, the first step is exporting a complete list of every URL that currently exists on the site - including URLs getting organic traffic, URLs with inbound links from other sites, and URLs showing up in Search Console. Every one of those needs a decided-in-advance matching new URL, mapped out in an organized table - not improvised on launch day.</p>
+    <ul>
+      <li>Export every ranking URL from Search Console (Performance and Coverage reports).</li>
+      <li>Identify pages with external inbound links - they carry specific SEO trust that has to be preserved.</li>
+      <li>Map one-to-one: every old URL → a specific new URL, not a blanket redirect.</li>
+      <li>Check the content on each destination page - that it genuinely continues the same topic, not just a similar general page.</li>
+    </ul>
+
+    <h2>301 redirects - one-to-one, not "everything to the homepage"</h2>
+    <p>The most common mistake in DIY migrations is redirecting every old URL to the homepage, to "avoid leaving 404 errors." It looks like a safe fix, but to Google it signals that the specific content that was ranking simply disappeared - and the trust built up on that page doesn't transfer anywhere specific. A 301 redirect preserves most of that trust only when it points to a page with genuinely relevant content, not a general one.</p>
+
+    <h2>How long should the redirects stay up?</h2>
+    <p>Google's Search Advocate John Mueller has explicitly stated it's worth <span class="hl">keeping 301 redirects active for at least a year</span> after launch - to give Google's crawler enough passes to recognize the move as permanent and transfer trust accordingly. Removing redirects too early, even after several good months, can reset part of the signal that was already passed (source: <a href="https://www.searchenginejournal.com/google-keep-301-redirects-in-place-for-a-year/428998/" target="_blank" rel="noopener">searchenginejournal.com</a>).</p>
+
+    <h2>Updating Search Console and the Change of Address tool</h2>
+    <p>After launch, you need to update the sitemap and resubmit it in Search Console, so Google knows to crawl the new URLs quickly. For a domain migration (not just a URL structure change on the same domain), you also need to use the dedicated Change of Address tool inside Search Console, which explicitly signals the move between properties to Google. Skip that step and Google will still discover the change on its own - but it can take a lot longer.</p>
+
+    <h2>The opportunity most businesses miss: fixing structure for AI engines too</h2>
+    <p>A redesign is the best opportunity to fix not just Google rankings, but visibility in AI engines like ChatGPT and Perplexity. A study tracking ChatGPT citations found that <span class="hl">44.2% of citations come from the first 30%</span> of a document - meaning content structure matters just as much as the content itself (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). If you're rebuilding service pages or articles anyway, this is the moment to make sure the direct answer to each page's core question sits in the opening paragraph - not buried further down.</p>
+
+    <h2>Why custom code gives you control a builder doesn't</h2>
+    <p>Most builders and landing page platforms cap the number of redirect rules you can set, or don't give you direct access to server configuration files. On a custom-coded site, redirects are defined at the infrastructure level itself - a server or CDN config file - with no rule limit and no dependency on a third-party interface. That's the difference between a fully controlled migration and hoping the platform handles it correctly.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="site-speed-core-web-vitals.html">Site Speed & Core Web Vitals</a></li>
+      <li><a href="geo-aeo-ai-search-guide.html">A Practical GEO/AEO Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Planning a redesign or a platform migration?</h2>
+      <p>We build and run migrations with full URL mapping and precise redirects, so the ranking you've already built doesn't reset on launch day.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>

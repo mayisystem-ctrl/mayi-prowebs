@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>עיצוב אתר מחדש בלי לאבד דירוג בגוגל | May I</title>
+<meta name="description" content="עיצוב מחדש או מעבר לפלטפורמה חדשה עלול לפגוע בדירוג האורגני אם מדלגים על מיפוי כתובות והפניות 301. הצעדים הטכניים שחובה לבצע לפני ואחרי ההשקה.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/website-redesign-migration-seo">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/website-redesign-migration-seo">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/website-redesign-migration-seo">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/website-redesign-migration-seo">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "עיצוב מחדש או מעבר אתר בלי לאבד את הדירוג בגוגל - הצעדים הטכניים שגוגל עצמה ממליצה עליהם",
+  "datePublished": "2026-09-16",
+  "dateModified": "2026-09-16",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/website-redesign-migration-seo"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "האם עיצוב מחדש של אתר תמיד פוגע ב-SEO?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא בהכרח. הפגיעה בדירוג לא נובעת מהעיצוב החדש עצמו, אלא ממה שקורה לכתובות ה-URL ולתוכן שמאחוריהן. כשכל כתובת ישנה שהייתה מדורגת מקבלת הפניית 301 לכתובת המקבילה החדשה, והתוכן שממשיך להופיע שם רלוונטי באותה מידה, גוגל מעבירה את רוב האמון שהעמוד צבר. הבעיה מתחילה כשמשנים מבנה כתובות בלי מיפוי מדויק, או כשמורידים תוכן שהיה מדורג בלי תחליף."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה זמן צריך לשמור הפניות 301 אחרי מעבר אתר?",
+      "acceptedAnswer": { "@type": "Answer", "text": "ג'ון מולר, נציג גוגל לחיפוש, המליץ באופן מפורש לשמור הפניות 301 פעילות לפחות שנה מיום ההשקה - כדי לוודא שהזחלן של גוגל מספיק פעמים לזהות את המעבר כקבוע ומעביר את האמון בהתאם. הסרת הפניות מוקדם מדי, גם אחרי כמה חודשים, יכולה לאפס חלק מהאיתות שכבר הועבר."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "מה הטעות הכי נפוצה במעברי אתרים עצמאיים?",
+      "acceptedAnswer": { "@type": "Answer", "text": "הפניית כל הכתובות הישנות לעמוד הבית במקום מיפוי אחד-לאחד לכתובת המקבילה החדשה. זה נראה כמו קיצור דרך בטוח, אבל בפועל זה מאותת לגוגל שכל התוכן הישן פשוט נעלם - והדירוג שהצטבר על עמודים ספציפיים לא עובר לשום מקום." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">SEO טכני <span>· 16.9.2026 · May I</span></div>
+    <h1>עיצוב מחדש או מעבר אתר בלי לאבד את הדירוג בגוגל - הצעדים הטכניים שגוגל עצמה ממליצה עליהם</h1>
+    <p class="lead">התשובה הישירה: עיצוב מחדש של אתר או מעבר לפלטפורמה חדשה לא חייבים לפגוע בדירוג האורגני - הפגיעה קורית כשכתובות ה-URL משתנות בלי <span class="hl">הפניית 301 אחת-לאחת</span> לכל עמוד שהיה מדורג. הסיכון האמיתי הוא לא בעיצוב עצמו, אלא במה שקורה מתחת לפני השטח: מיפוי כתובות, הפניות, ועדכון גוגל שהאתר עבר ולא נעלם. גוגל מפרסמת תהליך מדויק לכך במסמכי התיעוד הרשמיים שלה - ורוב העסקים מדלגים עליו כי הוא נראה "טכני מדי" לבזבז עליו זמן לפני השקה.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה מעבר אתר הוא סיכון SEO שונה מעדכון תוכן רגיל</h2>
+    <p>עדכון עמוד, הוספת תוכן חדש או שינוי עיצוב פנימי הם שינויים הדרגתיים שגוגל סורקת ומעבדת בלי דרמה. מעבר אתר שונה מהיסוד: כשמשנים דומיין, מבנה כתובות, או עוברים מפלטפורמה אחת לאחרת (למשל מוורדפרס לקוד מותאם אישית, או מבילדר לפלטפורמה חדשה), כל כתובת URL שהייתה קיימת עלולה להפוך לכתובת לא קיימת. גוגל לא "זוכרת" אוטומטית שדף חדש הוא ההמשך של דף ישן - היא צריכה איתות מפורש לכך.</p>
+    <p>לפי <a href="https://developers.google.com/search/docs/crawling-indexing/site-move-with-url-changes" target="_blank" rel="noopener">מסמכי התיעוד הרשמיים של Google Search Central</a> בנושא מעברי אתרים, שינוי דומיין, מעבר מ-HTTP ל-HTTPS, או שינוי מבנה נתיבי URL - כולם נחשבים "מעבר אתר" (site move) מבחינת גוגל, ודורשים את אותו תהליך זהיר. הדף הזה הוא נקודת המוצא לכל תהליך תכנון של מעבר או עיצוב מחדש שכולל שינוי כתובות.</p>
+
+    <h2>הצעד שרוב העסקים מדלגים עליו: מיפוי כתובות מלא לפני ההשקה</h2>
+    <p>לפני שנוגעים בקוד, בעיצוב או בפלטפורמה החדשה, השלב הראשון הוא לייצא רשימה מלאה של כל הכתובות שקיימות היום באתר - כולל כתובות שמקבלות תנועה אורגנית, כתובות עם קישורים נכנסים מאתרים אחרים, וכתובות שמופיעות ב-Search Console. לכל כתובת כזו צריך להחליט מראש מהי הכתובת המקבילה החדשה, ולבנות טבלת מיפוי מסודרת - לא לאלתר את זה ביום ההשקה.</p>
+    <ul>
+      <li>ייצוא כל הכתובות המדורגות מ-Search Console (דוח ביצועים וכיסוי).</li>
+      <li>זיהוי עמודים עם קישורים נכנסים חיצוניים - הם נושאים אמון SEO ספציפי שחייבים לשמר.</li>
+      <li>מיפוי אחד-לאחד: כל כתובת ישנה → כתובת חדשה ספציפית, לא הפניה גורפת.</li>
+      <li>בדיקת התוכן בכל עמוד יעד - שהוא באמת ממשיך את אותו נושא, לא רק דף כללי דומה.</li>
+    </ul>
+
+    <h2>הפניות 301 - אחת לאחת, לא "הכל לעמוד הבית"</h2>
+    <p>הטעות הנפוצה ביותר במעברי אתרים עצמאיים היא הפניית כל הכתובות הישנות לעמוד הבית, כדי "לא להשאיר שגיאות 404". זה נראה פתרון בטוח, אבל מבחינת גוגל זה איתות שהתוכן הספציפי שהיה מדורג פשוט נעלם - והאמון שהצטבר על אותו עמוד לא עובר לשום מקום ספציפי. הפניית 301 שומרת על רוב האמון רק כשהיא מובילה לעמוד עם תוכן רלוונטי אמיתי, לא לעמוד כללי.</p>
+
+    <h2>כמה זמן צריך לשמור את ההפניות?</h2>
+    <p>ג'ון מולר, נציג גוגל לחיפוש, ציין במפורש שכדאי <span class="hl">לשמור הפניות 301 פעילות לפחות שנה</span> מיום ההשקה - כדי לתת לזחלן של גוגל מספיק הזדמנויות לזהות את המעבר כקבוע ולהעביר את האמון בהתאם. הסרת הפניות מוקדם מדי, אפילו אחרי כמה חודשים טובים, עלולה לאפס חלק מהאיתות שכבר הועבר (מקור: <a href="https://www.searchenginejournal.com/google-keep-301-redirects-in-place-for-a-year/428998/" target="_blank" rel="noopener">searchenginejournal.com</a>).</p>
+
+    <h2>עדכון Search Console וכלי Change of Address</h2>
+    <p>אחרי ההשקה, יש לעדכן מפת אתר (sitemap) חדשה ולהגיש אותה מחדש ב-Search Console, כדי שגוגל תדע לסרוק את הכתובות החדשות במהירות. במעבר דומיין (לא רק שינוי מבנה כתובות באותו דומיין) חובה גם להשתמש בכלי Change of Address הייעודי בתוך Search Console, שמאותת לגוגל במפורש על המעבר בין הנכסים. בלי הצעד הזה, גוגל תגלה את השינוי בעצמה - אבל זה יכול לקחת הרבה יותר זמן.</p>
+
+    <h2>ההזדמנות שרוב העסקים מפספסים: לתקן גם את המבנה למנועי AI</h2>
+    <p>עיצוב מחדש הוא ההזדמנות הטובה ביותר לתקן לא רק דירוג בגוגל, אלא גם נראות במנועי AI כמו ChatGPT ו-Perplexity. מחקר שסקר ציטוטי ChatGPT מצא ש-<span class="hl">44.2% מהציטוטים מגיעים מה-30% הראשונים</span> של המסמך - כלומר מבנה התוכן קובע לא פחות מהתוכן עצמו (מקור: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). אם בכל מקרה בונים מחדש את דפי השירותים או המאמרים, זה הרגע לוודא שהתשובה הישירה לשאלה המרכזית של כל עמוד מופיעה בפסקה הראשונה - ולא קבורה בהמשך העמוד.</p>
+
+    <h2>למה קוד מותאם אישית נותן שליטה שבילדר לא נותן</h2>
+    <p>ברוב הבילדרים ופלטפורמות דפי הנחיתה יש מגבלה על מספר כללי ההפניה שאפשר להגדיר, או שאין גישה ישירה לקובצי קונפיגורציה בשרת. באתר בקוד מותאם אישית, ההפניות מוגדרות ברמת התשתית עצמה - קובץ קונפיגורציה של השרת או ה-CDN - בלי הגבלת כמות ובלי תלות בממשק צד שלישי. זה ההבדל בין מעבר מבוקר לחלוטין לבין תקווה שהפלטפורמה תטפל בזה נכון.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="site-speed-core-web-vitals.html">מהירות אתר ו-Core Web Vitals</a></li>
+      <li><a href="geo-aeo-ai-search-guide.html">מדריך GEO/AEO מעשי</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>מתכננים עיצוב מחדש או מעבר פלטפורמה?</h2>
+      <p>אנחנו בונים ומריצים תהליכי מעבר עם מיפוי כתובות מלא והפניות מדויקות, כדי שהדירוג שכבר בניתם לא יתאפס ביום ההשקה.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
