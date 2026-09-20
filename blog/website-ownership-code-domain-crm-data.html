@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>למי שייך האתר שלך בפועל - קוד, דומיין ונתוני CRM אחרי סיום הפרויקט | May I</title>
+<meta name="description" content="תשלמתם על האתר, אבל מי מחזיק בו בפועל? מדריך מעשי לבעלות על קוד, דומיין ונתוני CRM כשעובדים עם סטודיו או אג'נסי - ומה לבדוק לפני שחותמים.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/website-ownership-code-domain-crm-data">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/website-ownership-code-domain-crm-data">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/website-ownership-code-domain-crm-data">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/website-ownership-code-domain-crm-data">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "למי שייך האתר שלך בפועל - קוד, דומיין ונתוני CRM אחרי סיום הפרויקט",
+  "datePublished": "2026-09-18",
+  "dateModified": "2026-09-18",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/website-ownership-code-domain-crm-data"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "אם שילמתי על בניית האתר, הקוד אוטומטית שלי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא בהכרח. לפי דיני זכויות היוצרים בארה\"ב (שרוב חוזי הפיתוח מפנים אליהם), עבודה של קבלן עצמאי נשארת בבעלות היוצר אלא אם יש חוזה כתוב שמעביר את הזכויות במפורש - תשלום לבדו לא מספיק. אם החוזה שלכם לא כולל סעיף המחאת זכויות (IP assignment), כדאי לבדוק את זה לפני שממשיכים." }
+    },
+    {
+      "@type": "Question",
+      "name": "איך מוודאים שהדומיין רשום על שם העסק שלי ולא על שם הסטודיו?",
+      "acceptedAnswer": { "@type": "Answer", "text": "נכנסים לחשבון הרישום (רג'יסטרר) של הדומיין ובודקים מי מוגדר כ-Registrant - בעל הרישום הרשמי. רק מי שמוגדר ככה יכול לאשר או לדחות בקשת העברה, ורק הוא יכול לקבל קוד הרשאה (Auth-Code) שנדרש כדי לעבור לספק אחר." }
+    },
+    {
+      "@type": "Question",
+      "name": "מי אחראי על נתוני הלקוחות שנשמרים ב-GoHighLevel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "תלוי במבנה החשבון. אם עסק עובד תחת חשבון Sub-Account בבעלות הסטודיו, המידע יושב בתשתית שהסטודיו שולט בה. אם לעסק יש חשבון Location עצמאי משלו, המידע נשאר תחתיו גם אם מפסיקים לעבוד עם הסטודיו. מעבר לשליטה הטכנית, מכוח תיקון 13 לחוק הגנת הפרטיות שנכנס לתוקף באוגוסט 2025, העסק עצמו - לא הסטודיו - הוא לרוב בעל מסד הנתונים האחראי כלפי הלקוחות." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">בחירת שותף <span>· 18.9.2026 · May I</span></div>
+    <h1>למי שייך האתר שלך בפועל - קוד, דומיין ונתוני CRM אחרי סיום הפרויקט</h1>
+    <p class="lead">התשובה הקצרה: שלושת החלקים לא הולכים ביחד אוטומטית. הקוד של האתר שייך לפי ברירת מחדל למי שכתב אותו, אלא אם יש חוזה כתוב שמעביר את הזכויות אליכם. הדומיין שייך למי שרשום כ-Registrant אצל הרג'יסטרר, לא למי ששילם עליו. ונתוני הלקוחות ב-CRM כמו GoHighLevel יושבים תחת חשבון ה-Agency או תחת חשבון Location עצמאי שלכם - וזה קובע אם הם נשארים אצלכם כשהפרויקט נגמר. <span class="hl">כדאי לבדוק את שלושתם לפני שחותמים</span>, לא אחרי.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה זו שאלה שרוב הלקוחות לא שואלים בזמן</h2>
+    <p>כשעסק סוגר עם סטודיו או אג'נסי על בניית אתר או הקמת מערכת GHL, המיקוד כולו בעיצוב, בלוחות זמנים ובמחיר. השאלה "מה קורה אם נפסיק לעבוד ביחד" נשאלת כמעט תמיד רק כשזה כבר קורה - וברגע הזה כבר מאוחר מדי להתמקח. הבעלות בפועל על שלושת הנכסים הדיגיטליים המרכזיים - קוד, דומיין, ונתוני לקוחות - לא נקבעת אוטומטית לפי מי ששילם. היא נקבעת לפי מה שכתוב בחוזה ולפי איך שהחשבונות הוגדרו מהיום הראשון.</p>
+
+    <h2>קוד האתר - התשלום לא שווה בעלות</h2>
+    <p>הנחה נפוצה ושגויה: "שילמתי על העבודה, אז הקוד שלי". לפי חוזר 30 של לשכת זכויות היוצרים האמריקאית (Circular 30, Works Made for Hire), עבודה של קבלן עצמאי - כולל פיתוח תוכנה ואתרים - <span class="hl">לא נחשבת אוטומטית "עבודה מוזמנת" (work made for hire)</span>. כדי שהזכויות יעברו ללקוח, נדרש חוזה כתוב וחתום שכולל סעיף המחאת זכויות מפורש (IP assignment), או שהעבודה נכנסת לאחת מתשע קטגוריות ספציפיות שהחוק מגדיר - ופיתוח אתרים בדרך כלל לא נכנס לאף אחת מהן (מקור: <a href="https://www.copyright.gov/circs/circ30.pdf" target="_blank" rel="noopener">copyright.gov</a>).</p>
+    <p>בפועל זה אומר: אם החוזה שלכם עם המפתח או הסטודיו לא כולל סעיף שמעביר את זכויות היוצרים בקוד במפורש, יכול להיות שהקוד עדיין שייך משפטית למי שכתב אותו - גם אם שילמתם עליו במלואו. זה לא תיאורטי. זו הסיבה שחוזה עבודה רציני על אתר תמיד כולל סעיף IP assignment ברור, לא רק סעיף תשלום.</p>
+
+    <h2>הדומיין - מי שרשום כ-Registrant הוא הבעלים</h2>
+    <p>הדומיין הוא הנכס הכי קל לבדוק והכי קל לפספס. לפי מדיניות ICANN, רק מי שמוגדר כ-Registered Name Holder (בעל הרישום) יכול לאשר בקשת העברה של הדומיין לספק אחר, ורק הוא זכאי לקבל את קוד ההרשאה (Auth-Code / TAC) שנדרש לביצוע ההעברה (מקור: <a href="https://www.icann.org/resources/pages/about-transfer-policy-2017-10-10-en" target="_blank" rel="noopener">icann.org</a>). אם הדומיין נרשם תחת חשבון הרג'יסטרר של הסטודיו ולא תחת חשבון על שם העסק, הבעלות הרשמית היא של הסטודיו - גם אם העסק שילם על הרכישה והחידוש מדי שנה.</p>
+    <ul>
+      <li>בודקים ב-WHOIS או בפאנל הרג'יסטרר מי מוגדר כ-Registrant בפועל.</li>
+      <li>מוודאים שיש גישת ניהול (לא רק צפייה) לחשבון הרג'יסטרר על שם העסק.</li>
+      <li>אם הדומיין רשום על שם הסטודיו - מבקשים בכתב שההעברה על שם העסק תתבצע כתנאי בחוזה, לא כטובה בעתיד.</li>
+    </ul>
+
+    <h2>נתוני ה-CRM ב-GoHighLevel - Agency-Level מול Location עצמאי</h2>
+    <p>ב-GoHighLevel יש הבדל מבני שרוב הלקוחות לא מודעים אליו. סטודיו או אג'נסי שמנהלים לקוחות במערכת יכולים להריץ אותם תחת חשבון Sub-Account שנמצא כולו בתוך חשבון ה-Agency הראשי שלהם, או לתת לעסק חשבון Location עצמאי שהוא שולט בו ישירות. במקרה הראשון, כל הנתונים - לידים, שיחות, אוטומציות, היסטוריית לקוחות - יושבים בתשתית שבבעלות הסטודיו, ואם מפסיקים לעבוד ביחד, ייצוא המידע תלוי בשיתוף הפעולה שלו. במקרה השני, החשבון נשאר של העסק גם אם מחליפים ספק אוטומציה.</p>
+    <p>יש לזה גם צד רגולטורי שרלוונטי במיוחד לעסקים ישראלים: מאז אוגוסט 2025, עם כניסתו לתוקף של תיקון 13 לחוק הגנת הפרטיות, המונח "בעל מאגר" הוחלף ב"בעל שליטה במאגר" - הגורם שקובע את מטרת השימוש במידע האישי. במרבית המקרים <span class="hl">העסק עצמו, לא הסטודיו שמפעיל עבורו את ה-CRM</span>, הוא בעל השליטה שנושא באחריות כלפי הלקוחות שהמידע שלהם נאסף (מקור: <a href="https://www.pearlcohen.com/israel-significant-amendment-to-the-privacy-law-takes-effect/" target="_blank" rel="noopener">pearlcohen.com</a>). אחריות משפטית על מידע שיושב בחשבון שאתם לא שולטים בו טכנית היא מצב לא נוח - עוד סיבה לוודא שחשבון ה-CRM רשום ישירות על שם העסק.</p>
+
+    <h2>מה לבדוק לפני שחותמים</h2>
+    <ul>
+      <li>יש בחוזה סעיף מפורש שמעביר את זכויות היוצרים בקוד לעסק עם סיום התשלום?</li>
+      <li>הדומיין נרשם ונשאר תחת חשבון רג'יסטרר על שם העסק, עם גישת ניהול מלאה?</li>
+      <li>חשבון ה-CRM (כולל GoHighLevel) הוא Location עצמאי על שם העסק, לא Sub-Account בתוך חשבון הסטודיו?</li>
+      <li>יש מנגנון ברור וכתוב לייצוא מלא של הנתונים אם מפסיקים לעבוד ביחד?</li>
+    </ul>
+
+    <h2>איך אנחנו עושים את זה ב-May I</h2>
+    <p>הדומיין, האחסון וחשבון ה-GHL נפתחים מהיום הראשון על שם הלקוח - לא עוברים אליו בסוף הפרויקט. הקוד עצמו נמסר יחד עם זכויות היוצרים המלאות, כפי שכתוב בחוזה. זה לא סעיף "נחמד שיהיה" - זו הסיבה שעסק שעובד איתנו יכול להחליף ספק בכל שלב בלי לאבד גישה לנכסים שהוא בנה.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="boutique-studio-vs-agency-vs-freelancer.html">סטודיו בוטיק מול פרילנסר מול אג'נסי</a></li>
+      <li><a href="pricing-premium-website-projects.html">איך מתמחרים פרויקט אתר פרימיום</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>לא בטוחים מה כתוב בחוזה שלכם?</h2>
+      <p>אנחנו עוזרים לעסקים לוודא שהם באמת מחזיקים בנכסים הדיגיטליים שלהם - קוד, דומיין ונתוני לקוחות - לפני שהם חותמים, ולא אחרי.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
