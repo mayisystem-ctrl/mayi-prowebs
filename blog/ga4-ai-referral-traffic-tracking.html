@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>מעקב אחרי תנועה מ-ChatGPT ו-Perplexity ב-GA4 - המדריך שרוב העסקים מפספסים | May I</title>
+<meta name="description" content="תנועה מ-ChatGPT, Perplexity וג'מיני מסתתרת ב-GA4 תחת Referral או Direct. מדריך מעשי להקמת Custom Channel Group שתופס את ה-AI referral traffic בפועל, ולמה גם העדכון הרשמי של גוגל ממאי 2026 לא פותר את כל הבעיה.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/ga4-ai-referral-traffic-tracking">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/ga4-ai-referral-traffic-tracking">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/ga4-ai-referral-traffic-tracking">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/ga4-ai-referral-traffic-tracking">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "מעקב אחרי תנועה מ-ChatGPT ו-Perplexity ב-GA4 - המדריך המעשי ל-AI referral traffic שרוב העסקים מפספסים",
+  "datePublished": "2026-10-05",
+  "dateModified": "2026-10-05",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/ga4-ai-referral-traffic-tracking"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "למה תנועה מ-ChatGPT לא מופיעה ב-GA4 כערוץ AI נפרד?",
+      "acceptedAnswer": { "@type": "Answer", "text": "כי ChatGPT, קלוד וג'מיני לא שולחים תמיד Referrer header בדפדפן - ChatGPT עושה את זה רק חלק מהזמן וקלוד לעיתים רחוקות. התנועה הזו נופלת בדרך כלל תחת 'ללא שיוך' (Direct) או 'הפניה' (Referral) כלליים, ולא תחת ערוץ AI מיוחד, אלא אם מגדירים זאת ידנית." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם גוגל אנאליטיקס כבר פותר את זה אוטומטית?",
+      "acceptedAnswer": { "@type": "Answer", "text": "חלקית. ב-13 במאי 2026 גוגל הוסיפה ל-GA4 ערוץ מובנה בשם AI Assistant שמזהה הפניות מ-ChatGPT, ג'מיני וקלוד. אבל הערוץ מפספס את Perplexity לחלוטין, ולא תופס ביקורים שהגיעו בלי Referrer בכלל - כך שחלק גדול מתנועת ה-AI עדיין לא נראה גם אחרי העדכון." }
+    },
+    {
+      "@type": "Question",
+      "name": "איך בונים מעקב מדויק יותר אחרי תנועת AI ב-GA4?",
+      "acceptedAnswer": { "@type": "Answer", "text": "יוצרים Custom Channel Group חדש ב-GA4 (Admin > Data display > Channel groups), עם כלל שמבוסס על ביטוי רגולרי שתואם דומיינים כמו chatgpt.com, perplexity.ai, claude.ai ו-gemini.google.com, וממקמים אותו לפני ערוץ ה-Referral הרגיל כדי שהוא ייתפס קודם. זה לא פותר ביקורים חסרי Referrer, אבל תופס משמעותית יותר תנועה מברירת המחדל." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">GEO/AEO <span>· 5.10.2026 · May I</span></div>
+    <h1>מעקב אחרי תנועה מ-ChatGPT ו-Perplexity ב-GA4 - המדריך המעשי ל-AI referral traffic שרוב העסקים מפספסים</h1>
+    <p class="lead">התשובה הקצרה: כברירת מחדל, גוגל אנאליטיקס (GA4) לא תופס את רוב התנועה שמגיעה מ-ChatGPT, Perplexity וג'מיני - היא נופלת תחת "הפניה" (Referral) כללית או "ללא שיוך" (Direct), כי ChatGPT וקלוד לא שולחים Referrer header בעקביות. גם אחרי שגוגל הוסיפה ב-13 במאי 2026 ערוץ "AI Assistant" מובנה ב-GA4, הוא עדיין <span class="hl">מפספס את Perplexity לחלוטין</span> ולא תופס ביקורים חסרי Referrer. הדרך היחידה לראות את התמונה המלאה היא <span class="hl">Custom Channel Group</span> עם ביטוי רגולרי שתופס את כל הדומיינים הרלוונטיים, ושמוגדר לפני ערוץ ה-Referral הרגיל.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה בכלל כדאי לטרוח על זה</h2>
+    <p>תנועה מאתרי AI גדלה פי 16 בין 2024 ל-2026, והיא מהווה כיום כ-0.32% מכלל תנועת האתרים ברשת - עלייה מ-0.24% ב-2025 ומ-0.02% בלבד ב-2024. ChatGPT לבדו מהווה כ-74.78% מתנועת ה-AI referral, ג'מיני כ-11.56% ו-Perplexity כ-7.23% (מקור: <a href="https://seranking.com/blog/ai-traffic-research-study/" target="_blank" rel="noopener">seranking.com</a>). הנתון הזה עדיין נקודתי יחסית לכלל התנועה, אבל הוא לא תיאורטי: Adobe Analytics דיווחה שבמרץ 2026 גולשים שהגיעו לאתרי ריטייל אמריקאיים מ-AI המירו 42% טוב יותר מתנועה שאינה-AI - שיא לערוץ הזה (מקור: <a href="https://business.adobe.com/blog/the-explosive-rise-of-generative-ai-referral-traffic" target="_blank" rel="noopener">business.adobe.com</a>).</p>
+    <p>זה גם לא מנותק מעבודת ה-GEO/AEO עצמה. אם משקיעים בלהיכתב כך שמנועי AI יצטטו את העסק - מחקר שהראה ש-44.2% מהציטוטים של ChatGPT מגיעים מה-30% הראשונים של המסמך מלמד שגם מבנה התוכן קובע (מקור: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>) - בלי מדידה אמיתית של התנועה שמגיעה בזכות זה, אין דרך לדעת אם ההשקעה עובדת או שמנחשים באפלה.</p>
+
+    <h2>למה GA4 לא תופס את זה כברירת מחדל</h2>
+    <p>הבעיה היא התנהגות ה-Referrer. Perplexity הוא כלי ה-AI העיקרי היחיד ששולח Referer header בעקביות כשמישהו עובר מתוך תשובה לאתר שלכם. ChatGPT שולח אותו רק חלק מהזמן (למשל מהגרסה בדפדפן, אבל לא תמיד מהאפליקציה), וקלוד שולח אותו לעיתים רחוקות מאוד. התוצאה: ביקור שבאמת הגיע בזכות תשובה של ChatGPT נראה ב-GA4 בדיוק כמו ביקור ישיר, בלי שום סימן למקור (מקור: <a href="https://swydo.com/blog/track-ai-traffic-in-ga4/" target="_blank" rel="noopener">swydo.com</a>).</p>
+
+    <h2>עדכון GA4 ממאי 2026 - מה הוא פותר ומה הוא לא</h2>
+    <p>ב-13.5.2026 גוגל אישרה רשמית שהוסיפה ל-GA4 ערוץ חדש בשם "AI Assistant" בתוך ה-Default Channel Group, בלי צורך בהגדרה מצד בעלי האתר. כשGA4 מזהה Referrer שתואם כלי AI מוכר, הוא מסמן את ה-medium כ-"ai-assistant" ומקבץ את הביקור תחת הערוץ הזה. גוגל נותנת כדוגמאות את ChatGPT, ג'מיני וקלוד, ולא פרסמה רשימה מלאה של הדומיינים שהיא מזהה. העדכון הגיע לרוב החשבונות עד יוני 2026.</p>
+    <p>הבעיה: הערוץ החדש <span class="hl">לא כולל את Perplexity</span> בכלל, ולא תופס ביקורים שהגיעו בלי Referrer מלכתחילה - ולפי הערכות, עד כ-70% מהביקורים מ-AI נופלים בדיוק בקטגוריה הזו. במילים אחרות, גם העדכון הרשמי של גוגל עדיין מציג רק חלק מהתמונה (מקור: <a href="https://searchenginejournal.com/ga4s-ai-assistant-channel-undercounts-your-ai-traffic-how-to-build-one-that-doesnt/580133" target="_blank" rel="noopener">searchenginejournal.com</a>).</p>
+
+    <h2>איך בונים Custom Channel Group שתופס יותר</h2>
+    <ul>
+      <li>נכנסים ל-GA4 Admin, ואז Data display &gt; Channel groups, ויוצרים Channel Group מותאם חדש.</li>
+      <li>מגדירים כלל עם ביטוי רגולרי על שדה ה-Source, שתואם דומיינים כמו <code>chatgpt.com</code>, <code>chat.openai.com</code>, <code>perplexity.ai</code>, <code>claude.ai</code>, <code>gemini.google.com</code> ו-<code>copilot.microsoft.com</code>.</li>
+      <li>ממקמים את הכלל לפני ערוץ ה-Referral הקיים, כך שהוא נבדק ראשון ולא "נבלע" לתוך הפניה כללית.</li>
+      <li>מוסיפים את הערוץ המותאם כדוח קבוע ב-Exploration או ב-Acquisition Overview, כדי לראות אותו לצד כל שאר הערוצים ולא כדוח נפרד שאף אחד לא בודק.</li>
+    </ul>
+    <p>חשוב להיות הוגנים עם המגבלה: אפילו Custom Channel Group לא פותר ביקורים שהגיעו בלי Referrer בכלל - למשל מדפדפן בפרטיות או מתוך אפליקציה. זה מצמצם משמעותית את הפספוס, אבל לא מבטל אותו.</p>
+
+    <h2>מה עושים עם הנתונים האלה בפועל</h2>
+    <p>ברגע שהערוץ המותאם רץ, שווה לחבר אותו לנתוני ה-CRM - אם ה-GHL שלכם מתעד את מקור הליד, אפשר לבדוק אם לידים שמגיעים מ-AI נסגרים אחרת מלידים מחיפוש אורגני או מקמפיין ממומן, ולא רק להסתכל על כמות ביקורים. זה גם הדרך האמיתית לבדוק אם השקעה בתוכן ל-GEO/AEO מניבה תנועה אמיתית, במקום להסתמך על תחושת בטן.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="geo-aeo-ai-search-guide.html">איך גורמים ל-ChatGPT, Perplexity וג'מיני לצטט את העסק שלך</a></li>
+      <li><a href="local-seo-ai-visibility-gap.html">פער הנראות המקומית מול ChatGPT, ג'מיני ו-Perplexity</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>רוצים לדעת אם התוכן שלכם באמת נראה למנועי AI?</h2>
+      <p>אנחנו בונים אתרים שמוכנים גם ל-GEO/AEO וגם למדידה אמיתית - כולל הגדרת מעקב שמבדיל תנועת AI מתנועה רגילה, לא רק עיצוב יפה.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
