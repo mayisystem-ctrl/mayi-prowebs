@@ -1,0 +1,181 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>llms.txt - Does It Actually Help AI Visibility, or Is It SEO's Newest Myth? | May I</title>
+<meta name="description" content="Google has publicly said it doesn't support llms.txt and has no plans to. What's actually known about the llms.txt file, who really reads it, and what actually drives citations from ChatGPT and Perplexity.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/llms-txt-ai-crawlers-fact-check">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/llms-txt-ai-crawlers-fact-check">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/llms-txt-ai-crawlers-fact-check">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/llms-txt-ai-crawlers-fact-check">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "llms.txt - Does It Actually Help AI Visibility, or Is It SEO's Newest Myth",
+  "datePublished": "2026-10-09",
+  "dateModified": "2026-10-09",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/llms-txt-ai-crawlers-fact-check"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What exactly is an llms.txt file?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A Markdown file placed at a domain's root (e.g. example.com/llms.txt) that summarizes a site and links to its core content, intended to help language models understand a site without crawling its full HTML. The proposal was published by Jeremy Howard, co-founder of Answer.AI, on September 3, 2024. It is not an official standard but a community proposal hosted at llmstxt.org." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does llms.txt affect Google ranking or AI search visibility?",
+      "acceptedAnswer": { "@type": "Answer", "text": "According to Google, no. John Mueller publicly stated that no AI system currently uses llms.txt, and Gary Illyes explicitly said Google does not support the file and has no plans to. No other major AI provider has officially confirmed reading or using it for ranking or citation purposes." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should you still add llms.txt to your site?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It doesn't hurt, but it's not the investment that will move your visibility. If you have a free hour, it pays off far more to improve your content's structure - a direct answer at the top of the page, clear headings, cited facts - since that's what's actually linked to real-world citations." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">GEO/AEO <span>· Oct 9, 2026 · May I</span></div>
+    <h1>llms.txt - Does It Actually Help AI Visibility, or Is It SEO's Newest Myth</h1>
+    <p class="lead">Short answer: there is currently no confirmed evidence that an llms.txt file affects your visibility in ChatGPT, Perplexity, or Google's AI Overviews. Google has said so publicly and plainly - it does not support the file and has no plans to. If you're considering spending an hour building an llms.txt file instead of actually improving your content's structure, that's probably the wrong investment.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>What llms.txt actually is</h2>
+    <p>llms.txt is a Markdown file placed at a domain's root (e.g. example.com/llms.txt) that holds a short summary of the site plus links to its core content pages. The idea: language models work with a limited context window, and converting full HTML into clean text is a messy, imprecise process - so a clean, condensed file written specifically for AI consumption could skip that step.</p>
+    <p>The proposal was published by Jeremy Howard, co-founder of Answer.AI, on September 3, 2024, with a full specification at <a href="https://llmstxt.org" target="_blank" rel="noopener">llmstxt.org</a>. It's worth being clear: this is a community proposal, not an official standard like robots.txt or sitemap.xml that search engines are obligated to respect.</p>
+
+    <h2>What Google actually said - not interpretation, direct quotes</h2>
+    <p>On June 17, 2025, Google's John Mueller wrote on Bluesky: <span class="hl">"no AI system currently uses llms.txt"</span>, comparing the idea to the old meta keywords tag - a feature SEOs embraced enthusiastically that search engines never seriously relied on (source: <a href="https://seroundtable.com/google-ai-llms-txt-39607.html" target="_blank" rel="noopener">seroundtable.com</a>).</p>
+    <p>The following month, in July 2025, Google's Gary Illyes stated publicly and explicitly that Google does not support the llms.txt protocol and has no plans to. At the same event, he also noted that ordinary, solid SEO - not a dedicated AI-only file - is what actually drives appearances in AI Overviews (source: <a href="https://searchengineland.com/google-says-normal-seo-works-for-ranking-in-ai-overviews-and-llms-txt-wont-be-used-459422" target="_blank" rel="noopener">searchengineland.com</a>).</p>
+
+    <h2>What about ChatGPT, Perplexity, and Claude - do they actually read the file?</h2>
+    <p>Here the answer is less clear-cut, because none of these companies has issued an official statement either way. Some site owners who checked their server logs report that OpenAI's crawler does request the llms.txt file regularly (source: <a href="https://searchengineland.com/google-says-normal-seo-works-for-ranking-in-ai-overviews-and-llms-txt-wont-be-used-459422" target="_blank" rel="noopener">searchengineland.com</a>) - but a request for the file is not proof that its content actually shapes an answer returned to a user. Anthropic does publish its own llms.txt for its developer documentation, but its official guidance for site owners points to robots.txt, not llms.txt, as the binding mechanism for controlling its crawlers.</p>
+    <p>The practical takeaway: there is currently no solid, confirmed evidence from any major AI provider showing a causal link between having an llms.txt file and a higher chance of being cited.</p>
+
+    <h2>So is it still worth adding one?</h2>
+    <p>Adding an llms.txt file doesn't hurt - it's not a load issue, it won't harm your SEO, and it takes under an hour for a site owner who already knows their content. But it's also not the investment that moves the needle. If you have a free hour to spend on AI visibility, it pays off far more to work on the content's actual structure - not a separate file that no model has confirmed it even reads.</p>
+
+    <h2>What's actually proven to drive AI citations</h2>
+    <p>A study by Kevin Indig published on Search Engine Land found that <span class="hl">44.2% of ChatGPT citations come from the first 30% of a document</span> (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). In other words, AI models tend to cite from the early part of a page - regardless of whether an llms.txt file sits beside it or not. The direct answer and the citable fact need to live near the top of the page, not buried in the seventh paragraph.</p>
+    <p>And as we showed in our article on schema vs. content structure, technical tagging alone doesn't move the needle - what works is clear, factual content built on real sources. That's exactly what this article itself is trying to demonstrate: one precise, real citation beats one more file nobody has confirmed they're reading.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="ai-citations-schema-vs-structure.html">What Actually Gets Your Site Cited by AI</a></li>
+      <li><a href="geo-aeo-ai-search-guide.html">A Practical GEO/AEO Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Want a site built to be cited, not just read?</h2>
+      <p>We build websites and content with a structure AI engines and search engines can actually understand and cite - without relying on files nobody has confirmed they use.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
