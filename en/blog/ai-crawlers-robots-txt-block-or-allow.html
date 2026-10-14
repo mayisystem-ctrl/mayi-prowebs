@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Should You Block AI Crawlers in robots.txt? The Business Decision Behind the Checkbox | May I</title>
+<meta name="description" content="Blocking GPTBot, ClaudeBot, or PerplexityBot in robots.txt looks like a technical security choice, but it actually decides whether you show up in ChatGPT and Perplexity answers. A practical guide to making the right call.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-block-or-allow">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-block-or-allow">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-block-or-allow">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-block-or-allow">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Should You Block AI Crawlers in robots.txt? The Business Decision Behind a Technical Checkbox",
+  "datePublished": "2026-10-14",
+  "dateModified": "2026-10-14",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-block-or-allow"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "If I block GPTBot in robots.txt, will ChatGPT stop citing me?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. GPTBot is OpenAI's training crawler only, which collects content that may be used to train future models. ChatGPT's live answers, including search mode, rely on separate crawlers - OAI-SearchBot and ChatGPT-User - and blocking GPTBot alone does not block them." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is robots.txt real protection against AI training crawls?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. It's a voluntary protocol - a crawler that states it respects it, like GPTBot, chooses to comply, but a tool that doesn't identify itself, or has no intention of honoring it, can ignore it entirely. The file also only covers the domain or subdomain it sits on, not every digital property a business owns." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should a small business even bother blocking AI crawlers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "It depends on the goal. A business that wants visibility in answer engines like ChatGPT and Perplexity shouldn't block their live-answer agents. A business specifically worried about unique content being used to train a model can block the named training agents - GPTBot, ClaudeBot, Google-Extended - without hurting its visibility in live answers." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">GEO/AEO <span>· Oct 14, 2026 · May I</span></div>
+    <h1>Should You Block AI Crawlers in robots.txt? The Business Decision Behind a Technical Checkbox</h1>
+    <p class="lead">Short answer: there's no single rule that fits every business, but a blanket block of "all AI bots" in robots.txt is almost always a mistake - it erases you from ChatGPT and Perplexity answers without providing real protection, since robots.txt is a voluntary request, not a technical lock. The right decision isn't "block or don't block" - it's telling apart a bot that collects content to train a model from a bot that fetches a live answer for someone asking about you right now, and blocking, if anything, only the first kind.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>What robots.txt actually does - and why it isn't a lock</h2>
+    <p>robots.txt is a plain text file sitting at the root of a domain that asks specific robots not to crawl specific paths. It's a <span class="hl">voluntary request, not a firewall</span>. A crawler that states it respects the protocol - like OpenAI's GPTBot - chooses to comply. A tool that doesn't identify itself at all, or simply has no intention of honoring the request, can ignore it completely. It's also worth remembering that robots.txt only applies to the domain or subdomain it sits on - one file at the site's root doesn't cover a separate subdomain (like blog. or shop.), which needs its own file.</p>
+
+    <h2>Not every "AI bot" is the same bot</h2>
+    <p>OpenAI, for example, runs at least three separate agents with completely different jobs (source: <a href="https://platform.openai.com/docs/bots" target="_blank" rel="noopener">platform.openai.com</a>):</p>
+    <ul>
+      <li><strong>GPTBot</strong> - a crawler that collects content that may be used to train future models.</li>
+      <li><strong>OAI-SearchBot</strong> - builds the index that powers search answers inside ChatGPT.</li>
+      <li><strong>ChatGPT-User</strong> - fetches a page in real time when a user asks ChatGPT about a specific link or topic.</li>
+    </ul>
+    <p>Blocking GPTBot alone doesn't block the other two. A business that blocks "everything OpenAI" as a blanket rule, without telling the three apart, may end up blocking itself from appearing in ChatGPT's search answers - without getting any extra protection in return, since Anthropic, Perplexity, and Google each run their own similar, separate logic.</p>
+
+    <h2>What the data actually shows</h2>
+    <p>An Ahrefs study that scanned roughly 461 million robots.txt files found that only <span class="hl">7.3%</span> of them actually block GPTBot - meaning the vast majority of sites on the web don't block it, usually because they never made a deliberate decision about it in the first place. The same study found that Anthropic's ClaudeBot is the fastest-growing bot in terms of block rate - up roughly 32.67% over the past year, a sign that more businesses are starting to treat the question deliberately instead of leaving it on default (source: <a href="https://ahrefs.com/blog/ai-bot-block-rates" target="_blank" rel="noopener">ahrefs.com</a>).</p>
+
+    <h2>The real business trade-off</h2>
+    <p>If you block OAI-SearchBot, PerplexityBot, or Google-Extended, you're removing yourself from the pool these AI engines draw answers from - including the answer to "who's the best business for X near me." A study by Kevin Indig on ChatGPT citations found that <span class="hl">44.2%</span> of citations come from the first 30% of a document - meaning even a site that blocks nothing but structures its content poorly still loses visibility. A full block simply takes the site out of the game entirely, with no way to win even with the best content on the web (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>).</p>
+    <p>On the other hand, some businesses genuinely want to prevent their unique content from being used to train a model - for instance, expensive-to-produce content that is their actual competitive edge. For them, blocking only the training agents (GPTBot, ClaudeBot, Google-Extended) without touching the live-answer agents (OAI-SearchBot, PerplexityBot, ChatGPT-User) is a setup that achieves both goals at once.</p>
+
+    <h2>The practical recommendation</h2>
+    <ul>
+      <li>Check what your robots.txt actually says today - some templates and security plugins ship with a blanket "AI bots" block by default, without the owner ever making a conscious choice about it.</li>
+      <li>Decide on a goal before you set a rule: want visibility in AI answer engines? Don't block the agents that feed live answers. Worried about a model training on unique content? Block only the named training agents, not a single blanket rule.</li>
+      <li>Remember that robots.txt is a request, not protection - if the goal is to actually prevent content use, not just reduce the odds of it, it isn't the complete tool for that job.</li>
+    </ul>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="llms-txt-ai-crawlers-fact-check.html">llms.txt - Does It Actually Help AI Visibility</a></li>
+      <li><a href="geo-aeo-ai-search-guide.html">A Practical GEO/AEO Guide</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Not sure what your robots.txt is actually doing?</h2>
+      <p>We audit your site's crawl settings and help you decide deliberately - without losing AI visibility, and without blocking things just because that's what the template defaulted to.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
