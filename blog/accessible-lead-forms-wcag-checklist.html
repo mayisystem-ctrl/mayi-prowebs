@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>נגישות טפסי לידים - תוויות, כפתורים וניגודיות שחוסמות גולשים | May I</title>
+<meta name="description" content="48.2% מעמודי הבית המובילים ברשת חסרה להם תווית input תקנית בטופס. מה זה אומר בפועל לטופס הליד שלכם, ואיך בודקים ומתקנים את זה בלי לבנות את הטופס מחדש.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/accessible-lead-forms-wcag-checklist">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/accessible-lead-forms-wcag-checklist">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/accessible-lead-forms-wcag-checklist">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/accessible-lead-forms-wcag-checklist">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "נגישות טפסי לידים - למה תוויות חסרות וכפתורים לא מתוארים חוסמים רבע מהגולשים שלכם",
+  "datePublished": "2026-10-16",
+  "dateModified": "2026-10-16",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/accessible-lead-forms-wcag-checklist"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין label לבין placeholder בטופס ליד?",
+      "acceptedAnswer": { "@type": "Answer", "text": "label הוא תג HTML שמקושר תכנותית לשדה הקלט ונשאר קריא תמיד - לקוראי מסך, למנהלי מילוי אוטומטי ולמשתמש בזמן שהוא כותב. placeholder הוא טקסט רמז בתוך השדה שנעלם ברגע שמתחילים להקליד, ולכן לא יכול לשמש כתחליף לתווית - גם אם ויזואלית הוא נראה דומה." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם כפתור שליחה עם אייקון בלבד נחשב נגיש?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא, אלא אם יש לו טקסט נגיש חלופי. כפתור עם אייקון חץ או סימן V בלבד, בלי טקסט גלוי ובלי aria-label, נקרא על ידי קורא מסך כ'כפתור' בלבד בלי לתאר מה הוא עושה. לפי דוח WebAIM Million 2025, ל-29.5% מעמודי הבית המובילים ברשת יש כפתורים ריקים מסוג זה." }
+    },
+    {
+      "@type": "Question",
+      "name": "איך מתקנים נגישות טפסים כשהטופס רץ בתוך GoHighLevel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "בונה הטפסים של GoHighLevel מאפשר הוספת קוד מותאם אישית (Custom CSS/HTML) על גבי הטופס, כך שאפשר להוסיף תוויות, aria-label וערכי ניגודיות בלי לבנות טופס מאפס. חשוב לבדוק את הטופס שנוצר בבילדר בפועל - בברירת מחדל לא כל תבנית מגיעה מתויגת נכון." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">נגישות <span>· 16.10.2026 · May I</span></div>
+    <h1>נגישות טפסי לידים - למה תוויות חסרות וכפתורים לא מתוארים חוסמים רבע מהגולשים שלכם</h1>
+    <p class="lead">התשובה הקצרה: טופס ליד שבו שדה קלט נשען על placeholder בלבד במקום על תווית (label) תקנית, או שכפתור השליחה שלו הוא אייקון בלי טקסט נגיש, לא נגיש לקוראי מסך ולמנהלי מילוי אוטומטי - ולפי דוח <a href="https://webaim.org/projects/million/2025" target="_blank" rel="noopener">WebAIM Million 2025</a>, זה המצב ב-<span class="hl">48.2%</span> מעמודי הבית המובילים ברשת. בארה"ב בלבד, לפי ה-<a href="https://www.cdc.gov/disability-and-health/articles-documents/disabilities-health-care-access.html" target="_blank" rel="noopener">CDC</a>, לכ-61 מיליון מבוגרים - <span class="hl">רבע מהאוכלוסייה</span> - יש מוגבלות שיכולה להשפיע על האופן שבו הם ממלאים טופס באינטרנט. טופס ליד שלא נבנה נגיש מראש לא רק חושף סיכון משפטי - הוא סוגר לידים בחוץ, בשקט, בלי שאף דוח אנליטיקס יראה לכם למה.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה דווקא טופס הלידים הוא הנקודה הרגישה ביותר באתר</h2>
+    <p>עמוד בית אפשר לדפדף בו גם אם חלק מהעיצוב לא מושלם. טופס ליד הוא שונה - הוא הרגע היחיד באתר שבו הגולש חייב לפעול בצורה מדויקת: למלא שדה, להבין הודעת שגיאה, ללחוץ על כפתור ספציפי. כל חיכוך קטן בנקודה הזו - לא רק לאנשים עם מוגבלות, גם למי שמשתמש במנהל מילוי אוטומטי בדפדפן או ממלא טופס במהירות בנייד - מתורגם ישירות לליד שלא נשלח. אתר יכול להיראות מושלם ועדיין לאבד לידים בדיוק בשלב הזה.</p>
+
+    <h2>תווית חסרה - מה זה אומר בפועל, ולמה placeholder לא מספיק</h2>
+    <p>תג <code>&lt;label&gt;</code> מקושר תכנותית לשדה הקלט (באמצעות <code>for</code> ו-<code>id</code>, או עטיפה ישירה). קורא מסך מכריז את התווית הזו בכל פעם שהמשתמש נכנס לשדה. <span class="hl">placeholder הוא לא תחליף</span> - הוא טקסט רמז שנמחק כשהגולש מתחיל להקליד, כך שגם משתמש רגיל שמילא חצי טופס ומתבלבל לאיזה שדה הוא חזר, מאבד את ההקשר. ב-WebAIM Million 2025, מצב של תווית input חסרה היה שלישי ברשימת הכשלים הנפוצים ביותר שנמצאו בבדיקה אוטומטית של מיליון עמודי הבית המובילים באינטרנט.</p>
+
+    <h2>כפתור שליחה בלי טקסט נגיש</h2>
+    <p>כפתור עם אייקון חץ, סימן V, או אפילו המילה "שלח" שמוצגת כתמונת רקע בלבד - בלי טקסט גלוי ובלי <code>aria-label</code> - נקרא על ידי קורא מסך כ"כפתור" ריק, בלי לתאר מה הוא עושה. לפי אותו דוח, ל-29.5% מעמודי הבית נמצאו כפתורים ריקים מהסוג הזה. התיקון פשוט: טקסט גלוי בכפתור, או לכל הפחות <code>aria-label="שליחת הטופס"</code> על כפתור מבוסס אייקון.</p>
+
+    <h2>ניגודיות צבעים בשדות ובהודעות שגיאה</h2>
+    <p>גבול שדה קלט בצבע אפור בהיר על רקע בהיר, או הודעת שגיאה שמסתמכת רק על צבע אדום בלי טקסט או אייקון - נופלות שתיהן באותו כשל: ניגודיות נמוכה. זה הכשל הנפוץ ביותר שנמצא ב-WebAIM Million 2025 - 79.1% מעמודי הבית נכשלו בניגודיות טקסט מתחת לסף WCAG 2 AA. בטופס ליד המשמעות קונקרטית: שדה שבו הגבול כמעט ולא נראה, או הודעת "שדה חובה" שצבועה אדום בלבד בלי טקסט תומך, לא יזוהו בקלות על ידי משתמש עם ראייה חלקית - וגם לא על ידי מי שמסתכל על המסך בשמש.</p>
+
+    <h2>רשימת בדיקה מעשית לטופס ליד</h2>
+    <ul>
+      <li>כל שדה קלט מקושר לתווית תקנית (<code>label for</code>) - לא רק ל-placeholder.</li>
+      <li>כפתור השליחה כולל טקסט גלוי שמתאר את הפעולה, או <code>aria-label</code> אם הוא מבוסס אייקון.</li>
+      <li>אינדיקטור הפוקוס (outline) על שדה פעיל לא הוסר - זו טעות נפוצה בעיצוב "נקי" שפוגעת גם בניווט מקלדת.</li>
+      <li>הודעת שגיאה מקושרת לשדה (<code>aria-describedby</code>) ולא מסתמכת רק על צבע.</li>
+      <li>ניגודיות טקסט וגבולות שדה עומדת בסף WCAG 2 AA (4.5:1 לטקסט רגיל).</li>
+      <li>שדות חובה מסומנים גם בטקסט ("שדה חובה"), לא רק בכוכבית אדומה.</li>
+    </ul>
+
+    <h2>וכשהטופס רץ בתוך GoHighLevel</h2>
+    <p>בונה הטפסים של GoHighLevel נותן גמישות להוסיף קוד מותאם אישית - CSS ו-HTML - על גבי טופס שנבנה בבילדר, כך שאפשר להוסיף תוויות, מאפייני <code>aria</code> וערכי ניגודיות בלי לכתוב טופס מאפס. אבל זה לא קורה אוטומטית: תבנית טופס שנבנתה מהר בבילדר, בלי בדיקה, יכולה בקלות להגיע עם placeholder במקום תווית וכפתור אייקון בלבד - ממש הכשלים שתוארו כאן. בדיקה ידנית אחת - לנווט בטופס רק עם מקלדת (Tab) ולראות אם ברור באיזה שדה נמצאים - חושפת כמעט כל בעיה מהסוג הזה בתוך דקה.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="website-accessibility-wcag-business-case.html">נגישות אתרים (WCAG) - הסיכון המשפטי והיתרון העסקי</a></li>
+      <li><a href="lead-form-fields-conversion-rate.html">כמה שדות צריך טופס ליד</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>לא בטוחים אם הטופס שלכם נגיש?</h2>
+      <p>אנחנו בונים ובודקים טפסי לידים - בקוד מותאם אישית או בתוך GoHighLevel - כך שהם נגישים, ברורים וסוגרים לידים, לא דוחים אותם.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
