@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ווידג'ט נגישות באתר - האם הוא מגן מתביעה, או שהוא בעצם מגדיל את הסיכון | May I</title>
+<meta name="description" content="ווידג'טי נגישות (overlay) נמכרים כפתרון מהיר לתביעות ADA. הנתונים מראים תמונה הפוכה - ולמה החברה המובילה בתחום שולמה עליה קנס פדרלי בגלל זה.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "ווידג'ט נגישות באתר - האם הוא מגן מתביעה, או שהוא בעצם מגדיל את הסיכון",
+  "datePublished": "2026-10-23",
+  "dateModified": "2026-10-23",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/accessibility-overlay-widgets-ada-lawsuits"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "האם ווידג'ט נגישות (overlay) הופך אתר לתואם WCAG או ADA?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא. ווידג'ט מריץ שכבת קוד שמנסה לתקן בעיות נגישות דרך ה-DOM וה-CSS בזמן טעינת הדף, אבל הוא לא מתקן את הקוד עצמו - תגי HTML לא סמנטיים, מלכודות מקלדת, או טפסים בלי תוויות תקניות נשארים כמו שהם. ה-FTC קבע שחברת accessiBe הציגה מצג שווא כשטענה שהווידג'ט שלה מביא אתרים לתאימות WCAG מלאה." }
+    },
+    {
+      "@type": "Question",
+      "name": "אם התקנתי ווידג'ט נגישות, אני עדיין יכול להיתבע?",
+      "acceptedAnswer": { "@type": "Answer", "text": "כן, ולפי דוח UsableNet על תביעות נגישות דיגיטלית ב-2023, תביעות נגד אתרים עם ווידג'ט נגישות עלו ב-60% באותה שנה, וכ-30% מכלל התביעות הדיגיטליות הוגשו נגד אתרים שכן השתמשו בווידג'ט כזה. ווידג'ט לא מוריד אתכם מרשימת היעד של תובעים." }
+    },
+    {
+      "@type": "Question",
+      "name": "אז מה באמת מקטין את הסיכון המשפטי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "תיקון בקוד עצמו לפי תקן WCAG 2.1 בדרגה AA - תוויות input תקניות, ניווט מקלדת מלא, קונטרסט צבעים תקני, וטקסט חלופי לתמונות - בדיקה עם קורא מסך אמיתי, ותחזוקה שוטפת כשהאתר מתעדכן. זה תהליך חד-פעמי יסודי יותר, אבל הוא מתקן את הבעיה בפועל ולא רק מסתיר אותה."}
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">נגישות <span>· 23.10.2026 · May I</span></div>
+    <h1>ווידג'ט נגישות באתר - האם הוא מגן מתביעה, או שהוא בעצם מגדיל את הסיכון</h1>
+    <p class="lead">התשובה הקצרה: לא. ווידג'ט נגישות (overlay) מריץ שכבת JavaScript שמתקנת תצוגה בזמן טעינת הדף, אבל הוא לא מתקן את הקוד עצמו - ולכן אתרים עם ווידג'ט כאלה ממשיכים להיתבע. לפי דוח UsableNet, תביעות נגד אתרים עם ווידג'ט נגישות עלו ב-60% ב-2023, וב-ינואר 2025 ה-FTC האמריקאי חייב את accessiBe, החברה המובילה בתחום, בקנס של מיליון דולר על כך שהיא הציגה מצג שווא לגבי מה שהמוצר שלה באמת עושה.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה ווידג'ט נגישות נראה כמו פתרון מפתה</h2>
+    <p>ההצעה פשוטה: שורת קוד אחת שמוסיפים לאתר, ותוך דקות יש כפתור נגישות שפותח תפריט עם שינוי גודל טקסט, קונטרסט, עצירת אנימציות וכו'. אין פרויקט פיתוח, אין בדיקת QA, ואין המתנה. לעסק קטן שמפחד מתביעה ולא יודע מאיפה להתחיל, זה נשמע כמו הדרך הקלה לסגור את הנושא - ולכן השוק הזה שווה מאות מיליוני דולרים בשנה.</p>
+
+    <h2>מה ווידג'ט עושה בפועל - ומה הוא לא עושה</h2>
+    <p>ווידג'ט נגישות הוא בעיקרו שכבת CSS ו-JavaScript שרצה מעל הדף הקיים ומנסה לשנות התנהגות דרך ה-DOM אחרי שהעמוד נטען. הוא יכול לשנות גודל פונט או קונטרסט כללי. אבל הוא לא יכול לדעת מה המשמעות האמיתית של אלמנט בעמוד - הוא לא יכול להוסיף תווית input שלא קיימת בקוד המקור בלי לטעות, לא יכול לפתור מלכודת מקלדת (focus trap) שנובעת ממבנה ה-HTML, ולא יכול לתקן ניווט שבור לקורא מסך שנוצר כי מפתח השתמש ב-<code>&lt;div&gt;</code> במקום ב-<code>&lt;button&gt;</code>. אלה בעיות שחייבות תיקון במקור - בקוד עצמו, לא מעליו.</p>
+    <p>זה בדיוק מה שה-FTC האמריקאי קבע רשמית. לפי ההסכם שפורסם בינואר 2025, accessiBe פרסמה שהווידג'ט שלה, accessWidget, מביא אתר לתאימות מלאה עם WCAG באמצעות בינה מלאכותית - בזמן שבפועל רכיבים בסיסיים כמו תפריטי ניווט, שדות טופס ותיאורי תמונה נשארו לא נגישים. accessiBe גם מימנה ביקורות שפורסמו באתרי צד שלישי בלי לחשוף שהן ממומנות, כך שהן נראו כמו חוות דעת עצמאיות. החברה שילמה מיליון דולר והתחייבה להימנע מפרסום מטעה מסוג זה (מקור: <a href="https://technologylaw.fkks.com/post/102jsmj/ftc-finds-website-overlay-tool-failed-to-deliver-accessibility-promises" target="_blank" rel="noopener">technologylaw.fkks.com</a>).</p>
+
+    <h2>הנתונים - ווידג'ט לא מוריד אתכם מרשימת היעד</h2>
+    <p>לפי דוח התביעות השנתי של UsableNet לשנת 2023, תביעות דיגיטליות נגד אתרים שהתקינו ווידג'ט נגישות <span class="hl">עלו ב-60%</span> באותה שנה, וכ-30% מכלל התביעות הדיגיטליות שהוגשו בארה"ב היו נגד אתרים שכן השתמשו בווידג'ט כזה (מקור: <a href="https://www.accessibility.works/blog/accessibility-overlay-widgets-attract-lawsuits/" target="_blank" rel="noopener">accessibility.works</a>). במילים אחרות - ווידג'ט לא רק שלא מגן, הוא לעתים מהווה סיגנל לתובעים ולעורכי דין שמתמחים בתחום שהעסק מודע לחובת הנגישות אבל פתר אותה בפתרון קוסמטי, ולא טיפל בבעיה עצמה.</p>
+
+    <h2>מה באמת מקטין את הסיכון</h2>
+    <ul>
+      <li>ביקורת נגישות בקוד עצמו לפי <span class="hl">תקן WCAG 2.1 בדרגה AA</span> - לא בדיקה אוטומטית בלבד, אלא גם בדיקה ידנית עם מקלדת וקורא מסך אמיתי.</li>
+      <li>תיקון המקור - תוויות input תקניות, היררכיית כותרות נכונה, קונטרסט צבעים תקני, וטקסט חלופי אמיתי לתמונות - לא הסתרה דרך שכבה חיצונית.</li>
+      <li>הצהרת נגישות (Accessibility Statement) שמפרטת בכנות מה בוצע ומה בתהליך, ודרך פנייה לדיווח על בעיה.</li>
+      <li>תחזוקה שוטפת - כל עמוד או טופס חדש שנוסף לאתר צריך לעבור את אותה בדיקה, לא רק גרסת ההשקה.</li>
+    </ul>
+    <p>זה בדיוק ההבדל בין אתר בקוד מותאם אישית לאתר שנבנה על תבנית מוכנה עם שכבת תיקון מעליה. כשהקוד נבנה מההתחלה בידי מי שמכיר את תקן WCAG, נגישות היא חלק מהמבנה - לא פלסטר שמודבק בסוף.</p>
+
+    <h2>מה שבטוח לא כדאי</h2>
+    <p>הטעות הנפוצה ביותר: להתקין ווידג'ט, לקבל תג "100% נגיש" מהספק שלו, ולהרגיש שהנושא נסגר. זו בדיוק ההרגשה שה-FTC קבע שהיתה מטעה. אם קיבלתם הצעה שמבטיחה תאימות מלאה "בלחיצת כפתור" או "תוך 48 שעות" - זה דגל אדום, לא יתרון. נגישות אמיתית היא תהליך של בדיקה ותיקון בקוד, לא מוצר שמותקן ונשכח.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="website-accessibility-wcag-business-case.html">נגישות אתרים (WCAG) - סיכון משפטי ויתרון עסקי</a></li>
+      <li><a href="accessible-lead-forms-wcag-checklist.html">נגישות טפסי לידים - למה תוויות חסרות חוסמות גולשים</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>רוצים אתר שנבנה נגיש מהבסיס?</h2>
+      <p>אנחנו בונים ומבקרים אתרים בקוד מותאם אישית לפי תקן WCAG - לא ווידג'ט שמודבק בסוף, אלא נגישות שהיא חלק מהמבנה.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
