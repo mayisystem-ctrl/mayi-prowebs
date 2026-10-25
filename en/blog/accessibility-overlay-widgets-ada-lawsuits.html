@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Accessibility Overlay Widgets - Do They Protect You From a Lawsuit, or Raise Your Risk | May I</title>
+<meta name="description" content="Accessibility overlay widgets are sold as a quick fix for ADA lawsuits. The data shows the opposite - and why the industry's leading vendor was just fined by federal regulators for it.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/accessibility-overlay-widgets-ada-lawsuits">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Accessibility Overlay Widgets - Do They Protect You From a Lawsuit, or Raise Your Risk",
+  "datePublished": "2026-10-23",
+  "dateModified": "2026-10-23",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/accessibility-overlay-widgets-ada-lawsuits"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does an accessibility overlay widget make a site WCAG or ADA compliant?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. An overlay runs a script that tries to patch accessibility issues through the DOM and CSS after the page loads, but it doesn't fix the underlying code - non-semantic HTML, keyboard traps, or forms missing proper labels stay exactly as they were. The FTC found that accessiBe misrepresented its widget as bringing sites to full WCAG compliance." }
+    },
+    {
+      "@type": "Question",
+      "name": "If I install an accessibility widget, can I still get sued?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Per UsableNet's 2023 digital accessibility lawsuit report, lawsuits against websites using an overlay widget rose 60% that year, and about 30% of all digital accessibility lawsuits filed in the US targeted sites that already had an overlay installed. A widget doesn't take you off a plaintiff's target list." }
+    },
+    {
+      "@type": "Question",
+      "name": "So what actually reduces the legal risk?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Fixing the code itself to meet WCAG 2.1 Level AA - proper input labels, full keyboard navigation, correct color contrast, and real alt text for images - tested manually with an actual screen reader, plus ongoing maintenance as the site changes. It's a more thorough one-time process, but it fixes the actual problem instead of masking it." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Accessibility <span>· Oct 23, 2026 · May I</span></div>
+    <h1>Accessibility Overlay Widgets - Do They Protect You From a Lawsuit, or Raise Your Risk</h1>
+    <p class="lead">Short answer: no. An accessibility overlay widget runs a JavaScript layer that patches how the page displays after it loads, but it doesn't fix the underlying code - which is why sites running these widgets keep getting sued. Per UsableNet's own lawsuit tracking, lawsuits against websites using an overlay widget rose 60% in 2023, and in January 2025 the US FTC fined accessiBe, the industry's leading vendor, $1 million for misrepresenting what its product actually does.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why an overlay widget looks tempting</h2>
+    <p>The pitch is simple: one line of code added to your site, and within minutes there's an accessibility button that opens a menu for text size, contrast, pausing animations, and so on. No dev project, no QA pass, no waiting. For a small business worried about a lawsuit and not sure where to start, it sounds like the easy way to close the issue - which is why this market is worth hundreds of millions of dollars a year.</p>
+
+    <h2>What a widget actually does - and what it can't</h2>
+    <p>An accessibility overlay is mostly a CSS and JavaScript layer that runs on top of the existing page and tries to change behavior through the DOM after it loads. It can bump font size or overall contrast. But it can't know the real meaning of an element on the page - it can't add an input label that doesn't exist in the source code without guessing wrong, it can't fix a keyboard focus trap caused by the underlying HTML structure, and it can't repair broken screen-reader navigation caused by a developer using a <code>&lt;div&gt;</code> instead of a <code>&lt;button&gt;</code>. Those are problems that have to be fixed at the source - in the code itself, not layered on top of it.</p>
+    <p>That's exactly what the US FTC found, formally. Per the settlement announced in January 2025, accessiBe advertised that its widget, accessWidget, brought a site to full WCAG compliance using artificial intelligence - while basic components like navigation menus, form fields, and image descriptions remained inaccessible in practice. accessiBe also paid for reviews published on third-party sites without disclosing they were paid placements, so they read as independent opinions. The company paid $1 million and agreed to stop this kind of misleading advertising (source: <a href="https://technologylaw.fkks.com/post/102jsmj/ftc-finds-website-overlay-tool-failed-to-deliver-accessibility-promises" target="_blank" rel="noopener">technologylaw.fkks.com</a>).</p>
+
+    <h2>The data - a widget doesn't take you off the target list</h2>
+    <p>Per UsableNet's 2023 year-end digital accessibility lawsuit report, lawsuits against websites that had installed an overlay widget <span class="hl">rose 60%</span> that year, and about 30% of all digital accessibility lawsuits filed in the US targeted sites that already had an overlay running (source: <a href="https://www.accessibility.works/blog/accessibility-overlay-widgets-attract-lawsuits/" target="_blank" rel="noopener">accessibility.works</a>). In other words, a widget doesn't just fail to protect you - plaintiffs' attorneys who specialize in this area sometimes read it as a signal that the business is aware of its accessibility obligations but chose a cosmetic fix instead of actually addressing the problem.</p>
+
+    <h2>What actually reduces the risk</h2>
+    <ul>
+      <li>An accessibility audit of the code itself against <span class="hl">WCAG 2.1 Level AA</span> - not an automated scan alone, but manual testing with a keyboard and a real screen reader.</li>
+      <li>Fixing the source - proper input labels, correct heading hierarchy, compliant color contrast, and real alt text for images - not hiding the issue behind an external layer.</li>
+      <li>An honest accessibility statement that spells out what's been done, what's in progress, and a way to report an issue.</li>
+      <li>Ongoing maintenance - every new page or form added to the site needs the same check, not just the launch version.</li>
+    </ul>
+    <p>That's the real difference between a site built in custom code and a site built on a template with a patch layered on top. When the code is written from the ground up by someone who knows the WCAG standard, accessibility is part of the structure - not a bandage applied at the end.</p>
+
+    <h2>What definitely isn't a good idea</h2>
+    <p>The most common mistake: installing a widget, getting a "100% accessible" badge from its vendor, and treating the issue as closed. That's exactly the impression the FTC found to be misleading. If a quote promises full compliance "in one click" or "within 48 hours," that's a red flag, not a selling point. Real accessibility is a process of testing and fixing code - not a product you install and forget.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="website-accessibility-wcag-business-case.html">Website Accessibility (WCAG) - Legal Risk and Business Advantage</a></li>
+      <li><a href="accessible-lead-forms-wcag-checklist.html">Accessible Lead Forms - Why Missing Labels Block Visitors</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Want a site built accessible from the ground up?</h2>
+      <p>We build and audit custom-code websites against the WCAG standard - not a widget bolted on at the end, but accessibility that's part of the structure.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
