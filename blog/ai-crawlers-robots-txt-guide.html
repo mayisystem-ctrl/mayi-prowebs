@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>בוטים של AI באתר שלכם - מה GPTBot, ClaudeBot ו-PerplexityBot עושים בפועל, ולמה robots.txt לא תמיד מספיק | May I</title>
+<meta name="description" content="GPTBot, ClaudeBot ו-PerplexityBot הם שלושה סוגי בוטים עם מטרות שונות - אימון, חיפוש וציטוט. איך חוסמים או מאפשרים נכון ב-robots.txt, ולמה Cloudflare תפסה את Perplexity מתעלמת מחסימה מפורשת.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-guide">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-guide">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-guide">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-guide">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "בוטים של AI באתר שלכם - מה GPTBot, ClaudeBot ו-PerplexityBot עושים בפועל, ולמה robots.txt לא תמיד מספיק",
+  "datePublished": "2026-10-28",
+  "dateModified": "2026-10-28",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-guide"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "אם אני חוסם את GPTBot, האם זה מוריד אותי מהתשובות של ChatGPT?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא בהכרח. GPTBot אוסף תוכן לאימון מודלים עתידיים, אבל הנראות בחיפוש של ChatGPT ובציטוטים נשלטת על ידי בוט נפרד בשם OAI-SearchBot. חסימת GPTBot בלבד שומרת אתכם מחוץ לאימון אבל לא מוציאה אתכם מהתשובות - וחסימת OAI-SearchBot עושה את ההפך. לפי התיעוד הרשמי של OpenAI, כל בוט נשלט בנפרד ב-robots.txt." }
+    },
+    {
+      "@type": "Question",
+      "name": "חסימה ב-robots.txt מבטיחה שהבוט לא יגיע לאתר שלי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא. robots.txt הוא הנחיה מוסכמת, לא נעילה טכנית. Cloudflare פרסמה בדוח מאוגוסט 2025 שמצאה ש-Perplexity המשיכה לגרד תוכן מאתרים שחסמו אותה במפורש ב-robots.txt, באמצעות דפדפן גנרי שהתחזה לכרום - ועקב כך Cloudflare הסירה את Perplexity מרשימת הבוטים המאומתים שלה. OpenAI, לשם ההשוואה, הפסיקה לגרד ברגע שנתקלה בחסימה." }
+    },
+    {
+      "@type": "Question",
+      "name": "כדאי לעסק קטן לחסום את כל בוטי ה-AI כברירת מחדל?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לרוב לא. חסימה גורפת שומרת על תוכן מפני אימון, אבל גם מוציאה אתכם מהתשובות של ChatGPT, Perplexity וג'מיני - בדיוק הערוץ שבו רוצים להיות מצוטטים. ההחלטה הנכונה היא סלקטיבית: לשקול לחסום בוטי אימון (GPTBot, ClaudeBot) ולהשאיר פתוחים בוטי חיפוש וציטוט (OAI-SearchBot, Claude-SearchBot), בהתאם למדיניות העסק לגבי אימון מודלים." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">GEO/AEO <span>· 28.10.2026 · May I</span></div>
+    <h1>בוטים של AI באתר שלכם - מה GPTBot, ClaudeBot ו-PerplexityBot עושים בפועל, ולמה robots.txt לא תמיד מספיק</h1>
+    <p class="lead">התשובה הקצרה: "לחסום בוטי AI" היא שאלה שגויה, כי אין בוט AI אחד - יש לפחות שלושה סוגים עם תפקידים שונים לכל חברה: בוט אימון (אוסף תוכן למודל העתידי), בוט חיפוש (קובע אם תצוטטו בתשובה חיה), ובוט שמביא עמוד ספציפי לפי בקשת משתמש. חוסמים את כולם באותה שורה ב-robots.txt, ומוציאים את עצמכם גם מהתשובות שבהן רציתם להיות מצוטטים. ולבסוף - ולא כל חסימה גם נשמעת: Cloudflare תפסה את Perplexity מתעלמת מחסימה מפורשת. מה שכן עובד, ומה שרק מרגיש כמו עבד.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה זה בכלל נוגע לעסק שלך</h2>
+    <p>אם האתר שלך בנוי מקוד מותאם, יש לך קובץ robots.txt - גם אם אף פעם לא נגעת בו. הקובץ הזה כבר מכיל (או לא מכיל) הנחיות לכל בוט AI שמנסה לגשת לאתר, וההחלטה אם להשאיר אותו ריק, לחסום הכל, או לחסום בצורה סלקטיבית, משפיעה ישירות על שני דברים מנוגדים: האם תוכן שלך נכנס לאימון מודל AI בלי רשותך, והאם אתה בכלל מופיע כשמישהו שואל את ChatGPT, Perplexity או ג'מיני שאלה שהעסק שלך יכול לענות עליה. 44.2% מהציטוטים של ChatGPT מגיעים מה-30% הראשונים של מסמך, כך שגם כשבוט כן סורק אתכם, המבנה קובע אם הוא בכלל מגיע לתשובה (מקור: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). חסימה גורפת של הבוט הלא נכון מוציאה אתכם מהמשחק הזה כליל, לפני שהתוכן בכלל נבדק.</p>
+
+    <h2>שלושה סוגי בוטים, לא אחד - גם בתוך אותה חברה</h2>
+    <p>התיעוד הרשמי של OpenAI מבהיר נקודה שרוב בעלי האתרים מפספסים: לחברה אחת יש כמה בוטים עם תפקידים נפרדים, וכל אחד נשלט בנפרד ב-robots.txt.</p>
+    <ul>
+      <li><strong>GPTBot</strong> - בוט האימון של OpenAI. חוסם תוכן מהצטרפות למאגר האימון של מודלים עתידיים, אבל <span class="hl">לא</span> מוציא אתכם מהחיפוש או מהתשובות החיות של ChatGPT.</li>
+      <li><strong>OAI-SearchBot</strong> - הבוט שקובע נראות בחיפוש של ChatGPT. זה הבוט שחוסמים אם לא רוצים להיות מצוטטים בתשובות - וזה הבוט שמשאירים פתוח אם זאת המטרה.</li>
+      <li><strong>ChatGPT-User</strong> - נכנס לאתר רק כשמשתמש ספציפי מבקש מ-ChatGPT לפתוח קישור. לפי התיעוד של OpenAI, מדובר בפעולה שמשתמש הפעיל ישירות, ולכן חוקי robots.txt לא בהכרח חלים עליה (מקור: <a href="https://developers.openai.com/docs/bots" target="_blank" rel="noopener">developers.openai.com</a>).</li>
+    </ul>
+    <p>אנתרופיק בנויה בצורה דומה: <strong>ClaudeBot</strong> לאימון מודלים עתידיים, <strong>Claude-SearchBot</strong> לאינדקס חיפוש, ו-<strong>Claude-User</strong> לאחזור חיה לפי בקשת משתמש בקלוד. לפי התיעוד הרשמי של אנתרופיק, חסימת ClaudeBot בלבד מסמנת שהתוכן העתידי שלכם מוחרג מאימון - אבל לא נוגעת ליתר שני הבוטים, שדורשים שורת חסימה נפרדת לכל אחד (מקור: <a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener">support.claude.com</a>).</p>
+
+    <h2>מה קורה כשחוסמים - ומה קורה כש"חוסמים" לא עובד</h2>
+    <p>כאן מגיע הסיבוך האמיתי: חסימה ב-robots.txt היא בקשה מוסכמת, לא נעילה. הבוט צריך לבחור לכבד אותה. באוגוסט 2025 פרסמה Cloudflare דוח שמצא ש-Perplexity המשיכה לגרד תוכן מאתרים שחסמו אותה במפורש ב-robots.txt וגם ברמת השרת - תוך שימוש בכתובות IP שלא פורסמו כשייכות לה ובזיהוי דפדפן גנרי שמתחזה לכרום, כדי להתחמק מהחסימה. בבדיקה המקבילה שהריצה Cloudflare, הבוט של ChatGPT הפסיק לגרד ברגע שנתקל בהנחיית robots.txt - התנהגות הפוכה לחלוטין. בעקבות הממצאים הסירה Cloudflare את Perplexity מרשימת הבוטים המאומתים שלה (<span class="hl">Verified Bots</span>) (מקור: <a href="https://blog.cloudflare.com/perplexity-is-using-stealth-undeclared-crawlers-to-evade-website-no-crawl-directives/" target="_blank" rel="noopener">blog.cloudflare.com</a>). המשמעות המעשית: robots.txt מתאים לבוטים שמתכוונים לכבד אותו, אבל אינו תחליף לחסימה ברמת השרת או ה-CDN כשיש חשד להתעלמות שיטתית.</p>
+
+    <h2>כמה אתרים בכלל חוסמים - ולמה זה לא מספר אחד</h2>
+    <p>לפי מעקב פומבי של Dark Visitors, בתחילת יולי 2026 כ-20% מהאתרים המובילים ברשת חסמו את ClaudeBot ב-robots.txt (מקור: <a href="https://darkvisitors.com/agents/claudebot" target="_blank" rel="noopener">darkvisitors.com</a>). האחוז משתנה מאוד בין ענפים - אתרי חדשות וכלי תקשורת חוסמים בשיעור גבוה בהרבה מאתרי מסחר, כי יש להם יותר מה לאבד מאימון בלתי מורשה ופחות תלות בתנועה ממנועי AI. אין כאן "ברירת מחדל נכונה" לכל עסק - יש שאלה שכל בעל אתר צריך לשאול בעצמו: האם התוכן שלי רגיש לאימון, והאם אני תלוי בציטוטים מ-AI כערוץ תנועה.</p>
+
+    <h2>המחיר של חסימה גורפת</h2>
+    <p>חסימה "כדי להיות בטוחים" לא חינמית. מחקר של חוקרים מרוטגרס ומוורטון (Zhao &amp; Berman) שעקב אחרי פרסומי חדשות שחסמו בוטי AI גורפים מצא ירידה מדידה בתנועה לאתרים שחסמו - בגרסת המחקר העדכנית יותר, ירידה של כ-7% בתנועה לפרסומים הגדולים שחסמו, מול פרסומים שלא חסמו (מקור: <a href="https://ppc.land/blocking-ai-crawlers-cost-news-publishers-7-of-traffic-study-finds/" target="_blank" rel="noopener">ppc.land</a>). במילים אחרות: חסימה שמטרתה "הגנה" פוגעת גם בנראות האמיתית, ולכן ההחלטה דורשת שיקול דעת לפי הענף והמטרה - לא ברירת מחדל גורפת של Disallow: /‎.</p>
+
+    <h2>איך May I בפועל ניגשת לזה</h2>
+    <p>בפרויקטים שאנחנו בונים, אנחנו לא מתחילים מ"לחסום הכל" או "לאפשר הכל" - אנחנו ממפים את הבוטים הרלוונטים לפי שם (לא לפי חברה), ומחליטים לכל אחד לפי המטרה: בוטי אימון נחסמים כברירת מחדל אצל לקוחות שרגישים לכך, בוטי חיפוש וציטוט נשארים פתוחים אצל לקוחות שרוצים נראות ב-GEO/AEO, ובוטים שמתעלמים מההנחיה (כמו המקרה התיעודי של Perplexity) מטופלים ברמת ה-CDN ולא ברמת robots.txt בלבד. זה ההבדל בין קובץ robots.txt שמישהו מילא אחת ולתמיד, לבין החלטה עסקית שמתעדכנת כשהנתונים משתנים.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="llms-txt-ai-crawlers-fact-check.html">llms.txt - האם הוא באמת משפיע על נראות ב-AI</a></li>
+      <li><a href="ai-citations-schema-vs-structure.html">מה באמת גורם למנועי AI לצטט אתר</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>לא בטוחים מה מתאים לעסק שלכם?</h2>
+      <p>אנחנו בודקים את ה-robots.txt והנראות ב-AI של האתר שלכם, ומגדירים מדיניות בוטים שתואמת גם למדיניות אימון וגם ליעדי GEO/AEO - לא תבנית אחת לכולם.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
