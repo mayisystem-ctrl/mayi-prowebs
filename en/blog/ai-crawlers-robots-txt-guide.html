@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Crawlers on Your Website - What GPTBot, ClaudeBot, and PerplexityBot Actually Do, and Why robots.txt Isn't Always Enough | May I</title>
+<meta name="description" content="GPTBot, ClaudeBot, and PerplexityBot are three different kinds of bots with different jobs - training, search, and citation. How to block or allow them correctly in robots.txt, and why Cloudflare caught Perplexity ignoring an explicit block.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-guide">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-guide">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-guide">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-guide">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AI Crawlers on Your Website - What GPTBot, ClaudeBot, and PerplexityBot Actually Do, and Why robots.txt Isn't Always Enough",
+  "datePublished": "2026-10-28",
+  "dateModified": "2026-10-28",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-guide"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "If I block GPTBot, does that remove me from ChatGPT's answers?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not necessarily. GPTBot collects content for training future models, but visibility in ChatGPT search and citations is controlled by a separate bot called OAI-SearchBot. Blocking only GPTBot keeps you out of training but doesn't remove you from live answers - and blocking OAI-SearchBot does the opposite. Per OpenAI's official documentation, each bot is controlled independently in robots.txt." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a robots.txt block guarantee a bot won't reach my site?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. robots.txt is an agreed-upon directive, not a technical lock. In an August 2025 report, Cloudflare found that Perplexity kept scraping content from sites that had explicitly blocked it in robots.txt, using a generic browser signature that impersonated Chrome - and as a result Cloudflare delisted Perplexity from its Verified Bots list. OpenAI's crawler, by contrast, stopped scraping the moment it hit a block." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should a small business block all AI bots by default?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Usually not. A blanket block protects content from training, but it also removes you from ChatGPT, Perplexity, and Gemini answers - exactly the channel where you want to be cited. The right call is selective: consider blocking training bots (GPTBot, ClaudeBot) while leaving search and citation bots open (OAI-SearchBot, Claude-SearchBot), based on your business's actual stance on model training." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">GEO/AEO <span>· Oct 28, 2026 · May I</span></div>
+    <h1>AI Crawlers on Your Website - What GPTBot, ClaudeBot, and PerplexityBot Actually Do, and Why robots.txt Isn't Always Enough</h1>
+    <p class="lead">Short answer: "block AI bots" is the wrong question, because there's no single AI bot - each company runs at least three with different jobs: a training bot (collects content for a future model), a search bot (decides whether you get cited in a live answer), and a bot that fetches one specific page on a user's request. Block them all under one robots.txt line and you also remove yourself from the answers you actually wanted to be cited in. And not every block is even heard: Cloudflare caught Perplexity ignoring an explicit block. What actually works, and what only feels like it does.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why this matters for your business at all</h2>
+    <p>If your site runs on custom code, you have a robots.txt file - even if you've never touched it. That file already contains (or doesn't contain) directives for every AI bot trying to reach your site, and the decision to leave it empty, block everything, or block selectively affects two opposing things at once: whether your content enters an AI model's training set without your say, and whether you show up at all when someone asks ChatGPT, Perplexity, or Gemini a question your business could answer. 44.2% of ChatGPT's citations come from the first 30% of a document, so even when a bot does crawl you, structure decides whether it ever reaches the answer (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). Blanket-blocking the wrong bot removes you from that game entirely, before your content is even evaluated.</p>
+
+    <h2>Three kinds of bots, not one - even within the same company</h2>
+    <p>OpenAI's own documentation makes a point most site owners miss: a single company runs several bots with separate jobs, and each is controlled independently in robots.txt.</p>
+    <ul>
+      <li><strong>GPTBot</strong> - OpenAI's training crawler. Blocking it keeps your content out of future model training sets, but <span class="hl">does not</span> remove you from ChatGPT search or live answers.</li>
+      <li><strong>OAI-SearchBot</strong> - the bot that decides search visibility in ChatGPT. This is the one to block if you don't want to be cited in answers - and the one to leave open if that's your goal.</li>
+      <li><strong>ChatGPT-User</strong> - only hits your site when a specific user asks ChatGPT to open a link. Per OpenAI's own documentation, this is a user-initiated action, so robots.txt rules may not necessarily apply to it (source: <a href="https://developers.openai.com/docs/bots" target="_blank" rel="noopener">developers.openai.com</a>).</li>
+    </ul>
+    <p>Anthropic is built the same way: <strong>ClaudeBot</strong> for future model training, <strong>Claude-SearchBot</strong> for its search index, and <strong>Claude-User</strong> for live retrieval triggered by a user's request inside Claude. Per Anthropic's own documentation, blocking ClaudeBot alone signals that your future content should be excluded from training - but it doesn't touch the other two bots, each of which needs its own separate block rule (source: <a href="https://support.claude.com/en/articles/8896518-does-anthropic-crawl-data-from-the-web-and-how-can-site-owners-block-the-crawler" target="_blank" rel="noopener">support.claude.com</a>).</p>
+
+    <h2>What blocking actually does - and what happens when a "block" doesn't work</h2>
+    <p>Here's the real complication: a robots.txt block is an agreed-upon request, not a lock. The bot has to choose to honor it. In August 2025, Cloudflare published a report finding that Perplexity kept scraping content from sites that had explicitly blocked it in robots.txt and at the server level - using IP addresses not published as belonging to it, and a generic browser signature impersonating Chrome, to work around the block. In Cloudflare's parallel test, OpenAI's crawler stopped scraping the moment it hit the robots.txt directive - the opposite behavior entirely. Following the findings, Cloudflare removed Perplexity from its list of <span class="hl">Verified Bots</span> (source: <a href="https://blog.cloudflare.com/perplexity-is-using-stealth-undeclared-crawlers-to-evade-website-no-crawl-directives/" target="_blank" rel="noopener">blog.cloudflare.com</a>). The practical takeaway: robots.txt works for bots that intend to honor it, but it isn't a substitute for a server- or CDN-level block once there's evidence of systematic disregard.</p>
+
+    <h2>How many sites actually block - and why it's not one number</h2>
+    <p>Per public tracking by Dark Visitors, as of early July 2026 about 20% of top websites blocked ClaudeBot in robots.txt (source: <a href="https://darkvisitors.com/agents/claudebot" target="_blank" rel="noopener">darkvisitors.com</a>). The rate varies sharply by sector - news and media sites block at far higher rates than ecommerce sites, because they have more to lose from unauthorized training and depend less on traffic from AI engines. There's no single "right default" for every business - there's a question every site owner has to answer for themselves: is my content training-sensitive, and do I depend on AI citations as a traffic channel.</p>
+
+    <h2>The cost of a blanket block</h2>
+    <p>Blocking "just to be safe" isn't free. A study by researchers at Rutgers and Wharton (Zhao &amp; Berman) that tracked news publishers who imposed blanket AI-bot blocks found a measurable traffic decline - in the study's more recent version, about a 7% traffic drop for large publishers that blocked, compared to those that didn't (source: <a href="https://ppc.land/blocking-ai-crawlers-cost-news-publishers-7-of-traffic-study-finds/" target="_blank" rel="noopener">ppc.land</a>). In other words: a block meant as "protection" also costs you real visibility, which is why the decision calls for judgment based on your industry and your goal - not a default of Disallow: / applied across the board.</p>
+
+    <h2>How May I actually approaches this</h2>
+    <p>On the projects we build, we don't start from "block everything" or "allow everything" - we map the relevant bots by name (not by company), and decide per bot based on intent: training bots get blocked by default for clients who are sensitive to that, search and citation bots stay open for clients who want GEO/AEO visibility, and bots that ignore the directive (like Perplexity's documented case) get handled at the CDN level, not through robots.txt alone. That's the difference between a robots.txt file someone filled in once and forgot, and a business decision that gets revisited as the data changes.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="llms-txt-ai-crawlers-fact-check.html">llms.txt - Does It Actually Help AI Visibility</a></li>
+      <li><a href="ai-citations-schema-vs-structure.html">What Actually Gets Your Site Cited by AI</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Not sure what's right for your business?</h2>
+      <p>We audit your site's robots.txt and AI visibility, and set up a bot policy that matches both your stance on model training and your GEO/AEO goals - not a one-size-fits-all template.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
