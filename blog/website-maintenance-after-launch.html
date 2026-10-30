@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>תחזוקת אתר עסקי אחרי ההשקה - מה באמת צריך לבדוק, ולמה "האתר באוויר" הוא לא סוף הסיפור | May I</title>
+<meta name="description" content="אתר עסקי שעלה לאוויר עדיין צריך תשומת לב שוטפת - תעודת SSL, עדכוני אבטחה, גיבויים וסקריפטים חיצוניים שמפסיקים לעבוד בלי אזהרה. מה באמת נכלל בתחזוקת אתר, ולמה זה נכון גם לקוד מותאם אישית.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/website-maintenance-after-launch">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/website-maintenance-after-launch">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/website-maintenance-after-launch">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/website-maintenance-after-launch">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "תחזוקת אתר עסקי אחרי ההשקה - מה באמת צריך לבדוק ולתחזק, ולמה \"האתר באוויר\" הוא רק האמצע",
+  "datePublished": "2026-10-30",
+  "dateModified": "2026-10-30",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/website-maintenance-after-launch"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "כמה פעמים בשנה צריך לתחזק אתר עסקי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "בדיקות בסיסיות - תעודת SSL, גיבוי, זמינות הדומיין, תקינות טפסים וסקריפטים חיצוניים - צריכות להיבדק לפחות אחת לחודש-חודשיים. עדכוני אבטחה לפלטפורמות עם תוספים (כמו וורדפרס) צריכים מעקב שוטף הרבה יותר צפוף, כי פרצות חדשות מתגלות כל הזמן." }
+    },
+    {
+      "@type": "Question",
+      "name": "האם אתר בקוד מותאם אישית צריך תחזוקה כמו וורדפרס?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא באותה צפיפות, אבל כן. קוד מותאם אישית לא תלוי בעדכוני תוספים של צד שלישי, אבל עדיין תלוי בחידוש תעודת SSL, בתוקף הדומיין, בגיבויים, ובסקריפטים חיצוניים (אנליטיקס, פיקסלים, מערכת ה-CRM) שמשנים API בלי התראה. ההבדל הוא בהיקף הסיכון, לא בהיעדרו." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה קורה בפועל אם תעודת SSL לא מתחדשת בזמן?",
+      "acceptedAnswer": { "@type": "Answer", "text": "הדפדפן חוסם את הגישה לאתר עם אזהרת אבטחה, וטפסי לידים מפסיקים לקבל נתונים - בלי שבעל העסק שם לב, לפעמים במשך ימים. זו אחת הסיבות הנפוצות ביותר לקריסת אתר שלא קשורה כלל לקוד או לעיצוב." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">אתרים <span>· 30.10.2026 · May I</span></div>
+    <h1>תחזוקת אתר עסקי אחרי ההשקה - מה באמת צריך לבדוק ולתחזק, ולמה "האתר באוויר" הוא רק האמצע</h1>
+    <p class="lead">התשובה הקצרה: אתר עסקי שעלה לאוויר צריך תשומת לב שוטפת - חידוש תעודת SSL לפני שהיא פגה, עדכוני אבטחה, גיבויים, ובדיקה שסקריפטים חיצוניים (אנליטיקס, פיקסל, חיבור ל-CRM) לא השתנו בלי אזהרה ושברו משהו. זה נכון גם לאתר בקוד מותאם אישית, לא רק לוורדפרס - ההבדל הוא בהיקף הסיכון, לא בהיעדרו. "סיימנו, האתר באוויר" הוא נקודת האמצע של הפרויקט, לא הסוף שלו.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה בכלל יש בעיה</h2>
+    <p>אתר, בניגוד לחוברת מודפסת, הוא לא דבר סטטי שנגמר בלחיצת כפתור "פרסם". הוא רץ על תעודת אבטחה עם תוקף, מחובר לדומיין שצריך לחדש, טוען סקריפטים מספקים חיצוניים שמעדכנים את עצמם בלי לשאול, ואם הוא בנוי על פלטפורמה עם תוספים - התוספים האלה מתגלים כפגיעים באופן קבוע. אף אחד מהדברים האלה לא נראה "שבור" בביקור מזדמן בדף הבית. הם שוברים בשקט - עד שטופס הליד מפסיק לקבל פניות, או שהדפדפן מתחיל להציג אזהרת אבטחה ללקוח שרוצה להשאיר פרטים.</p>
+
+    <h2>תעודת SSL - הדבר הקטן שמפיל אתרים שלמים</h2>
+    <p>תעודת SSL היא מה שהופך כתובת מ-http לקידומת הנעולה שמוכרים הגולשים. יש לה תוקף, והיא דורשת חידוש - אוטומטי ברוב השירותים המודרניים, אבל לא בכולם, ולא תמיד בלי תקלה. דו"ח ה-PKI and Digital Trust Report השנתי של חברת Keyfactor מצא שארגונים חוו בממוצע כ-3 הפסקות שירות שנגרמו מתעודות SSL שפגו במהלך 24 החודשים שנסקרו (מקור: <a href="https://www.keyfactor.com/blog/the-enemy-of-uptime-an-expired-ssl-certificate/" target="_blank" rel="noopener">keyfactor.com</a>). <span class="hl">כשתעודת SSL פוגה, הדפדפן לא מציג אזהרה קטנה בצד - הוא חוסם את הגישה לאתר כליל</span>, מה שאומר שטופס הליד שלכם פשוט מפסיק לקבל פניות, בלי שאף אחד בעסק ישים לב, לפעמים במשך ימים.</p>
+
+    <h2>וורדפרס מול קוד מותאם אישית - התחזוקה שונה, לא נעלמת</h2>
+    <p>כבר כתבנו כאן על ההיקף של פרצות האבטחה שמתגלות בתוספי וורדפרס מדי שנה. מה שפחות מדוברים זה קצב התיקון: דו"ח האבטחה השנתי של Wordfence מצא שכ-35% מהפרצות שהתגלו באקוסיסטם של וורדפרס ב-2024 היו עדיין ללא תיקון באפריל 2025 - כלומר, לפעמים חודשים אחרי שהפרצה פורסמה, האתר עדיין חשוף (מקור: <a href="https://www.wordfence.com/" target="_blank" rel="noopener">wordfence.com</a>). זה לא קורה מעצמו - צריך מי שעוקב, מעדכן, ובודק שעדכון לא שבר משהו אחר באתר.</p>
+    <p>אתר בקוד מותאם אישית לא תלוי בתוספי צד שלישי באותה צורה, ולכן נחסך ממנו רוב הסיכון הזה. אבל <span class="hl">"בלי תוספים" לא אומר "בלי תחזוקה"</span> - תעודת SSL עדיין פגה, הדומיין עדיין צריך חידוש שנתי, וספקי אנליטיקס, פיקסלים ומערכות CRM משנים API מדי פעם בלי להודיע מראש. ההבדל האמיתי הוא בהיקף הסיכון והתדירות של הבדיקות הנדרשות, לא בשאלה אם תחזוקה נדרשת בכלל.</p>
+
+    <h2>מה בפועל נכנס לתוכנית תחזוקה</h2>
+    <ul>
+      <li>מעקב ותזכורת לחידוש תעודת SSL ודומיין, לפני שהם פגים - לא אחרי.</li>
+      <li>גיבוי קבוע של הקוד ושל מסד הנתונים, במקום נפרד מהשרת שמריץ את האתר.</li>
+      <li>עדכוני אבטחה לפלטפורמה ולתוספים, כשהאתר בנוי על מערכת כזו.</li>
+      <li>בדיקה שטפסי הלידים באמת מגיעים ל-CRM - לא רק שהם "נשלחים" מבחינת הדפדפן.</li>
+      <li>בדיקה שסקריפטים חיצוניים (GA4, Meta Pixel, ווידג'טים) עדיין עולים ולא נחסמים על ידי חוסמי פרסומות או שינוי מדיניות קוקיז.</li>
+      <li>בדיקת מהירות וזמינות (uptime) - לא פעם אחת בהשקה, אלא כל כמה שבועות.</li>
+    </ul>
+
+    <h2>מה שבטוח לא כדאי</h2>
+    <p>הטעות הנפוצה ביותר היא להתייחס לאתר כאל פרויקט שנגמר ברגע שהוא עולה לאוויר, ולגלות תקלה רק כשלקוח מתקשר ואומר "ניסיתי למלא טופס ולא הצליח". עד הרגע הזה, ייתכן שהאתר צבר ימים או שבועות של לידים אבודים בלי שום סימן חיצוני. תוכנית תחזוקה פשוטה - גם אם היא כוללת רק בדיקה חודשית קצרה - היא ההבדל בין לתפוס תקלה בתוך שעה, לבין לגלות אותה דרך לקוח מתוסכל.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="wordpress-vs-custom-code-security.html">וורדפרס מול קוד מותאם אישית - עלות האחזקה והאבטחה</a></li>
+      <li><a href="website-ownership-code-domain-crm-data.html">למי שייך האתר שלך בפועל - קוד, דומיין ונתוני CRM</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>האתר שלכם רץ בלי מישהו שעוקב אחריו?</h2>
+      <p>אנחנו מציעים תוכניות תחזוקה שוטפות לאתרים שבנינו - כולל מעקב SSL, גיבויים, ובדיקת תקינות טפסים וחיבורים ל-CRM.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>

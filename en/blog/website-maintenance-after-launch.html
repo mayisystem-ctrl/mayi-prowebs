@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Website Maintenance After Launch - What Actually Needs Ongoing Care | May I</title>
+<meta name="description" content="A live business website still needs ongoing attention - SSL renewal, security updates, backups, and third-party scripts that quietly stop working. What website maintenance actually covers, and why it applies to custom code too.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/website-maintenance-after-launch">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/website-maintenance-after-launch">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/website-maintenance-after-launch">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/website-maintenance-after-launch">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Website Maintenance After Launch - What Actually Needs Ongoing Care, and Why \"The Site Is Live\" Is Only the Midpoint",
+  "datePublished": "2026-10-30",
+  "dateModified": "2026-10-30",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/website-maintenance-after-launch"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How often does a business website need maintenance?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Basic checks - SSL certificate, backups, domain status, and whether forms and third-party scripts still work - should happen at least every month or two. Security updates for platforms with plugins, like WordPress, need much tighter, ongoing monitoring, since new vulnerabilities are disclosed constantly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a custom-coded website need maintenance the way WordPress does?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not at the same intensity, but yes. Custom code isn't exposed to third-party plugin updates, but it still depends on SSL certificate renewal, domain renewal, backups, and third-party scripts - analytics, pixels, your CRM - that change their API without warning. The difference is the scope of risk, not whether maintenance is needed at all." }
+    },
+    {
+      "@type": "Question",
+      "name": "What actually happens if an SSL certificate isn't renewed in time?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The browser blocks access to the site with a security warning, and lead forms stop receiving submissions - often without the business noticing for days. It's one of the most common causes of a site going down that has nothing to do with the code or design." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Websites <span>· Oct 30, 2026 · May I</span></div>
+    <h1>Website Maintenance After Launch - What Actually Needs Ongoing Care, and Why "The Site Is Live" Is Only the Midpoint</h1>
+    <p class="lead">Short answer: a live business website needs ongoing attention - renewing the SSL certificate before it expires, security updates, backups, and checking that third-party scripts (analytics, pixels, your CRM connection) haven't quietly changed and broken something. That's true for custom-coded sites too, not just WordPress - the difference is the scope of the risk, not whether it exists. "We're done, the site is live" is the midpoint of the project, not the end of it.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why this is even a problem</h2>
+    <p>Unlike a printed brochure, a website isn't a static thing that's finished the moment you click "publish." It runs on a security certificate with an expiration date, sits on a domain that needs renewing, loads scripts from outside vendors that update themselves without asking, and if it's built on a platform with plugins, those plugins are discovered to be vulnerable on an ongoing basis. None of this looks "broken" on a casual visit to the homepage. It breaks quietly - until the lead form stops receiving submissions, or the browser starts showing a security warning to a customer trying to leave their details.</p>
+
+    <h2>The SSL certificate - the small thing that takes down entire sites</h2>
+    <p>An SSL certificate is what turns an http address into the padlocked prefix visitors recognize. It has an expiration date and requires renewal - automatic on most modern hosting, but not on all of it, and not always without a hiccup. Keyfactor's annual State of PKI and Digital Trust Report found that organizations experienced an average of about three outages caused by expired SSL certificates over the 24 months surveyed (source: <a href="https://www.keyfactor.com/blog/the-enemy-of-uptime-an-expired-ssl-certificate/" target="_blank" rel="noopener">keyfactor.com</a>). <span class="hl">When an SSL certificate expires, the browser doesn't show a small warning off to the side - it blocks access to the site entirely</span>, which means your lead form simply stops receiving submissions, often with nobody at the business noticing for days.</p>
+
+    <h2>WordPress vs. custom code - the maintenance is different, not absent</h2>
+    <p>We've written here before about the scale of security vulnerabilities disclosed in WordPress plugins each year. What gets mentioned less is the patch rate: Wordfence's Annual Security Report found that about 35% of the vulnerabilities disclosed in the WordPress ecosystem in 2024 were still unpatched as of April 2025 - meaning that months after a vulnerability goes public, in many cases the site is still exposed (source: <a href="https://www.wordfence.com/" target="_blank" rel="noopener">wordfence.com</a>). That doesn't fix itself - it needs someone tracking it, applying updates, and checking that an update didn't break something else on the site.</p>
+    <p>A custom-coded site isn't exposed to third-party plugins the same way, so it's spared most of that specific risk. But <span class="hl">"no plugins" doesn't mean "no maintenance"</span> - the SSL certificate still expires, the domain still needs annual renewal, and analytics providers, pixels, and CRM systems change their API occasionally without advance notice. The real difference is the scope of the risk and how often checks are needed, not whether maintenance is required at all.</p>
+
+    <h2>What actually goes into a maintenance plan</h2>
+    <ul>
+      <li>Tracking and renewal reminders for the SSL certificate and domain, before they expire - not after.</li>
+      <li>Regular backups of the code and database, stored separately from the server running the site.</li>
+      <li>Security updates to the platform and plugins, when the site is built on one.</li>
+      <li>Verifying lead forms actually reach the CRM - not just that the browser says they were "sent."</li>
+      <li>Checking that third-party scripts (GA4, Meta Pixel, widgets) still load and aren't being blocked by ad blockers or a cookie policy change.</li>
+      <li>Speed and uptime checks - not just once at launch, but every few weeks.</li>
+    </ul>
+
+    <h2>What definitely isn't a good idea</h2>
+    <p>The most common mistake is treating a website as a project that's finished the moment it goes live, and only discovering a problem when a customer calls and says "I tried to fill out the form and it didn't work." By that point, the site may have lost days or weeks of leads with no outward sign anything was wrong. A simple maintenance plan - even one that's just a short monthly check - is the difference between catching a problem within an hour and discovering it through a frustrated customer.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="wordpress-vs-custom-code-security.html">WordPress vs. Custom Code - Maintenance & Security Cost</a></li>
+      <li><a href="website-ownership-code-domain-crm-data.html">Who Actually Owns Your Website - Code, Domain, and CRM Data</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Is your website running with nobody watching it?</h2>
+      <p>We offer ongoing maintenance plans for the sites we build - including SSL monitoring, backups, and checks that forms and CRM connections keep working.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
