@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Alt Text for Images - Why It's Not Just Accessibility, It's SEO and AI Visibility Too | May I</title>
+<meta name="description" content="Alt text does accessibility, Google Image Search ranking, and AI engine visibility at once. Per WebAIM, 55.5% of websites are missing it. How to write alt text that works for all three.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/alt-text-image-seo-ai-visibility">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/alt-text-image-seo-ai-visibility">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/alt-text-image-seo-ai-visibility">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/alt-text-image-seo-ai-visibility">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Alt Text for Images - Why It's Not Just Accessibility, It's How Google and AI Engines 'Read' Your Website's Images",
+  "datePublished": "2026-11-04",
+  "dateModified": "2026-11-04",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/alt-text-image-seo-ai-visibility"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does alt text on an image affect Google rankings?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not the page's overall ranking, but it does affect ranking in Google Images and how Google understands the image's context on the page. Google relies on alt text, surrounding text, and the file name to understand what's shown in an image and decide whether and when to surface it in image search results." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do purely decorative images still need alt text?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not a description - but they do need an empty alt attribute (alt=\"\"). That tells screen readers to skip the image instead of reading out a meaningless file name, and it keeps AI crawlers from treating a decorative element as content worth parsing." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do AI engines like ChatGPT actually 'see' images on a website?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Usually not during ordinary content crawling. Most AI agents that crawl sites to answer questions (as opposed to an interactive image-analysis mode) read the page's HTML as text - the image file itself is unreadable binary data to them, and the alt text, caption, and surrounding copy are the only source they have for what it shows." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Nov 4, 2026 · May I</span></div>
+    <h1>Alt Text for Images - Why It's Not Just Accessibility, It's How Google and AI Engines "Read" Your Website's Images</h1>
+    <p class="lead">Short answer: alt text on an image serves three audiences at once - screen reader users, Google's image search engine, and AI engines like ChatGPT, Perplexity, and Gemini, which usually <span class="hl">don't "see" an image the way a person does</span> when they crawl a page - they read text. Per the WebAIM Million 2025 report, 55.5% of the web's top home pages are missing alt text on at least one image, meaning most sites are missing all three jobs at once, not just accessibility (source: <a href="https://webaim.org/projects/million/2025" target="_blank" rel="noopener">webaim.org</a>).</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Three audiences, one alt attribute</h2>
+    <p>When an image's alt attribute is written into the code, it's read by three different parties, none of whom see the image quite the way an ordinary visitor does in a browser. A screen reader user hears that text instead of seeing the image. Google's image search engine reads it to understand what the image shows and how to rank it in Google Images results. And AI agents crawling sites - GPTBot, ClaudeBot, PerplexityBot, and others - read a page's HTML as raw text, so an image with no alt text is, to them, effectively a blank gap.</p>
+
+    <h2>Why Google treats it as an image-ranking factor</h2>
+    <p>Google states explicitly in its own image SEO documentation that surrounding text - alt text, captions, the file name, and textual context on the page - is what the engine relies on to understand an image's content and weigh it in Google Images results (source: <a href="https://developers.google.com/search/docs/appearance/google-images" target="_blank" rel="noopener">developers.google.com</a>). That doesn't mean alt text "boosts" the whole page's ranking, but without it an image effectively doesn't exist for image search - a traffic channel plenty of businesses ignore entirely.</p>
+
+    <h2>Why AI engines depend on this text even more than Google does</h2>
+    <p>When an AI agent builds an answer and looks for a source to cite, it usually isn't "looking" at the image - it's reading the page's text structure. A study by Kevin Indig on ChatGPT citations found that 44.2% of citations come from the first 30% of a document (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). For images, that means: if you have a hero image or an infographic carrying a key number near the top of the page - exactly where AI engines tend to cite from most - and it has no alt text or nearby text describing what it shows, <span class="hl">that number simply doesn't exist as far as the AI engine is concerned</span>, even if it's perfectly obvious to the human eye.</p>
+
+    <h2>The reality: 55.5% of sites are missing this</h2>
+    <p>The WebAIM Million 2025 report, which scans the web's top one million home pages, found that more than half of them (55.5%) include at least one image with no alt text - the second most common failure after low-contrast text. On average, about 18.5% of all images on a home page are missing alt text (not counting an intentional alt=""), and one in every five linked images is missing alt text entirely - meaning neither a screen reader nor an AI agent can tell where that link actually goes (source: <a href="https://webaim.org/projects/million/2025" target="_blank" rel="noopener">webaim.org</a>).</p>
+
+    <h2>How to write alt text that works for all three audiences</h2>
+    <ul>
+      <li>Describe content and purpose, not "image of..." - a screen reader already announces that it's an image.</li>
+      <li>Be specific, not generic - not "team photo," but what's actually shown in it.</li>
+      <li>Purely decorative images (dividers, backgrounds, meaningless icons) get a deliberately empty <code>alt=""</code> - not a pointless description that adds noise.</li>
+      <li>Don't keyword-stuff - Google and AI engines both recognize it, and it wrecks the experience for a screen reader user.</li>
+      <li>For charts, data tables, and infographics - the actual number needs to exist as real text somewhere else on the page too, not just as pixels baked into an image. Neither Google nor an AI engine reads numbers baked into a PNG.</li>
+    </ul>
+
+    <h2>The most common mistakes we see</h2>
+    <p>A logo with alt text stuffed with the business's full tagline instead of just the company name. Stock photo galleries pulled from a website builder that keep the random file name the library assigned as the actual alt text. Screenshots of a pricing table or dashboard shown as an image only, with the information never existing as real text anywhere else on the page. And purely decorative icons given a verbose description instead of <code>alt=""</code> - which just makes a screen reader read out noise that adds nothing.</p>
+
+    <h2>What this means for choosing a template vs. custom code</h2>
+    <p>On a site built in custom code, alt text can be made a required field in the image upload process, with no way to publish without it - it's part of the build process, not an afterthought bolted on at the end. On sites built on a builder or pulling from built-in stock galleries, images often arrive with generic or empty alt text auto-generated by the vendor's library, and without active oversight, it stays that way forever.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="website-accessibility-wcag-business-case.html">Website Accessibility (WCAG) - Why It's a Real Legal Risk and Business Advantage</a></li>
+      <li><a href="ai-citations-schema-vs-structure.html">What Actually Gets Your Site Cited by AI</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Want a site that gets this right from day one?</h2>
+      <p>We build custom-coded websites where accessibility, SEO, and AI visibility are part of the build process - not something bolted on at the end of the project.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
