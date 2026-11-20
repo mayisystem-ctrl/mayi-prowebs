@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>למה רוב בדיקות ה-A/B בדפי נחיתה נכשלות - ומה כן עובד | May I</title>
+<meta name="description" content="רוב בדיקות ה-A/B בדפי נחיתה לא מגיעות לתוצאה מובהקת - לא בגלל רעיון רע, אלא בגלל תנועה לא מספקת. מתי בדיקת A/B באמת עובדת, ומה כן עושים כשאין לכם את הנפח הדרוש.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/ab-testing-landing-pages-sample-size">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/ab-testing-landing-pages-sample-size">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/ab-testing-landing-pages-sample-size">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/ab-testing-landing-pages-sample-size">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "למה רוב בדיקות ה-A/B בדפי נחיתה נכשלות - ומה כן עובד כשאין לכם המוני תנועה",
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/ab-testing-landing-pages-sample-size"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "כמה תנועה צריך בשביל שבדיקת A/B בדף נחיתה תהיה אמינה?",
+      "acceptedAnswer": { "@type": "Answer", "text": "אין מספר אחד שנכון לכולם - זה תלוי בשיעור ההמרה הנוכחי ובגודל השינוי שרוצים לזהות. אבל ככלל, ככל שהתנועה והיקף ההמרות הנוכחי קטנים יותר, כך לוקח יותר זמן להגיע למסקנה מובהקת סטטיסטית - ולרוב העסקים הקטנים זה אומר שבועות עד חודשים, לא ימים." }
+    },
+    {
+      "@type": "Question",
+      "name": "אם אין לי תנועה מספיקה, יש בכלל טעם לבדוק גרסאות שונות של דף נחיתה?",
+      "acceptedAnswer": { "@type": "Answer", "text": "כן, רק לא כבדיקת A/B פורמלית עם חלוקה סטטיסטית. שיטות איכותניות - הקלטות סשן, בדיקת שמישות עם כמה משתמשים, שיחות ישירות עם לקוחות - נותנות תובנות אמיתיות על דף שהתנועה שלו לא תגיע למובהקות סטטיסטית בזמן סביר." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה שווה יותר לבדוק בדף נחיתה - הכותרת או העיצוב?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לפי נתוני Mida על עשרות בדיקות A/B בדפי נחיתה, בדיקות כותרת מניבות שינוי מובהק בכ-3% מהמקרים, בעוד שבדיקות עיצוב (סטיילינג) ברוב המקרים - כ-58% - לא מראות הבדל מדיד כלל. המשמעות המעשית: שינוי במסר או בהצעה סביר יותר לקבוע מאשר שינוי בצבעים או בגופנים." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">אתרים <span>· 20.11.2026 · May I</span></div>
+    <h1>למה רוב בדיקות ה-A/B בדפי נחיתה נכשלות - ומה כן עובד כשאין לכם המוני תנועה</h1>
+    <p class="lead">התשובה הקצרה: רוב בדיקות ה-A/B על דפי נחיתה לא מגיעות לתוצאה מובהקת סטטיסטית - לא בגלל שהרעיון שנבדק היה רע, אלא בגלל שלאתר אין מספיק תנועה כדי לקבל תשובה אמיתית, ו"ניצחון" שמתקבל בכל זאת הוא לרוב רעש סטטיסטי שמוצג כתובנה. מייסד AppSumo דיווח שרק בדיקה אחת מכל שמונה שהריצו הניבה שינוי מובהק (מקור: <a href="https://vwo.com/blog/appsumo-ab-testing-secret" target="_blank" rel="noopener">vwo.com</a>), וסקר של כ-3,900 אנשי מקצוע מצא שפחות מ-20% מהם מדווחים שבדיקות ה-A/B שלהם מגיעות לתוצאה מובהקת ב-80% מהמקרים (מקור: <a href="https://www.emarketer.com/content/most-a-b-tests-don-t-produce-significant-results" target="_blank" rel="noopener">emarketer.com</a>). עסק עם תנועה נמוכה שמנסה "לבדוק הכל" לא מקבל יותר מידע - הוא מקבל החלטות על בסיס רעש.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה בדיקת A/B דורשת נפח שרוב העסקים הקטנים לא פוגשים</h2>
+    <p>בדיקת A/B היא ניסוי סטטיסטי, לא תחרות "מה נראה טוב יותר". כדי לקבוע בביטחון שגרסה B עקפה את גרסה A, ולא שההפרש נובע ממזל של איזה מבקרים הגיעו באיזה יום, צריך כמות מסוימת של תצפיות - וכמות זו גדלה ככל שההמרה הנוכחית נמוכה יותר וההבדל שרוצים לזהות קטן יותר. דף נחיתה עם כמה עשרות המרות בחודש פשוט לא מגיע לכמות הדרושה בזמן סביר, גם אם משאירים את הבדיקה רצה שבועות. התוצאה: בעל האתר עוצר את הבדיקה "כי נראה שמשהו קורה", ומחליט על בסיס מה שבעצם היה יכול להתהפך למחרת.</p>
+
+    <h2>מה בכלל שווה לבדוק, לפי הנתונים</h2>
+    <p>לא כל שינוי שווה באותה מידה. ניתוח של Mida על עשרות בדיקות A/B שהורצו בדפי נחיתה מצא ששינויי כותרת (headline) מניבים שינוי מובהק בכ-<span class="hl">3%</span> מהמקרים, לעומת כ-8% בבדיקות כותרת על כל סוגי העמודים - ואילו שינויי עיצוב (סטיילינג, צבעים, גופנים) על דפי נחיתה הראו ברוב המקרים, כ-58%, אפס הבדל מדיד, ועוד כ-31% הפסידו לגרסה המקורית (מקור: <a href="https://www.mida.so/change-types/headline/landing-pages" target="_blank" rel="noopener">mida.so</a>). המספרים האלה מגיעים ממדגם מצטבר של כלי בדיקה אחד, ולכן כדאי להתייחס אליהם כאינדיקציה כיוונית ולא כחוק טבע - אבל הכיוון ברור: שינוי במסר או בהצעה עצמה סביר יותר לקבוע מאשר שינוי קוסמטי.</p>
+
+    <h2>הטעות הנפוצה: לעצור את הבדיקה "כשנראה שמנצח"</h2>
+    <p>ברגע שרואים שגרסה אחת "מובילה" באחוז אחוזים בימים הראשונים, הפיתוי לעצור ולהכריז על מנצח הוא גדול - ובדיוק זו הטעות שהורסת את הנתון. תנודתיות בימים הראשונים גבוהה מאוד, וגרסה שנראית מנצחת ביום השלישי יכולה להתהפך לגמרי ביום העשירי. בדיקה שלא רצה לאורך מחזור שלם (כולל ימי חול וסופי שבוע, למשל) ושלא הגיעה לכמות התצפיות שתוכננה מראש, פשוט לא נתנה לנתון הזדמנות אמיתית להתברר.</p>
+
+    <h2>מה כן עושים כשאין לכם את התנועה בשביל A/B אמיתי</h2>
+    <ul>
+      <li>הקלטות סשן וחימום (heatmaps) - מראים איפה אנשים באמת נתקעים או מפספסים כפתור, בלי צורך בחלוקה סטטיסטית.</li>
+      <li>בדיקת שמישות עם 5-8 משתמשים אמיתיים - חושפת בעיות עיצוב ברורות הרבה יותר מהר מכל בדיקת A/B על תנועה דלילה.</li>
+      <li>שיחות ישירות עם לידים או לקוחות שלא המירו - שאלה אחת כמו "מה גרם לך להתלבט" נותנת תשובה שבדיקה סטטיסטית לא תיתן לעולם.</li>
+      <li>בנייה לפי עקרונות שהוכחו במחקרים רחבים יותר - למשל מספר השדות בטופס או סימני אמון מבוססים - במקום לנחש דרך בדיקה שתנועת האתר לא תספיק כדי לאשרר.</li>
+    </ul>
+
+    <h2>ההמלצה המעשית של May I</h2>
+    <p>בפרויקטים שאנחנו בונים, אנחנו לא פותחים בבדיקת A/B על עמוד חדש - אנחנו בונים את העמוד הראשוני לפי עקרונות שכבר נתמכים במחקר רחב (מספר שדות, סימני אמון, מבנה מסר), ושומרים בדיקת A/B פורמלית לשלב שבו יש כבר נפח תנועה שמאפשר לקבל תשובה אמיתית - לא רק מספר שמרגיש כמו תשובה.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="lead-form-fields-conversion-rate.html">כמה שדות צריך טופס ליד</a></li>
+      <li><a href="trust-signals-website-conversion.html">סימני אמון באתר עסקי</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>רוצים דף נחיתה שבנוי נכון מהיום הראשון?</h2>
+      <p>אנחנו ב-May I בונים דפי נחיתה לפי עקרונות שנבדקו במחקר רחב, ומלווים אתכם גם בשלב שבו יש מספיק תנועה כדי לבדוק גרסאות באמת - לא לפני.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
