@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Migrating to GoHighLevel From Another CRM or a Spreadsheet - What to Move Without Losing a Lead | May I</title>
+<meta name="description" content="A CRM migration isn't an export-and-import job. What you must map before moving data, why automations don't carry over on their own, and how to run a safe overlap between old and new.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/crm-migration-gohighlevel-checklist">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/crm-migration-gohighlevel-checklist">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/crm-migration-gohighlevel-checklist">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/crm-migration-gohighlevel-checklist">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Migrating to GoHighLevel From Another CRM or a Spreadsheet - What to Move, What to Leave Behind, and How Not to Lose a Lead Mid-Switch",
+  "datePublished": "2026-10-19",
+  "dateModified": "2026-10-19",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/crm-migration-gohighlevel-checklist"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Do automations (Workflows) migrate automatically between CRM systems?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. An export-and-import moves contacts, deals, and fields - but not the automation logic itself. Every workflow, every reminder, and every follow-up sequence has to be rebuilt from scratch in GoHighLevel, which is why this is the task that always catches unprepared businesses off guard on a migration timeline." }
+    },
+    {
+      "@type": "Question",
+      "name": "How long should I run the old and new system in parallel?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A fixed window of 2-4 weeks is a reasonable range for most small businesses. That time is meant to confirm new leads are landing in both systems, the new automations are actually firing, and no open case is left hanging - before you permanently cut off access to the old system." }
+    },
+    {
+      "@type": "Question",
+      "name": "Should I migrate the full history of old leads, or only part of it?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Set a cutoff based on activity - for example, only contacts with interaction in the last 1-2 years. Old databases decay at a known rate, so a blanket import of everything that was ever in the old system also moves its noise and outdated records, not just the leads that still matter." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Automation <span>· Oct 19, 2026 · May I</span></div>
+    <h1>Migrating to GoHighLevel From Another CRM or a Spreadsheet - What to Move, What to Leave Behind, and How Not to Lose a Lead Mid-Switch</h1>
+    <p class="lead">Short answer: a successful CRM migration comes down to exactly three things - no live lead falls through the cracks during the switch, the old data doesn't contaminate the new system with addresses and details that are no longer accurate, and nothing that worked yesterday (forms, automations, phone numbers) stops working on cutover day. A CRM migration is not an export-and-import job - it's a planned cutover, and most of the real-world failures come from treating it like the former.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why "just export and import" fails</h2>
+    <p>Exporting a CSV from the old CRM and importing it into GoHighLevel sounds like the easiest technical step in the whole process. In practice, two things break quietly here, without announcing themselves. First, any custom field with no matching field pre-created in GoHighLevel drops silently on import - no error, it just vanishes. Second, and more important: <span class="hl">workflows never carry over on import, under any circumstance</span> - they're logic that only exists in the source system, and every one has to be rebuilt by hand in the destination. A business that plans to "move a file and keep working" usually discovers both problems in the first week after cutover, when new leads stop getting any automated response at all.</p>
+
+    <h2>Before you move anything - audit the data</h2>
+    <p>A contact database doesn't stay accurate over time. According to HubSpot's database decay simulation, an average marketing database decays at roughly 22.5% per year - people change jobs, phone numbers, and email addresses, and opt out of lists (source: <a href="https://www.hubspot.com/database-decay" target="_blank" rel="noopener">hubspot.com</a>). The practical consequence: a blanket import of "everything that was ever in the old system" doesn't just move relevant leads - it also moves roughly a quarter of records that are already stale, and you usually find out only when an SMS bounces back as "invalid number" or an email comes back as a hard bounce.</p>
+    <ul>
+      <li>Set an activity cutoff - for example, only contacts with an interaction (a call, an opened email, a new lead) in the last 12-24 months.</li>
+      <li>Flag contacts with no valid phone or email for a separate review, not automatic import.</li>
+      <li>Don't carry old tags and statuses over as-is - check whether they still fit the new pipeline structure.</li>
+    </ul>
+
+    <h2>What must be mapped before the first import</h2>
+    <p>Every custom field in the old system needs a matching field in GoHighLevel, with a matching data type (text, date, single-select), before you upload a single CSV. It's worth creating the pipeline stage names in advance to mirror the source system's stages, so open deals map straight into the right stage instead of all landing in a default "stage one." Multi-select fields usually migrate more cleanly as separate tags than as a single custom field.</p>
+
+    <h2>Run an overlap - not a one-shot switch</h2>
+    <p>The safer migration isn't "shut down today, open tomorrow" - it's a planned overlap. Run both systems for a window of time: new leads flow into both, you confirm the new GoHighLevel automations actually fire (SMS, email, a follow-up call), and only after you see that working correctly on real data - not just a test record - do you cut off access to the old system. <span class="hl">A week or two of overlap is far cheaper than a single lead disappearing mid-switch</span>.</p>
+
+    <h2>What never migrates automatically, and why ignoring it costs money</h2>
+    <ul>
+      <li><strong>Workflows</strong> - must be rebuilt from scratch; no import carries logic over.</li>
+      <li><strong>SMS-sending phone numbers</strong> - if you're switching providers, there's a separate A2P 10DLC registration step that has to clear before your first automated message, or carriers block the messages outright (see the related article below).</li>
+      <li><strong>Email sending health</strong> - a new sending domain or a DNS change can genuinely hurt deliverability if SPF, DKIM, and DMARC aren't set up in advance.</li>
+      <li><strong>Consent records held by a previous vendor</strong> - if documented consent isn't carried over to the new system, that's also a GDPR/CCPA record-keeping question, not just a technical one.</li>
+    </ul>
+
+    <h2>Cutover day checklist</h2>
+    <ol>
+      <li>Every form on the site points to the new system's correct webhook/API endpoint.</li>
+      <li>Phone numbers and WhatsApp Business numbers are ported and active in the new system, not just "configured."</li>
+      <li>The old system stays available read-only (not deleted) for at least 30-90 days, in case you need to check an old record.</li>
+      <li>The team knows exactly where a new lead lands from now on - with no habit of also checking the old system.</li>
+    </ol>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="gohighlevel-automation-speed-to-lead.html">Business Automation with GoHighLevel</a></li>
+      <li><a href="sms-automation-a2p-10dlc-tcpa-compliance.html">SMS Automation in GoHighLevel - A2P 10DLC and TCPA</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Planning a move to GoHighLevel?</h2>
+      <p>We build businesses a structured migration plan - field mapping, pipelines, and automations - so the overlap between systems doesn't cost you even one lead.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google's Mobile-First Index Is Done - What It Means for a Bilingual Site | May I</title>
+<meta name="description" content="Google completed its move to mobile-first indexing in 2023 - what it checks is your mobile page, not desktop. What that means in practice, and why bilingual Hebrew-English sites get hit by it harder than most.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/mobile-first-indexing-bilingual-sites">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/mobile-first-indexing-bilingual-sites">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/mobile-first-indexing-bilingual-sites">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/mobile-first-indexing-bilingual-sites">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Google's Mobile-First Index Is Done - What That Actually Means for a Bilingual Hebrew-English Site",
+  "datePublished": "2026-10-26",
+  "dateModified": "2026-10-26",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/mobile-first-indexing-bilingual-sites"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is mobile-first indexing the same thing as responsive design?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Responsive design is about the site looking good on a small screen. Mobile-first indexing is a different question entirely - which version of the page Google actually crawls and puts into its search index. A site can be fully responsive and still hide content, links, or Schema data from Google that only exists in its desktop version." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I check whether Google sees my site correctly on mobile?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The URL Inspection tool in Search Console shows the page exactly as the Googlebot Smartphone crawler rendered it, so you can compare it against the desktop version. Check a homepage, a service page, and a blog post - not just one page - since compatibility gaps tend to cluster in specific templates rather than show up evenly across the whole site." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's the most common mistake on bilingual sites that hurts mobile indexing?",
+      "acceptedAnswer": { "@type": "Answer", "text": "A hamburger menu that hides internal links visible in the desktop top nav, and content blocks set to display:none on mobile to simplify the layout - sometimes including an entire language version of the content that disappears when direction flips between RTL and LTR at the wrong breakpoint." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Oct 26, 2026 · May I</span></div>
+    <h1>Google's Mobile-First Index Is Done - What That Actually Means for a Bilingual Hebrew-English Site</h1>
+    <p class="lead">Short answer: Google officially announced on October 31, 2023 that its move to mobile-first indexing is complete across the web - meaning <span class="hl">the engine that ranks your site now checks almost exclusively the mobile version of your pages, not the desktop one</span>, even when someone searches from a desktop computer (source: <a href="https://developers.google.com/search/blog/2023/10/mobile-first-is-here?hl=en" target="_blank" rel="noopener">developers.google.com</a>). If content, internal links, or Schema data that exist on desktop are missing or hidden on mobile - a common failure on bilingual Hebrew-English sites with hamburger menus and alternating RTL/LTR direction - Google simply doesn't see them, no matter how good they look on desktop.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>What mobile-first indexing is, and why it isn't just "responsive design"</h2>
+    <p>When Google crawls your site to decide how to rank it, it uses the Googlebot Smartphone crawler in most cases - the version that simulates a mobile phone, not a desktop. Google began this transition back in 2016, and officially completed it for the entire web on October 31, 2023. The implication: whatever that crawler sees when it loads your page on mobile - text, images, links, structured data (Schema) - is what actually enters Google's search index. Content that only exists on your desktop version, however good it is, simply doesn't count.</p>
+    <p>That's why responsive design - a site that looks good at every screen size - is necessary but not sufficient. A site can look perfect on mobile and still hide entire blocks of content from Google, because someone decided they had no place on a small screen.</p>
+
+    <h2>Why bilingual (Hebrew-English) sites are especially exposed</h2>
+    <p>Building a site in two languages with alternating text direction (RTL for Hebrew, LTR for English) adds a layer of CSS complexity that a single-language site doesn't have. In practice, we see a few recurring patterns that create a gap between what a human visitor sees and what Googlebot actually crawls:</p>
+    <ul>
+      <li>A hamburger menu holding internal links that are visible in the desktop top nav - if they only load on a JavaScript click and don't exist as plain HTML links in the DOM, some crawling tools never reach them.</li>
+      <li>Blocks set to <code>display: none</code> at the mobile breakpoint to "simplify" the page - sometimes including an entire version of content in the other language that disappears when direction flips between RTL and LTR at the wrong breakpoint.</li>
+      <li>Schema data (JSON-LD) injected only in the desktop template of the page, rather than being part of the template shared by both versions.</li>
+      <li>Images with different or missing alt text on the mobile version, when the original image reloads at a different size.</li>
+    </ul>
+    <p>Each of these patterns looks like a minor design detail on its own. In practice, with <span class="hl">roughly 62.5% of global website traffic coming from mobile</span> (StatCounter data for Q2 2025, source: <a href="https://www.statista.com/statistics/241462/global-mobile-phone-website-traffic/" target="_blank" rel="noopener">statista.com</a>), and Google crawling mainly that version, content that disappears on mobile is content that effectively doesn't exist in Google's eyes - no matter how important it is on desktop.</p>
+
+    <h2>Four practical checks you can run today</h2>
+    <ol>
+      <li><strong>Full content comparison between versions</strong> - open the same page on desktop and on an actual mobile device (not just a browser simulation) and verify every paragraph, internal link, and image on one exists on the other.</li>
+      <li><strong>Check Schema data on both versions</strong> - make sure your JSON-LD (BlogPosting, FAQPage, LocalBusiness, etc.) is injected from the shared template, not only from a separate desktop template.</li>
+      <li><strong>Internal links that don't depend on JavaScript</strong> - critical navigation links need to exist as plain <code>&lt;a href&gt;</code> tags in the DOM, not only load on a click action.</li>
+      <li><strong>Direction (RTL/LTR) checks at every breakpoint</strong> - not just on desktop - to catch content that disappears or flips only on mobile.</li>
+    </ol>
+
+    <h2>How to actually check this</h2>
+    <p>The URL Inspection tool in Google Search Console shows exactly how the Googlebot Smartphone crawler sees a given page - the HTML that actually loads, not just what's displayed to a user. Check a few page types (homepage, service page, blog post), not just one, since compatibility gaps tend to cluster in specific templates rather than appear evenly across the whole site.</p>
+
+    <h2>How this connects to Core Web Vitals</h2>
+    <p>Mobile-first indexing and site speed are two separate topics that meet at one point: both are measured on your site's mobile version, not desktop. A site that's fast on desktop but loads slowly on mobile doesn't just lose visitors - it's also the version Google actually measures and ranks you by.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="bilingual-website-rtl-ltr-pitfalls.html">Building a Bilingual Hebrew-English Website - The RTL/LTR Technical Pitfalls</a></li>
+      <li><a href="site-speed-core-web-vitals.html">Site Speed &amp; Core Web Vitals - Why It Matters More Than Design</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Not sure your site passes this check?</h2>
+      <p>We build and test bilingual sites in custom code, including matching content and Schema data between the desktop and mobile versions - not just design that looks good on both.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
