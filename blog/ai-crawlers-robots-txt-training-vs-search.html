@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>לחסום בוטי AI ב-robots.txt או לא - בוט אימון מול בוט ציטוט | May I</title>
+<meta name="description" content="GPTBot, ClaudeBot ו-PerplexityBot אינם בוט אחד. ההבדל בין בוט אימון לבוט חיפוש/ציטוט ב-robots.txt, ולמה חסימה גורפת עלולה להוציא אתכם מהתשובות של ChatGPT ו-Claude.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-training-vs-search">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-training-vs-search">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/ai-crawlers-robots-txt-training-vs-search">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-training-vs-search">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "לחסום בוטי AI ב-robots.txt או לא - ההבדל בין בוט אימון לבוט ציטוט, ולמה זה קובע את הנראות שלכם ב-AI",
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/ai-crawlers-robots-txt-training-vs-search"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "האם חסימת GPTBot ב-robots.txt מוציאה את העסק שלי מתוצאות החיפוש של ChatGPT?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא. GPTBot הוא בוט האימון של OpenAI - חסימתו מוציאה תוכן עתידי ממודל האימון, לא מתוצאות החיפוש. הנראות בחיפוש של ChatGPT נשלטת על ידי בוט נפרד, OAI-SearchBot, שצריך להחליט עליו בנפרד ב-robots.txt." }
+    },
+    {
+      "@type": "Question",
+      "name": "אילו בוטי AI כדאי להשאיר פתוחים לעסק שרוצה להיות מצוטט?",
+      "acceptedAnswer": { "@type": "Answer", "text": "בוטי החיפוש והציטוט - OAI-SearchBot ו-ChatGPT-User של OpenAI, Claude-SearchBot ו-Claude-User של Anthropic, ו-PerplexityBot של Perplexity. אלה הבוטים שמביאים תוכן בזמן אמת לתשובות שמשתמשים מקבלים, בניגוד לבוטי אימון כמו GPTBot ו-ClaudeBot." }
+    },
+    {
+      "@type": "Question",
+      "name": "כמה אתרים בפועל חוסמים בוטי AI היום?",
+      "acceptedAnswer": { "@type": "Answer", "text": "בין אתרי החדשות הגדולים השיעור גבוה - כ-79% מכ-100 אתרי חדשות מובילים בארה״ב ובבריטניה חוסמים לפחות בוט אימון אחד. אבל באתר הממוצע ברשת השיעור נמוך בהרבה - סביב 8%-10% בלבד, לפי מדגם של כ-10,894 דומיינים." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">GEO/AEO <span>· 20.11.2026 · May I</span></div>
+    <h1>לחסום בוטי AI ב-robots.txt או לא - ההבדל בין בוט אימון לבוט ציטוט, ולמה זה קובע את הנראות שלכם ב-AI</h1>
+    <p class="lead">התשובה הקצרה: אין "כל בוטי ה-AI" אחד שצריך להחליט עליו בבת אחת. GPTBot ו-ClaudeBot הם <span class="hl">בוטי אימון (training)</span> - חסימתם מוציאה תוכן עתידי ממודל האימון, אבל לא ממנועי החיפוש של ChatGPT או Claude. OAI-SearchBot, Claude-SearchBot, Claude-User ו-PerplexityBot הם בוטים אחרים לגמרי - בוטי חיפוש וציטוט שמזינים בזמן אמת את התשובות שמשתמשים מקבלים. עסק שרוצה שיצטטו אותו ב-AI יכול, ולרוב כדאי לו, לחסום את בוטי האימון בלי לפגוע בנראות שלו - אבל חסימה גורפת של "כל מה שנשמע כמו bot" מוציאה אותו גם מהציטוטים שהוא רוצה.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>למה זה בכלל מבלבל - "בוט AI" הוא לא דבר אחד</h2>
+    <p>כל חברת AI מפעילה כמה בוטים שונים, לא אחד. ל-OpenAI יש את GPTBot (אימון מודלים), OAI-SearchBot (הזנת תוצאות חיפוש ב-ChatGPT) ו-ChatGPT-User (שליפת עמוד בזמן אמת כשמשתמש שואל שאלה). ל-Anthropic יש את ClaudeBot (אימון), Claude-SearchBot (אינדוקס לשיפור תוצאות חיפוש) ו-Claude-User (שליפה לפי בקשת משתמש ספציפית). ל-Perplexity יש את PerplexityBot. כל אחד מהבוטים האלה מוגדר בנפרד ב-robots.txt תחת שם ה-User-agent שלו, וחסימה של אחד לא משפיעה על האחרים.</p>
+
+    <h2>חסימת בוט אימון לא מוציאה אתכם מהחיפוש</h2>
+    <p>התיעוד הרשמי של OpenAI מבהיר: חסימת GPTBot היא בחירה שלא להשתמש בתוכן שלכם לאימון מודלים עתידיים - ותו לא. <span class="hl">הנראות שלכם בתוצאות החיפוש של ChatGPT נשלטת בנפרד על ידי OAI-SearchBot</span>, ואתר שחסם רק את GPTBot ימשיך להופיע בתשובות חיפוש אם לא חסם גם אותו (מקור: <a href="https://developers.openai.com/api/docs/bots" target="_blank" rel="noopener">developers.openai.com</a>). באופן דומה, Anthropic מצהירה שכל שלושת הבוטים שלה מכבדים robots.txt בנפרד - חסימת ClaudeBot בלבד מוציאה אתכם מסט האימון העתידי של Claude, בלי לפגוע ב-Claude-SearchBot או ב-Claude-User שממשיכים להביא את התוכן שלכם לתשובות בזמן אמת (מקור: <a href="https://support.claude.com/en/articles/8896518" target="_blank" rel="noopener">support.claude.com</a>).</p>
+
+    <h2>מה רוב האתרים בעולם בפועל עושים</h2>
+    <p>בין אתרי החדשות הגדולים, חסימת בוטי אימון כבר נורמה: סקר של Press Gazette על כ-100 מהאתרים המובילים בארה"ב ובבריטניה מצא שכ-79% מהם חוסמים לפחות בוט אימון AI אחד (מקור: <a href="https://pressgazette.co.uk/platforms/eight-in-ten-of-worlds-biggest-news-websites-now-block-ai-training-bots/" target="_blank" rel="noopener">pressgazette.co.uk</a>). אבל ברשת הרחבה התמונה שונה בתכלית: מדגם של HasData על כ-10,894 דומיינים מצא שרק כ-7.9% חוסמים את GPTBot ספציפית וכ-10.3% חוסמים כל בוט AI שהוא - פער גדול מהשיעור בקרב מוציאי תוכן (מקור: <a href="https://hasdata.com/blog/ai-crawler-block-index" target="_blank" rel="noopener">hasdata.com</a>). המגמה בכל זאת מואצת: לפי The Register, כ-5.6 מיליון אתרים חוסמים כיום את GPTBot ב-robots.txt, לעומת כ-3.3 מיליון בתחילת יולי 2025 (מקור: <a href="https://www.theregister.com/2025/12/08/publishers_say_no_ai_scrapers/" target="_blank" rel="noopener">theregister.com</a>).</p>
+
+    <h2>הסיכון שבחסימה גורפת - גם מוציאים את עצמכם מהתשובה</h2>
+    <p>בעלי אתרים רבים, במיוחד עסקים קטנים, מעדכנים את robots.txt בהעתק-הדבק של רשימת "חסימת כל בוטי ה-AI" בלי להבחין בין הקטגוריות - ובכך חוסמים גם את בוטי החיפוש שהם בעצם רוצים שיגיעו אליהם. זו טעות יקרה כפולה: מצד אחד אתם לא מגנים על יותר תוכן מהרגיל (כי בוטי אימון ובוטי חיפוש הם ישויות נפרדות), ומצד שני אתם נעלמים מהתשובות עצמן. זה חשוב במיוחד כי מחקר שעקב אחרי ציטוטי ChatGPT מצא ש-44.2% מהציטוטים מגיעים מה-30% הראשונים של המסמך (מקור: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>) - כלומר גם כשבוט ציטוט פתוח ומגיע לאתר, מבנה התוכן קובע אם הוא בכלל שולף ממנו תשובה. חסימה בטעות של אותו בוט מאפסת את הסיכוי הזה כליל, לפני ששאלת המבנה בכלל רלוונטית.</p>
+
+    <h2>למה בכלל יש פה שווה-ערך כלכלי לעסק</h2>
+    <p>הנתונים של Cloudflare מסבירים למה דווקא מוציאי תוכן גדולים בוחרים להבחין בין הקטגוריות ולא לחסום הכל. ביולי 2025 עמד יחס הסריקה-להפניה של Anthropic על כ-38,000 סריקות על כל ביקור מופנה אחד, לעומת כ-1,091 ל-OpenAI באותה תקופה (מקור: <a href="https://blog.cloudflare.com/crawlers-click-ai-bots-training/" target="_blank" rel="noopener">blog.cloudflare.com</a>). בוטי אימון סורקים הרבה ומחזירים מעט תנועה אמיתית - זו הסיבה המעשית לחסום אותם. בוטי חיפוש וציטוט הם ערוץ התנועה והנראות עצמו, ולכן חסימתם היא שיקול שונה לגמרי, לא "עוד קטגוריה של AI".</p>
+
+    <h2>ההמלצה המעשית - מה כן לעשות ב-robots.txt</h2>
+    <ul>
+      <li>מפו את הבוטים הרלוונטיים לעסק שלכם לפי שם User-agent מדויק - לא "חוסמים AI" כקטגוריה אחת.</li>
+      <li>החליטו על בוטי אימון (GPTBot, ClaudeBot וכדומה) בנפרד מבוטי חיפוש/ציטוט (OAI-SearchBot, Claude-SearchBot, Claude-User, PerplexityBot).</li>
+      <li>כתבו כלל User-agent נפרד לכל בוט שרוצים לחסום - אין כלל גורף אחד שתופס את כולם בצורה נכונה.</li>
+      <li>בדקו את robots.txt אחרי כל שינוי, וחזרו לבדוק אותו כל כמה חודשים - חברות ה-AI מוסיפות ומשנות בוטים בקצב גבוה.</li>
+    </ul>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="geo-aeo-ai-search-guide.html">איך גורמים ל-ChatGPT, Perplexity וג'מיני לצטט את העסק שלך</a></li>
+      <li><a href="llms-txt-ai-crawlers-fact-check.html">llms.txt - האם הוא באמת משפיע על נראות ב-AI</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>רוצים לבדוק מה אתר שלכם חוסם כיום?</h2>
+      <p>אנחנו בודקים ל-May I את robots.txt של האתר שלכם, מזהים אילו בוטי AI כבר חסומים בטעות, ומגדירים הגדרה מדויקת שמשרתת גם פרטיות וגם נראות ב-AI - לא פשרה מקרית.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
