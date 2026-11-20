@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>אינדקס מבוסס מובייל ב-Google - מה זה אומר בפועל לאתר דו-לשוני | May I</title>
+<meta name="description" content="גוגל סיימה ב-2023 את המעבר לאינדקס מבוסס מובייל - התוכן שהיא בודקת הוא גרסת המובייל, לא הדסקטופ. מה זה אומר בפועל לאתר עסקי, ולמה אתרים דו-לשוניים עברית-אנגלית נפגעים מזה יותר מאחרים.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/mobile-first-indexing-bilingual-sites">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/mobile-first-indexing-bilingual-sites">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/mobile-first-indexing-bilingual-sites">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/mobile-first-indexing-bilingual-sites">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "אינדקס מבוסס מובייל ב-Google - מה זה אומר בפועל לאתר דו-לשוני עברית-אנגלית",
+  "datePublished": "2026-10-26",
+  "dateModified": "2026-10-26",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/mobile-first-indexing-bilingual-sites"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "אינדקס מבוסס מובייל זה אותו דבר כמו עיצוב רספונסיבי?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא. עיצוב רספונסיבי עוסק בזה שהאתר נראה טוב במסך קטן. אינדקס מבוסס מובייל עוסק בשאלה אחרת לגמרי - איזו גרסה של הדף גוגל בכלל סורקת ומכניסה למפתח החיפוש שלה. אתר יכול להיות רספונסיבי לחלוטין ועדיין להסתיר מגוגל תוכן, קישורים או נתוני Schema שקיימים רק בגרסת הדסקטופ שלו." }
+    },
+    {
+      "@type": "Question",
+      "name": "איך בודקים אם האתר שלי מוצג כמו שצריך לגוגל במובייל?",
+      "acceptedAnswer": { "@type": "Answer", "text": "בכלי URL Inspection ב-Search Console אפשר לראות את הדף כפי שגוגל-בוט הסמארטפון ראה אותו בפועל, ולהשוות לגרסת הדסקטופ. כדאי לבדוק עמוד בית, עמוד שירות ועמוד בלוג אחד - לא רק דף אחד - כי בעיות תאימות נוטות להתרכז בתבניות ספציפיות, לא בכל האתר באופן אחיד." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה הטעות הנפוצה ביותר באתרים דו-לשוניים שפוגעת באינדקס מובייל?",
+      "acceptedAnswer": { "@type": "Answer", "text": "תפריט המבורגר שמסתיר לינקים פנימיים שבגרסת הדסקטופ מופיעים גלויים בתפריט העליון, ובלוקי תוכן שמוגדרים עם display:none במובייל כדי לפשט את הפריסה - כולל לפעמים גרסה שלמה של תוכן באנגלית או בעברית שנעלמת כשהכיוון מתחלף בין RTL ל-LTR בברייקפוינט הלא נכון." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">SEO טכני <span>· 26.10.2026 · May I</span></div>
+    <h1>אינדקס מבוסס מובייל ב-Google - מה זה אומר בפועל לאתר דו-לשוני עברית-אנגלית</h1>
+    <p class="lead">התשובה הקצרה: גוגל הודיעה רשמית ב-31 באוקטובר 2023 שהמעבר לאינדקס מבוסס מובייל (mobile-first indexing) הושלם לכל האתרים ברשת - כלומר <span class="hl">המנוע שמדרג את האתר שלך בודק כבר כמעט תמיד את גרסת המובייל של הדף, לא את גרסת הדסקטופ</span>, גם כשמישהו מחפש ממחשב נייח (מקור: <a href="https://developers.google.com/search/blog/2023/10/mobile-first-is-here?hl=en" target="_blank" rel="noopener">developers.google.com</a>). אם תוכן, קישורים פנימיים או נתוני Schema שקיימים בגרסת הדסקטופ חסרים או מוסתרים בגרסת המובייל - תקלה נפוצה באתרים דו-לשוניים עברית-אנגלית עם תפריטי המבורגר וכיווני RTL/LTR מתחלפים - גוגל פשוט לא רואה אותם, ולא משנה כמה טוב הם מופיעים בדסקטופ.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>מה זה אינדקס מבוסס מובייל, ולמה זה לא "רק רספונסיביות"</h2>
+    <p>כשגוגל סורקת את האתר שלך כדי להחליט איך לדרג אותו בתוצאות חיפוש, היא משתמשת ברוב המקרים ב-Googlebot Smartphone - הגרסה שמדמה טלפון נייד, לא דסקטופ. גוגל התחילה במעבר הזה כבר ב-2016, והשלימה אותו רשמית לכל האתרים ברשת ב-31 באוקטובר 2023. המשמעות: כל מה שהבוט הזה רואה בטעינת הדף במובייל - טקסט, תמונות, קישורים, נתוני מבנה (Schema) - הוא התוכן שנכנס בפועל למפתח החיפוש של גוגל. תוכן שקיים רק בגרסת הדסקטופ שלך, גם אם הוא מצוין, פשוט לא נספר.</p>
+    <p>זו הסיבה שעיצוב רספונסיבי - אתר שנראה טוב בכל גודל מסך - הוא תנאי הכרחי אבל לא מספיק. אתר יכול להיראות מושלם במובייל ועדיין "להסתיר" מגוגל בלוקים שלמים של תוכן, כי מישהו החליט שבמסך קטן אין להם מקום.</p>
+
+    <h2>למה אתרים דו-לשוניים (עברית-אנגלית) חשופים לזה יותר</h2>
+    <p>בניית אתר בשתי שפות עם כיוון טקסט מתחלף (RTL לעברית, LTR לאנגלית) מוסיפה שכבת סיבוכיות ב-CSS שלא קיימת באתר חד-לשוני. בפרקטיקה אנחנו רואים כמה דפוסים חוזרים שגורמים לפער בין מה שמשתמש אנושי רואה לבין מה שגוגל-בוט סורק:</p>
+    <ul>
+      <li>תפריט המבורגר שמכיל קישורים פנימיים שבדסקטופ גלויים בתפריט העליון - אם הם נטענים רק בלחיצה על JavaScript ולא קיימים כקישורי HTML רגילים ב-DOM, חלק מכלי הסריקה לא יגיעו אליהם.</li>
+      <li>בלוקים שמוגדרים <code>display: none</code> בברייקפוינט המובייל כדי "לפשט" את הדף - כולל לעיתים גרסה שלמה של תוכן בשפה השנייה שנעלמת כשהכיוון מתחלף בין RTL ל-LTR בנקודת המעבר הלא נכונה.</li>
+      <li>נתוני Schema (JSON-LD) שמוזרקים רק בתבנית הדסקטופ של העמוד, ולא חלק מהתבנית המשותפת לשתי הגרסאות.</li>
+      <li>תמונות עם alt טקסט שונה או חסר בגרסת המובייל, כשהתמונה המקורית נטענת מחדש בגודל אחר.</li>
+    </ul>
+    <p>כל אחד מהדפוסים האלה בפני עצמו נראה כמו פרט עיצובי קטן. בפועל, כש-<span class="hl">כ-62.5% מהתנועה העולמית לאתרים מגיעה ממובייל</span> (נתון StatCounter לרבעון השני של 2025, מקור: <a href="https://www.statista.com/statistics/241462/global-mobile-phone-website-traffic/" target="_blank" rel="noopener">statista.com</a>), וגוגל סורקת בעיקר את הגרסה הזו - תוכן שנעלם במובייל הוא תוכן שבפועל לא קיים בעיני גוגל, לא משנה כמה הוא חשוב בדסקטופ.</p>
+
+    <h2>ארבע בדיקות פרקטיות שאפשר להריץ היום</h2>
+    <ol>
+      <li><strong>השוואת תוכן מלאה בין הגרסאות</strong> - פתחו את אותו עמוד בדסקטופ ובמובייל אמיתי (לא רק הדמיית דפדפן) ובדקו שכל פסקה, קישור פנימי ותמונה שקיימים באחד קיימים גם באחר.</li>
+      <li><strong>בדיקת נתוני Schema בשתי הגרסאות</strong> - ודאו שה-JSON-LD (BlogPosting, FAQPage, LocalBusiness וכו') מוזרק מהתבנית המשותפת, ולא רק מתבנית דסקטופ נפרדת.</li>
+      <li><strong>נגישות קישורים פנימיים ללא תלות ב-JavaScript</strong> - קישורי ניווט קריטיים צריכים להתקיים כתגי <code>&lt;a href&gt;</code> רגילים ב-DOM, לא רק להיטען דרך פעולת לחיצה.</li>
+      <li><strong>בדיקת כיווניות (RTL/LTR) בכל ברייקפוינט</strong> - לא רק בדסקטופ - כדי לאתר תוכן שנעלם או מתהפך רק במובייל.</li>
+    </ol>
+
+    <h2>איך בודקים את זה בפועל</h2>
+    <p>בכלי URL Inspection ב-Google Search Console אפשר לראות בדיוק איך גוגל-בוט הסמארטפון רואה דף נתון - ה-HTML שנטען בפועל, לא רק מה שמוצג למשתמש. כדאי לבדוק כמה סוגי עמודים (בית, שירות, מאמר בלוג) ולא רק עמוד אחד, כי פערי תאימות נוטים להתרכז בתבניות ספציפיות ולא להופיע באופן אחיד בכל האתר.</p>
+
+    <h2>הקשר ל-Core Web Vitals</h2>
+    <p>אינדקס מבוסס מובייל ומהירות האתר הם שני נושאים נפרדים שמתחברים בנקודה אחת: שניהם נמדדים על גרסת המובייל של האתר, לא הדסקטופ. אתר שמהיר בדסקטופ אבל נטען לאט במובייל לא רק מאבד משתמשים - הוא גם זה שגוגל בפועל מודד ומדרג לפיו.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="bilingual-website-rtl-ltr-pitfalls.html">בניית אתר דו-לשוני עברית-אנגלית - המלכודות הטכניות של RTL/LTR</a></li>
+      <li><a href="site-speed-core-web-vitals.html">מהירות אתר ו-Core Web Vitals - למה זה קובע יותר מהעיצוב</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>לא בטוחים אם האתר שלכם עובר את הבדיקה הזו?</h2>
+      <p>אנחנו בונים ובודקים אתרים דו-לשוניים בקוד מותאם אישית, כולל התאמת תוכן ונתוני Schema בין גרסת הדסקטופ והמובייל - לא רק עיצוב שנראה טוב בשתיהן.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
