@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Why Most Landing Page A/B Tests Fail - and What Actually Works | May I</title>
+<meta name="description" content="Most landing page A/B tests never reach a statistically significant result - not because the idea was bad, but because there isn't enough traffic. When A/B testing actually works, and what to do instead when you don't have the volume.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/ab-testing-landing-pages-sample-size">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/ab-testing-landing-pages-sample-size">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/ab-testing-landing-pages-sample-size">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/ab-testing-landing-pages-sample-size">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Why Most Landing Page A/B Tests Fail - and What Actually Works When You Don't Have Massive Traffic",
+  "datePublished": "2026-11-20",
+  "dateModified": "2026-11-20",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/ab-testing-landing-pages-sample-size"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How much traffic do I need for a landing page A/B test to be reliable?",
+      "acceptedAnswer": { "@type": "Answer", "text": "There's no single number that fits everyone - it depends on your current conversion rate and the size of the change you're trying to detect. But as a rule, the lower your traffic and current conversion volume, the longer it takes to reach a statistically significant conclusion - for most small businesses that means weeks to months, not days." }
+    },
+    {
+      "@type": "Question",
+      "name": "If I don't have enough traffic, is it even worth testing different landing page versions?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes, just not as a formal A/B test with statistical traffic splitting. Qualitative methods - session recordings, usability testing with a handful of users, direct conversations with customers - give real insight on a page whose traffic will never reach statistical significance in a reasonable timeframe." }
+    },
+    {
+      "@type": "Question",
+      "name": "What's worth testing more on a landing page - the headline or the design?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Per Mida's data across dozens of landing page A/B tests, headline tests produce a significant change in about 3% of cases, while styling tests show no measurable difference at all in about 58% of cases. The practical takeaway: a change to the message or offer is more likely to matter than a change to colors or fonts." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Websites <span>· Nov 20, 2026 · May I</span></div>
+    <h1>Why Most Landing Page A/B Tests Fail - and What Actually Works When You Don't Have Massive Traffic</h1>
+    <p class="lead">Short answer: most A/B tests on a landing page never reach a statistically significant result - not because the idea being tested was bad, but because the site doesn't have enough traffic to get a real answer, and a "winner" declared anyway is usually statistical noise dressed up as insight. AppSumo's founder reported that only about one in eight of their A/B tests produced a significant change (source: <a href="https://vwo.com/blog/appsumo-ab-testing-secret" target="_blank" rel="noopener">vwo.com</a>), and a survey of roughly 3,900 professionals found fewer than 20% report their A/B tests reach significance 80% of the time (source: <a href="https://www.emarketer.com/content/most-a-b-tests-don-t-produce-significant-results" target="_blank" rel="noopener">emarketer.com</a>). A low-traffic business trying to "test everything" isn't getting more information - it's making decisions on noise.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>Why A/B testing needs volume most small businesses never see</h2>
+    <p>An A/B test is a statistical experiment, not a "which one looks better" contest. To confidently conclude that version B beat version A - rather than the gap being luck in which visitors showed up on which day - you need a certain number of observations, and that number grows as your current conversion rate drops and the effect you're trying to detect shrinks. A landing page converting a few dozen times a month simply doesn't reach the needed volume in a reasonable timeframe, even running the test for weeks. The result: the site owner stops the test "because something seems to be happening," and decides based on a number that could flip the next day.</p>
+
+    <h2>What's actually worth testing, per the data</h2>
+    <p>Not every change carries equal weight. A Mida analysis of dozens of A/B tests run on landing pages found headline changes produce a significant result in about <span class="hl">3%</span> of cases, compared to roughly 8% for headline tests across all page types - while styling changes (colors, fonts) on landing pages showed no measurable difference at all in about 58% of cases, and lost to the original in another 31% (source: <a href="https://www.mida.so/change-types/headline/landing-pages" target="_blank" rel="noopener">mida.so</a>). These numbers come from one testing vendor's aggregate sample, so treat them as directional rather than a law of nature - but the direction is clear: a change to the message or offer itself is more likely to matter than a cosmetic one.</p>
+
+    <h2>The common mistake: stopping the test "once it looks like a winner"</h2>
+    <p>The moment one version appears to be "leading" by a few percentage points in the first days, the temptation to stop and declare a winner is strong - and that's exactly the mistake that ruins the data. Early-day variance is high, and a version that looks like a winner on day three can completely flip by day ten. A test that didn't run a full cycle (weekdays and weekends included, for instance) and didn't reach the observation count planned in advance simply never gave the result a real chance to settle.</p>
+
+    <h2>What to do instead when you don't have the traffic for a real A/B test</h2>
+    <ul>
+      <li>Session recordings and heatmaps - show where people actually get stuck or miss a button, with no statistical split required.</li>
+      <li>Usability testing with 5-8 real users - surfaces clear design problems far faster than any A/B test running on thin traffic.</li>
+      <li>Direct conversations with leads or customers who didn't convert - one question like "what made you hesitate" gives an answer a statistical test will never provide.</li>
+      <li>Building to principles already proven in larger-scale research - like form field count or established trust signals - instead of guessing through a test your own traffic can never validate.</li>
+    </ul>
+
+    <h2>The practical recommendation from May I</h2>
+    <p>In the projects we build, we don't open with an A/B test on a brand-new page - we build the initial page to principles already backed by broader research (field count, trust signals, message structure), and save formal A/B testing for the stage where there's enough traffic volume to get a real answer - not just a number that feels like one.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="lead-form-fields-conversion-rate.html">How Many Fields Should a Lead Form Have</a></li>
+      <li><a href="trust-signals-website-conversion.html">Trust Signals on a Business Website</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Want a landing page built right from day one?</h2>
+      <p>At May I we build landing pages on principles already validated by broad research, and keep working with you into the stage where you have enough traffic to test versions for real - not before.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
