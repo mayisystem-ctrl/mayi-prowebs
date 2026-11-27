@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FAQPage Schema in the AI Era - Google Stopped Showing the Rich Result, So Is It Still Worth Adding | May I</title>
+<meta name="description" content="Since August 2023 Google only shows the FAQ rich result for well-known government and health sites. Is FAQPage schema still worth adding, and how does it relate to ChatGPT and Perplexity citations.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/faq-schema-google-ai-citations">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/faq-schema-google-ai-citations">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/faq-schema-google-ai-citations">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/faq-schema-google-ai-citations">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "FAQPage Schema in the AI Era - Google Stopped Showing the Rich Result for Most Sites, So Why Add It At All",
+  "datePublished": "2026-11-25",
+  "dateModified": "2026-11-25",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/faq-schema-google-ai-citations"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Does the FAQ rich result still appear in Google Search?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Since August 2023, Google only shows the FAQ rich result for well-known, authoritative government and health websites. For most business websites, the expandable question block under the search result no longer appears, even with schema configured correctly." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does FAQPage Schema help you get cited by ChatGPT or Perplexity?",
+      "acceptedAnswer": { "@type": "Answer", "text": "An Ahrefs study that tracked 1,885 pages which added schema markup found the change in ChatGPT citations was just 2.2% - statistically indistinguishable from zero. Some AI engines also don't read JSON-LD code at all when crawling a page in real time." }
+    },
+    {
+      "@type": "Question",
+      "name": "So what actually determines whether an AI engine cites a page?",
+      "acceptedAnswer": { "@type": "Answer", "text": "The visible content on the page itself - a direct, focused answer to the question, placed near the top of the page. A study on ChatGPT citations found that 44.2% of citations come from the first 30% of a document." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Nov 25, 2026 · May I</span></div>
+    <h1>FAQPage Schema in the AI Era - Google Stopped Showing the Rich Result for Most Sites, So Why Add It At All</h1>
+    <p class="lead">Short answer: yes, it's still worth adding FAQPage schema to pages with real questions and answers - but not for the reason most site owners think. Since August 2023, Google has shown the FAQ rich result only for well-known, authoritative government and health websites, so most business sites no longer get the expandable question block under their search result, even with schema configured perfectly (source: <a href="https://developers.google.com/search/blog/2023/08/howto-faq-changes" target="_blank" rel="noopener">developers.google.com</a>). What actually decides whether a page gets cited by an AI engine like ChatGPT or Perplexity today isn't the JSON-LD code behind the scenes - it's how the questions and answers are written in the page's own visible text.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>What Google actually changed in August 2023</h2>
+    <p>In an official post on August 8, 2023, Google announced that the FAQ rich result - the expandable question-and-answer block that appears under a search listing - would from then on be shown only to well-known, authoritative sites in the government and health categories. For every other site, including business sites with perfectly configured schema, that block simply stopped appearing in search results. The HowTo rich result got a similar change in the same update, and as of September 13 that year it stopped appearing on desktop at all. If your site isn't a government body or a recognized health institution, the odds that investing in FAQ schema will get you a rich result in Google are close to zero.</p>
+
+    <h2>If the rich result isn't coming - why would schema help at all</h2>
+    <p>That's the right question, and the answer here is surprising too. An Ahrefs study tracked 1,885 pages that added schema markup between August 2025 and March 2026, compared against roughly 4,000 control pages, and found the change in ChatGPT citation rates was just 2.2% - statistically indistinguishable from zero. Google's AI Overviews even saw a slight 4.6% drop. The same study cited a separate finding from searchVIU: AI engines that crawl a page in real time, to answer a question asked at that moment, <span class="hl">don't read JSON-LD, Microdata, or RDFa code at all</span> - they only pull the page's visible HTML (source: <a href="https://ahrefs.com/blog/schema-ai-citations/" target="_blank" rel="noopener">ahrefs.com</a>). In other words: the schema itself, as code, isn't what drives citations - not in Google, and not in AI engines.</p>
+
+    <h2>What actually works - the answer in visible text</h2>
+    <p>If the code behind the page isn't what decides it, what does? A study by Kevin Indig on ChatGPT citations found that 44.2% of citations come from the first 30% of a document - meaning AI engines disproportionately cite the start of a page, and often ignore answers buried deep inside it (source: <a href="https://searchengineland.com/chatgpt-citations-content-study-469483" target="_blank" rel="noopener">searchengineland.com</a>). That means if you have a real question and answer customers actually ask, the way to improve your odds of being cited is to write it as a short, direct answer, placed as close to the top of the page as possible, in text any person and any bot can read without an extra click - not just tucked inside a script tag that most readers (and most bots) never open.</p>
+
+    <h2>So yes, still add the schema - just understand why</h2>
+    <ul>
+      <li>Adding FAQPage schema is low-cost and doesn't hurt anything, so there's no reason to skip it if you have real Q&A content.</li>
+      <li>If your site is a government body, a health institution, or a recognized authority in your field, there's a real chance the rich result still shows for you in Google.</li>
+      <li>Google's own explicit requirement is that <span class="hl">the question tags in the schema must reflect content already visible on the page</span> - which is exactly what also strengthens your odds of an AI citation, since the answer then exists in readable text too.</li>
+      <li>Well-structured schema still clearly describes the page's structure to Google, which supports general content understanding even without a rich result.</li>
+    </ul>
+    <p>The practical takeaway: write real questions and answers as visible content on the page itself - not as a hidden "SEO add-on" - and then mirror that exact content in the FAQPage schema tag. The schema is the second layer, not the first.</p>
+
+    <h2>The common mistake: settling for schema with no visible content</h2>
+    <p>Many businesses paste FAQPage schema code into the page head and feel like they've "done AI SEO." That's a double mistake. First, Google's own schema guidelines explicitly prohibit schema content that isn't also visibly present on the page - a violation that can lead to a manual action, not just a missed rich result. Second, per the same Ahrefs study, if the content isn't also in the visible text, AI engines crawling the page in real time simply won't see it, because they don't read the JSON-LD at all. The result: zero benefit in Google, zero benefit in AI, and unnecessary technical risk. The right order is the opposite - real, visible content first, schema that mirrors it second.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="ai-citations-schema-vs-structure.html">What Actually Gets Your Site Cited by AI</a></li>
+      <li><a href="llms-txt-ai-crawlers-fact-check.html">llms.txt - Does It Actually Help AI Visibility</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Not sure your website is built right for AI engines?</h2>
+      <p>We build content pages with structure that serves real users, Google, and AI engines at once - not just schema tags with no real content backing them up.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
