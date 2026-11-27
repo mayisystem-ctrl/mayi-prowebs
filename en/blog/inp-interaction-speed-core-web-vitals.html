@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INP - The Click-Responsiveness Metric That Replaced FID in Core Web Vitals, and Why Your Lead Form's Submit Button Suffers First | May I</title>
+<meta name="description" content="INP replaced FID as Google's official Core Web Vital in March 2024. What it actually measures, why it's not just a load-speed issue, and how page builders and third-party widgets hurt it.">
+<link rel="canonical" href="https://mayi.dev/prowebs/en/blog/inp-interaction-speed-core-web-vitals">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/inp-interaction-speed-core-web-vitals">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/inp-interaction-speed-core-web-vitals">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/inp-interaction-speed-core-web-vitals">
+<link rel="stylesheet" href="../../blog/blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "INP - The Click-Responsiveness Metric That Replaced FID in Core Web Vitals, and Why Your Lead Form's Submit Button Is Usually the First to Suffer",
+  "datePublished": "2026-11-27",
+  "dateModified": "2026-11-27",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs/en" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/en/blog/inp-interaction-speed-core-web-vitals"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What's the difference between INP and FID?",
+      "acceptedAnswer": { "@type": "Answer", "text": "FID only measured the delay before the browser started processing the first interaction on a page - not the processing and rendering time itself, and not any interaction after the first one. INP measures the full duration from the start of any interaction (click, tap, keypress) to the next frame the browser paints, across the entire page visit. Google made INP the official Core Web Vital, replacing FID, on March 12, 2024." }
+    },
+    {
+      "@type": "Question",
+      "name": "What counts as a good INP score?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Per web.dev, a good score is 200 milliseconds or less, measured at the 75th percentile of all interactions recorded on a page. Above 500 milliseconds is considered poor, and anything between 200 and 500 milliseconds needs improvement." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does a page builder like GoHighLevel Funnels hurt INP?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not by design, but in practice it often does - the stacked JavaScript from every widget, popup, and tracking script a page carries can slow down exactly the click that matters most to you, like submitting a lead form. The only way to know is to measure that specific interaction, not just the page's overall load time." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← All Articles</a>
+    <div class="article__meta">Technical SEO <span>· Nov 27, 2026 · May I</span></div>
+    <h1>INP - The Click-Responsiveness Metric That Replaced FID in Core Web Vitals, and Why Your Lead Form's Submit Button Is Usually the First to Suffer</h1>
+    <p class="lead">Short answer: INP (Interaction to Next Paint) replaced FID as Google's official Core Web Vital on March 12, 2024, and it measures the full time from any click, tap, or keypress on a page - not just the first one, like FID did - until the screen actually responds. A good score is 200 milliseconds or less at the 75th percentile, and anything above 500 milliseconds is considered poor (source: <a href="https://web.dev/articles/inp" target="_blank" rel="noopener">web.dev</a>). The impact on a small business is direct: a site that loads fast but responds sluggishly when someone taps "submit" on a lead form has a real problem that a standard load-speed test simply won't catch.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>What INP actually is, and why FID wasn't enough</h2>
+    <p>FID (First Input Delay) measured a narrow thing: how long it took from the moment a user first clicked on a page until the browser even <strong>started</strong> processing that click. It didn't measure how long the processing itself took, and it ignored every interaction after the first one - including the click that matters most to you, submitting your lead form. INP closes both gaps: it measures the full duration of every interaction on a page - a mouse click, a keypress, a tap - from start until the browser actually paints the next frame, and it does this across a visitor's entire time on the page, not just their first click. Google officially announced that the metric took over from FID on March 12, 2024 (source: <a href="https://web.dev/blog/inp-cwv-launch" target="_blank" rel="noopener">web.dev</a>).</p>
+
+    <h2>What the data actually shows</h2>
+    <p>Per Google's own Chrome UX Report (CrUX), published monthly, about 87% of measured origins have a "good" INP score - but only around 56% of them pass all three Core Web Vitals together (source: <a href="https://developer.chrome.com/docs/crux/release-notes" target="_blank" rel="noopener">developer.chrome.com</a>). In other words, on most sites <span class="hl">load speed (LCP) or visual stability (CLS) is usually the bigger blocker, not interaction responsiveness</span> - but that's an origin-wide average, not a measurement of the one specific interaction that actually matters to your business. Per HTTP Archive's Web Almanac, the share of mobile pages passing all three Core Web Vitals rose from 36% in 2023 to 48% in 2025 (source: <a href="https://almanac.httparchive.org/en/2025/performance" target="_blank" rel="noopener">almanac.httparchive.org</a>) - real progress, but still leaving more than half of sites below the bar.</p>
+
+    <h2>Where it actually breaks on business websites</h2>
+    <ul>
+      <li><strong>Drag-and-drop funnel and page builders</strong> - every element placed through a visual builder ships with its own JavaScript wrapper and listener. The heavier the page is in elements, the more code runs the instant a visitor clicks.</li>
+      <li><strong>Third-party widgets loaded without delay</strong> - chat, a booking calendar embed, a popup - when they load and listen on the main thread synchronously, they can block exactly the moment a visitor clicks "submit."</li>
+      <li><strong>Tracking code wired directly into the click handler</strong> - GA4, Meta Pixel, and GoHighLevel tracking events that run extra code before the browser can even paint the "received" state - <span class="hl">the one click that matters most to you is the one absorbing the slowdown</span>.</li>
+      <li><strong>Plugin stacking</strong> - WordPress with many plugins, each adding its own listener, even when each one individually looks light.</li>
+    </ul>
+
+    <h2>What actually helps</h2>
+    <ul>
+      <li>Delay loading non-critical widgets (chat, a calendar embed) until after the visitor's first interaction, instead of blocking the main thread with them from the start.</li>
+      <li>Keep your primary CTA's click handler lean - fire secondary tracking code without blocking the visual change the user is waiting to see.</li>
+      <li>Avoid a heavy re-render cascade triggered by a framework on every form submission.</li>
+      <li>Test with real tools - PageSpeed Insights (field data from CrUX) or Chrome's Performance panel - and specifically click your actual CTA, not just measure page load.</li>
+    </ul>
+    <p>This is one of the spots where custom code tends to beat a visual builder or template: fewer stacked third-party scripts, and full control over exactly what runs on which click - instead of the platform's default.</p>
+
+    <div class="article-related">
+      <h2>Related Articles</h2>
+      <ul>
+      <li><a href="site-speed-core-web-vitals.html">Site Speed & Core Web Vitals</a></li>
+      <li><a href="gohighlevel-funnel-builder-vs-custom-code.html">GoHighLevel's Funnel Builder vs. Custom-Coded Landing Pages</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>Not sure if your site responds fast enough?</h2>
+      <p>We test not just how long your site takes to load, but how fast it actually responds the moment someone clicks - and build custom code that doesn't fall apart exactly there.</p>
+      <a href="/prowebs/en/#lead-form" class="btn btn--pink">
+        <span class="btn__txt">Get started</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="ltr" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">Coffee and a cookie before we start?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">We use cookies to improve your experience, remember preferences, and understand what's working. Nothing sneaky - just to make the site better.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">Sure, go for it</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">Just coffee, thanks</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>

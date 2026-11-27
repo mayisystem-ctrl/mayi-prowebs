@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>INP - מדד התגובה ללחיצה שהחליף את FID ב-Core Web Vitals, ולמה כפתור השליחה בטופס הליד נפגע ראשון | May I</title>
+<meta name="description" content="INP החליף את FID כ-Core Web Vital רשמי של גוגל במרץ 2024. מה המדד הזה בודק בפועל, למה הוא לא רק עניין טעינה, ואיך בילדרים גרפיים וווידג'טים חוץ פוגעים בו.">
+<link rel="canonical" href="https://mayi.dev/prowebs/blog/inp-interaction-speed-core-web-vitals">
+<link rel="alternate" hreflang="he" href="https://mayi.dev/prowebs/blog/inp-interaction-speed-core-web-vitals">
+<link rel="alternate" hreflang="en" href="https://mayi.dev/prowebs/en/blog/inp-interaction-speed-core-web-vitals">
+<link rel="alternate" hreflang="x-default" href="https://mayi.dev/prowebs/blog/inp-interaction-speed-core-web-vitals">
+<link rel="stylesheet" href="blog.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "INP - מדד התגובה ללחיצה שהחליף את FID ב-Core Web Vitals, ולמה דווקא כפתור השליחה בטופס הליד שלכם נפגע ראשון",
+  "datePublished": "2026-11-27",
+  "dateModified": "2026-11-27",
+  "author": { "@type": "Organization", "name": "May I" },
+  "publisher": { "@type": "Organization", "name": "May I", "url": "https://mayi.dev/prowebs" },
+  "mainEntityOfPage": "https://mayi.dev/prowebs/blog/inp-interaction-speed-core-web-vitals"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "מה ההבדל בין INP ל-FID?",
+      "acceptedAnswer": { "@type": "Answer", "text": "FID מדד רק את זמן ההמתנה לפני שהדפדפן התחיל לעבד את הלחיצה הראשונה בדף, ולא את זמן העיבוד וה-render עצמם, ולא התייחס לשום לחיצה אחרת לאחר מכן. INP מודד את הזמן המלא - מתחילת כל אינטראקציה (לחיצה, הקשה, הקלקה) ועד שהדפדפן מצייר את הפריים הבא - בכל אורך חיי הדף. גוגל הפכה את INP למדד Core Web Vital רשמי והחליפה בו את FID ב-12 במרץ 2024." }
+    },
+    {
+      "@type": "Question",
+      "name": "מה נחשב ציון INP טוב?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לפי web.dev, ציון טוב הוא 200 מילישניות או פחות, בפרצנטיל ה-75 של כל האינטראקציות שנמדדו באתר. ציון מעל 500 מילישניות נחשב גרוע, וכל מה שבין 200 ל-500 מילישניות נחשב 'דורש שיפור'." }
+    },
+    {
+      "@type": "Question",
+      "name": "בילדר גרפיים כמו GoHighLevel Funnels פוגע ב-INP?",
+      "acceptedAnswer": { "@type": "Answer", "text": "לא באופן מובנה, אבל בפועל כן קורה הרבה - ערימת JavaScript שכל ווידג'ט, פופ-אפ ותסריט מעקב מוסיפה לדף יכולה להאט בדיוק את הלחיצה שהכי חשובה לכם, כמו שליחת טופס ליד. הדרך היחידה לדעת היא למדוד את האינטראקציה הספציפית הזו, לא רק את זמן הטעינה הכללי של הדף." }
+    }
+  ]
+}
+</script>
+  <!-- Consent Mode + GA4 + Meta Pixel -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied'
+    });
+    window.mayiConsent = localStorage.getItem('mayi-cookie-consent');
+    function mayiInitPixel() {
+      if (window.fbq) return;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}
+      (window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '889744503990112');
+      fbq('track', 'PageView');
+    }
+    if (window.mayiConsent === 'accept') {
+      gtag('consent', 'update', {
+        ad_storage: 'granted',
+        analytics_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted'
+      });
+      mayiInitPixel();
+    }
+    gtag('js', new Date());
+    gtag('config', 'G-P16WTQRPNL');
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-P16WTQRPNL"></script>
+</head>
+<body>
+<main class="container">
+  <article class="article">
+    <a class="blog-header__back" href="index.html">← כל המאמרים</a>
+    <div class="article__meta">SEO טכני <span>· 27.11.2026 · May I</span></div>
+    <h1>INP - מדד התגובה ללחיצה שהחליף את FID ב-Core Web Vitals, ולמה דווקא כפתור השליחה בטופס הליד שלכם נפגע ראשון</h1>
+    <p class="lead">התשובה הישירה: INP (Interaction to Next Paint) החליף את FID כ-Core Web Vital רשמי של גוגל ב-12 במרץ 2024, והוא מודד את הזמן המלא מכל לחיצה, הקשה או הקלקה בדף - ולא רק את הראשונה, כמו ש-FID עשה - ועד שהמסך בפועל מגיב. ציון טוב הוא 200 מילישניות או פחות בפרצנטיל ה-75, וציון מעל 500 מילישניות נחשב גרוע (מקור: <a href="https://web.dev/articles/inp" target="_blank" rel="noopener">web.dev</a>). ההשפעה על עסק קטן ישירה: אתר שנטען מהר אבל כפתור "שלח" בטופס הליד שלו מגיב באיטיות, סובל מבעיה אמיתית שבדיקת מהירות טעינה רגילה פשוט לא תתפוס.</p>
+  </article>
+
+  <div class="article-body">
+    <h2>מה זה בעצם INP, ולמה FID לא היה מספיק</h2>
+    <p>FID (First Input Delay) מדד דבר מצומצם מאוד: כמה זמן עבר מהרגע שמשתמש לחץ לראשונה בדף, ועד שהדפדפן בכלל <strong>התחיל</strong> לעבד את הלחיצה. הוא לא מדד כמה זמן לקח לעיבוד עצמו להסתיים, ולא התייחס לשום לחיצה נוספת אחרי הראשונה - כולל הלחיצה שהכי חשובה לכם, על כפתור השליחה בטופס. INP סוגר את שני הפערים: הוא מודד את משך הזמן המלא מכל אינטראקציה בדף - לחיצת עכבר, הקשת מקלדת, הקלקת מגע - ועד שהדפדפן מצייר בפועל את התגובה הבאה, ובודק את זה על פני כל זמן השהייה של המשתמש בדף, לא רק על הלחיצה הראשונה. גוגל הודיעה רשמית שהמדד תפס את מקומו של FID ב-12 במרץ 2024 (מקור: <a href="https://web.dev/blog/inp-cwv-launch" target="_blank" rel="noopener">web.dev</a>).</p>
+
+    <h2>מה הנתונים מראים בפועל</h2>
+    <p>לפי נתוני ה-Chrome UX Report (CrUX) שגוגל מפרסמת כל חודש, לכ-87% מהדומיינים הנמדדים יש ציון INP "טוב" - אבל רק לכ-56% מהם יש ציון טוב בכל שלושת ה-Core Web Vitals גם יחד (מקור: <a href="https://developer.chrome.com/docs/crux/release-notes" target="_blank" rel="noopener">developer.chrome.com</a>). במילים אחרות: ברוב האתרים, <span class="hl">מדדי הטעינה (LCP) או היציבות החזותית (CLS) הם החסם, לא התגובתיות ללחיצה</span> - אבל זה נתון ממוצע על כל הדומיין, לא על האינטראקציה היחידה שבאמת חשובה לכם. לפי ה-Web Almanac של HTTP Archive, שיעור הדפים במובייל שעוברים את כל שלושת ה-Core Web Vitals עלה מ-36% ב-2023 ל-48% ב-2025 (מקור: <a href="https://almanac.httparchive.org/en/2025/performance" target="_blank" rel="noopener">almanac.httparchive.org</a>) - שיפור משמעותי, שעדיין משאיר יותר ממחצית האתרים מתחת לרף.</p>
+
+    <h2>איפה זה נשבר בפועל באתרים עסקיים</h2>
+    <ul>
+      <li><strong>בילדרים גרפיים ודפי Funnel</strong> - כל אלמנט בעמוד שנבנה בבילדר גרפי מגיע עם ה-wrapper וה-listener של JavaScript שלו. ככל שהעמוד "כבד" יותר באלמנטים, כך יותר קוד רץ בדיוק ברגע שמשתמש לוחץ.</li>
+      <li><strong>ווידג'טים חוץ שנטענים בלי דיחוי</strong> - צ'אט, לוח יומן להזמנת תורים, פופ-אפ - כשהם נטענים ומאזינים ל-thread הראשי באופן סינכרוני, הם יכולים לחסום בדיוק את הרגע שמשתמש מקליק על "שלח".</li>
+      <li><strong>קוד מעקב שתקוע בתוך ה-click handler</strong> - GA4, Meta Pixel ואירועי מעקב של GoHighLevel שמריצים קוד נוסף לפני שהדפדפן מספיק לצייר את מצב "התקבל" - <span class="hl">בדיוק הלחיצה שהכי משנה לכם היא זו שסופגת את ההאטה</span>.</li>
+      <li><strong>ערימת פלאגינים</strong> - וורדפרס עם הרבה תוספים שכל אחד מוסיף listener משלו, גם אם כל תוסף בנפרד נראה קל.</li>
+    </ul>
+
+    <h2>מה כן עוזר</h2>
+    <ul>
+      <li>לדחות טעינה של ווידג'טים שאינם קריטיים (צ'אט, הטמעת יומן) לאחר האינטראקציה הראשונה של המשתמש, ולא לחסום בהם את ה-thread הראשי מההתחלה.</li>
+      <li>לשמור את ה-click handler של כפתור ה-CTA הראשי "רזה" - להריץ קוד מעקב משני בלי לחסום את השינוי החזותי שהמשתמש מצפה לראות.</li>
+      <li>להימנע מ"גל" של re-render שמופעל על ידי framework כבד בכל שליחת טופס.</li>
+      <li>לבדוק עם כלים אמיתיים - PageSpeed Insights (נתוני שטח מ-CrUX) או לוח הזמנים (Performance) בכרומ, ובאופן ספציפי ללחוץ על ה-CTA האמיתי שלכם, לא רק למדוד טעינת עמוד.</li>
+    </ul>
+    <p>זו אחת הנקודות שבהן קוד מותאם אישית נוטה לנצח בילדר גרפי או תבנית מוכנה: פחות סקריפטים חוץ מוערמים אחד על השני, ושליטה מלאה בדיוק מה רץ על איזו לחיצה - לא ברירת מחדל של הפלטפורמה.</p>
+
+    <div class="article-related">
+      <h2>מאמרים קשורים</h2>
+      <ul>
+      <li><a href="site-speed-core-web-vitals.html">מהירות אתר ו-Core Web Vitals</a></li>
+      <li><a href="gohighlevel-funnel-builder-vs-custom-code.html">בילדר ה-Funnels של GoHighLevel מול דף נחיתה בקוד מותאם אישית</a></li>
+      </ul>
+    </div>
+
+    <div class="article-cta">
+      <h2>לא בטוחים אם האתר שלכם מגיב מהר מספיק?</h2>
+      <p>אנחנו בודקים לא רק כמה זמן האתר נטען, אלא כמה מהר הוא מגיב ברגע שמישהו באמת לוחץ - ובונים קוד מותאם אישית שלא נופל בדיוק בנקודה הזו.</p>
+      <a href="../#lead-form" class="btn btn--pink">
+        <span class="btn__txt">מתחילים מכאן</span>
+        <span class="btn__icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 5 5 12 12 19"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</main>
+<!-- cookie consent -->
+<div class="cookie" id="cookie-consent" role="dialog" aria-labelledby="cookie-title" aria-describedby="cookie-text" dir="rtl" hidden>
+  <div class="cookie__head">
+    <span class="cookie__icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 12a9 9 0 1 1-9.7-8.97 3.5 3.5 0 0 0 4.1 4.1A3.5 3.5 0 0 0 21 12z"/>
+        <circle cx="9" cy="9" r=".6" fill="currentColor"/>
+        <circle cx="14" cy="14" r=".6" fill="currentColor"/>
+        <circle cx="9" cy="15" r=".6" fill="currentColor"/>
+        <circle cx="12.5" cy="10.5" r=".6" fill="currentColor"/>
+      </svg>
+    </span>
+    <h2 class="cookie__title" id="cookie-title">קפה ועוגייה לפני שנתחיל?</h2>
+  </div>
+  <p class="cookie__text" id="cookie-text">אנחנו משתמשים בעוגיות כדי לשפר את החוויה, לזכור העדפות ולהבין מה עובד. בלי קטנוניות - רק כדי שהאתר יהיה טוב יותר.</p>
+  <div class="cookie__actions">
+    <button class="cookie__btn cookie__btn--accept" type="button" data-cookie="accept">יאללה, מגיע לכם</button>
+    <button class="cookie__btn cookie__btn--decline" type="button" data-cookie="decline">רק קפה, תודה</button>
+  </div>
+</div>
+<script>
+  (() => {
+    const KEY = 'mayi-cookie-consent';
+    const box = document.getElementById('cookie-consent');
+    if (!box || localStorage.getItem(KEY)) return;
+    const show = () => { box.hidden = false; requestAnimationFrame(() => box.classList.add('show')); };
+    const waitForLoad = setInterval(() => {
+      if (!document.body.classList.contains('loading')) { clearInterval(waitForLoad); setTimeout(show, 800); }
+    }, 300);
+    const failsafe = setTimeout(() => { clearInterval(waitForLoad); if (box.hidden) show(); }, 8000);
+    box.addEventListener('click', (e) => {
+      const choice = e.target.closest('[data-cookie]')?.dataset.cookie;
+      if (!choice) return;
+      clearInterval(waitForLoad);
+      clearTimeout(failsafe);
+      localStorage.setItem(KEY, choice);
+      if (choice === 'accept') {
+        if (window.gtag) gtag('consent', 'update', {
+          ad_storage: 'granted', analytics_storage: 'granted',
+          ad_user_data: 'granted', ad_personalization: 'granted'
+        });
+        if (window.mayiInitPixel) mayiInitPixel();
+      }
+      box.classList.remove('show');
+      setTimeout(() => { box.hidden = true; }, 500);
+    });
+  })();
+</script>
+</body>
+</html>
